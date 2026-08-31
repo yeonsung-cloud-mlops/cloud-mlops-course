@@ -1,0 +1,449 @@
+{"kind":"deck","id":"pr/eadhm1","name":"Deck"}
+{"kind":"layout","layoutId":"/ppt/slideMasters/slideMaster1.xml","name":"","type":"master"}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout1.xml","name":"DEFAULT"}
+{"kind":"slide","id":"sl/y90nupkv","slide":1,"title":"01  주차","textShapes":5}
+{"kind":"shape","id":"sh/547294r6","slide":1,"name":"Shape 0","bbox":[998.4,-144,499.2,499.2]}
+{"kind":"shape","id":"sh/k3yl0zql","slide":1,"name":"Shape 1","bbox":[1123.2,441.6,297.6,297.6]}
+{"kind":"textbox","id":"sh/7qp4be9c","slide":1,"name":"Text 2","text":"01  주차","textPreview":"01  주차","textChars":6,"textLines":1,"bbox":[59.52,129.6,576,134.4]}
+{"kind":"textbox","id":"sh/65g3298r","slide":1,"name":"Text 3","text":"MLOps 개요와 클라우드 첫걸음","textPreview":"MLOps 개요와 클라우드 첫걸음","textChars":18,"textLines":1,"bbox":[59.52,283.2,902.4,144]}
+{"kind":"textbox","id":"sh/ts7md4r2","slide":1,"name":"Text 4","text":"15주 뒤 팀이 만든 예측 서비스를 링크로 보여준다. 오늘은 첫 파일을 AWS에 올린다","textPreview":"15주 뒤 팀이 만든 예측 서비스를 링크로 보여준다. 오늘은 첫 파일을 AWS에 올린다","textChars":48,"textLines":1,"bbox":[59.52,436.8,883.2,86.4]}
+{"kind":"shape","id":"sh/sryl4zqx","slide":1,"name":"Shape 5","bbox":[59.52,549.12,883.2,1.92]}
+{"kind":"textbox","id":"sh/fu94fe98","slide":1,"name":"Text 6","text":"클라우드 MLOps · 연성대학교 · 230분","textPreview":"클라우드 MLOps · 연성대학교 · 230분","textChars":25,"textLines":1,"bbox":[59.52,566.4,576,32.64]}
+{"kind":"textbox","id":"sh/utg3698n","slide":1,"name":"Text 7","text":"NCS  2001070101_18v1.1   2001070201_18v1.3   2001070101_18v1.5","textPreview":"NCS  2001070101_18v1.1   2001070201_18v1.3   2001070101_18v1.5","textChars":62,"textLines":1,"bbox":[59.52,600.96,1056,32.64]}
+{"kind":"notes","id":"nt/y90nupkv","slide":1,"text":"표지 뒤에서 과목 설명을 길게 하지 말고 바로 가격 질문으로 넘어갑니다.\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html\n- https://console.aws.amazon.com/s3/"}
+{"kind":"slide","id":"sl/hwbqtkby","slide":2,"title":"먼저, 가격 하나만 정해봅시다","textShapes":20}
+{"kind":"textbox","id":"sh/9072xkry","slide":2,"name":"Text 0","text":"먼저, 가격 하나만 정해봅시다","textPreview":"먼저, 가격 하나만 정해봅시다","textChars":16,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/ozy1ofad","slide":2,"name":"Text 1","text":"정답 없음 · 휴대폰 메모장에 적기","textPreview":"정답 없음 · 휴대폰 메모장에 적기","textChars":19,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/b29kza94","slide":2,"name":"Shape 2","bbox":[59.52,155.52,1160.93,55.68]}
+{"kind":"textbox","id":"sh/a10jqpsj","slide":2,"name":"Text 3","text":"새 제품 가격","textPreview":"새 제품 가격","textChars":7,"textLines":1,"bbox":[80.64,155.52,806.4,55.68]}
+{"kind":"textbox","id":"sh/x4r21kru","slide":2,"name":"Text 4","text":"150만 원","textPreview":"150만 원","textChars":6,"textLines":1,"bbox":[1038.05,155.52,158.4,55.68]}
+{"kind":"shape","id":"sh/w3i1sfa9","slide":2,"name":"Shape 5","bbox":[59.52,218.88,1160.93,55.68]}
+{"kind":"textbox","id":"sh/r65knqtk","slide":2,"name":"Text 6","text":"사용 기간","textPreview":"사용 기간","textChars":5,"textLines":1,"bbox":[80.64,218.88,806.4,55.68]}
+{"kind":"textbox","id":"sh/q5wjelsz","slide":2,"name":"Text 7","text":"3년","textPreview":"3년","textChars":2,"textLines":1,"bbox":[1038.05,218.88,158.4,55.68]}
+{"kind":"shape","id":"sh/ove9o7yd","slide":2,"name":"Shape 8","bbox":[59.52,282.24,1160.93,55.68]}
+{"kind":"textbox","id":"sh/9wnqhczy","slide":2,"name":"Text 9","text":"배터리 성능","textPreview":"배터리 성능","textChars":6,"textLines":1,"bbox":[80.64,282.24,806.4,55.68]}
+{"kind":"textbox","id":"sh/mtwrmxg7","slide":2,"name":"Text 10","text":"78%","textPreview":"78%","textChars":3,"textLines":1,"bbox":[1038.05,282.24,158.4,55.68]}
+{"kind":"shape","id":"sh/nu58f2hs","slide":2,"name":"Shape 11","bbox":[59.52,345.6,1160.93,55.68]}
+{"kind":"textbox","id":"sh/wjy9sry9","slide":2,"name":"Text 12","text":"외관 상태","textPreview":"외관 상태","textChars":5,"textLines":1,"bbox":[80.64,345.6,806.4,55.68]}
+{"kind":"textbox","id":"sh/xk7qlczu","slide":2,"name":"Text 13","text":"B등급","textPreview":"B등급","textChars":3,"textLines":1,"bbox":[1038.05,345.6,158.4,55.68]}
+{"kind":"shape","id":"sh/ahwrqhgj","slide":2,"name":"Shape 14","bbox":[59.52,408.96,1160.93,55.68]}
+{"kind":"textbox","id":"sh/bip8jmho","slide":2,"name":"Text 15","text":"내가 올릴 가격","textPreview":"내가 올릴 가격","textChars":8,"textLines":1,"bbox":[80.64,408.96,806.4,55.68]}
+{"kind":"textbox","id":"sh/cnupgny5","slide":2,"name":"Text 16","text":"______원","textPreview":"______원","textChars":7,"textLines":1,"bbox":[1038.05,408.96,158.4,55.68]}
+{"kind":"shape","id":"sh/do3q9szq","slide":2,"name":"Shape 17","bbox":[59.52,472.32,1160.93,55.68]}
+{"kind":"textbox","id":"sh/t8byxkn2","slide":2,"name":"Text 18","text":"옆 사람과 가격 비교","textPreview":"옆 사람과 가격 비교","textChars":11,"textLines":1,"bbox":[80.64,472.32,806.4,55.68]}
+{"kind":"textbox","id":"sh/s72xofmh","slide":2,"name":"Text 19","text":"30초","textPreview":"30초","textChars":3,"textLines":1,"bbox":[1038.05,472.32,158.4,55.68]}
+{"kind":"shape","id":"sh/76twva5c","slide":2,"name":"Shape 20","bbox":[59.52,535.68,1160.93,55.68]}
+{"kind":"textbox","id":"sh/65kfmpor","slide":2,"name":"Text 21","text":"아직 검색하지 않습니다","textPreview":"아직 검색하지 않습니다","textChars":12,"textLines":1,"bbox":[80.64,535.68,806.4,55.68]}
+{"kind":"textbox","id":"sh/hcvy14ne","slide":2,"name":"Text 22","text":"생각 먼저","textPreview":"생각 먼저","textChars":5,"textLines":1,"bbox":[1038.05,535.68,158.4,55.68]}
+{"kind":"shape","id":"sh/gbmxszmt","slide":2,"name":"Shape 23","bbox":[59.52,599.04,1160.93,55.68]}
+{"kind":"textbox","id":"sh/fadgzu58","slide":2,"name":"Text 24","text":"이제 예측 화면을 엽니다","textPreview":"이제 예측 화면을 엽니다","textChars":13,"textLines":1,"bbox":[80.64,599.04,806.4,55.68]}
+{"kind":"textbox","id":"sh/u94fqp4n","slide":2,"name":"Text 25","text":"시작","textPreview":"시작","textChars":2,"textLines":1,"bbox":[1038.05,599.04,158.4,55.68]}
+{"kind":"textbox","id":"sh/p0vy54na","slide":2,"name":"Text 26","text":"클라우드 MLOps · 1주차","textPreview":"클라우드 MLOps · 1주차","textChars":16,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/4zmxwzmp","slide":2,"name":"Text 27","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/hwbqtkby","slide":2,"text":"학생에게 먼저 가격 하나를 적게 합니다. 검색하거나 정답을 맞히는 활동이 아닙니다. 앞·뒤에서 두 명씩 답을 듣고 바로 체험 화면을 엽니다.\n\n[Sources]\n- 수업용 로컬 체험 페이지: 개정본/실습/week01/hook-demo/index.html"}
+{"kind":"slide","id":"sl/ofy9wn61","slide":3,"title":"1","textShapes":3}
+{"kind":"shape","id":"sh/cza94vmx","slide":3,"name":"Shape 0","bbox":[59.52,261.12,105.6,105.6]}
+{"kind":"textbox","id":"sh/d0jax03i","slide":3,"name":"Text 1","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[59.52,261.12,105.6,105.6]}
+{"kind":"textbox","id":"sh/298ryl4v","slide":3,"name":"Text 2","text":"가격 예측 체험","textPreview":"가격 예측 체험","textChars":8,"textLines":1,"bbox":[198.72,255.36,912,74.88]}
+{"kind":"textbox","id":"sh/3ah8rqlg","slide":3,"name":"Text 3","text":"AI를 배운 적이 없어도 바로 참여할 수 있습니다","textPreview":"AI를 배운 적이 없어도 바로 참여할 수 있습니다","textChars":27,"textLines":1,"bbox":[198.72,332.16,912,42.24]}
+{"kind":"notes","id":"nt/ofy9wn61","slide":3,"text":"개정본/실습/week01/hook-demo/index.html을 브라우저로 열고 사용 기간과 배터리 값을 바꿔 예측 결과가 달라지는 모습을 보여줍니다.\n\n[Sources]\n- 수업용 로컬 체험 페이지: 개정본/실습/week01/hook-demo/index.html"}
+{"kind":"slide","id":"sl/jyx0ra1s","slide":4,"title":"여러분은 방금","textShapes":2}
+{"kind":"textbox","id":"sh/1cj2d8b6","slide":4,"name":"Text 0","text":"여러분은 방금\n모델이 아니라 서비스를 사용했습니다","textPreview":"여러분은 방금 | 모델이 아니라 서비스를 사용했습니다","textChars":27,"textLines":2,"bbox":[124.8,201.6,1030.37,316.8]}
+{"kind":"textbox","id":"sh/0ba143al","slide":4,"name":"Text 1","text":"입력하고, 결과를 받고, 조건을 바꿨습니다","textPreview":"입력하고, 결과를 받고, 조건을 바꿨습니다","textChars":23,"textLines":1,"bbox":[124.8,508.8,1030.37,57.6]}
+{"kind":"notes","id":"nt/jyx0ra1s","slide":4,"text":"강의 멘트: 방금 여러분은 모델을 공부한 것이 아니라 서비스를 사용했습니다. 이번 학기에는 다른 사람이 직접 입력하고 결과를 받을 수 있는 화면과 주소까지 만듭니다.\n\n[Sources]\n- 수업용 로컬 체험 페이지: 개정본/실습/week01/hook-demo/index.html"}
+{"kind":"slide","id":"sl/i107q5of","slide":5,"title":"버튼 한 번 뒤에 네 가지가 움직입니다","textShapes":18}
+{"kind":"textbox","id":"sh/dgbulwnm","slide":5,"name":"Text 0","text":"버튼 한 번 뒤에 네 가지가 움직입니다","textPreview":"버튼 한 번 뒤에 네 가지가 움직입니다","textChars":21,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/cf2tcr61","slide":5,"name":"Text 1","text":"사용자는 첫 화면만 보지만, 만드는 사람은 끝까지 책임집니다","textPreview":"사용자는 첫 화면만 보지만, 만드는 사람은 끝까지 책임집니다","textChars":33,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/z2tcnm5s","slide":5,"name":"Shape 2","bbox":[59.52,161.28,32.64,32.64]}
+{"kind":"textbox","id":"sh/yhkbe1o7","slide":5,"name":"Text 3","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[59.52,161.28,32.64,32.64]}
+{"kind":"textbox","id":"sh/l4bupwny","slide":5,"name":"Text 4","text":"입력을 받는다","textPreview":"입력을 받는다","textChars":7,"textLines":1,"bbox":[107.52,157.44,625.34,40.32]}
+{"kind":"textbox","id":"sh/032tgr6d","slide":5,"name":"Text 5","text":"가격 · 사용 기간 · 배터리 · 외관","textPreview":"가격 · 사용 기간 · 배터리 · 외관","textChars":21,"textLines":1,"bbox":[107.52,197.76,625.34,75.12]}
+{"kind":"shape","id":"sh/n6dcr65o","slide":5,"name":"Shape 6","bbox":[59.52,284.4,32.64,32.64]}
+{"kind":"textbox","id":"sh/m5kbi1oj","slide":5,"name":"Text 7","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[59.52,284.4,32.64,32.64]}
+{"kind":"textbox","id":"sh/w32dkbuh","slide":5,"name":"Text 8","text":"예측한다","textPreview":"예측한다","textChars":4,"textLines":1,"bbox":[107.52,280.56,625.34,40.32]}
+{"kind":"textbox","id":"sh/x4vedgvm","slide":5,"name":"Text 9","text":"같은 입력에 같은 방식으로 답한다","textPreview":"같은 입력에 같은 방식으로 답한다","textChars":18,"textLines":1,"bbox":[107.52,320.88,625.34,75.12]}
+{"kind":"shape","id":"sh/ahkvi1cb","slide":5,"name":"Shape 10","bbox":[59.52,407.52,32.64,32.64]}
+{"kind":"textbox","id":"sh/v2twb6dw","slide":5,"name":"Text 11","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[59.52,407.52,32.64,32.64]}
+{"kind":"textbox","id":"sh/k7mxovud","slide":5,"name":"Text 12","text":"결과를 전달한다","textPreview":"결과를 전달한다","textChars":8,"textLines":1,"bbox":[107.52,403.68,625.34,40.32]}
+{"kind":"textbox","id":"sh/58vehgvy","slide":5,"name":"Text 13","text":"화면과 API가 같은 값을 보여준다","textPreview":"화면과 API가 같은 값을 보여준다","textChars":19,"textLines":1,"bbox":[107.52,444,625.34,75.12]}
+{"kind":"shape","id":"sh/i54fmlc7","slide":5,"name":"Shape 14","bbox":[59.52,530.64,32.64,32.64]}
+{"kind":"textbox","id":"sh/j6dwfqds","slide":5,"name":"Text 15","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[59.52,530.64,32.64,32.64]}
+{"kind":"textbox","id":"sh/sb6xsvu9","slide":5,"name":"Text 16","text":"상태를 확인한다","textPreview":"상태를 확인한다","textChars":8,"textLines":1,"bbox":[107.52,526.8,625.34,40.32]}
+{"kind":"textbox","id":"sh/tcfel0vu","slide":5,"name":"Text 17","text":"오류 · 응답 시간 · 요청 수를 기록한다","textPreview":"오류 · 응답 시간 · 요청 수를 기록한다","textChars":23,"textLines":1,"bbox":[107.52,567.12,625.34,75.12]}
+{"kind":"shape","id":"sh/hgrmpwj2","slide":5,"name":"Shape 18","bbox":[766.46,255.84,453.99,287.04]}
+{"kind":"textbox","id":"sh/gfi5grih","slide":5,"name":"Text 19","text":"15주 뒤 팀 결과물","textPreview":"15주 뒤 팀 결과물","textChars":11,"textLines":1,"bbox":[795.26,278.88,396.39,42.24]}
+{"kind":"textbox","id":"sh/fe94nm1w","slide":5,"name":"Text 20","text":"사람이 누르는 화면\n프로그램이 호출하는 API\n수정하면 다시 배포되는 구조\n문제가 보이는 운영 화면","textPreview":"사람이 누르는 화면 | 프로그램이 호출하는 API | 수정하면 다시 배포되는 구조 | 문제가 보이는 운영 화면","textChars":55,"textLines":4,"bbox":[795.26,328.8,396.39,191.04]}
+{"kind":"textbox","id":"sh/ud0ne10b","slide":5,"name":"Text 21","text":"클라우드 MLOps · 1주차","textPreview":"클라우드 MLOps · 1주차","textChars":16,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/pkr6tgjy","slide":5,"name":"Text 22","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/i107q5of","slide":5,"text":"왼쪽 네 단계를 차례로 짚은 뒤 오른쪽 결과물로 연결합니다. 정확도 경쟁이 아니라 화면·API·배포·운영이 다시 실행되는지를 평가한다고 설명합니다.\n\n[Sources]\n- https://docs.aws.amazon.com/whitepapers/latest/ml-best-practices-public-sector-organizations/machine-learning-operations.html"}
+{"kind":"slide","id":"sl/x8f69ofe","slide":6,"title":"15주 로드맵","textShapes":19}
+{"kind":"textbox","id":"sh/yhg7epsj","slide":6,"name":"Text 0","text":"15주 로드맵","textPreview":"15주 로드맵","textChars":7,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/zi98nu94","slide":6,"name":"Text 1","text":"오늘의 파일 하나가 15주 뒤 서비스 주소로 이어집니다","textPreview":"오늘의 파일 하나가 15주 뒤 서비스 주소로 이어집니다","textChars":30,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/87ipkzal","slide":6,"name":"Shape 2","bbox":[59.52,155.52,1160.93,85.06]}
+{"kind":"shape","id":"sh/98rqt4r6","slide":6,"name":"Shape 3","bbox":[82.56,177.89,40.32,40.32]}
+{"kind":"textbox","id":"sh/ml07i9sv","slide":6,"name":"Text 4","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[82.56,177.89,40.32,40.32]}
+{"kind":"textbox","id":"sh/7m98ru9g","slide":6,"name":"Text 5","text":"1–2주 · 클라우드 기초","textPreview":"1–2주 · 클라우드 기초","textChars":14,"textLines":1,"bbox":[144,168.96,1045.73,38.4]}
+{"kind":"textbox","id":"sh/oryp8fah","slide":6,"name":"Text 6","text":"AWS 계정, S3, EC2 개발환경 구축","textPreview":"AWS 계정, S3, EC2 개발환경 구축","textChars":23,"textLines":1,"bbox":[144,207.36,1045.73,29.38]}
+{"kind":"shape","id":"sh/pc76hkr2","slide":6,"name":"Shape 7","bbox":[59.52,254.02,1160.93,85.06]}
+{"kind":"shape","id":"sh/h4bupgn6","slide":6,"name":"Shape 8","bbox":[82.56,276.38,40.32,40.32]}
+{"kind":"textbox","id":"sh/w32twb6l","slide":6,"name":"Text 9","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[82.56,276.38,40.32,40.32]}
+{"kind":"textbox","id":"sh/v2tcn650","slide":6,"name":"Text 10","text":"3–5주 · 데이터와 모델","textPreview":"3–5주 · 데이터와 모델","textChars":14,"textLines":1,"bbox":[144,267.46,1045.73,38.4]}
+{"kind":"textbox","id":"sh/u1kbu1ov","slide":6,"name":"Text 11","text":"문제 정의 → 전처리 → 베이스라인 모델 → 실험 관리(MLflow)","textPreview":"문제 정의 → 전처리 → 베이스라인 모델 → 실험 관리(MLflow)","textChars":38,"textLines":1,"bbox":[144,305.86,1045.73,29.38]}
+{"kind":"shape","id":"sh/5svutgni","slide":6,"name":"Shape 12","bbox":[59.52,352.51,1160.93,85.06]}
+{"kind":"shape","id":"sh/47mt0b6x","slide":6,"name":"Shape 13","bbox":[82.56,374.88,40.32,40.32]}
+{"kind":"textbox","id":"sh/j6dcr65c","slide":6,"name":"Text 14","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[82.56,374.88,40.32,40.32]}
+{"kind":"textbox","id":"sh/i54bylor","slide":6,"name":"Text 15","text":"6–8주 · 컨테이너와 서빙","textPreview":"6–8주 · 컨테이너와 서빙","textChars":15,"textLines":1,"bbox":[144,365.95,1045.73,38.4]}
+{"kind":"textbox","id":"sh/twfux0ne","slide":6,"name":"Text 16","text":"Docker → FastAPI 예측 API → EC2 배포 + 데모 화면 (중간 시연)","textPreview":"Docker → FastAPI 예측 API → EC2 배포 + 데모 화면 (중간 시연)","textChars":48,"textLines":1,"bbox":[144,404.35,1045.73,29.38]}
+{"kind":"shape","id":"sh/svmt4v6t","slide":6,"name":"Shape 17","bbox":[59.52,451.01,1160.93,85.06]}
+{"kind":"shape","id":"sh/cbe5g3ih","slide":6,"name":"Shape 18","bbox":[82.56,473.38,40.32,40.32]}
+{"kind":"textbox","id":"sh/dcnm98zm","slide":6,"name":"Text 19","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[82.56,473.38,40.32,40.32]}
+{"kind":"textbox","id":"sh/qpwnet0b","slide":6,"name":"Text 20","text":"9–10주 · 관리형 서비스","textPreview":"9–10주 · 관리형 서비스","textChars":15,"textLines":1,"bbox":[144,464.45,1045.73,38.4]}
+{"kind":"textbox","id":"sh/bq547yhw","slide":6,"name":"Text 21","text":"SageMaker로 학습·배포 체험, Bedrock으로 생성형 AI 붙이기","textPreview":"SageMaker로 학습·배포 체험, Bedrock으로 생성형 AI 붙이기","textChars":41,"textLines":1,"bbox":[144,502.85,1045.73,29.38]}
+{"kind":"shape","id":"sh/0fy5k3id","slide":6,"name":"Shape 22","bbox":[59.52,549.5,1160.93,85.06]}
+{"kind":"shape","id":"sh/lg76d8zy","slide":6,"name":"Shape 23","bbox":[82.56,571.87,40.32,40.32]}
+{"kind":"textbox","id":"sh/ydgnit07","slide":6,"name":"Text 24","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[82.56,571.87,40.32,40.32]}
+{"kind":"textbox","id":"sh/zep4byhs","slide":6,"name":"Text 25","text":"11–15주 · 자동화와 운영","textPreview":"11–15주 · 자동화와 운영","textChars":16,"textLines":1,"bbox":[144,562.94,1045.73,38.4]}
+{"kind":"textbox","id":"sh/gju58ji9","slide":6,"name":"Text 26","text":"GitHub Actions 자동 배포 → 모니터링 → 프로젝트 완성 → 최종 발표","textPreview":"GitHub Actions 자동 배포 → 모니터링 → 프로젝트 완성 → 최종 발표","textChars":45,"textLines":1,"bbox":[144,601.34,1045.73,29.38]}
+{"kind":"textbox","id":"sh/1k3mhozu","slide":6,"name":"Text 27","text":"클라우드 MLOps · 1주차","textPreview":"클라우드 MLOps · 1주차","textChars":16,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/jet8nm1c","slide":6,"name":"Text 28","text":"6","textPreview":"6","textChars":1,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/x8f69ofe","slide":6,"text":"이 그림은 매주 첫 슬라이드에 다시 나옵니다. 오늘 우리가 어디 있는지 매번 짚어줄 겁니다.\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html\n- https://console.aws.amazon.com/s3/"}
+{"kind":"slide","id":"sl/gnmp4jqx","slide":7,"title":"평가 방법","textShapes":16}
+{"kind":"textbox","id":"sh/cb2tkvap","slide":7,"name":"Text 0","text":"평가 방법","textPreview":"평가 방법","textChars":5,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/dcbud0ra","slide":7,"name":"Text 1","text":"총 100점","textPreview":"총 100점","textChars":6,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/ydkbm5sv","slide":7,"name":"Shape 2","bbox":[59.52,222.24,565.1,164.16]}
+{"kind":"shape","id":"sh/zedcfa9g","slide":7,"name":"Shape 3","bbox":[86.4,247.2,40.32,40.32]}
+{"kind":"textbox","id":"sh/kzmdova1","slide":7,"name":"Text 4","text":"A","textPreview":"A","textChars":1,"textLines":1,"bbox":[86.4,247.2,40.32,40.32]}
+{"kind":"textbox","id":"sh/l0vuh0rm","slide":7,"name":"Text 5","text":"출석·참여 10점","textPreview":"출석·참여 10점","textChars":9,"textLines":1,"bbox":[140.16,245.28,459.5,44.16]}
+{"kind":"textbox","id":"sh/eh0ba1sr","slide":7,"name":"Text 6","text":"성실히 나오면 받는 점수입니다.","textPreview":"성실히 나오면 받는 점수입니다.","textChars":17,"textLines":1,"bbox":[140.16,299.04,454.7,66.24]}
+{"kind":"shape","id":"sh/fi9c369c","slide":7,"name":"Shape 7","bbox":[655.34,222.24,565.1,164.16]}
+{"kind":"shape","id":"sh/baxkjqlk","slide":7,"name":"Shape 8","bbox":[682.22,247.2,40.32,40.32]}
+{"kind":"textbox","id":"sh/a9ojq5kz","slide":7,"name":"Text 9","text":"B","textPreview":"B","textChars":1,"textLines":1,"bbox":[682.22,247.2,40.32,40.32]}
+{"kind":"textbox","id":"sh/xcz2l03q","slide":7,"name":"Text 10","text":"주차별 체크포인트 25점","textPreview":"주차별 체크포인트 25점","textChars":13,"textLines":1,"bbox":[735.98,245.28,459.5,44.16]}
+{"kind":"textbox","id":"sh/cbq1sv25","slide":7,"name":"Text 11","text":"매주 실습 결과를 스크린샷이나 URL로 제출합니다. 12회 × 약 2점.","textPreview":"매주 실습 결과를 스크린샷이나 URL로 제출합니다. 12회 × 약 2점.","textChars":40,"textLines":1,"bbox":[735.98,299.04,454.7,66.24]}
+{"kind":"shape","id":"sh/n6x0fqlo","slide":7,"name":"Shape 12","bbox":[59.52,417.12,565.1,164.16]}
+{"kind":"shape","id":"sh/25ojml43","slide":7,"name":"Shape 13","bbox":[86.4,442.08,40.32,40.32]}
+{"kind":"textbox","id":"sh/p8fih03e","slide":7,"name":"Text 14","text":"C","textPreview":"C","textChars":1,"textLines":1,"bbox":[86.4,442.08,40.32,40.32]}
+{"kind":"textbox","id":"sh/o761ov2t","slide":7,"name":"Text 15","text":"팀 프로젝트 50점","textPreview":"팀 프로젝트 50점","textChars":10,"textLines":1,"bbox":[140.16,440.16,459.5,44.16]}
+{"kind":"textbox","id":"sh/f2d0b6lc","slide":7,"name":"Text 16","text":"M1 문제정의서 10 · M2 중간시연 15 · 최종 산출물 25","textPreview":"M1 문제정의서 10 · M2 중간시연 15 · 최종 산출물 25","textChars":36,"textLines":1,"bbox":[140.16,493.92,454.7,66.24]}
+{"kind":"shape","id":"sh/eh4jil4r","slide":7,"name":"Shape 17","bbox":[655.34,417.12,565.1,164.16]}
+{"kind":"shape","id":"sh/id4ju1oz","slide":7,"name":"Shape 18","bbox":[682.22,442.08,40.32,40.32]}
+{"kind":"textbox","id":"sh/jedkn654","slide":7,"name":"Text 19","text":"D","textPreview":"D","textChars":1,"textLines":1,"bbox":[682.22,442.08,40.32,40.32]}
+{"kind":"textbox","id":"sh/4fm1wb6p","slide":7,"name":"Text 20","text":"최종 발표 15점","textPreview":"최종 발표 15점","textChars":9,"textLines":1,"bbox":[735.98,440.16,459.5,44.16]}
+{"kind":"textbox","id":"sh/50v2pgna","slide":7,"name":"Text 21","text":"15주차 라이브 시연 포함. 상호평가 포함.","textPreview":"15주차 라이브 시연 포함. 상호평가 포함.","textChars":24,"textLines":1,"bbox":[735.98,493.92,454.7,66.24]}
+{"kind":"textbox","id":"sh/q143ylov","slide":7,"name":"Text 22","text":"클라우드 MLOps · 1주차","textPreview":"클라우드 MLOps · 1주차","textChars":16,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/r2dkrq5g","slide":7,"name":"Text 23","text":"7","textPreview":"7","textChars":1,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/gnmp4jqx","slide":7,"text":"체크포인트는 매주 조금씩 쌓입니다. 한 주 빠지면 따라잡기 어렵습니다.\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html\n- https://console.aws.amazon.com/s3/"}
+{"kind":"slide","id":"sl/fu1gfa1s","slide":8,"title":"시작 전에 반드시","textShapes":7}
+{"kind":"textbox","id":"sh/18byd4zy","slide":8,"name":"Text 0","text":"시작 전에 반드시","textPreview":"시작 전에 반드시","textChars":9,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/g72x4zyd","slide":8,"name":"Text 1","text":"이 과목에서 가장 중요한 규칙","textPreview":"이 과목에서 가장 중요한 규칙","textChars":16,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/ri9g7uhw","slide":8,"name":"Shape 2","bbox":[59.52,155.52,1160.93,359.04]}
+{"kind":"shape","id":"sh/6h0fypgb","slide":8,"name":"Shape 3","bbox":[92.16,186.24,59.52,59.52]}
+{"kind":"textbox","id":"sh/tkby9kzm","slide":8,"name":"Text 4","text":"!","textPreview":"!","textChars":1,"textLines":1,"bbox":[92.16,186.24,59.52,59.52]}
+{"kind":"textbox","id":"sh/sjix0zy1","slide":8,"name":"Text 5","text":"쓴 만큼 돈이 나갑니다","textPreview":"쓴 만큼 돈이 나갑니다","textChars":12,"textLines":1,"bbox":[167.04,184.32,1016.93,65.28]}
+{"kind":"textbox","id":"sh/je9g3ahk","slide":8,"name":"Text 6","text":"실습에 쓰는 AWS는 학과 결제 계정입니다. 여러분이 만든 자원은 실제로 과금됩니다.\n매 수업 종료 5분 전 '리소스 정리 타임'을 반드시 지킵니다. EC2 인스턴스는 중지(Stop).\n리소스를 방치한 것이 적발되면 회당 2점 감점입니다.\n이상하게 비싼 게 만들어졌다 싶으면 혼자 해결하지 말고 즉시 손 드세요. 야단맞지 않습니다.","textPreview":"실습에 쓰는 AWS는 학과 결제 계정입니다. 여러분이 만든 자원은 실제로 과금됩니다. | 매 수업 종료 5분 전 '리소스 정리 타임'을 반드시 지킵니다. EC2 인스턴스는 중지(Stop). | 리소스를 방치한 것이 적발되면 회당 2점 감점입니다....","textChars":185,"textLines":4,"bbox":[107.52,263.04,1064.93,224.64]}
+{"kind":"textbox","id":"sh/id0fu50z","slide":8,"name":"Text 7","text":"클라우드 MLOps · 1주차","textPreview":"클라우드 MLOps · 1주차","textChars":16,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/o7ydoret","slide":8,"name":"Text 8","text":"8","textPreview":"8","textChars":1,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/fu1gfa1s","slide":8,"text":"여기서 겁을 주는 게 아니라 습관을 만드는 겁니다. 실제 회사에서도 클라우드 비용 관리는 신입에게 처음 맡기는 일 중 하나라고 말해주세요.\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html\n- https://console.aws.amazon.com/s3/"}
+{"kind":"slide","id":"sl/udsvah03","slide":9,"title":"2","textShapes":3}
+{"kind":"shape","id":"sh/1cfmhgne","slide":9,"name":"Shape 0","bbox":[59.52,261.12,105.6,105.6]}
+{"kind":"textbox","id":"sh/0b65obm9","slide":9,"name":"Text 1","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[59.52,261.12,105.6,105.6]}
+{"kind":"textbox","id":"sh/nex4jq5k","slide":9,"name":"Text 2","text":"클라우드 기본 개념","textPreview":"클라우드 기본 개념","textChars":10,"textLines":1,"bbox":[198.72,255.36,912,74.88]}
+{"kind":"textbox","id":"sh/mdonql4z","slide":9,"name":"Text 3","text":"오늘 알아야 할 최소한","textPreview":"오늘 알아야 할 최소한","textChars":12,"textLines":1,"bbox":[198.72,332.16,912,42.24]}
+{"kind":"notes","id":"nt/udsvah03","slide":9,"text":"\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html\n- https://console.aws.amazon.com/s3/"}
+{"kind":"slide","id":"sl/m90b6t0r","slide":10,"title":"오늘 나올 용어 네 개","textShapes":16}
+{"kind":"textbox","id":"sh/xc3mho32","slide":10,"name":"Text 0","text":"오늘 나올 용어 네 개","textPreview":"오늘 나올 용어 네 개","textChars":12,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/cbu58j2h","slide":10,"name":"Text 1","text":"지금 다 외울 필요 없습니다. 실습하면서 몸으로 익힙니다","textPreview":"지금 다 외울 필요 없습니다. 실습하면서 몸으로 익힙니다","textChars":31,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/zelojyl8","slide":10,"name":"Shape 2","bbox":[59.52,196.32,565.1,190.08]}
+{"kind":"shape","id":"sh/ydcnatkn","slide":10,"name":"Shape 3","bbox":[86.4,221.28,40.32,40.32]}
+{"kind":"textbox","id":"sh/l036l83y","slide":10,"name":"Text 4","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[86.4,221.28,40.32,40.32]}
+{"kind":"textbox","id":"sh/kzu5c32t","slide":10,"name":"Text 5","text":"리전 (Region)","textPreview":"리전 (Region)","textChars":11,"textLines":1,"bbox":[140.16,219.36,459.5,44.16]}
+{"kind":"textbox","id":"sh/725onyl4","slide":10,"name":"Text 6","text":"서버가 물리적으로 놓인 지역입니다. 우리는 서울(ap-northeast-2)로 고정합니다. 리전이 다르면 만든 게 안 보입니다.","textPreview":"서버가 물리적으로 놓인 지역입니다. 우리는 서울(ap-northeast-2)로 고정합니다. 리전이 다르면 만든 게 안 보입니다.","textChars":71,"textLines":1,"bbox":[140.16,273.12,454.7,92.16]}
+{"kind":"shape","id":"sh/m1cnetkj","slide":10,"name":"Shape 7","bbox":[655.34,196.32,565.1,190.08]}
+{"kind":"shape","id":"sh/s7yt4b21","slide":10,"name":"Shape 8","bbox":[682.22,221.28,40.32,40.32]}
+{"kind":"textbox","id":"sh/d87uxg3m","slide":10,"name":"Text 9","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[682.22,221.28,40.32,40.32]}
+{"kind":"textbox","id":"sh/q5gb21kb","slide":10,"name":"Text 10","text":"IAM","textPreview":"IAM","textChars":3,"textLines":1,"bbox":[735.98,219.36,459.5,44.16]}
+{"kind":"textbox","id":"sh/r6pcv6lw","slide":10,"name":"Text 11","text":"누가 무엇을 할 수 있는지 정하는 신분증 시스템. 여러분은 학번으로 된 계정을 받습니다.","textPreview":"누가 무엇을 할 수 있는지 정하는 신분증 시스템. 여러분은 학번으로 된 계정을 받습니다.","textChars":49,"textLines":1,"bbox":[735.98,273.12,454.7,92.16]}
+{"kind":"shape","id":"sh/0bit8b2d","slide":10,"name":"Shape 12","bbox":[59.52,417.12,565.1,190.08]}
+{"kind":"shape","id":"sh/1cru1g3y","slide":10,"name":"Shape 13","bbox":[86.4,442.08,40.32,40.32]}
+{"kind":"textbox","id":"sh/e9gb61k7","slide":10,"name":"Text 14","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[86.4,442.08,40.32,40.32]}
+{"kind":"textbox","id":"sh/fapcz6ls","slide":10,"name":"Text 15","text":"S3","textPreview":"S3","textChars":2,"textLines":1,"bbox":[140.16,440.16,459.5,44.16]}
+{"kind":"textbox","id":"sh/ozitcv29","slide":10,"name":"Text 16","text":"클라우드 저장소. 웹하드라고 생각하면 되는데, 프로그램이 읽고 쓰기 좋게 만들어진 웹하드입니다.","textPreview":"클라우드 저장소. 웹하드라고 생각하면 되는데, 프로그램이 읽고 쓰기 좋게 만들어진 웹하드입니다.","textChars":53,"textLines":1,"bbox":[140.16,493.92,454.7,92.16]}
+{"kind":"shape","id":"sh/p0ru503u","slide":10,"name":"Shape 17","bbox":[655.34,417.12,565.1,190.08]}
+{"kind":"shape","id":"sh/xwnupgvy","slide":10,"name":"Shape 18","bbox":[682.22,442.08,40.32,40.32]}
+{"kind":"textbox","id":"sh/wvetgbud","slide":10,"name":"Text 19","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[682.22,442.08,40.32,40.32]}
+{"kind":"textbox","id":"sh/bu5cnqd8","slide":10,"name":"Text 20","text":"온디맨드 과금","textPreview":"온디맨드 과금","textChars":7,"textLines":1,"bbox":[735.98,440.16,459.5,44.16]}
+{"kind":"textbox","id":"sh/atwbelcn","slide":10,"name":"Text 21","text":"쓴 시간만큼 냅니다. 켜두면 계속 나갑니다. 그래서 끄는 게 중요합니다.","textPreview":"쓴 시간만큼 냅니다. 켜두면 계속 나갑니다. 그래서 끄는 게 중요합니다.","textChars":40,"textLines":1,"bbox":[735.98,493.92,454.7,92.16]}
+{"kind":"textbox","id":"sh/lk7ut0va","slide":10,"name":"Text 22","text":"클라우드 MLOps · 1주차","textPreview":"클라우드 MLOps · 1주차","textChars":16,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/kjytkvup","slide":10,"name":"Text 23","text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/m90b6t0r","slide":10,"text":"리전 이야기를 특히 강조하세요. 오늘 실습에서 리전을 버지니아로 두고 헤매는 학생이 반드시 나옵니다.\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html\n- https://console.aws.amazon.com/s3/"}
+{"kind":"slide","id":"sl/jetc3ut0","slide":11,"title":"3","textShapes":3}
+{"kind":"shape","id":"sh/xcryxg7y","slide":11,"name":"Shape 0","bbox":[59.52,261.12,105.6,105.6]}
+{"kind":"textbox","id":"sh/wbih4b6d","slide":11,"name":"Text 1","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[59.52,261.12,105.6,105.6]}
+{"kind":"textbox","id":"sh/n69grmpw","slide":11,"name":"Text 2","text":"실습 A — AWS 콘솔 온보딩","textPreview":"실습 A — AWS 콘솔 온보딩","textChars":17,"textLines":1,"bbox":[198.72,255.36,912,74.88]}
+{"kind":"textbox","id":"sh/250zy18b","slide":11,"name":"Text 3","text":"45분 · 다 함께 따라합니다","textPreview":"45분 · 다 함께 따라합니다","textChars":16,"textLines":1,"bbox":[198.72,332.16,912,42.24]}
+{"kind":"notes","id":"nt/jetc3ut0","slide":11,"text":"\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html\n- https://console.aws.amazon.com/s3/"}
+{"kind":"slide","id":"sl/8f2psfyx","slide":12,"title":"실습 A 수행 순서","textShapes":19}
+{"kind":"textbox","id":"sh/1gbm9s3a","slide":12,"name":"Text 0","text":"실습 A 수행 순서","textPreview":"실습 A 수행 순서","textChars":10,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/0f2lgnmp","slide":12,"name":"Text 1","text":"한 단계씩. 안 되면 바로 손 드세요","textPreview":"한 단계씩. 안 되면 바로 손 드세요","textChars":20,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/ra943il8","slide":12,"name":"Shape 2","bbox":[59.52,155.52,1160.93,85.06]}
+{"kind":"shape","id":"sh/q903ad4n","slide":12,"name":"Shape 3","bbox":[82.56,177.89,40.32,40.32]}
+{"kind":"textbox","id":"sh/dcbm583y","slide":12,"name":"Text 4","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[82.56,177.89,40.32,40.32]}
+{"kind":"textbox","id":"sh/sb2lcnmd","slide":12,"name":"Text 5","text":"AWS 콘솔 로그인","textPreview":"AWS 콘솔 로그인","textChars":10,"textLines":1,"bbox":[144,168.96,1045.73,38.4]}
+{"kind":"textbox","id":"sh/b6d4f2lc","slide":12,"name":"Text 6","text":"배부된 계정 ID·사용자명·임시 비밀번호로 로그인 → 비밀번호 변경","textPreview":"배부된 계정 ID·사용자명·임시 비밀번호로 로그인 → 비밀번호 변경","textChars":37,"textLines":1,"bbox":[144,207.36,1045.73,29.38]}
+{"kind":"shape","id":"sh/a543mx4r","slide":12,"name":"Shape 7","bbox":[59.52,254.02,1160.93,85.06]}
+{"kind":"shape","id":"sh/wvupgz6t","slide":12,"name":"Shape 8","bbox":[82.56,276.38,40.32,40.32]}
+{"kind":"textbox","id":"sh/xw3q94ne","slide":12,"name":"Text 9","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[82.56,276.38,40.32,40.32]}
+{"kind":"textbox","id":"sh/atc7epon","slide":12,"name":"Text 10","text":"MFA(2단계 인증) 설정","textPreview":"MFA(2단계 인증) 설정","textChars":14,"textLines":1,"bbox":[144,267.46,1045.73,38.4]}
+{"kind":"textbox","id":"sh/bulo7u58","slide":12,"name":"Text 11","text":"휴대폰에 인증 앱 설치 → QR 스캔 → 연속 두 번의 코드 입력","textPreview":"휴대폰에 인증 앱 설치 → QR 스캔 → 연속 두 번의 코드 입력","textChars":36,"textLines":1,"bbox":[144,305.86,1045.73,29.38]}
+{"kind":"shape","id":"sh/orapcf6h","slide":12,"name":"Shape 12","bbox":[59.52,352.51,1160.93,85.06]}
+{"kind":"shape","id":"sh/9sj65kn2","slide":12,"name":"Shape 13","bbox":[82.56,374.88,40.32,40.32]}
+{"kind":"textbox","id":"sh/mps7a5or","slide":12,"name":"Text 14","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[82.56,374.88,40.32,40.32]}
+{"kind":"textbox","id":"sh/nq1o3a5w","slide":12,"name":"Text 15","text":"리전을 서울로 고정","textPreview":"리전을 서울로 고정","textChars":10,"textLines":1,"bbox":[144,365.95,1045.73,38.4]}
+{"kind":"textbox","id":"sh/0nap8f6l","slide":12,"name":"Text 16","text":"우측 상단 리전 선택 → 아시아 태평양(서울) ap-northeast-2","textPreview":"우측 상단 리전 선택 → 아시아 태평양(서울) ap-northeast-2","textChars":40,"textLines":1,"bbox":[144,404.35,1045.73,29.38]}
+{"kind":"shape","id":"sh/1oj61kn6","slide":12,"name":"Shape 17","bbox":[59.52,451.01,1160.93,85.06]}
+{"kind":"shape","id":"sh/hkbm5wzu","slide":12,"name":"Shape 18","bbox":[82.56,473.38,40.32,40.32]}
+{"kind":"textbox","id":"sh/gj25cry9","slide":12,"name":"Text 19","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[82.56,473.38,40.32,40.32]}
+{"kind":"textbox","id":"sh/fit436ho","slide":12,"name":"Text 20","text":"내 권한 확인","textPreview":"내 권한 확인","textChars":7,"textLines":1,"bbox":[144,464.45,1045.73,38.4]}
+{"kind":"textbox","id":"sh/uh0na1g3","slide":12,"name":"Text 21","text":"IAM → 사용자 → 본인 계정에서 부여된 권한 확인","textPreview":"IAM → 사용자 → 본인 계정에서 부여된 권한 확인","textChars":29,"textLines":1,"bbox":[144,502.85,1045.73,29.38]}
+{"kind":"shape","id":"sh/tgrm1wzy","slide":12,"name":"Shape 22","bbox":[59.52,549.5,1160.93,85.06]}
+{"kind":"shape","id":"sh/sfi58ryd","slide":12,"name":"Shape 23","bbox":[82.56,571.87,40.32,40.32]}
+{"kind":"textbox","id":"sh/7u94zmhs","slide":12,"name":"Text 24","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[82.56,571.87,40.32,40.32]}
+{"kind":"textbox","id":"sh/6t0n6hg7","slide":12,"name":"Text 25","text":"예산 알람 확인","textPreview":"예산 알람 확인","textChars":8,"textLines":1,"bbox":[144,562.94,1045.73,38.4]}
+{"kind":"textbox","id":"sh/dcv6dgz2","slide":12,"name":"Text 26","text":"Billing → Budgets에서 본인 한도와 알람 이메일 확인","textPreview":"Billing → Budgets에서 본인 한도와 알람 이메일 확인","textChars":36,"textLines":1,"bbox":[144,601.34,1045.73,29.38]}
+{"kind":"textbox","id":"sh/cbm5kbyh","slide":12,"name":"Text 27","text":"클라우드 MLOps · 1주차","textPreview":"클라우드 MLOps · 1주차","textChars":16,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/alwbitsn","slide":12,"name":"Text 28","text":"12","textPreview":"12","textChars":2,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/8f2psfyx","slide":12,"text":"2단계 MFA에서 절반이 막힙니다. 인증 앱을 미리 설치하라고 지난주에 공지했더라도 안 한 학생이 있습니다. 앱 이름을 칠판에 적어두세요.\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html\n- https://console.aws.amazon.com/s3/"}
+{"kind":"slide","id":"sl/hgzapcr6","slide":13,"title":"여기서 막히면","textShapes":4}
+{"kind":"textbox","id":"sh/q50nydsj","slide":13,"name":"Text 0","text":"여기서 막히면","textPreview":"여기서 막히면","textChars":7,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/bq9orito","slide":13,"name":"Text 1","text":"실습 A에서 실제로 터지는 문제","textPreview":"실습 A에서 실제로 터지는 문제","textChars":17,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"textbox","id":"sh/p4r6p8by","slide":13,"name":"Text 2","text":"클라우드 MLOps · 1주차","textPreview":"클라우드 MLOps · 1주차","textChars":16,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/21gnuts7","slide":13,"name":"Text 3","text":"13","textPreview":"13","textChars":2,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"table","id":"tb/2tkbidc3","slide":13,"name":"Table 0","rows":5,"cols":3,"preview":"증상 | 원인 | 조치","bbox":[59.52,155.52,1160.93,96]}
+{"kind":"notes","id":"nt/hgzapcr6","slide":13,"text":"이 표는 유인물로도 나눠줬습니다. 학생들에게 먼저 표를 보고 그래도 안 되면 손 들라고 하세요.\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html\n- https://console.aws.amazon.com/s3/"}
+{"kind":"slide","id":"sl/6lsnupw7","slide":14,"title":"4","textShapes":3}
+{"kind":"shape","id":"sh/xc7eds76","slide":14,"name":"Shape 0","bbox":[59.52,261.12,105.6,105.6]}
+{"kind":"textbox","id":"sh/wbydknq1","slide":14,"name":"Text 1","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[59.52,261.12,105.6,105.6]}
+{"kind":"textbox","id":"sh/jepwf2pc","slide":14,"name":"Text 2","text":"실습 B — S3 버킷과 CLI","textPreview":"실습 B — S3 버킷과 CLI","textChars":17,"textLines":1,"bbox":[198.72,255.36,912,74.88]}
+{"kind":"textbox","id":"sh/idgvmx8r","slide":14,"name":"Text 3","text":"60분 · 각자 직접 합니다","textPreview":"60분 · 각자 직접 합니다","textChars":15,"textLines":1,"bbox":[198.72,332.16,912,42.24]}
+{"kind":"notes","id":"nt/6lsnupw7","slide":14,"text":"\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html\n- https://console.aws.amazon.com/s3/"}
+{"kind":"slide","id":"sl/vaxsvy10","slide":15,"title":"실습 B 과제","textShapes":18}
+{"kind":"textbox","id":"sh/547mhg3m","slide":15,"name":"Text 0","text":"실습 B 과제","textPreview":"실습 B 과제","textChars":7,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/k3y5ov21","slide":15,"name":"Text 1","text":"오늘 만든 버킷은 학기 내내 씁니다","textPreview":"오늘 만든 버킷은 학기 내내 씁니다","textChars":19,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/76p4jqls","slide":15,"name":"Shape 2","bbox":[59.52,161.28,32.64,32.64]}
+{"kind":"textbox","id":"sh/65gnqlk7","slide":15,"name":"Text 3","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[59.52,161.28,32.64,32.64]}
+{"kind":"textbox","id":"sh/t87ml0ji","slide":15,"name":"Text 4","text":"내 버킷 만들기","textPreview":"내 버킷 만들기","textChars":8,"textLines":1,"bbox":[107.52,157.44,625.34,40.32]}
+{"kind":"textbox","id":"sh/s7y5sv2x","slide":15,"name":"Text 5","text":"이름 규칙: mlops-2026-<학번> · 리전은 반드시 서울","textPreview":"이름 규칙: mlops-2026-<학번> · 리전은 반드시 서울","textChars":35,"textLines":1,"bbox":[107.52,197.76,625.34,75.12]}
+{"kind":"shape","id":"sh/na5476l8","slide":15,"name":"Shape 6","bbox":[59.52,284.4,32.64,32.64]}
+{"kind":"textbox","id":"sh/m9c3e1kn","slide":15,"name":"Text 7","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[59.52,284.4,32.64,32.64]}
+{"kind":"textbox","id":"sh/wrm9kvep","slide":15,"name":"Text 8","text":"폴더 규칙 만들기","textPreview":"폴더 규칙 만들기","textChars":9,"textLines":1,"bbox":[107.52,280.56,625.34,40.32]}
+{"kind":"textbox","id":"sh/hsvat0fa","slide":15,"name":"Text 9","text":"raw/ · processed/ · models/ 세 개를 만듭니다","textPreview":"raw/ · processed/ · models/ 세 개를 만듭니다","textChars":37,"textLines":1,"bbox":[107.52,320.88,625.34,75.12]}
+{"kind":"shape","id":"sh/upkrilwj","slide":15,"name":"Shape 10","bbox":[59.52,407.52,32.64,32.64]}
+{"kind":"textbox","id":"sh/vqdsrqx4","slide":15,"name":"Text 11","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[59.52,407.52,32.64,32.64]}
+{"kind":"textbox","id":"sh/4vm9ovel","slide":15,"name":"Text 12","text":"파일 올리고 내리기","textPreview":"파일 올리고 내리기","textChars":10,"textLines":1,"bbox":[107.52,403.68,625.34,40.32]}
+{"kind":"textbox","id":"sh/5wvax0f6","slide":15,"name":"Text 13","text":"예제 CSV를 raw/에 업로드하고 다시 다운로드해봅니다","textPreview":"예제 CSV를 raw/에 업로드하고 다시 다운로드해봅니다","textChars":31,"textLines":1,"bbox":[107.52,444,625.34,75.12]}
+{"kind":"shape","id":"sh/it4rm5wv","slide":15,"name":"Shape 14","bbox":[59.52,530.64,32.64,32.64]}
+{"kind":"textbox","id":"sh/judsvqxg","slide":15,"name":"Text 15","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[59.52,530.64,32.64,32.64]}
+{"kind":"textbox","id":"sh/0z29cbyh","slide":15,"name":"Text 16","text":"CloudShell에서 같은 일을 명령어로","textPreview":"CloudShell에서 같은 일을 명령어로","textChars":23,"textLines":1,"bbox":[107.52,526.8,625.34,40.32]}
+{"kind":"textbox","id":"sh/l0bqlgf2","slide":15,"name":"Text 17","text":"콘솔에서 클릭으로 한 일을 aws s3 명령으로 반복합니다","textPreview":"콘솔에서 클릭으로 한 일을 aws s3 명령으로 반복합니다","textChars":32,"textLines":1,"bbox":[107.52,567.12,625.34,75.12]}
+{"kind":"shape","id":"sh/1kjyt83e","slide":15,"name":"Shape 18","bbox":[766.46,277.92,453.99,242.88]}
+{"kind":"textbox","id":"sh/gjax03m9","slide":15,"name":"Text 19","text":"왜 CLI까지 하나요","textPreview":"왜 CLI까지 하나요","textChars":11,"textLines":1,"bbox":[795.26,300.96,396.39,42.24]}
+{"kind":"textbox","id":"sh/fi1grylo","slide":15,"name":"Text 20","text":"클릭은 기록이 안 남습니다\n자동화하려면 명령이 필요합니다\n12주차 자동 배포의 기초입니다","textPreview":"클릭은 기록이 안 남습니다 | 자동화하려면 명령이 필요합니다 | 12주차 자동 배포의 기초입니다","textChars":49,"textLines":3,"bbox":[795.26,350.88,396.39,146.88]}
+{"kind":"textbox","id":"sh/ehsfyt43","slide":15,"name":"Text 21","text":"클라우드 MLOps · 1주차","textPreview":"클라우드 MLOps · 1주차","textChars":16,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/p8jyx83q","slide":15,"name":"Text 22","text":"15","textPreview":"15","textChars":2,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/vaxsvy10","slide":15,"text":"버킷 이름은 전 세계에서 유일해야 합니다. 중복 오류가 나면 뒤에 임의 숫자를 붙이라고 안내하세요.\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html\n- https://console.aws.amazon.com/s3/"}
+{"kind":"slide","id":"sl/gny5sjyp","slide":16,"title":"CloudShell에서 실행할 명령","textShapes":7}
+{"kind":"textbox","id":"sh/8z2h8bq1","slide":16,"name":"Text 0","text":"CloudShell에서 실행할 명령","textPreview":"CloudShell에서 실행할 명령","textChars":19,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/9kby1g7m","slide":16,"name":"Text 1","text":"콘솔 우측 상단 터미널 아이콘 → CloudShell 실행","textPreview":"콘솔 우측 상단 터미널 아이콘 → CloudShell 실행","textChars":32,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/ytkf2h8j","slide":16,"name":"Shape 2","bbox":[59.52,155.52,1160.93,454.08]}
+{"kind":"textbox","id":"sh/zutgvm94","slide":16,"name":"Text 3","text":"bash","textPreview":"bash","textChars":4,"textLines":1,"bbox":[1076.45,167.04,124.8,26.88]}
+{"kind":"textbox","id":"sh/kv2h4rqp","slide":16,"name":"Text 4","text":"# 1. 내 버킷 목록 보기\naws s3 ls\n\n# 2. 버킷 안 내용 보기 (<학번>을 본인 학번으로)\naws s3 ls s3://mlops-2026-<학번>/\n\n# 3. 파일 올리기\naws s3 cp bike.csv s3://mlops-2026-<학번>/raw/bike.csv\n\n# 4. 폴더째 확인\naws s3 ls s3://mlops-2026-<학번>/raw/\n\n# 5. 다시 내려받기\naws s3 cp s3://mlops-2026-<학번>/raw/bike.csv ./확인용.csv","textPreview":"# 1. 내 버킷 목록 보기 | aws s3 ls |  | # 2. 버킷 안 내용 보기 (<학번>을 본인 학번으로) | aws s3 ls s3://mlops-2026-<학번>/ |  | # 3. 파일 올리기 | aws s3 cp bike.csv ...","textChars":273,"textLines":14,"bbox":[92.16,180.48,1095.65,406.08]}
+{"kind":"textbox","id":"sh/lwbyxwra","slide":16,"name":"Text 5","text":"<학번> 은 본인 학번으로 바꿔 넣습니다. 꺾쇠 기호는 지웁니다.","textPreview":"<학번> 은 본인 학번으로 바꿔 넣습니다. 꺾쇠 기호는 지웁니다.","textChars":36,"textLines":1,"bbox":[59.52,621.12,1160.93,32.64]}
+{"kind":"textbox","id":"sh/ip4zel83","slide":16,"name":"Text 6","text":"클라우드 MLOps · 1주차","textPreview":"클라우드 MLOps · 1주차","textChars":16,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/3qdg7qpo","slide":16,"name":"Text 7","text":"16","textPreview":"16","textChars":2,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/gny5sjyp","slide":16,"text":"cp 명령의 방향을 헷갈리는 학생이 많습니다. 왼쪽이 출발지, 오른쪽이 목적지라고 한 번 짚어주세요.\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html\n- https://console.aws.amazon.com/s3/"}
+{"kind":"slide","id":"sl/14bup87q","slide":17,"title":"오늘의 체크포인트","textShapes":12}
+{"kind":"textbox","id":"sh/1c7e50ni","slide":17,"name":"Text 0","text":"오늘의 체크포인트","textPreview":"오늘의 체크포인트","textChars":9,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/gbedwfmx","slide":17,"name":"Text 1","text":"제출하면 오늘 수업 완료","textPreview":"제출하면 오늘 수업 완료","textChars":13,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/rm5czq50","slide":17,"name":"Shape 2","bbox":[59.52,225.12,1160.93,75.84]}
+{"kind":"shape","id":"sh/6lwvql4v","slide":17,"name":"Shape 3","bbox":[84.48,246.72,32.64,32.64]}
+{"kind":"textbox","id":"sh/t8ne10n6","slide":17,"name":"Text 4","text":"내 S3 버킷 이름","textPreview":"내 S3 버킷 이름","textChars":10,"textLines":1,"bbox":[134.4,235.68,1055.33,38.4]}
+{"kind":"textbox","id":"sh/snedsvml","slide":17,"name":"Text 5","text":"채팅이나 LMS에 텍스트로 제출","textPreview":"채팅이나 LMS에 텍스트로 제출","textChars":17,"textLines":1,"bbox":[134.4,273.12,1055.33,23.04]}
+{"kind":"shape","id":"sh/jilcvq54","slide":17,"name":"Shape 6","bbox":[59.52,313.44,1160.93,75.84]}
+{"kind":"shape","id":"sh/ihcvml4j","slide":17,"name":"Shape 7","bbox":[84.48,335.04,32.64,32.64]}
+{"kind":"textbox","id":"sh/4by9or6l","slide":17,"name":"Text 8","text":"raw/processed/models 폴더가 보이는 콘솔 화면","textPreview":"raw/processed/models 폴더가 보이는 콘솔 화면","textChars":34,"textLines":1,"bbox":[134.4,324,1055.33,38.4]}
+{"kind":"textbox","id":"sh/pc7qhwn6","slide":17,"name":"Text 9","text":"스크린샷","textPreview":"스크린샷","textChars":4,"textLines":1,"bbox":[134.4,361.44,1055.33,23.04]}
+{"kind":"shape","id":"sh/29grm1of","slide":17,"name":"Shape 10","bbox":[59.52,401.76,1160.93,75.84]}
+{"kind":"shape","id":"sh/3ap8fm50","slide":17,"name":"Shape 11","bbox":[84.48,423.36,32.64,32.64]}
+{"kind":"textbox","id":"sh/gnepkr69","slide":17,"name":"Text 12","text":"aws s3 ls 실행 결과 화면","textPreview":"aws s3 ls 실행 결과 화면","textChars":18,"textLines":1,"bbox":[134.4,412.32,1055.33,38.4]}
+{"kind":"textbox","id":"sh/honqdwnu","slide":17,"name":"Text 13","text":"스크린샷 · 버킷 이름이 보여야 합니다","textPreview":"스크린샷 · 버킷 이름이 보여야 합니다","textChars":21,"textLines":1,"bbox":[134.4,449.76,1055.33,23.04]}
+{"kind":"shape","id":"sh/ulw7ihoj","slide":17,"name":"Shape 14","bbox":[59.52,490.08,1160.93,75.84]}
+{"kind":"shape","id":"sh/fm58bm54","slide":17,"name":"Shape 15","bbox":[84.48,511.68,32.64,32.64]}
+{"kind":"textbox","id":"sh/0ji9wb6t","slide":17,"name":"Text 16","text":"팀 구성 희망서","textPreview":"팀 구성 희망서","textChars":8,"textLines":1,"bbox":[134.4,500.64,1055.33,38.4]}
+{"kind":"textbox","id":"sh/14rqpgne","slide":17,"name":"Text 17","text":"3~4인 · 관심 도메인 1순위 표기 · 다음 주까지","textPreview":"3~4인 · 관심 도메인 1순위 표기 · 다음 주까지","textChars":29,"textLines":1,"bbox":[134.4,538.08,1055.33,23.04]}
+{"kind":"textbox","id":"sh/90nq9gfi","slide":17,"name":"Text 18","text":"클라우드 MLOps · 1주차","textPreview":"클라우드 MLOps · 1주차","textChars":16,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/8ze9gbyx","slide":17,"name":"Text 19","text":"17","textPreview":"17","textChars":2,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/14bup87q","slide":17,"text":"체크포인트를 못 낸 학생은 남은 45분 버퍼 시간에 개별로 봐주세요.\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html\n- https://console.aws.amazon.com/s3/"}
+{"kind":"slide","id":"sl/y5wne50z","slide":18,"title":"오늘 남은 45분은","textShapes":4}
+{"kind":"textbox","id":"sh/wrelszu9","slide":18,"name":"Text 0","text":"오늘 남은 45분은","textPreview":"오늘 남은 45분은","textChars":10,"textLines":1,"bbox":[59.52,69.12,1160.93,57.6]}
+{"kind":"textbox","id":"sh/hsn2l4bu","slide":18,"name":"Text 1","text":"버퍼","textPreview":"버퍼","textChars":2,"textLines":1,"bbox":[59.52,148.8,487.59,182.4]}
+{"kind":"textbox","id":"sh/itw3upcf","slide":18,"name":"Text 2","text":"못 따라온 사람을 위한 시간입니다","textPreview":"못 따라온 사람을 위한 시간입니다","textChars":18,"textLines":1,"bbox":[570.33,148.8,650.12,182.4]}
+{"kind":"textbox","id":"sh/je5knut0","slide":18,"name":"Text 3","text":"다 끝낸 학생 — 부록의 명령어 치트시트를 훑고, 팀 구성 희망서를 작성하세요\n막힌 학생 — 손 들고 기다리세요. 순서대로 갑니다\n완전히 안 되는 학생 — 옆 사람 화면으로 먼저 눈으로 익히세요. 계정은 따로 봐드립니다","textPreview":"다 끝낸 학생 — 부록의 명령어 치트시트를 훑고, 팀 구성 희망서를 작성하세요 | 막힌 학생 — 손 들고 기다리세요. 순서대로 갑니다 | 완전히 안 되는 학생 — 옆 사람 화면으로 먼저 눈으로 익히세요. 계정은 따로 봐드립니다","textChars":122,"textLines":3,"bbox":[59.52,360,1160.93,288]}
+{"kind":"notes","id":"nt/y5wne50z","slide":18,"text":"첫 주에 낙오하면 2주차 EC2에서 더 크게 막힙니다. 오늘 반드시 전원 로그인까지는 시키세요.\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html\n- https://console.aws.amazon.com/s3/"}
+{"kind":"slide","id":"sl/nid43ytk","slide":19,"title":"정리 · 다음 주 예고","textShapes":14}
+{"kind":"textbox","id":"sh/9gb6xgbi","slide":19,"name":"Text 0","text":"정리 · 다음 주 예고","textPreview":"정리 · 다음 주 예고","textChars":12,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"shape","id":"sh/8v2pobax","slide":19,"name":"Shape 1","bbox":[59.52,134.4,32.64,32.64]}
+{"kind":"textbox","id":"sh/vitozqt8","slide":19,"name":"Text 2","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[59.52,134.4,32.64,32.64]}
+{"kind":"textbox","id":"sh/ahk7qls3","slide":19,"name":"Text 3","text":"오늘 배운 것","textPreview":"오늘 배운 것","textChars":7,"textLines":1,"bbox":[107.52,130.56,625.34,40.32]}
+{"kind":"textbox","id":"sh/xkbq10be","slide":19,"name":"Text 4","text":"모델은 서비스가 되어야 의미가 있다 · AWS 리전과 IAM · S3에 파일 올리고 내리기","textPreview":"모델은 서비스가 되어야 의미가 있다 · AWS 리전과 IAM · S3에 파일 올리고 내리기","textChars":50,"textLines":1,"bbox":[107.52,170.88,625.34,125.12]}
+{"kind":"shape","id":"sh/wj2psvat","slide":19,"name":"Shape 5","bbox":[59.52,307.52,32.64,32.64]}
+{"kind":"textbox","id":"sh/jmd83atk","slide":19,"name":"Text 6","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[59.52,307.52,32.64,32.64]}
+{"kind":"textbox","id":"sh/il47u5sz","slide":19,"name":"Text 7","text":"다음 주","textPreview":"다음 주","textChars":4,"textLines":1,"bbox":[107.52,303.68,625.34,40.32]}
+{"kind":"textbox","id":"sh/cri1gnql","slide":19,"name":"Text 8","text":"서버를 직접 하나 빌립니다. EC2를 만들고 원격 접속해서 파이썬 환경을 세팅합니다","textPreview":"서버를 직접 하나 빌립니다. EC2를 만들고 원격 접속해서 파이썬 환경을 세팅합니다","textChars":46,"textLines":1,"bbox":[107.52,344,625.34,125.12]}
+{"kind":"shape","id":"sh/dsri9sr6","slide":19,"name":"Shape 9","bbox":[59.52,480.64,32.64,32.64]}
+{"kind":"textbox","id":"sh/qpgjex8f","slide":19,"name":"Text 10","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[59.52,480.64,32.64,32.64]}
+{"kind":"textbox","id":"sh/rqp07290","slide":19,"name":"Text 11","text":"다음 주 준비물","textPreview":"다음 주 준비물","textChars":8,"textLines":1,"bbox":[107.52,476.8,625.34,40.32]}
+{"kind":"textbox","id":"sh/0vi1k7qx","slide":19,"name":"Text 12","text":"노트북 · 오늘 만든 버킷 이름 · 팀 구성 희망서","textPreview":"노트북 · 오늘 만든 버킷 이름 · 팀 구성 희망서","textChars":28,"textLines":1,"bbox":[107.52,517.12,625.34,125.12]}
+{"kind":"shape","id":"sh/1gridcr2","slide":19,"name":"Shape 13","bbox":[766.46,286.56,453.99,198.72]}
+{"kind":"textbox","id":"sh/et0jix8r","slide":19,"name":"Text 14","text":"오늘의 정리 타임","textPreview":"오늘의 정리 타임","textChars":9,"textLines":1,"bbox":[795.26,309.6,396.39,42.24]}
+{"kind":"textbox","id":"sh/zu90b29c","slide":19,"name":"Text 15","text":"오늘은 EC2를 만들지 않았으므로 끌 것이 없습니다\n다음 주부터는 매주 인스턴스 중지 확인을 합니다","textPreview":"오늘은 EC2를 만들지 않았으므로 끌 것이 없습니다 | 다음 주부터는 매주 인스턴스 중지 확인을 합니다","textChars":55,"textLines":2,"bbox":[795.26,359.52,396.39,102.72]}
+{"kind":"textbox","id":"sh/oj21o7qt","slide":19,"name":"Text 16","text":"클라우드 MLOps · 1주차","textPreview":"클라우드 MLOps · 1주차","textChars":16,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/9kb2hcre","slide":19,"name":"Text 17","text":"19","textPreview":"19","textChars":2,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/nid43ytk","slide":19,"text":"다음 주가 이 과목에서 가장 손이 많이 가는 회차입니다. 노트북을 꼭 가져오라고 두 번 말하세요.\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html\n- https://console.aws.amazon.com/s3/"}
+{"kind":"slide","id":"sl/zyxsni5k","slide":20,"title":"클라우드 MLOps · 01주차","textShapes":10}
+{"kind":"textbox","id":"sh/3ud4juhg","slide":20,"name":"eyebrow","text":"클라우드 MLOps · 01주차","textPreview":"클라우드 MLOps · 01주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/qpwjmh8n","slide":20,"name":"slide-title","text":"오늘 시스템에서 데이터가 흐르는 길","textPreview":"오늘 시스템에서 데이터가 흐르는 길","textChars":19,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/rq50vmp8","slide":20,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/4nu1krqh","slide":20,"name":"takeaway","text":"AWS 역할로 로그인하고 S3에 수업용 데이터 구조를 만든다.","textPreview":"AWS 역할로 로그인하고 S3에 수업용 데이터 구조를 만든다.","textChars":34,"textLines":1,"bbox":[60,160,1160,48]}
+{"kind":"textbox","id":"sh/po3itc72","slide":20,"name":"node-1","text":"IAM Identity Center","textPreview":"IAM Identity Center","textChars":19,"textLines":1,"bbox":[60,285,212.8,120]}
+{"kind":"textbox","id":"sh/2lczih8r","slide":20,"name":"node-2","text":"서울 리전","textPreview":"서울 리전","textChars":5,"textLines":1,"bbox":[296.8,285,212.8,120]}
+{"kind":"textbox","id":"sh/3ml0rmpw","slide":20,"name":"node-3","text":"S3 raw","textPreview":"S3 raw","textChars":6,"textLines":1,"bbox":[533.6,285,212.8,120]}
+{"kind":"textbox","id":"sh/gjuhg7ql","slide":20,"name":"node-4","text":"S3 processed","textPreview":"S3 processed","textChars":12,"textLines":1,"bbox":[770.4,285,212.8,120]}
+{"kind":"textbox","id":"sh/hk3ipcr6","slide":20,"name":"node-5","text":"S3 models","textPreview":"S3 models","textChars":9,"textLines":1,"bbox":[1007.2,285,212.8,120]}
+{"kind":"shape","id":"sh/4zedsjyd","slide":20,"bbox":[272.8,345,24,0]}
+{"kind":"shape","id":"sh/50ne1ozi","slide":20,"bbox":[509.6,345,24,0]}
+{"kind":"shape","id":"sh/ixwvqtg7","slide":20,"bbox":[746.4,345,24,0]}
+{"kind":"shape","id":"sh/3y5wzyhs","slide":20,"bbox":[983.2,345,24,0]}
+{"kind":"textbox","id":"sh/pwvmlkzm","slide":20,"name":"read-order","text":"왼쪽에서 오른쪽으로 읽습니다. 각 화살표는 다음 단계가 바로 앞 단계의 결과를 입력으로 사용한다는 뜻입니다.","textPreview":"왼쪽에서 오른쪽으로 읽습니다. 각 화살표는 다음 단계가 바로 앞 단계의 결과를 입력으로 사용한다는 뜻입니다.","textChars":60,"textLines":1,"bbox":[110,470,1060,72]}
+{"kind":"textbox","id":"sh/4vm5sfy1","slide":20,"name":"footer","text":"확인 질문: 어느 단계가 실패했는지 파일·로그·URL로 증명할 수 있는가?","textPreview":"확인 질문: 어느 단계가 실패했는지 파일·로그·URL로 증명할 수 있는가?","textChars":41,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"notes","id":"nt/zyxsni5k","slide":20,"text":"[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html"}
+{"kind":"slide","id":"sl/m1wvqtk3","slide":21,"title":"클라우드 MLOps · 01주차","textShapes":7}
+{"kind":"textbox","id":"sh/4jax4nqd","slide":21,"name":"eyebrow","text":"클라우드 MLOps · 01주차","textPreview":"클라우드 MLOps · 01주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/1gbmxs7a","slide":21,"name":"slide-title","text":"AWS 화면으로 가는 길","textPreview":"AWS 화면으로 가는 길","textChars":13,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/0f2lon6p","slide":21,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/qp03yt8n","slide":21,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/dcb2t87y","slide":21,"name":"console-path","text":"S3 → Buckets → Create bucket","textPreview":"S3 → Buckets → Create bucket","textChars":28,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/sb2lk36t","slide":21,"name":"screen-check","text":"화면에서 확인할 것\n• 리전과 계정/역할\n• 리소스 이름과 상태\n• 비용이 발생하는 실행 자원\n• 작업 뒤 중지·삭제 여부","textPreview":"화면에서 확인할 것 | • 리전과 계정/역할 | • 리소스 이름과 상태 | • 비용이 발생하는 실행 자원 | • 작업 뒤 중지·삭제 여부","textChars":68,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/b6d432pc","slide":21,"name":"official-links","text":"콘솔 열기\nAWS 공식 문서","textPreview":"콘솔 열기 | AWS 공식 문서","textChars":15,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/al43uxor","slide":21,"name":"capture-note","text":"화면 모양은 바뀔 수 있습니다. 버튼 위치보다 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면 모양은 바뀔 수 있습니다. 버튼 위치보다 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":51,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/i50bu5cb","slide":21,"name":"","geometry":"roundRect","bbox":[217.3,175,295.39,420]}
+{"kind":"notes","id":"nt/m1wvqtk3","slide":21,"text":"[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html\n- https://console.aws.amazon.com/s3/\n- AWS 공식 문서 화면 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/5onypobq","slide":22,"title":"클라우드 MLOps · 01주차","textShapes":7}
+{"kind":"textbox","id":"sh/p4z6tcri","slide":22,"name":"eyebrow","text":"클라우드 MLOps · 01주차","textPreview":"클라우드 MLOps · 01주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/6987itcr","slide":22,"name":"slide-title","text":"실습 화면 01: 서울 리전 콘솔 홈","textPreview":"실습 화면 01: 서울 리전 콘솔 홈","textChars":20,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/7a18rydc","slide":22,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/58zqpov6","slide":22,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/il87etcv","slide":22,"name":"console-path","text":"콘솔 홈 → 오른쪽 위 리전","textPreview":"콘솔 홈 → 오른쪽 위 리전","textChars":15,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/jmh8nyd0","slide":22,"name":"screen-check","text":"화면에서 확인할 것\n• 아시아 태평양(서울)인지 확인\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 아시아 태평양(서울)인지 확인 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":64,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/43u9snu5","slide":22,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/p43q1sva","slide":22,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/z29k72lg","slide":22,"name":"","geometry":"roundRect","bbox":[60,189.98,610,390.05]}
+{"kind":"notes","id":"nt/5onypobq","slide":22,"text":"[강사 안내]\n- 경로: 콘솔 홈 → 오른쪽 위 리전\n- 확인: 아시아 태평양(서울)인지 확인\n\n[Sources]\n- https://console.aws.amazon.com/console/home?region=ap-northeast-2\n- https://docs.aws.amazon.com/IAM/latest/UserGuide/gs-identities.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/c7uhcr6t","slide":23,"title":"클라우드 MLOps · 01주차","textShapes":7}
+{"kind":"textbox","id":"sh/sby90zm1","slide":23,"name":"eyebrow","text":"클라우드 MLOps · 01주차","textPreview":"클라우드 MLOps · 01주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/90vqdczq","slide":23,"name":"slide-title","text":"실습 화면 02: IAM Identity Center 시작 화면","textPreview":"실습 화면 02: IAM Identity Center 시작 화면","textChars":35,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/8zm9k7y5","slide":23,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/a14rmhgb","slide":23,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/xovqhcz2","slide":23,"name":"console-path","text":"IAM Identity Center → 대시보드","textPreview":"IAM Identity Center → 대시보드","textChars":26,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/w3m9o7yh","slide":23,"name":"screen-check","text":"화면에서 확인할 것\n• 액세스 포털과 인스턴스 상태 확인\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 액세스 포털과 인스턴스 상태 확인 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":66,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/jqd8jmhs","slide":23,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/ip4rqhgn","slide":23,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/uxony1ob","slide":23,"name":"","geometry":"roundRect","bbox":[60,189.98,610,390.05]}
+{"kind":"notes","id":"nt/c7uhcr6t","slide":23,"text":"[강사 안내]\n- 경로: IAM Identity Center → 대시보드\n- 확인: 액세스 포털과 인스턴스 상태 확인\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/singlesignon/home?region=ap-northeast-2\n- https://docs.aws.amazon.com/IAM/latest/UserGuide/gs-identities.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/7qto7e10","slide":24,"title":"클라우드 MLOps · 01주차","textShapes":7}
+{"kind":"textbox","id":"sh/8veh8ril","slide":24,"name":"eyebrow","text":"클라우드 MLOps · 01주차","textPreview":"클라우드 MLOps · 01주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/1sfqxsv6","slide":24,"name":"slide-title","text":"실습 화면 03: IAM 대시보드","textPreview":"실습 화면 03: IAM 대시보드","textChars":18,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/0r6p4nul","slide":24,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/2to76dcr","slide":24,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/9wzq1svi","slide":24,"name":"console-path","text":"IAM → Dashboard","textPreview":"IAM → Dashboard","textChars":15,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/ov6p8nux","slide":24,"name":"screen-check","text":"화면에서 확인할 것\n• 보안 권고와 자격 증명 유형 확인\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 보안 권고와 자격 증명 유형 확인 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":66,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/3ydonyd8","slide":24,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/ix47utcn","slide":24,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/apgral0z","slide":24,"name":"","geometry":"roundRect","bbox":[60,189.98,610,390.05]}
+{"kind":"notes","id":"nt/7qto7e10","slide":24,"text":"[강사 안내]\n- 경로: IAM → Dashboard\n- 확인: 보안 권고와 자격 증명 유형 확인\n\n[Sources]\n- https://console.aws.amazon.com/iam/\n- https://docs.aws.amazon.com/IAM/latest/UserGuide/gs-identities.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/69wfm9o7","slide":25,"title":"클라우드 MLOps · 01주차","textShapes":7}
+{"kind":"textbox","id":"sh/wza9cbqp","slide":25,"name":"eyebrow","text":"클라우드 MLOps · 01주차","textPreview":"클라우드 MLOps · 01주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/xg7axgf2","slide":25,"name":"slide-title","text":"실습 화면 04: IAM 역할 목록","textPreview":"실습 화면 04: IAM 역할 목록","textChars":19,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/cfyt4beh","slide":25,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/29wby1wf","slide":25,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/pc7atgf6","slide":25,"name":"console-path","text":"IAM → Roles","textPreview":"IAM → Roles","textChars":11,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/obyt0bel","slide":25,"name":"screen-check","text":"화면에서 확인할 것\n• 학생 실습 역할 이름 확인\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 학생 실습 역할 이름 확인 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":62,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/fm5snmx4","slide":25,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/elwbu1wj","slide":25,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/m5gjid47","slide":25,"name":"","geometry":"roundRect","bbox":[60,189.98,610,390.05]}
+{"kind":"notes","id":"nt/69wfm9o7","slide":25,"text":"[강사 안내]\n- 경로: IAM → Roles\n- 확인: 학생 실습 역할 이름 확인\n\n[Sources]\n- https://console.aws.amazon.com/iam/home#/roles\n- https://docs.aws.amazon.com/IAM/latest/UserGuide/gs-identities.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/l0bepsfm","slide":26,"title":"클라우드 MLOps · 01주차","textShapes":7}
+{"kind":"textbox","id":"sh/lsja143i","slide":26,"name":"eyebrow","text":"클라우드 MLOps · 01주차","textPreview":"클라우드 MLOps · 01주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/uhk36lk7","slide":26,"name":"slide-title","text":"실습 화면 05: S3 버킷 목록","textPreview":"실습 화면 05: S3 버킷 목록","textChars":18,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/vitkzqlc","slide":26,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/tgr2xg3m","slide":26,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/md0321kv","slide":26,"name":"console-path","text":"S3 → Buckets","textPreview":"S3 → Buckets","textChars":12,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/7e9kv6lg","slide":26,"name":"screen-check","text":"화면에서 확인할 것\n• 버킷 이름과 리전 확인\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 버킷 이름과 리전 확인 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":60,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/kbil0r2p","slide":26,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/lcr2tw3a","slide":26,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/fuhwnq94","slide":26,"name":"","geometry":"roundRect","bbox":[60,189.98,610,390.05]}
+{"kind":"notes","id":"nt/l0bepsfm","slide":26,"text":"[강사 안내]\n- 경로: S3 → Buckets\n- 확인: 버킷 이름과 리전 확인\n\n[Sources]\n- https://console.aws.amazon.com/s3/\n- https://docs.aws.amazon.com/IAM/latest/UserGuide/gs-identities.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/4vyxknqp","slide":27,"title":"클라우드 MLOps · 01주차","textShapes":7}
+{"kind":"textbox","id":"sh/ju5gv294","slide":27,"name":"eyebrow","text":"클라우드 MLOps · 01주차","textPreview":"클라우드 MLOps · 01주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/kn694nmx","slide":27,"name":"slide-title","text":"실습 화면 06: S3 버킷 만들기: 일반 구성","textPreview":"실습 화면 06: S3 버킷 만들기: 일반 구성","textChars":26,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/lofadsni","slide":27,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/7qxsfi5o","slide":27,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/8r698nm9","slide":27,"name":"console-path","text":"S3 → Buckets → Create bucket","textPreview":"S3 → Buckets → Create bucket","textChars":28,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/9sfahsnu","slide":27,"name":"screen-check","text":"화면에서 확인할 것\n• 서울 리전과 전역 고유 이름 확인\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 서울 리전과 전역 고유 이름 확인 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":66,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/utobax4f","slide":27,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/vuxsj250","slide":27,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/507i1s3y","slide":27,"name":"","geometry":"roundRect","bbox":[60,189.98,610,390.05]}
+{"kind":"notes","id":"nt/4vyxknqp","slide":27,"text":"[강사 안내]\n- 경로: S3 → Buckets → Create bucket\n- 확인: 서울 리전과 전역 고유 이름 확인\n\n[Sources]\n- https://s3.console.aws.amazon.com/s3/bucket/create?region=ap-northeast-2\n- https://docs.aws.amazon.com/IAM/latest/UserGuide/gs-identities.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/3mdove10","slide":28,"title":"클라우드 MLOps · 01주차","textShapes":7}
+{"kind":"textbox","id":"sh/lg3690fq","slide":28,"name":"eyebrow","text":"클라우드 MLOps · 01주차","textPreview":"클라우드 MLOps · 01주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/q9cz6xkv","slide":28,"name":"slide-title","text":"실습 화면 07: S3 버킷 만들기: 객체 소유권","textPreview":"실습 화면 07: S3 버킷 만들기: 객체 소유권","textChars":27,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/ralgf21g","slide":28,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/10nylwji","slide":28,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/exwzahkr","slide":28,"name":"console-path","text":"Create bucket → Object Ownership","textPreview":"Create bucket → Object Ownership","textChars":32,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/zy5gjm1c","slide":28,"name":"screen-check","text":"화면에서 확인할 것\n• Bucket owner enforced 확인\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • Bucket owner enforced 확인 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":72,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/o3ehgr29","slide":28,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/947ipwje","slide":28,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/jit8zi58","slide":28,"name":"","geometry":"roundRect","bbox":[60,189.98,610,390.05]}
+{"kind":"notes","id":"nt/3mdove10","slide":28,"text":"[강사 안내]\n- 경로: Create bucket → Object Ownership\n- 확인: Bucket owner enforced 확인\n\n[Sources]\n- https://s3.console.aws.amazon.com/s3/bucket/create?region=ap-northeast-2\n- https://docs.aws.amazon.com/IAM/latest/UserGuide/gs-identities.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/i5o3q10v","slide":29,"title":"클라우드 MLOps · 01주차","textShapes":7}
+{"kind":"textbox","id":"sh/kf2tw7a1","slide":29,"name":"eyebrow","text":"클라우드 MLOps · 01주차","textPreview":"클라우드 MLOps · 01주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/tk36hwby","slide":29,"name":"slide-title","text":"실습 화면 08: S3 버킷 만들기: 퍼블릭 액세스 차단","textPreview":"실습 화면 08: S3 버킷 만들기: 퍼블릭 액세스 차단","textChars":31,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/8jup8rad","slide":29,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/ulc7a1s3","slide":29,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/h8n6lwbu","slide":29,"name":"console-path","text":"Create bucket → Block Public Access","textPreview":"Create bucket → Block Public Access","textChars":35,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/g7upcra9","slide":29,"name":"screen-check","text":"화면에서 확인할 것\n• 네 가지 차단 옵션 유지\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 네 가지 차단 옵션 유지 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":61,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/bq1o72tk","slide":29,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/apsnyxcz","slide":29,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/ytoz6lcv","slide":29,"name":"","geometry":"roundRect","bbox":[60,189.98,610,390.05]}
+{"kind":"notes","id":"nt/i5o3q10v","slide":29,"text":"[강사 안내]\n- 경로: Create bucket → Block Public Access\n- 확인: 네 가지 차단 옵션 유지\n\n[Sources]\n- https://s3.console.aws.amazon.com/s3/bucket/create?region=ap-northeast-2\n- https://docs.aws.amazon.com/IAM/latest/UserGuide/gs-identities.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/wnqh07ex","slide":30,"title":"클라우드 MLOps · 01주차","textShapes":7}
+{"kind":"textbox","id":"sh/onqx8zix","slide":30,"name":"eyebrow","text":"클라우드 MLOps · 01주차","textPreview":"클라우드 MLOps · 01주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/po72d8nm","slide":30,"name":"slide-title","text":"실습 화면 09: AWS Budgets 개요","textPreview":"실습 화면 09: AWS Budgets 개요","textChars":24,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/o3yl4361","slide":30,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/apg36do7","slide":30,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/xsr2h8ni","slide":30,"name":"console-path","text":"Billing → Budgets","textPreview":"Billing → Budgets","textChars":17,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/cril836d","slide":30,"name":"screen-check","text":"화면에서 확인할 것\n• 월 예산과 알림 임계값 확인\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 월 예산과 알림 임계값 확인 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":63,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/ru5k3ep8","slide":30,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/6twju9o3","slide":30,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/q1kbq50b","slide":30,"name":"","geometry":"roundRect","bbox":[60,189.98,610,390.05]}
+{"kind":"notes","id":"nt/wnqh07ex","slide":30,"text":"[강사 안내]\n- 경로: Billing → Budgets\n- 확인: 월 예산과 알림 임계값 확인\n\n[Sources]\n- https://console.aws.amazon.com/billing/home#/budgets/overview\n- https://docs.aws.amazon.com/IAM/latest/UserGuide/gs-identities.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/lcn6tkb6","slide":31,"title":"클라우드 MLOps · 01주차","textShapes":7}
+{"kind":"textbox","id":"sh/4vm5g7al","slide":31,"name":"eyebrow","text":"클라우드 MLOps · 01주차","textPreview":"클라우드 MLOps · 01주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/dgja98fe","slide":31,"name":"slide-title","text":"실습 화면 10: AWS CloudShell 시작 화면","textPreview":"실습 화면 10: AWS CloudShell 시작 화면","textChars":30,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/cfa903yt","slide":31,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/ehsr2dgz","slide":31,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/1k3ad8fa","slide":31,"name":"console-path","text":"상단 CloudShell 아이콘","textPreview":"상단 CloudShell 아이콘","textChars":17,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/0jut43yp","slide":31,"name":"screen-check","text":"화면에서 확인할 것\n• 서울 리전과 셸 준비 상태 확인\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 서울 리전과 셸 준비 상태 확인 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":65,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/fmhszex0","slide":31,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/ul8rq9gf","slide":31,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/25w3mhkr","slide":31,"name":"","geometry":"roundRect","bbox":[60,189.98,610,390.05]}
+{"kind":"notes","id":"nt/lcn6tkb6","slide":31,"text":"[강사 안내]\n- 경로: 상단 CloudShell 아이콘\n- 확인: 서울 리전과 셸 준비 상태 확인\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/cloudshell/home?region=ap-northeast-2\n- https://docs.aws.amazon.com/IAM/latest/UserGuide/gs-identities.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}

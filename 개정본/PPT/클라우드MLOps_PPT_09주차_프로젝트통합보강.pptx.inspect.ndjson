@@ -1,0 +1,360 @@
+{"kind":"deck","id":"pr/dzsay3","name":"Deck"}
+{"kind":"layout","layoutId":"/ppt/slideMasters/slideMaster1.xml","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout1.xml","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/y90nupkv","slide":1,"title":"09주차","textShapes":4}
+{"kind":"textbox","id":"sh/65g3298r","slide":1,"name":"week","text":"09주차","textPreview":"09주차","textChars":4,"textLines":1,"bbox":[70,90,250,55]}
+{"kind":"textbox","id":"sh/547294r6","slide":1,"name":"title","text":"프로젝트 통합·보강","textPreview":"프로젝트 통합·보강","textChars":10,"textLines":1,"bbox":[70,170,1040,100]}
+{"kind":"textbox","id":"sh/k3yl0zql","slide":1,"name":"outcome","text":"데이터부터 화면까지 한 구간씩 확인하고 끊긴 지점을 스스로 복구한다.","textPreview":"데이터부터 화면까지 한 구간씩 확인하고 끊긴 지점을 스스로 복구한다.","textChars":38,"textLines":1,"bbox":[70,300,1040,90]}
+{"kind":"textbox","id":"sh/7qp4be9c","slide":1,"name":"tagline","text":"한 번에 전체를 고치지 않습니다. 데이터 → 모델 → 이미지 → API → 화면 순서로 확인합니다.","textPreview":"한 번에 전체를 고치지 않습니다. 데이터 → 모델 → 이미지 → API → 화면 순서로 확인합니다.","textChars":55,"textLines":1,"bbox":[70,520,1100,68]}
+{"kind":"notes","id":"nt/y90nupkv","slide":1,"text":"[Sources]\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html"}
+{"kind":"slide","id":"sl/hwbqtkby","slide":2,"title":"클라우드 MLOps · 09주차","textShapes":14}
+{"kind":"textbox","id":"sh/ahwrqhgj","slide":2,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/9072xkry","slide":2,"name":"slide-title","text":"오늘의 통과 기준","textPreview":"오늘의 통과 기준","textChars":9,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/ozy1ofad","slide":2,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/b29kza94","slide":2,"text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[90,180,60,48]}
+{"kind":"textbox","id":"sh/a10jqpsj","slide":2,"name":"criterion-0","text":"S3 원본과 가공 데이터가 구분되어 있다","textPreview":"S3 원본과 가공 데이터가 구분되어 있다","textChars":22,"textLines":1,"bbox":[175,180,980,48]}
+{"kind":"textbox","id":"sh/x4r21kru","slide":2,"text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[90,250,60,48]}
+{"kind":"textbox","id":"sh/w3i1sfa9","slide":2,"name":"criterion-1","text":"학습 실행과 MLflow 실험 ID가 남는다","textPreview":"학습 실행과 MLflow 실험 ID가 남는다","textChars":24,"textLines":1,"bbox":[175,250,980,48]}
+{"kind":"textbox","id":"sh/r65knqtk","slide":2,"text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[90,320,60,48]}
+{"kind":"textbox","id":"sh/q5wjelsz","slide":2,"name":"criterion-2","text":"Docker 이미지와 ECR 태그가 연결된다","textPreview":"Docker 이미지와 ECR 태그가 연결된다","textChars":24,"textLines":1,"bbox":[175,320,980,48]}
+{"kind":"textbox","id":"sh/ove9o7yd","slide":2,"text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[90,390,60,48]}
+{"kind":"textbox","id":"sh/9wnqhczy","slide":2,"name":"criterion-3","text":"/health와 /predict가 정상 응답한다","textPreview":"/health와 /predict가 정상 응답한다","textChars":26,"textLines":1,"bbox":[175,390,980,48]}
+{"kind":"textbox","id":"sh/mtwrmxg7","slide":2,"text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[90,460,60,48]}
+{"kind":"textbox","id":"sh/nu58f2hs","slide":2,"name":"criterion-4","text":"Streamlit에서 실제 예측 1건이 된다","textPreview":"Streamlit에서 실제 예측 1건이 된다","textChars":24,"textLines":1,"bbox":[175,460,980,48]}
+{"kind":"textbox","id":"sh/wjy9sry9","slide":2,"text":"6","textPreview":"6","textChars":1,"textLines":1,"bbox":[90,530,60,48]}
+{"kind":"textbox","id":"sh/xk7qlczu","slide":2,"name":"criterion-5","text":"실패 원인과 해결 방법을 이슈표에 남긴다","textPreview":"실패 원인과 해결 방법을 이슈표에 남긴다","textChars":22,"textLines":1,"bbox":[175,530,980,48]}
+{"kind":"notes","id":"nt/hwbqtkby","slide":2,"text":"[Sources]\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html"}
+{"kind":"slide","id":"sl/ofy9wn61","slide":3,"title":"클라우드 MLOps · 09주차","textShapes":8}
+{"kind":"textbox","id":"sh/n2l4fq98","slide":3,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/cza94vmx","slide":3,"name":"slide-title","text":"문제를 찾는 순서: 입력부터 확인한다","textPreview":"문제를 찾는 순서: 입력부터 확인한다","textChars":20,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/d0jax03i","slide":3,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/298ryl4v","slide":3,"text":"1\n입력이 존재하는가?","textPreview":"1 | 입력이 존재하는가?","textChars":12,"textLines":2,"bbox":[70,245,205,170]}
+{"kind":"textbox","id":"sh/3ah8rqlg","slide":3,"text":"2\n이름과 형식이 맞는가?","textPreview":"2 | 이름과 형식이 맞는가?","textChars":14,"textLines":2,"bbox":[305,245,205,170]}
+{"kind":"textbox","id":"sh/obq90bml","slide":3,"text":"3\n실행 결과가 남는가?","textPreview":"3 | 실행 결과가 남는가?","textChars":13,"textLines":2,"bbox":[540,245,205,170]}
+{"kind":"textbox","id":"sh/pcjqtg36","slide":3,"text":"4\n다음 단계가 그 결과를 읽는가?","textPreview":"4 | 다음 단계가 그 결과를 읽는가?","textChars":19,"textLines":2,"bbox":[775,245,205,170]}
+{"kind":"textbox","id":"sh/m5cra54z","slide":3,"text":"5\n되돌아갈 기준점이 있는가?","textPreview":"5 | 되돌아갈 기준점이 있는가?","textChars":16,"textLines":2,"bbox":[1010,245,205,170]}
+{"kind":"textbox","id":"sh/n6ls3alk","slide":3,"name":"rule","text":"앞 단계가 실패했는데 뒤 단계를 먼저 고치지 않습니다.","textPreview":"앞 단계가 실패했는데 뒤 단계를 먼저 고치지 않습니다.","textChars":30,"textLines":1,"bbox":[120,505,1040,62]}
+{"kind":"notes","id":"nt/ofy9wn61","slide":3,"text":"[Sources]\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html"}
+{"kind":"slide","id":"sl/jyx0ra1s","slide":4,"title":"클라우드 MLOps · 09주차","textShapes":8}
+{"kind":"textbox","id":"sh/kbm987y5","slide":4,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/1cj2d8b6","slide":4,"name":"slide-title","text":"1단계: 데이터와 모델 결과 확인","textPreview":"1단계: 데이터와 모델 결과 확인","textChars":18,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/0ba143al","slide":4,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/rm1k7yt4","slide":4,"name":"data-check","text":"S3\nraw / processed / models","textPreview":"S3 | raw / processed / models","textChars":27,"textLines":2,"bbox":[75,225,300,160]}
+{"kind":"textbox","id":"sh/ql8jytsj","slide":4,"name":"arrow-1","text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[390,265,70,70]}
+{"kind":"textbox","id":"sh/doj29oba","slide":4,"name":"run-check","text":"학습 실행\n코드·시간·실행 ID","textPreview":"학습 실행 | 코드·시간·실행 ID","textChars":17,"textLines":2,"bbox":[475,225,300,160]}
+{"kind":"textbox","id":"sh/sna103ap","slide":4,"name":"arrow-2","text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[790,265,70,70]}
+{"kind":"textbox","id":"sh/3ihk3et8","slide":4,"name":"model-check","text":"MLflow\n파라미터·지표·모델","textPreview":"MLflow | 파라미터·지표·모델","textChars":17,"textLines":2,"bbox":[875,225,300,160]}
+{"kind":"textbox","id":"sh/ih8ju9sn","slide":4,"name":"evidence","text":"증거: S3 객체 경로 + MLflow Run ID + 선택 모델 버전","textPreview":"증거: S3 객체 경로 + MLflow Run ID + 선택 모델 버전","textChars":39,"textLines":1,"bbox":[115,500,1050,65]}
+{"kind":"notes","id":"nt/jyx0ra1s","slide":4,"text":"[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-folders.html\n- https://mlflow.org/docs/latest/ml/tracking/"}
+{"kind":"slide","id":"sl/i107q5of","slide":5,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/m5kbi1oj","slide":5,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/dgbulwnm","slide":5,"name":"slide-title","text":"2단계: 이미지와 API를 같이 확인","textPreview":"2단계: 이미지와 API를 같이 확인","textChars":20,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/cf2tcr61","slide":5,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/z2tcnm5s","slide":5,"text":"Docker / ECR\n\n이미지 태그와 digest가 연결되는가?","textPreview":"Docker / ECR |  | 이미지 태그와 digest가 연결되는가?","textChars":36,"textLines":3,"bbox":[65,225,265,220]}
+{"kind":"textbox","id":"sh/yhkbe1o7","slide":5,"text":"/health\n\n프로세스가 살아 있는가?","textPreview":"/health |  | 프로세스가 살아 있는가?","textChars":22,"textLines":3,"bbox":[365,225,265,220]}
+{"kind":"textbox","id":"sh/l4bupwny","slide":5,"text":"/predict\n\n정상·잘못된 입력을 구분하는가?","textPreview":"/predict |  | 정상·잘못된 입력을 구분하는가?","textChars":27,"textLines":3,"bbox":[665,225,265,220]}
+{"kind":"textbox","id":"sh/032tgr6d","slide":5,"text":"Streamlit\n\nAPI 응답을 사용자에게 보여 주는가?","textPreview":"Streamlit |  | API 응답을 사용자에게 보여 주는가?","textChars":32,"textLines":3,"bbox":[965,225,265,220]}
+{"kind":"textbox","id":"sh/n6dcr65o","slide":5,"name":"api-evidence","text":"증거: ECR 태그 + /health 200 + /predict 응답 JSON + 데모 화면","textPreview":"증거: ECR 태그 + /health 200 + /predict 응답 JSON + 데모 화면","textChars":51,"textLines":1,"bbox":[100,525,1080,65]}
+{"kind":"notes","id":"nt/i107q5of","slide":5,"text":"[Sources]\n- https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-create.html\n- https://fastapi.tiangolo.com/tutorial/"}
+{"kind":"slide","id":"sl/x8f69ofe","slide":6,"title":"클라우드 MLOps · 09주차","textShapes":17}
+{"kind":"textbox","id":"sh/svmt4v6t","slide":6,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/yhg7epsj","slide":6,"name":"slide-title","text":"기술 부채는 우선순위로 줄인다","textPreview":"기술 부채는 우선순위로 줄인다","textChars":16,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/zi98nu94","slide":6,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/87ipkzal","slide":6,"text":"순위","textPreview":"순위","textChars":2,"textLines":1,"bbox":[85,180,150,70]}
+{"kind":"textbox","id":"sh/98rqt4r6","slide":6,"text":"판단 기준","textPreview":"판단 기준","textChars":5,"textLines":1,"bbox":[235,180,430,70]}
+{"kind":"textbox","id":"sh/ml07i9sv","slide":6,"text":"예시","textPreview":"예시","textChars":2,"textLines":1,"bbox":[665,180,530,70]}
+{"kind":"textbox","id":"sh/7m98ru9g","slide":6,"text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[85,258,150,70]}
+{"kind":"textbox","id":"sh/oryp8fah","slide":6,"text":"실행 불가·데이터 손실","textPreview":"실행 불가·데이터 손실","textChars":12,"textLines":1,"bbox":[235,258,430,70]}
+{"kind":"textbox","id":"sh/pc76hkr2","slide":6,"text":"모델 파일 누락, API 500","textPreview":"모델 파일 누락, API 500","textChars":17,"textLines":1,"bbox":[665,258,530,70]}
+{"kind":"textbox","id":"sh/h4bupgn6","slide":6,"text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[85,336,150,70]}
+{"kind":"textbox","id":"sh/w32twb6l","slide":6,"text":"재현·안전에 영향","textPreview":"재현·안전에 영향","textChars":9,"textLines":1,"bbox":[235,336,430,70]}
+{"kind":"textbox","id":"sh/v2tcn650","slide":6,"text":"태그 latest 고정, 비밀 값 하드코딩","textPreview":"태그 latest 고정, 비밀 값 하드코딩","textChars":23,"textLines":1,"bbox":[665,336,530,70]}
+{"kind":"textbox","id":"sh/u1kbu1ov","slide":6,"text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[85,414,150,70]}
+{"kind":"textbox","id":"sh/5svutgni","slide":6,"text":"운영·문서 품질","textPreview":"운영·문서 품질","textChars":8,"textLines":1,"bbox":[235,414,430,70]}
+{"kind":"textbox","id":"sh/47mt0b6x","slide":6,"text":"로그 부족, README 누락","textPreview":"로그 부족, README 누락","textChars":16,"textLines":1,"bbox":[665,414,530,70]}
+{"kind":"textbox","id":"sh/j6dcr65c","slide":6,"text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[85,492,150,70]}
+{"kind":"textbox","id":"sh/i54bylor","slide":6,"text":"편의·표현","textPreview":"편의·표현","textChars":5,"textLines":1,"bbox":[235,492,430,70]}
+{"kind":"textbox","id":"sh/twfux0ne","slide":6,"text":"화면 문구, 레이아웃","textPreview":"화면 문구, 레이아웃","textChars":11,"textLines":1,"bbox":[665,492,530,70]}
+{"kind":"notes","id":"nt/x8f69ofe","slide":6,"text":"[Sources]\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html"}
+{"kind":"slide","id":"sl/gnmp4jqx","slide":7,"title":"클라우드 MLOps · 09주차","textShapes":11}
+{"kind":"textbox","id":"sh/cbq1sv25","slide":7,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/cb2tkvap","slide":7,"name":"slide-title","text":"NCS 평가 증거로 바꾸기","textPreview":"NCS 평가 증거로 바꾸기","textChars":14,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/dcbud0ra","slide":7,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/ydkbm5sv","slide":7,"name":"ev-0-a","text":"점검 기록","textPreview":"점검 기록","textChars":5,"textLines":1,"bbox":[95,190,350,70]}
+{"kind":"textbox","id":"sh/zedcfa9g","slide":7,"name":"ev-0-b","text":"장애 요인 분석·조치 근거","textPreview":"장애 요인 분석·조치 근거","textChars":14,"textLines":1,"bbox":[485,190,700,70]}
+{"kind":"textbox","id":"sh/kzmdova1","slide":7,"name":"ev-1-a","text":"버전·태그","textPreview":"버전·태그","textChars":5,"textLines":1,"bbox":[95,285,350,70]}
+{"kind":"textbox","id":"sh/l0vuh0rm","slide":7,"name":"ev-1-b","text":"구성 관리·배포 관리 근거","textPreview":"구성 관리·배포 관리 근거","textChars":14,"textLines":1,"bbox":[485,285,700,70]}
+{"kind":"textbox","id":"sh/eh0ba1sr","slide":7,"name":"ev-2-a","text":"성능·응답 결과","textPreview":"성능·응답 결과","textChars":8,"textLines":1,"bbox":[95,380,350,70]}
+{"kind":"textbox","id":"sh/fi9c369c","slide":7,"name":"ev-2-b","text":"모델 성능 관리 근거","textPreview":"모델 성능 관리 근거","textChars":11,"textLines":1,"bbox":[485,380,700,70]}
+{"kind":"textbox","id":"sh/baxkjqlk","slide":7,"name":"ev-3-a","text":"전·후 화면","textPreview":"전·후 화면","textChars":6,"textLines":1,"bbox":[95,475,350,70]}
+{"kind":"textbox","id":"sh/a9ojq5kz","slide":7,"name":"ev-3-b","text":"문제 해결과 검증 근거","textPreview":"문제 해결과 검증 근거","textChars":12,"textLines":1,"bbox":[485,475,700,70]}
+{"kind":"textbox","id":"sh/xcz2l03q","slide":7,"name":"ncs-note","text":"NCS 코드는 학교가 적용하는 기준 연도를 확인한 뒤 최종 서식에 기입합니다.","textPreview":"NCS 코드는 학교가 적용하는 기준 연도를 확인한 뒤 최종 서식에 기입합니다.","textChars":43,"textLines":1,"bbox":[120,590,1040,45]}
+{"kind":"notes","id":"nt/gnmp4jqx","slide":7,"text":"[Sources]\n- 로컬 NCS 학습모듈 LM2001070308 인공지능 모델 관리"}
+{"kind":"slide","id":"sl/fu1gfa1s","slide":8,"title":"클라우드 MLOps · 09주차","textShapes":11}
+{"kind":"textbox","id":"sh/kfixwbe1","slide":8,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/18byd4zy","slide":8,"name":"slide-title","text":"오늘 시스템에서 데이터가 흐르는 길","textPreview":"오늘 시스템에서 데이터가 흐르는 길","textChars":19,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/g72x4zyd","slide":8,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/ri9g7uhw","slide":8,"name":"takeaway","text":"데이터부터 화면까지 한 구간씩 확인하고 끊긴 지점을 스스로 복구한다.","textPreview":"데이터부터 화면까지 한 구간씩 확인하고 끊긴 지점을 스스로 복구한다.","textChars":38,"textLines":1,"bbox":[60,160,1160,48]}
+{"kind":"textbox","id":"sh/6h0fypgb","slide":8,"name":"node-1","text":"S3 data","textPreview":"S3 data","textChars":7,"textLines":1,"bbox":[60,285,173.33,120]}
+{"kind":"textbox","id":"sh/tkby9kzm","slide":8,"name":"node-2","text":"training","textPreview":"training","textChars":8,"textLines":1,"bbox":[257.33,285,173.33,120]}
+{"kind":"textbox","id":"sh/sjix0zy1","slide":8,"name":"node-3","text":"MLflow","textPreview":"MLflow","textChars":6,"textLines":1,"bbox":[454.67,285,173.33,120]}
+{"kind":"textbox","id":"sh/je9g3ahk","slide":8,"name":"node-4","text":"Docker/ECR","textPreview":"Docker/ECR","textChars":10,"textLines":1,"bbox":[652,285,173.33,120]}
+{"kind":"textbox","id":"sh/id0fu50z","slide":8,"name":"node-5","text":"FastAPI","textPreview":"FastAPI","textChars":7,"textLines":1,"bbox":[849.33,285,173.33,120]}
+{"kind":"textbox","id":"sh/o7ydoret","slide":8,"name":"node-6","text":"Streamlit","textPreview":"Streamlit","textChars":9,"textLines":1,"bbox":[1046.67,285,173.33,120]}
+{"kind":"shape","id":"sh/x4ne1wni","slide":8,"bbox":[233.33,345,24,0]}
+{"kind":"shape","id":"sh/w3ed8r6x","slide":8,"bbox":[430.67,345,24,0]}
+{"kind":"shape","id":"sh/m9sb2x4v","slide":8,"bbox":[628,345,24,0]}
+{"kind":"shape","id":"sh/na1sb2lg","slide":8,"bbox":[825.33,345,24,0]}
+{"kind":"shape","id":"sh/8bat47ml","slide":8,"bbox":[1022.67,345,24,0]}
+{"kind":"textbox","id":"sh/ehgvihwr","slide":8,"name":"read-order","text":"왼쪽에서 오른쪽으로 읽습니다. 각 화살표는 다음 단계가 바로 앞 단계의 결과를 입력으로 사용한다는 뜻입니다.","textPreview":"왼쪽에서 오른쪽으로 읽습니다. 각 화살표는 다음 단계가 바로 앞 단계의 결과를 입력으로 사용한다는 뜻입니다.","textChars":60,"textLines":1,"bbox":[110,470,1060,72]}
+{"kind":"textbox","id":"sh/zipwbmdc","slide":8,"name":"footer","text":"확인 질문: 어느 단계가 실패했는지 파일·로그·URL로 증명할 수 있는가?","textPreview":"확인 질문: 어느 단계가 실패했는지 파일·로그·URL로 증명할 수 있는가?","textChars":41,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"notes","id":"nt/fu1gfa1s","slide":8,"text":"[Sources]\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html"}
+{"kind":"slide","id":"sl/udsvah03","slide":9,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/oza1gfyh","slide":9,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/1cfmhgne","slide":9,"name":"slide-title","text":"AWS 화면으로 가는 길","textPreview":"AWS 화면으로 가는 길","textChars":13,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/0b65obm9","slide":9,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/mdonql4z","slide":9,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/9gzml0nq","slide":9,"name":"console-path","text":"S3 → EC2 → ECR 순서로 상태 확인","textPreview":"S3 → EC2 → ECR 순서로 상태 확인","textChars":24,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/ofq5svm5","slide":9,"name":"screen-check","text":"화면에서 확인할 것\n• 리전과 계정/역할\n• 리소스 이름과 상태\n• 비용이 발생하는 실행 자원\n• 작업 뒤 중지·삭제 여부","textPreview":"화면에서 확인할 것 | • 리전과 계정/역할 | • 리소스 이름과 상태 | • 비용이 발생하는 실행 자원 | • 작업 뒤 중지·삭제 여부","textChars":68,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/bih4na5w","slide":9,"name":"official-links","text":"콘솔 열기\nAWS 공식 문서","textPreview":"콘솔 열기 | AWS 공식 문서","textChars":15,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/ah8nu54b","slide":9,"name":"capture-note","text":"화면 모양은 바뀔 수 있습니다. 버튼 위치보다 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면 모양은 바뀔 수 있습니다. 버튼 위치보다 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":51,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/u987u5cf","slide":9,"name":"","geometry":"roundRect","bbox":[217.35,175,295.29,420]}
+{"kind":"notes","id":"nt/udsvah03","slide":9,"text":"[Sources]\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\n- https://console.aws.amazon.com/console/home\n- AWS 공식 문서 화면 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/m90b6t0r","slide":10,"title":"클라우드 MLOps · 09주차","textShapes":4}
+{"kind":"textbox","id":"sh/l036l83y","slide":10,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/xc3mho32","slide":10,"name":"slide-title","text":"제출하면 오늘 수업 완료","textPreview":"제출하면 오늘 수업 완료","textChars":13,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/cbu58j2h","slide":10,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/zelojyl8","slide":10,"name":"submit","text":"1. 전 구간 연결 체크리스트\n2. 해결 전·후 기술 부채 이슈표\n3. S3·MLflow·ECR·/health·Streamlit 화면\n4. 수업 종료 전 실행 리소스 확인","textPreview":"1. 전 구간 연결 체크리스트 | 2. 해결 전·후 기술 부채 이슈표 | 3. S3·MLflow·ECR·/health·Streamlit 화면 | 4. 수업 종료 전 실행 리소스 확인","textChars":95,"textLines":4,"bbox":[120,205,1040,300]}
+{"kind":"textbox","id":"sh/ydcnatkn","slide":10,"name":"m2plus","text":"통과하면 M2+ 완료","textPreview":"통과하면 M2+ 완료","textChars":11,"textLines":1,"bbox":[330,555,620,70]}
+{"kind":"notes","id":"nt/m90b6t0r","slide":10,"text":"[Sources]\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html"}
+{"kind":"slide","id":"sl/zpu8am","slide":11,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/9k7up47q","slide":11,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/u5o329gr","slide":11,"name":"slide-title","text":"실습 화면 01: S3 버킷 목록에서 팀 버킷 찾기","textPreview":"실습 화면 01: S3 버킷 목록에서 팀 버킷 찾기","textChars":28,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/v6xkbexc","slide":11,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/5wz2hofe","slide":11,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/it836tgn","slide":11,"name":"console-path","text":"S3 → ysu-mlops-lab-20260824-a7c9","textPreview":"S3 → ysu-mlops-lab-20260824-a7c9","textChars":32,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/3uhkfex8","slide":11,"name":"screen-check","text":"화면에서 확인할 것\n• S3 버킷 목록에서 팀 버킷 찾기\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • S3 버킷 목록에서 팀 버킷 찾기 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":66,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/szqlc3y5","slide":11,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/d0jml8fa","slide":11,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/bq5kbehw","slide":11,"name":"","geometry":"roundRect","alt":"S3 버킷 목록에서 팀 버킷 찾기 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/zpu8am","slide":11,"text":"[강사 안내]\n- 경로: S3 → ysu-mlops-lab-20260824-a7c9\n- 확인: S3 버킷 목록에서 팀 버킷 찾기\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/ki5cgk","slide":12,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/q9gni94f","slide":12,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/7ydkj2do","slide":12,"name":"slide-title","text":"실습 화면 02: 팀 버킷의 최상위 경로 확인","textPreview":"실습 화면 02: 팀 버킷의 최상위 경로 확인","textChars":25,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/mx43axw3","slide":12,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/w36lg7u5","slide":12,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/v2xkn2dk","slide":12,"name":"console-path","text":"S3 → ysu-mlops-lab-20260824-a7c9","textPreview":"S3 → ysu-mlops-lab-20260824-a7c9","textChars":32,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/u143excz","slide":12,"name":"screen-check","text":"화면에서 확인할 것\n• 팀 버킷의 최상위 경로 확인\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 팀 버킷의 최상위 경로 확인 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":63,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/5sfmtcvm","slide":12,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/4r6lkru1","slide":12,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/gvupcri9","slide":12,"name":"","geometry":"roundRect","alt":"팀 버킷의 최상위 경로 확인 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/ki5cgk","slide":12,"text":"[강사 안내]\n- 경로: S3 → ysu-mlops-lab-20260824-a7c9\n- 확인: 팀 버킷의 최상위 경로 확인\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/0oa06a","slide":13,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/hkry9of6","slide":13,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/up8f214v","slide":13,"name":"slide-title","text":"실습 화면 03: datasets 데이터 경로 확인","textPreview":"실습 화면 03: datasets 데이터 경로 확인","textChars":28,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/vqhwv6lg","slide":13,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/5gjy1g3i","slide":13,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/id8f6l4r","slide":13,"name":"console-path","text":"S3 → ysu-mlops-lab-20260824-a7c9","textPreview":"S3 → ysu-mlops-lab-20260824-a7c9","textChars":32,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/3e1gz6lc","slide":13,"name":"screen-check","text":"화면에서 확인할 것\n• datasets 데이터 경로 확인\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • datasets 데이터 경로 확인 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":66,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/kj6xwrmt","slide":13,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/lkfepwne","slide":13,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/ry58f2xg","slide":13,"name":"","geometry":"roundRect","alt":"datasets 데이터 경로 확인 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/0oa06a","slide":13,"text":"[강사 안내]\n- 경로: S3 → ysu-mlops-lab-20260824-a7c9\n- 확인: datasets 데이터 경로 확인\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/obospv","slide":14,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/dozadofm","slide":14,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/m1wny9sv","slide":14,"name":"slide-title","text":"실습 화면 04: models 산출물 경로 확인","textPreview":"실습 화면 04: models 산출물 경로 확인","textChars":26,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/7254re9g","slide":14,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/l0nmp4ra","slide":14,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/ydwnu9sz","slide":14,"name":"console-path","text":"S3 → ysu-mlops-lab-20260824-a7c9","textPreview":"S3 → ysu-mlops-lab-20260824-a7c9","textChars":32,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/zy54nu94","slide":14,"name":"screen-check","text":"화면에서 확인할 것\n• models 산출물 경로 확인\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • models 산출물 경로 확인 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":64,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/cbu5szat","slide":14,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/dcnml4re","slide":14,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/3a1kzet8","slide":14,"name":"","geometry":"roundRect","alt":"models 산출물 경로 확인 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/obospv","slide":14,"text":"[강사 안내]\n- 경로: S3 → ysu-mlops-lab-20260824-a7c9\n- 확인: models 산출물 경로 확인\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/8qe3tj","slide":15,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/5szm5c3i","slide":15,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/ad4bmx8r","slide":15,"name":"slide-title","text":"실습 화면 05: 버전 관리와 암호화 속성 확인","textPreview":"실습 화면 05: 버전 관리와 암호화 속성 확인","textChars":26,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/bedsf29c","slide":15,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/l4fulcre","slide":15,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/yh4bqx83","slide":15,"name":"console-path","text":"S3 → ysu-mlops-lab-20260824-a7c9","textPreview":"S3 → ysu-mlops-lab-20260824-a7c9","textChars":32,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/jidsj29o","slide":15,"name":"screen-check","text":"화면에서 확인할 것\n• 버전 관리와 암호화 속성 확인\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 버전 관리와 암호화 속성 확인 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":64,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/876tw7q5","slide":15,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/t8fupc7q","slide":15,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/fud4zi90","slide":15,"name":"","geometry":"roundRect","alt":"버전 관리와 암호화 속성 확인 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/8qe3tj","slide":15,"text":"[강사 안내]\n- 경로: S3 → ysu-mlops-lab-20260824-a7c9\n- 확인: 버전 관리와 암호화 속성 확인\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/9zkzal","slide":16,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/jal8bi5w","slide":16,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/g7i1g325","slide":16,"name":"slide-title","text":"실습 화면 06: 퍼블릭 액세스 차단 확인","textPreview":"실습 화면 06: 퍼블릭 액세스 차단 확인","textChars":23,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/h8rip8ja","slide":16,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/7290jyl8","slide":16,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/83ihc32t","slide":16,"name":"console-path","text":"S3 → ysu-mlops-lab-20260824-a7c9","textPreview":"S3 → ysu-mlops-lab-20260824-a7c9","textChars":32,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/t4ril83e","slide":16,"name":"screen-check","text":"화면에서 확인할 것\n• 퍼블릭 액세스 차단 확인\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 퍼블릭 액세스 차단 확인 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":61,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/yxgz6tkr","slide":16,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/jyp0felc","slide":16,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/5kbex4ju","slide":16,"name":"","geometry":"roundRect","alt":"퍼블릭 액세스 차단 확인 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/9zkzal","slide":16,"text":"[강사 안내]\n- 경로: S3 → ysu-mlops-lab-20260824-a7c9\n- 확인: 퍼블릭 액세스 차단 확인\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/joxxqy","slide":17,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/5o7y1cjq","slide":17,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/el0vqtkf","slide":17,"name":"slide-title","text":"실습 화면 07: ECR 팀 저장소 찾기","textPreview":"실습 화면 07: ECR 팀 저장소 찾기","textChars":22,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/zm9cjyl0","slide":17,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/9sbup832","slide":17,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/mp0vedkb","slide":17,"name":"console-path","text":"ECR → ysu-mlops-api","textPreview":"ECR → ysu-mlops-api","textChars":19,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/nqtcnilw","slide":17,"name":"screen-check","text":"화면에서 확인할 것\n• ECR 팀 저장소 찾기\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • ECR 팀 저장소 찾기 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":60,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/4vydkjmd","slide":17,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/pw7udo3y","slide":17,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/3epkj6do","slide":17,"name":"","geometry":"roundRect","alt":"ECR 팀 저장소 찾기 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/joxxqy","slide":17,"text":"[강사 안내]\n- 경로: ECR → ysu-mlops-api\n- 확인: ECR 팀 저장소 찾기\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/bk62gk","slide":18,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/p4b6pcni","slide":18,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/ytobaxob","slide":18,"name":"slide-title","text":"실습 화면 08: ECR 이미지 태그 1.0과 1.1 확인","textPreview":"실습 화면 08: ECR 이미지 태그 1.0과 1.1 확인","textChars":32,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/zuxc325w","slide":18,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/90zu9cny","slide":18,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/mxobehon","slide":18,"name":"console-path","text":"ECR → ysu-mlops-api","textPreview":"ECR → ysu-mlops-api","textChars":19,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/nyxc725s","slide":18,"name":"screen-check","text":"화면에서 확인할 것\n• ECR 이미지 태그 1.0과 1.1 확인\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • ECR 이미지 태그 1.0과 1.1 확인 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":70,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/w3qtkr6p","slide":18,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/xozudwna","slide":18,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/fax4re9s","slide":18,"name":"","geometry":"roundRect","alt":"ECR 이미지 태그 1.0과 1.1 확인 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/bk62gk","slide":18,"text":"[강사 안내]\n- 경로: ECR → ysu-mlops-api\n- 확인: ECR 이미지 태그 1.0과 1.1 확인\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/2ocpgp","slide":19,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/fil0vipg","slide":19,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/crmxg7i1","slide":19,"name":"slide-title","text":"실습 화면 09: API 이미지 1.0 다이제스트 확인","textPreview":"실습 화면 09: API 이미지 1.0 다이제스트 확인","textChars":30,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/xsfy9szm","slide":19,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/jexgb2hs","slide":19,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/kf6xk7ix","slide":19,"name":"console-path","text":"ECR → ysu-mlops-api","textPreview":"ECR → ysu-mlops-api","textChars":19,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/lgfydczi","slide":19,"name":"screen-check","text":"화면에서 확인할 것\n• API 이미지 1.0 다이제스트 확인\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • API 이미지 1.0 다이제스트 확인 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":68,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/ehkf6d0n","slide":19,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/fitwzi18","slide":19,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/x4r6x8fi","slide":19,"name":"","geometry":"roundRect","alt":"API 이미지 1.0 다이제스트 확인 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/2ocpgp","slide":19,"text":"[강사 안내]\n- 경로: ECR → ysu-mlops-api\n- 확인: API 이미지 1.0 다이제스트 확인\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/p0w1hi","slide":20,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/3ah0filc","slide":20,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/8za9032l","slide":20,"name":"slide-title","text":"실습 화면 10: SageMaker 호환 이미지 1.1 확인","textPreview":"실습 화면 10: SageMaker 호환 이미지 1.1 확인","textChars":33,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/90jat8j6","slide":20,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/v21svi1c","slide":20,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/w3a94n2h","slide":20,"name":"console-path","text":"ECR → ysu-mlops-api","textPreview":"ECR → ysu-mlops-api","textChars":19,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/x4jaxsj2","slide":20,"name":"screen-check","text":"화면에서 확인할 것\n• SageMaker 호환 이미지 1.1 확인\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • SageMaker 호환 이미지 1.1 확인 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":71,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/q5orq9k7","slide":20,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/b6x8je1s","slide":20,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/5gnmp8ba","slide":20,"name":"","geometry":"roundRect","alt":"SageMaker 호환 이미지 1.1 확인 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/p0w1hi","slide":20,"text":"[강사 안내]\n- 경로: ECR → ysu-mlops-api\n- 확인: SageMaker 호환 이미지 1.1 확인\n\n[Sources]\n- https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/zb23kh","slide":21,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/wjmhonex","slide":21,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/t8vidsfq","slide":21,"name":"slide-title","text":"실습 화면 11: 통합 점검 전 EC2 중지 상태","textPreview":"실습 화면 11: 통합 점검 전 EC2 중지 상태","textChars":27,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/s7mhkny5","slide":21,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/e9ojmxwb","slide":21,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/1wfihsf2","slide":21,"name":"console-path","text":"EC2 → ysu-mlops-lab-ec2","textPreview":"EC2 → ysu-mlops-lab-ec2","textChars":23,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/gv61o7eh","slide":21,"name":"screen-check","text":"화면에서 확인할 것\n• 통합 점검 전 EC2 중지 상태\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 통합 점검 전 EC2 중지 상태 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":65,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/vet03yxc","slide":21,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/adkzatg7","slide":21,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/q14bidwb","slide":21,"name":"","geometry":"roundRect","alt":"통합 점검 전 EC2 중지 상태 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/zb23kh","slide":21,"text":"[강사 안내]\n- 경로: EC2 → ysu-mlops-lab-ec2\n- 확인: 통합 점검 전 EC2 중지 상태\n\n[Sources]\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/5pzbtt","slide":22,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/9kjedgne","slide":22,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/uh4veh03","slide":22,"name":"slide-title","text":"실습 화면 12: 인스턴스 시작 작업 선택","textPreview":"실습 화면 12: 인스턴스 시작 작업 선택","textChars":23,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/vixc7mho","slide":22,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/5ofudwzq","slide":22,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/ilovi1gz","slide":22,"name":"console-path","text":"EC2 → ysu-mlops-lab-ec2","textPreview":"EC2 → ysu-mlops-lab-ec2","textChars":23,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/3mxcbmhk","slide":22,"name":"screen-check","text":"화면에서 확인할 것\n• 인스턴스 시작 작업 선택\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 인스턴스 시작 작업 선택 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":61,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/krmd87i1","slide":22,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/lsvu1cz6","slide":22,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/ni1wfip8","slide":22,"name":"","geometry":"roundRect","alt":"인스턴스 시작 작업 선택 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/5pzbtt","slide":22,"text":"[강사 안내]\n- 경로: EC2 → ysu-mlops-lab-ec2\n- 확인: 인스턴스 시작 작업 선택\n\n[Sources]\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/1zgpxl","slide":23,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/4jqpw3it","slide":23,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/hwbil8ri","slide":23,"name":"slide-title","text":"실습 화면 13: 통합 점검용 EC2 실행 상태","textPreview":"실습 화면 13: 통합 점검용 EC2 실행 상태","textChars":26,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/gb21cnqx","slide":23,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/2x4jed83","slide":23,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/p0v2psru","slide":23,"name":"console-path","text":"EC2 → ysu-mlops-lab-ec2","textPreview":"EC2 → ysu-mlops-lab-ec2","textChars":23,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/4zm1gnq9","slide":23,"name":"screen-check","text":"화면에서 확인할 것\n• 통합 점검용 EC2 실행 상태\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 통합 점검용 EC2 실행 상태 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":64,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/j290by9k","slide":23,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/y10j2t8z","slide":23,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/qlg7u94z","slide":23,"name":"","geometry":"roundRect","alt":"통합 점검용 EC2 실행 상태 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/1zgpxl","slide":23,"text":"[강사 안내]\n- 경로: EC2 → ysu-mlops-lab-ec2\n- 확인: 통합 점검용 EC2 실행 상태\n\n[Sources]\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/o4v3ct","slide":24,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/fuh4rqh8","slide":24,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/k3ipof25","slide":24,"name":"slide-title","text":"실습 화면 14: S3부터 UI까지 통합 점검 명령 입력","textPreview":"실습 화면 14: S3부터 UI까지 통합 점검 명령 입력","textChars":31,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/54rqh03q","slide":24,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/ve98bqlo","slide":24,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/wfipkv29","slide":24,"name":"console-path","text":"Systems Manager → Run Command","textPreview":"Systems Manager → Run Command","textChars":29,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/xgrqd03u","slide":24,"name":"screen-check","text":"화면에서 확인할 것\n• S3부터 UI까지 통합 점검 명령 입력\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • S3부터 UI까지 통합 점검 명령 입력 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":69,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/u9krupkn","slide":24,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/fat8nul8","slide":24,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/dcrip0z2","slide":24,"name":"","geometry":"roundRect","alt":"S3부터 UI까지 통합 점검 명령 입력 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/o4v3ct","slide":24,"text":"[강사 안내]\n- 경로: Systems Manager → Run Command\n- 확인: S3부터 UI까지 통합 점검 명령 입력\n\n[Sources]\n- https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/9u3ed4","slide":25,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/e9wzytw7","slide":25,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/bmlszapc","slide":25,"name":"slide-title","text":"실습 화면 15: SSM Online 대상 선택","textPreview":"실습 화면 15: SSM Online 대상 선택","textChars":26,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/alsb658r","slide":25,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/ojat4vq1","slide":25,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/ni1svqpg","slide":25,"name":"console-path","text":"Systems Manager → Run Command","textPreview":"Systems Manager → Run Command","textChars":29,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/2hsr2l8v","slide":25,"name":"screen-check","text":"화면에서 확인할 것\n• SSM Online 대상 선택\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • SSM Online 대상 선택 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":64,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/9gnu947q","slide":25,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/8fetgz65","slide":25,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/o321wryx","slide":25,"name":"","geometry":"roundRect","alt":"SSM Online 대상 선택 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/9u3ed4","slide":25,"text":"[강사 안내]\n- 경로: Systems Manager → Run Command\n- 확인: SSM Online 대상 선택\n\n[Sources]\n- https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/d141s1","slide":26,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/sve18vut","slide":26,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/tkzexwr6","slide":26,"name":"slide-title","text":"실습 화면 16: 통합 점검 명령 접수","textPreview":"실습 화면 16: 통합 점검 명령 접수","textChars":21,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/sjqdoral","slide":26,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/el8vq1sr","slide":26,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/1oje1wr2","slide":26,"name":"console-path","text":"Systems Manager → Run Command","textPreview":"Systems Manager → Run Command","textChars":29,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/gnadsbqh","slide":26,"name":"screen-check","text":"화면에서 확인할 것\n• 통합 점검 명령 접수\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 통합 점검 명령 접수 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":59,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/vqxwn29s","slide":26,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/apovexs7","slide":26,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/ap8nahsz","slide":26,"name":"","geometry":"roundRect","alt":"통합 점검 명령 접수 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/d141s1","slide":26,"text":"[강사 안내]\n- 경로: Systems Manager → Run Command\n- 확인: 통합 점검 명령 접수\n\n[Sources]\n- https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/g406et","slide":27,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/4red0vqh","slide":27,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/tobe1s3u","slide":27,"name":"slide-title","text":"실습 화면 17: 통합 점검 전체 성공","textPreview":"실습 화면 17: 통합 점검 전체 성공","textChars":21,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/sn2d8nm9","slide":27,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/ix0v2d47","slide":27,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/5kruxs3i","slide":27,"name":"console-path","text":"Systems Manager → Run Command","textPreview":"Systems Manager → Run Command","textChars":29,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/4jid4nmx","slide":27,"name":"screen-check","text":"화면에서 확인할 것\n• 통합 점검 전체 성공\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 통합 점검 전체 성공 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":59,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/vu9cry5g","slide":27,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/utgvyt4v","slide":27,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/ep0fudgj","slide":27,"name":"","geometry":"roundRect","alt":"통합 점검 전체 성공 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/g406et","slide":27,"text":"[강사 안내]\n- 경로: Systems Manager → Run Command\n- 확인: 통합 점검 전체 성공\n\n[Sources]\n- https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/n1dxpc","slide":28,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/k72xcnyx","slide":28,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/dgjy5kby","slide":28,"name":"slide-title","text":"실습 화면 18: 자격 증명·S3·ECR·Compose·API·UI 결과","textPreview":"실습 화면 18: 자격 증명·S3·ECR·Compose·API·UI 결과","textChars":40,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/cfqxczat","slide":28,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/2p8f65sb","slide":28,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/pczy1kb2","slide":28,"name":"console-path","text":"Systems Manager → Run Command","textPreview":"Systems Manager → Run Command","textChars":29,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/4bqx8fah","slide":28,"name":"screen-check","text":"화면에서 확인할 것\n• 서울 리전·datasets/models·ECR 1.0/1.1·두 컨테이너 Up·API healthy·UI ok\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 서울 리전·datasets/models·ECR 1.0/1.1·두 컨테이너 Up·API healthy·UI ok |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":109,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/nm1gbe9g","slide":28,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/mlszi9sv","slide":28,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/6l8v65c7","slide":28,"name":"","geometry":"roundRect","alt":"자격 증명·S3·ECR·Compose·API·UI 결과 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/n1dxpc","slide":28,"text":"[강사 안내]\n- 경로: Systems Manager → Run Command\n- 확인: 서울 리전·datasets/models·ECR 1.0/1.1·두 컨테이너 Up·API healthy·UI ok\n\n[Sources]\n- https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/7g6eim","slide":29,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/xkrud0ra","slide":29,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/y1ojq94j","slide":29,"name":"slide-title","text":"실습 화면 19: 통합 점검 명령 기록","textPreview":"실습 화면 19: 통합 점검 명령 기록","textChars":21,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/z2x0jel4","slide":29,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/98z2po36","slide":29,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/m5oju94f","slide":29,"name":"console-path","text":"Systems Manager → Run Command","textPreview":"Systems Manager → Run Command","textChars":29,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/n6xknel0","slide":29,"name":"screen-check","text":"화면에서 확인할 것\n• 통합 점검 명령 기록\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 통합 점검 명령 기록 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":59,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/wbq1032x","slide":29,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/xwz2to32","slide":29,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/rapwvidw","slide":29,"name":"","geometry":"roundRect","alt":"통합 점검 명령 기록 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/7g6eim","slide":29,"text":"[강사 안내]\n- 경로: Systems Manager → Run Command\n- 확인: 통합 점검 명령 기록\n\n[Sources]\n- https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/bntg00","slide":30,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/50f2x8j6","slide":30,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/et4nip43","slide":30,"name":"slide-title","text":"실습 화면 20: 실습 종료 인스턴스 중지 확인","textPreview":"실습 화면 20: 실습 종료 인스턴스 중지 확인","textChars":26,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/fudobulo","slide":30,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/dsv69k3y","slide":30,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/q5knep47","slide":30,"name":"console-path","text":"EC2 → ysu-mlops-lab-ec2","textPreview":"EC2 → ysu-mlops-lab-ec2","textChars":23,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/r6t47uls","slide":30,"name":"screen-check","text":"화면에서 확인할 것\n• 실습 종료 인스턴스 중지 확인\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 실습 종료 인스턴스 중지 확인 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":64,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/4325cfm1","slide":30,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/54bm5k3m","slide":30,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/z6903ul0","slide":30,"name":"","geometry":"roundRect","alt":"실습 종료 인스턴스 중지 확인 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/bntg00","slide":30,"text":"[강사 안내]\n- 경로: EC2 → ysu-mlops-lab-ec2\n- 확인: 실습 종료 인스턴스 중지 확인\n\n[Sources]\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/1gbzw4","slide":31,"title":"클라우드 MLOps · 09주차","textShapes":7}
+{"kind":"textbox","id":"sh/zqto7adg","slide":31,"name":"eyebrow","text":"클라우드 MLOps · 09주차","textPreview":"클라우드 MLOps · 09주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/0nm10vi9","slide":31,"name":"slide-title","text":"실습 화면 21: EC2 중지 요청 완료","textPreview":"실습 화면 21: EC2 중지 요청 완료","textChars":22,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/lov290ze","slide":31,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/rytk3qhc","slide":31,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/cz21wvix","slide":31,"name":"console-path","text":"EC2 → ysu-mlops-lab-ec2","textPreview":"EC2 → ysu-mlops-lab-ec2","textChars":23,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/dkb250zi","slide":31,"name":"screen-check","text":"화면에서 확인할 것\n• EC2 중지 요청 완료\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • EC2 중지 요청 완료 |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":60,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/ato36p0b","slide":31,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/vuxkfuhw","slide":31,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/p4ra9o32","slide":31,"name":"","geometry":"roundRect","alt":"EC2 중지 요청 완료 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/1gbzw4","slide":31,"text":"[강사 안내]\n- 경로: EC2 → ysu-mlops-lab-ec2\n- 확인: EC2 중지 요청 완료\n\n[Sources]\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html\n- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}

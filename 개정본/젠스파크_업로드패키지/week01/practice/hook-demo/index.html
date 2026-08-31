@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>중고 노트북 가격 예측 체험</title>
+  <style>
+    :root { color-scheme: dark; --bg:#08111f; --panel:#101d31; --line:#263a56; --mint:#20d6b5; --text:#f3f7fb; --muted:#a7b6ca; }
+    * { box-sizing: border-box; }
+    body { margin:0; min-height:100vh; font-family: Pretendard, "Apple SD Gothic Neo", sans-serif; background:radial-gradient(circle at 85% 10%,#17395a 0,#08111f 38%); color:var(--text); }
+    main { width:min(1120px,92vw); margin:0 auto; padding:54px 0 44px; }
+    .tag { color:var(--mint); font-weight:800; letter-spacing:.06em; }
+    h1 { margin:12px 0 8px; font-size:clamp(38px,5vw,68px); line-height:1.08; }
+    .lead { margin:0 0 32px; color:var(--muted); font-size:22px; }
+    .grid { display:grid; grid-template-columns:1.05fr .95fr; gap:24px; }
+    section { background:rgba(16,29,49,.94); border:1px solid var(--line); border-radius:24px; padding:28px; box-shadow:0 22px 60px rgba(0,0,0,.28); }
+    h2 { margin:0 0 22px; font-size:24px; }
+    label { display:block; margin:17px 0 8px; color:#d9e3ef; font-weight:700; }
+    input, select { width:100%; padding:14px 16px; border-radius:12px; border:1px solid #39506e; background:#0a1628; color:white; font-size:18px; }
+    button { width:100%; margin-top:24px; padding:17px; border:0; border-radius:14px; background:var(--mint); color:#05231d; font-size:20px; font-weight:900; cursor:pointer; }
+    .price { margin:22px 0 8px; color:var(--mint); font-size:52px; font-weight:900; letter-spacing:-.04em; }
+    .explain { color:var(--muted); font-size:17px; line-height:1.6; }
+    pre { margin:22px 0 0; padding:18px; min-height:150px; overflow:auto; border-radius:14px; background:#050b14; border:1px solid #263a56; color:#bdd6ff; font:16px/1.55 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .note { margin-top:24px; text-align:center; color:#8fa1b8; font-size:15px; }
+    @media (max-width:800px) { .grid { grid-template-columns:1fr; } main { padding-top:30px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="tag">첫 수업 5분 체험</div>
+    <h1>이 노트북, 중고로 얼마에 올릴까요?</h1>
+    <p class="lead">먼저 여러분이 가격을 예상한 뒤, 화면의 예측 결과와 비교해 보세요.</p>
+    <div class="grid">
+      <section>
+        <h2>노트북 상태 입력</h2>
+        <label for="original">새 제품 가격</label>
+        <input id="original" type="number" value="1500000" min="300000" step="100000">
+        <label for="years">사용 기간</label>
+        <select id="years"><option value="1">1년</option><option value="2">2년</option><option value="3" selected>3년</option><option value="4">4년</option><option value="5">5년 이상</option></select>
+        <label for="battery">배터리 성능</label>
+        <input id="battery" type="number" value="78" min="40" max="100">
+        <label for="condition">외관 상태</label>
+        <select id="condition"><option value="1">A · 거의 새 제품</option><option value="0.88" selected>B · 생활 흠집</option><option value="0.72">C · 눈에 띄는 흠집</option></select>
+        <button id="predict">예상 가격 보기</button>
+      </section>
+      <section aria-live="polite">
+        <h2>예측 서비스 응답</h2>
+        <div class="price" id="price">—</div>
+        <p class="explain" id="explain">버튼을 누르면 사용자가 보는 가격과 프로그램이 받는 응답이 함께 나타납니다.</p>
+        <pre id="json">POST /predict
+
+아직 요청하지 않았습니다.</pre>
+      </section>
+    </div>
+    <p class="note">수업용 체험 모델입니다. 실제 중고 거래 가격을 보장하지 않습니다.</p>
+  </main>
+  <script>
+    const won = n => new Intl.NumberFormat('ko-KR').format(n) + '원';
+    function predict() {
+      const original = Number(document.querySelector('#original').value);
+      const years = Number(document.querySelector('#years').value);
+      const battery = Number(document.querySelector('#battery').value);
+      const condition = Number(document.querySelector('#condition').value);
+      const depreciation = Math.pow(0.78, years);
+      const batteryFactor = 0.72 + Math.max(0, Math.min(100, battery)) / 350;
+      const price = Math.max(90000, Math.round(original * depreciation * batteryFactor * condition / 10000) * 10000);
+      document.querySelector('#price').textContent = won(price);
+      document.querySelector('#explain').textContent = '같은 화면을 친구에게 보내도 입력과 결과가 같은 방식으로 동작합니다. 이것이 “모델을 서비스로 만든다”는 뜻입니다.';
+      document.querySelector('#json').textContent = JSON.stringify({
+        request: { original_price: original, years_used: years, battery_health: battery, condition: document.querySelector('#condition').selectedOptions[0].text.slice(0,1) },
+        response: { predicted_price: price, model_version: 'class-demo-v1' }
+      }, null, 2);
+    }
+    document.querySelector('#predict').addEventListener('click', predict);
+  </script>
+</body>
+</html>

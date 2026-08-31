@@ -1,0 +1,670 @@
+{"kind":"deck","id":"pr/zdnsxu","name":"Deck"}
+{"kind":"layout","layoutId":"/ppt/slideMasters/slideMaster1.xml","name":"","type":"master"}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout1.xml","name":"DEFAULT"}
+{"kind":"slide","id":"sl/y90nupkv","slide":1,"title":"11  주차","textShapes":5}
+{"kind":"shape","id":"sh/547294r6","slide":1,"name":"Shape 0","bbox":[998.4,-144,499.2,499.2]}
+{"kind":"shape","id":"sh/k3yl0zql","slide":1,"name":"Shape 1","bbox":[1123.2,441.6,297.6,297.6]}
+{"kind":"textbox","id":"sh/7qp4be9c","slide":1,"name":"Text 2","text":"11  주차","textPreview":"11  주차","textChars":6,"textLines":1,"bbox":[59.52,129.6,576,134.4]}
+{"kind":"textbox","id":"sh/65g3298r","slide":1,"name":"Text 3","text":"생성형 AI 활용 (Amazon Bedrock)","textPreview":"생성형 AI 활용 (Amazon Bedrock)","textChars":26,"textLines":1,"bbox":[59.52,283.2,902.4,144]}
+{"kind":"textbox","id":"sh/ts7md4r2","slide":1,"name":"Text 4","text":"Bedrock을 boto3로 호출해 예측 결과를 설명하는 엔드포인트를 팀 API에 하나 붙일 수 있다","textPreview":"Bedrock을 boto3로 호출해 예측 결과를 설명하는 엔드포인트를 팀 API에 하나 붙일 수 있다","textChars":56,"textLines":1,"bbox":[59.52,436.8,883.2,86.4]}
+{"kind":"shape","id":"sh/sryl4zqx","slide":1,"name":"Shape 5","bbox":[59.52,549.12,883.2,1.92]}
+{"kind":"textbox","id":"sh/fu94fe98","slide":1,"name":"Text 6","text":"클라우드 MLOps · 연성대학교 · 230분","textPreview":"클라우드 MLOps · 연성대학교 · 230분","textChars":25,"textLines":1,"bbox":[59.52,566.4,576,32.64]}
+{"kind":"textbox","id":"sh/utg3698n","slide":1,"name":"Text 7","text":"NCS  2001070106_18v1.3   2001070206_18v1.1","textPreview":"NCS  2001070106_18v1.3   2001070206_18v1.1","textChars":42,"textLines":1,"bbox":[59.52,600.96,1056,32.64]}
+{"kind":"notes","id":"nt/y90nupkv","slide":1,"text":"지난주까지 여러분의 API는 숫자를 하나 뱉습니다. 오늘은 그 숫자에 말을 붙입니다. 숫자를 만드는 건 여러분 모델이고, 그 숫자를 사람 말로 바꾸는 건 오늘 배울 생성형 AI입니다.\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/hwbqtkby","slide":2,"title":"오늘의 흐름","textShapes":20}
+{"kind":"textbox","id":"sh/9072xkry","slide":2,"name":"Text 0","text":"오늘의 흐름","textPreview":"오늘의 흐름","textChars":6,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/ozy1ofad","slide":2,"name":"Text 1","text":"230분 · 10분 조기 종료","textPreview":"230분 · 10분 조기 종료","textChars":16,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/b29kza94","slide":2,"name":"Shape 2","bbox":[59.52,155.52,1160.93,55.68]}
+{"kind":"textbox","id":"sh/a10jqpsj","slide":2,"name":"Text 3","text":"도입 — 복습 퀴즈 + 오늘 만들 결과물 데모","textPreview":"도입 — 복습 퀴즈 + 오늘 만들 결과물 데모","textChars":25,"textLines":1,"bbox":[80.64,155.52,806.4,55.68]}
+{"kind":"textbox","id":"sh/x4r21kru","slide":2,"name":"Text 4","text":"10분","textPreview":"10분","textChars":3,"textLines":1,"bbox":[1038.05,155.52,158.4,55.68]}
+{"kind":"shape","id":"sh/w3i1sfa9","slide":2,"name":"Shape 5","bbox":[59.52,218.88,1160.93,55.68]}
+{"kind":"textbox","id":"sh/r65knqtk","slide":2,"name":"Text 6","text":"이론 — 파운데이션 모델, 토큰과 과금, LLM vs 전통 ML, 한계","textPreview":"이론 — 파운데이션 모델, 토큰과 과금, LLM vs 전통 ML, 한계","textChars":39,"textLines":1,"bbox":[80.64,218.88,806.4,55.68]}
+{"kind":"textbox","id":"sh/q5wjelsz","slide":2,"name":"Text 7","text":"45분","textPreview":"45분","textChars":3,"textLines":1,"bbox":[1038.05,218.88,158.4,55.68]}
+{"kind":"shape","id":"sh/ove9o7yd","slide":2,"name":"Shape 8","bbox":[59.52,282.24,1160.93,55.68]}
+{"kind":"textbox","id":"sh/9wnqhczy","slide":2,"name":"Text 9","text":"휴식","textPreview":"휴식","textChars":2,"textLines":1,"bbox":[80.64,282.24,806.4,55.68]}
+{"kind":"textbox","id":"sh/mtwrmxg7","slide":2,"name":"Text 10","text":"10분","textPreview":"10분","textChars":3,"textLines":1,"bbox":[1038.05,282.24,158.4,55.68]}
+{"kind":"shape","id":"sh/nu58f2hs","slide":2,"name":"Shape 11","bbox":[59.52,345.6,1160.93,55.68]}
+{"kind":"textbox","id":"sh/wjy9sry9","slide":2,"name":"Text 12","text":"실습 A — 모델 액세스 확인, 첫 호출, 프롬프트 실험","textPreview":"실습 A — 모델 액세스 확인, 첫 호출, 프롬프트 실험","textChars":31,"textLines":1,"bbox":[80.64,345.6,806.4,55.68]}
+{"kind":"textbox","id":"sh/xk7qlczu","slide":2,"name":"Text 13","text":"50분","textPreview":"50분","textChars":3,"textLines":1,"bbox":[1038.05,345.6,158.4,55.68]}
+{"kind":"shape","id":"sh/ahwrqhgj","slide":2,"name":"Shape 14","bbox":[59.52,408.96,1160.93,55.68]}
+{"kind":"textbox","id":"sh/bip8jmho","slide":2,"name":"Text 15","text":"휴식","textPreview":"휴식","textChars":2,"textLines":1,"bbox":[80.64,408.96,806.4,55.68]}
+{"kind":"textbox","id":"sh/cnupgny5","slide":2,"name":"Text 16","text":"10분","textPreview":"10분","textChars":3,"textLines":1,"bbox":[1038.05,408.96,158.4,55.68]}
+{"kind":"shape","id":"sh/do3q9szq","slide":2,"name":"Shape 17","bbox":[59.52,472.32,1160.93,55.68]}
+{"kind":"textbox","id":"sh/t8byxkn2","slide":2,"name":"Text 18","text":"실습 B — 팀 API에 LLM 보조 기능 하나 붙이기","textPreview":"실습 B — 팀 API에 LLM 보조 기능 하나 붙이기","textChars":30,"textLines":1,"bbox":[80.64,472.32,806.4,55.68]}
+{"kind":"textbox","id":"sh/s72xofmh","slide":2,"name":"Text 19","text":"85분","textPreview":"85분","textChars":3,"textLines":1,"bbox":[1038.05,472.32,158.4,55.68]}
+{"kind":"shape","id":"sh/76twva5c","slide":2,"name":"Shape 20","bbox":[59.52,535.68,1160.93,55.68]}
+{"kind":"textbox","id":"sh/65kfmpor","slide":2,"name":"Text 21","text":"체크포인트 제출 + 다음 주 예고","textPreview":"체크포인트 제출 + 다음 주 예고","textChars":18,"textLines":1,"bbox":[80.64,535.68,806.4,55.68]}
+{"kind":"textbox","id":"sh/hcvy14ne","slide":2,"name":"Text 22","text":"15분","textPreview":"15분","textChars":3,"textLines":1,"bbox":[1038.05,535.68,158.4,55.68]}
+{"kind":"shape","id":"sh/gbmxszmt","slide":2,"name":"Shape 23","bbox":[59.52,599.04,1160.93,55.68]}
+{"kind":"textbox","id":"sh/fadgzu58","slide":2,"name":"Text 24","text":"리소스 정리 타임","textPreview":"리소스 정리 타임","textChars":9,"textLines":1,"bbox":[80.64,599.04,806.4,55.68]}
+{"kind":"textbox","id":"sh/u94fqp4n","slide":2,"name":"Text 25","text":"5분","textPreview":"5분","textChars":2,"textLines":1,"bbox":[1038.05,599.04,158.4,55.68]}
+{"kind":"textbox","id":"sh/p0vy54na","slide":2,"name":"Text 26","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/4zmxwzmp","slide":2,"name":"Text 27","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/hwbqtkby","slide":2,"text":"오늘은 상시 과금 리소스가 없어서 지난주보다 마음이 편한 회차입니다. 다만 반복문 안에서 호출하는 사고가 나면 순식간에 수천 번이 나가니 그 부분만 조심하자고 시작하면서 말해두세요.\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/ofy9wn61","slide":3,"title":"1","textShapes":3}
+{"kind":"shape","id":"sh/cza94vmx","slide":3,"name":"Shape 0","bbox":[59.52,261.12,105.6,105.6]}
+{"kind":"textbox","id":"sh/d0jax03i","slide":3,"name":"Text 1","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[59.52,261.12,105.6,105.6]}
+{"kind":"textbox","id":"sh/298ryl4v","slide":3,"name":"Text 2","text":"이론 — 생성형 AI를 어디에 쓰나","textPreview":"이론 — 생성형 AI를 어디에 쓰나","textChars":19,"textLines":1,"bbox":[198.72,255.36,912,74.88]}
+{"kind":"textbox","id":"sh/3ah8rqlg","slide":3,"name":"Text 3","text":"45분 · 오늘의 핵심은 판단 기준입니다","textPreview":"45분 · 오늘의 핵심은 판단 기준입니다","textChars":22,"textLines":1,"bbox":[198.72,332.16,912,42.24]}
+{"kind":"notes","id":"nt/ofy9wn61","slide":3,"text":"\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/jyx0ra1s","slide":4,"title":"187.4","textShapes":2}
+{"kind":"textbox","id":"sh/1cj2d8b6","slide":4,"name":"Text 0","text":"187.4\n이 숫자를 보고 무엇을 할까요?","textPreview":"187.4 | 이 숫자를 보고 무엇을 할까요?","textChars":23,"textLines":2,"bbox":[124.8,201.6,1030.37,316.8]}
+{"kind":"textbox","id":"sh/0ba143al","slide":4,"name":"Text 1","text":"많은 건지 적은 건지, 왜 그런지 모릅니다","textPreview":"많은 건지 적은 건지, 왜 그런지 모릅니다","textChars":23,"textLines":1,"bbox":[124.8,508.8,1030.37,57.6]}
+{"kind":"notes","id":"nt/jyx0ra1s","slide":4,"text":"학생들에게 실제로 물어보세요. 따릉이 운영 담당자가 이 숫자만 보고 할 수 있는 일이 사실 별로 없습니다. 오늘 우리는 여기에 이유와 조치를 붙인 문장을 만들어 붙입니다.\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/i107q5of","slide":5,"title":"우리 모델과 파운데이션 모델","textShapes":21}
+{"kind":"textbox","id":"sh/dgbulwnm","slide":5,"name":"Text 0","text":"우리 모델과 파운데이션 모델","textPreview":"우리 모델과 파운데이션 모델","textChars":15,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/cf2tcr61","slide":5,"name":"Text 1","text":"만들어진 방식이 근본적으로 다릅니다","textPreview":"만들어진 방식이 근본적으로 다릅니다","textChars":19,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/z2tcnm5s","slide":5,"name":"Shape 2","bbox":[59.52,161.28,32.64,32.64]}
+{"kind":"textbox","id":"sh/yhkbe1o7","slide":5,"name":"Text 3","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[59.52,161.28,32.64,32.64]}
+{"kind":"textbox","id":"sh/l4bupwny","slide":5,"name":"Text 4","text":"우리 모델은 기능공","textPreview":"우리 모델은 기능공","textChars":10,"textLines":1,"bbox":[107.52,157.44,625.34,40.32]}
+{"kind":"textbox","id":"sh/032tgr6d","slide":5,"name":"Text 5","text":"자격증 하나. 그 일은 정확하지만 그 일만 합니다","textPreview":"자격증 하나. 그 일은 정확하지만 그 일만 합니다","textChars":27,"textLines":1,"bbox":[107.52,197.76,625.34,50.5]}
+{"kind":"shape","id":"sh/n6dcr65o","slide":5,"name":"Shape 6","bbox":[59.52,259.78,32.64,32.64]}
+{"kind":"textbox","id":"sh/m5kbi1oj","slide":5,"name":"Text 7","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[59.52,259.78,32.64,32.64]}
+{"kind":"textbox","id":"sh/w32dkbuh","slide":5,"name":"Text 8","text":"파운데이션 모델은 신입사원","textPreview":"파운데이션 모델은 신입사원","textChars":14,"textLines":1,"bbox":[107.52,255.94,625.34,40.32]}
+{"kind":"textbox","id":"sh/x4vedgvm","slide":5,"name":"Text 9","text":"책을 아주 많이 읽었지만 우리 회사 사정은 모릅니다","textPreview":"책을 아주 많이 읽었지만 우리 회사 사정은 모릅니다","textChars":28,"textLines":1,"bbox":[107.52,296.26,625.34,50.5]}
+{"kind":"shape","id":"sh/ahkvi1cb","slide":5,"name":"Shape 10","bbox":[59.52,358.27,32.64,32.64]}
+{"kind":"textbox","id":"sh/v2twb6dw","slide":5,"name":"Text 11","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[59.52,358.27,32.64,32.64]}
+{"kind":"textbox","id":"sh/k7mxovud","slide":5,"name":"Text 12","text":"쓰는 법이 다르다","textPreview":"쓰는 법이 다르다","textChars":9,"textLines":1,"bbox":[107.52,354.43,625.34,40.32]}
+{"kind":"textbox","id":"sh/58vehgvy","slide":5,"name":"Text 13","text":"재학습이 아니라 프롬프트, 즉 지시문을 씁니다","textPreview":"재학습이 아니라 프롬프트, 즉 지시문을 씁니다","textChars":25,"textLines":1,"bbox":[107.52,394.75,625.34,50.5]}
+{"kind":"shape","id":"sh/i54fmlc7","slide":5,"name":"Shape 14","bbox":[59.52,456.77,32.64,32.64]}
+{"kind":"textbox","id":"sh/j6dwfqds","slide":5,"name":"Text 15","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[59.52,456.77,32.64,32.64]}
+{"kind":"textbox","id":"sh/sb6xsvu9","slide":5,"name":"Text 16","text":"Bedrock은 창구","textPreview":"Bedrock은 창구","textChars":11,"textLines":1,"bbox":[107.52,452.93,625.34,40.32]}
+{"kind":"textbox","id":"sh/tcfel0vu","slide":5,"name":"Text 17","text":"여러 회사의 모델을 AWS API 하나로 골라 씁니다","textPreview":"여러 회사의 모델을 AWS API 하나로 골라 씁니다","textChars":29,"textLines":1,"bbox":[107.52,493.25,625.34,50.5]}
+{"kind":"shape","id":"sh/hgrmpwj2","slide":5,"name":"Shape 18","bbox":[59.52,555.26,32.64,32.64]}
+{"kind":"textbox","id":"sh/gfi5grih","slide":5,"name":"Text 19","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[59.52,555.26,32.64,32.64]}
+{"kind":"textbox","id":"sh/fe94nm1w","slide":5,"name":"Text 20","text":"서버가 없다","textPreview":"서버가 없다","textChars":6,"textLines":1,"bbox":[107.52,551.42,625.34,40.32]}
+{"kind":"textbox","id":"sh/ud0ne10b","slide":5,"name":"Text 21","text":"부른 만큼만 냅니다. 안 부르면 0원입니다","textPreview":"부른 만큼만 냅니다. 안 부르면 0원입니다","textChars":23,"textLines":1,"bbox":[107.52,591.74,625.34,50.5]}
+{"kind":"shape","id":"sh/pkr6tgjy","slide":5,"name":"Shape 22","bbox":[766.46,277.92,453.99,242.88]}
+{"kind":"textbox","id":"sh/4ji5kbid","slide":5,"name":"Text 23","text":"지난주와 비교","textPreview":"지난주와 비교","textChars":7,"textLines":1,"bbox":[795.26,300.96,396.39,42.24]}
+{"kind":"textbox","id":"sh/3i94r61s","slide":5,"name":"Text 24","text":"엔드포인트는 켜두면 과금\nBedrock은 호출할 때만\n지울 리소스가 없습니다","textPreview":"엔드포인트는 켜두면 과금 | Bedrock은 호출할 때만 | 지울 리소스가 없습니다","textChars":42,"textLines":3,"bbox":[795.26,350.88,396.39,146.88]}
+{"kind":"textbox","id":"sh/2h0ni107","slide":5,"name":"Text 25","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/5o7mhcju","slide":5,"name":"Text 26","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/i107q5of","slide":5,"text":"파운데이션 모델은 특정 업무가 아니라 언어 자체를 학습했다는 점을 강조하세요. 그래서 요약도 번역도 분류도 코드 작성도 학습을 다시 시키지 않고 합니다. 이게 일하는 방식이 바뀐 지점입니다.\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/x8f69ofe","slide":6,"title":"좋은 프롬프트의 네 요소","textShapes":16}
+{"kind":"textbox","id":"sh/yhg7epsj","slide":6,"name":"Text 0","text":"좋은 프롬프트의 네 요소","textPreview":"좋은 프롬프트의 네 요소","textChars":13,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/zi98nu94","slide":6,"name":"Text 1","text":"실무 프롬프트는 형식 지정이 절반을 차지합니다","textPreview":"실무 프롬프트는 형식 지정이 절반을 차지합니다","textChars":25,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/87ipkzal","slide":6,"name":"Shape 2","bbox":[59.52,196.32,565.1,190.08]}
+{"kind":"shape","id":"sh/98rqt4r6","slide":6,"name":"Shape 3","bbox":[86.4,221.28,40.32,40.32]}
+{"kind":"textbox","id":"sh/ml07i9sv","slide":6,"name":"Text 4","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[86.4,221.28,40.32,40.32]}
+{"kind":"textbox","id":"sh/7m98ru9g","slide":6,"name":"Text 5","text":"역할","textPreview":"역할","textChars":2,"textLines":1,"bbox":[140.16,219.36,459.5,44.16]}
+{"kind":"textbox","id":"sh/oryp8fah","slide":6,"name":"Text 6","text":"너는 따릉이 운영 담당자를 돕는 데이터 분석 어시스턴트다. 모델이 어떤 입장에서 말할지를 정해줍니다.","textPreview":"너는 따릉이 운영 담당자를 돕는 데이터 분석 어시스턴트다. 모델이 어떤 입장에서 말할지를 정해줍니다.","textChars":56,"textLines":1,"bbox":[140.16,273.12,454.7,92.16]}
+{"kind":"shape","id":"sh/pc76hkr2","slide":6,"name":"Shape 7","bbox":[655.34,196.32,565.1,190.08]}
+{"kind":"shape","id":"sh/h4bupgn6","slide":6,"name":"Shape 8","bbox":[682.22,221.28,40.32,40.32]}
+{"kind":"textbox","id":"sh/w32twb6l","slide":6,"name":"Text 9","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[682.22,221.28,40.32,40.32]}
+{"kind":"textbox","id":"sh/v2tcn650","slide":6,"name":"Text 10","text":"맥락","textPreview":"맥락","textChars":2,"textLines":1,"bbox":[735.98,219.36,459.5,44.16]}
+{"kind":"textbox","id":"sh/u1kbu1ov","slide":6,"name":"Text 11","text":"오늘 18시 대여량을 187건으로 예측했고 같은 시간대 평균은 150건이다. 판단 근거가 될 사실을 줍니다.","textPreview":"오늘 18시 대여량을 187건으로 예측했고 같은 시간대 평균은 150건이다. 판단 근거가 될 사실을 줍니다.","textChars":60,"textLines":1,"bbox":[735.98,273.12,454.7,92.16]}
+{"kind":"shape","id":"sh/5svutgni","slide":6,"name":"Shape 12","bbox":[59.52,417.12,565.1,190.08]}
+{"kind":"shape","id":"sh/47mt0b6x","slide":6,"name":"Shape 13","bbox":[86.4,442.08,40.32,40.32]}
+{"kind":"textbox","id":"sh/j6dcr65c","slide":6,"name":"Text 14","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[86.4,442.08,40.32,40.32]}
+{"kind":"textbox","id":"sh/i54bylor","slide":6,"name":"Text 15","text":"지시","textPreview":"지시","textChars":2,"textLines":1,"bbox":[140.16,440.16,459.5,44.16]}
+{"kind":"textbox","id":"sh/twfux0ne","slide":6,"name":"Text 16","text":"왜 이런 예측이 나왔는지 입력 조건에 근거해 설명하라. 시킬 일을 동사로 분명히 적습니다.","textPreview":"왜 이런 예측이 나왔는지 입력 조건에 근거해 설명하라. 시킬 일을 동사로 분명히 적습니다.","textChars":50,"textLines":1,"bbox":[140.16,493.92,454.7,92.16]}
+{"kind":"shape","id":"sh/svmt4v6t","slide":6,"name":"Shape 17","bbox":[655.34,417.12,565.1,190.08]}
+{"kind":"shape","id":"sh/cbe5g3ih","slide":6,"name":"Shape 18","bbox":[682.22,442.08,40.32,40.32]}
+{"kind":"textbox","id":"sh/dcnm98zm","slide":6,"name":"Text 19","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[682.22,442.08,40.32,40.32]}
+{"kind":"textbox","id":"sh/qpwnet0b","slide":6,"name":"Text 20","text":"형식","textPreview":"형식","textChars":2,"textLines":1,"bbox":[735.98,440.16,459.5,44.16]}
+{"kind":"textbox","id":"sh/bq547yhw","slide":6,"name":"Text 21","text":"3문장 이내, 존댓말, 숫자는 반드시 포함. 형식을 안 정하면 매번 길이가 달라져 화면이 깨집니다.","textPreview":"3문장 이내, 존댓말, 숫자는 반드시 포함. 형식을 안 정하면 매번 길이가 달라져 화면이 깨집니다.","textChars":55,"textLines":1,"bbox":[735.98,493.92,454.7,92.16]}
+{"kind":"textbox","id":"sh/0fy5k3id","slide":6,"name":"Text 22","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/lg76d8zy","slide":6,"name":"Text 23","text":"6","textPreview":"6","textChars":1,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/x8f69ofe","slide":6,"text":"잘 설명해줘와 3문장 이내로 숫자를 인용해서 설명해줘의 차이를 실습 A에서 눈으로 보게 됩니다. API로 쓰려면 출력이 예측 가능해야 하니 형식 지정은 선택이 아니라 필수라고 말해주세요.\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/gnmp4jqx","slide":7,"title":"이번 회차 1인 예상 비용","textShapes":4}
+{"kind":"textbox","id":"sh/cb2tkvap","slide":7,"name":"Text 0","text":"이번 회차 1인 예상 비용","textPreview":"이번 회차 1인 예상 비용","textChars":14,"textLines":1,"bbox":[59.52,69.12,1160.93,57.6]}
+{"kind":"textbox","id":"sh/dcbud0ra","slide":7,"name":"Text 1","text":"약 $1","textPreview":"약 $1","textChars":4,"textLines":1,"bbox":[59.52,148.8,487.59,182.4]}
+{"kind":"textbox","id":"sh/ydkbm5sv","slide":7,"name":"Text 2","text":"시간당이 아니라 토큰당 과금입니다","textPreview":"시간당이 아니라 토큰당 과금입니다","textChars":18,"textLines":1,"bbox":[570.33,148.8,650.12,182.4]}
+{"kind":"textbox","id":"sh/zedcfa9g","slide":7,"name":"Text 3","text":"토큰은 글자를 쪼갠 단위. 한국어는 대체로 글자 수에 가까워 영어보다 많이 씁니다\n입력 토큰과 출력 토큰의 값이 다릅니다. 보통 출력이 3~5배 비쌉니다\n긴 프롬프트는 매 호출마다 청구됩니다. 100번 부르면 100배입니다\nmax_tokens 300은 안전벨트입니다. 모델이 폭주하는 것을 막습니다","textPreview":"토큰은 글자를 쪼갠 단위. 한국어는 대체로 글자 수에 가까워 영어보다 많이 씁니다 | 입력 토큰과 출력 토큰의 값이 다릅니다. 보통 출력이 3~5배 비쌉니다 | 긴 프롬프트는 매 호출마다 청구됩니다. 100번 부르면 100배입니다 | max_to...","textChars":166,"textLines":4,"bbox":[59.52,360,1160.93,288]}
+{"kind":"notes","id":"nt/gnmp4jqx","slide":7,"text":"프롬프트에 참고 자료라며 문서 10페이지를 붙이면 매 호출마다 그 10페이지가 청구된다는 것을 강조하세요. 프롬프트를 짧고 정확하게 쓰는 것은 품질 문제이자 비용 문제입니다.\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/fu1gfa1s","slide":8,"title":"언제 LLM, 언제 전통 ML","textShapes":4}
+{"kind":"textbox","id":"sh/18byd4zy","slide":8,"name":"Text 0","text":"언제 LLM, 언제 전통 ML","textPreview":"언제 LLM, 언제 전통 ML","textChars":16,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/g72x4zyd","slide":8,"name":"Text 1","text":"오늘 시험에서든 면접에서든 답할 수 있어야 하는 부분","textPreview":"오늘 시험에서든 면접에서든 답할 수 있어야 하는 부분","textChars":29,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"textbox","id":"sh/6h0fypgb","slide":8,"name":"Text 2","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/tkby9kzm","slide":8,"name":"Text 3","text":"8","textPreview":"8","textChars":1,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"table","id":"tb/503u1oze","slide":8,"name":"Table 0","rows":7,"cols":3,"preview":"판단 축 | 전통 ML을 쓴다 | LLM을 쓴다","bbox":[59.52,155.52,1160.93,96]}
+{"kind":"notes","id":"nt/fu1gfa1s","slide":8,"text":"요즘 현업에서 가장 흔한 실수가 일단 LLM에 넣어보자입니다. 계산기로 될 일에 슈퍼컴퓨터를 부르는 겁니다. 그리고 오늘 우리가 하는 건 둘을 합치는 것입니다. 숫자는 우리 모델, 그 숫자의 해석은 LLM입니다.\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/udsvah03","slide":9,"title":"생성형 AI의 네 가지 한계","textShapes":16}
+{"kind":"textbox","id":"sh/1cfmhgne","slide":9,"name":"Text 0","text":"생성형 AI의 네 가지 한계","textPreview":"생성형 AI의 네 가지 한계","textChars":15,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/0b65obm9","slide":9,"name":"Text 1","text":"모르고 서비스에 붙이면 사고가 납니다","textPreview":"모르고 서비스에 붙이면 사고가 납니다","textChars":20,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/nex4jq5k","slide":9,"name":"Shape 2","bbox":[59.52,196.32,565.1,190.08]}
+{"kind":"shape","id":"sh/mdonql4z","slide":9,"name":"Shape 3","bbox":[86.4,221.28,40.32,40.32]}
+{"kind":"textbox","id":"sh/9gzml0nq","slide":9,"name":"Text 4","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[86.4,221.28,40.32,40.32]}
+{"kind":"textbox","id":"sh/ofq5svm5","slide":9,"name":"Text 5","text":"환각","textPreview":"환각","textChars":2,"textLines":1,"bbox":[140.16,219.36,459.5,44.16]}
+{"kind":"textbox","id":"sh/bih4na5w","slide":9,"name":"Text 6","text":"모르는 것을 모른다고 하지 않고 그럴듯하게 지어냅니다. 문장이 자연스러워서 사람이 믿는다는 게 가장 위험합니다.","textPreview":"모르는 것을 모른다고 하지 않고 그럴듯하게 지어냅니다. 문장이 자연스러워서 사람이 믿는다는 게 가장 위험합니다.","textChars":62,"textLines":1,"bbox":[140.16,273.12,454.7,92.16]}
+{"kind":"shape","id":"sh/ah8nu54b","slide":9,"name":"Shape 7","bbox":[655.34,196.32,565.1,190.08]}
+{"kind":"shape","id":"sh/oza1gfyh","slide":9,"name":"Shape 8","bbox":[682.22,221.28,40.32,40.32]}
+{"kind":"textbox","id":"sh/p0ji9kf2","slide":9,"name":"Text 9","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[682.22,221.28,40.32,40.32]}
+{"kind":"textbox","id":"sh/2xsjepgb","slide":9,"name":"Text 10","text":"비결정성","textPreview":"비결정성","textChars":4,"textLines":1,"bbox":[735.98,219.36,459.5,44.16]}
+{"kind":"textbox","id":"sh/3y107axw","slide":9,"name":"Text 11","text":"같은 질문에 매번 다른 답이 옵니다. temperature를 낮춰도 완전히 같아지지는 않아 자동 테스트가 어렵습니다.","textPreview":"같은 질문에 매번 다른 답이 옵니다. temperature를 낮춰도 완전히 같아지지는 않아 자동 테스트가 어렵습니다.","textChars":65,"textLines":1,"bbox":[735.98,273.12,454.7,92.16]}
+{"kind":"shape","id":"sh/cnu1kzyd","slide":9,"name":"Shape 12","bbox":[59.52,417.12,565.1,190.08]}
+{"kind":"shape","id":"sh/do3id4fy","slide":9,"name":"Shape 13","bbox":[86.4,442.08,40.32,40.32]}
+{"kind":"textbox","id":"sh/qlcjipgn","slide":9,"name":"Text 14","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[86.4,442.08,40.32,40.32]}
+{"kind":"textbox","id":"sh/bml0buxs","slide":9,"name":"Text 15","text":"비용과 지연","textPreview":"비용과 지연","textChars":6,"textLines":1,"bbox":[140.16,440.16,459.5,44.16]}
+{"kind":"textbox","id":"sh/0ru1ozyp","slide":9,"name":"Text 16","text":"1~3초가 걸립니다. 화면에 생성 중 표시가 없으면 사용자가 계속 눌러 호출도 요금도 몇 배가 됩니다.","textPreview":"1~3초가 걸립니다. 화면에 생성 중 표시가 없으면 사용자가 계속 눌러 호출도 요금도 몇 배가 됩니다.","textChars":57,"textLines":1,"bbox":[140.16,493.92,454.7,92.16]}
+{"kind":"shape","id":"sh/lsn2h4fa","slide":9,"name":"Shape 17","bbox":[655.34,417.12,565.1,190.08]}
+{"kind":"shape","id":"sh/98ji147e","slide":9,"name":"Shape 18","bbox":[682.22,442.08,40.32,40.32]}
+{"kind":"textbox","id":"sh/87a18zqt","slide":9,"name":"Text 19","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[682.22,442.08,40.32,40.32]}
+{"kind":"textbox","id":"sh/76h0zup8","slide":9,"name":"Text 20","text":"개인정보","textPreview":"개인정보","textChars":4,"textLines":1,"bbox":[735.98,440.16,459.5,44.16]}
+{"kind":"textbox","id":"sh/ml8j6p8n","slide":9,"name":"Text 21","text":"실명, 연락처, 주민번호, 주소를 프롬프트에 넣지 않습니다. 필요한 필드만 골라 넣는 습관을 들이세요.","textPreview":"실명, 연락처, 주민번호, 주소를 프롬프트에 넣지 않습니다. 필요한 필드만 골라 넣는 습관을 들이세요.","textChars":57,"textLines":1,"bbox":[735.98,493.92,454.7,92.16]}
+{"kind":"textbox","id":"sh/hcji5o7a","slide":9,"name":"Text 22","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/wba1cjqp","slide":9,"name":"Text 23","text":"9","textPreview":"9","textChars":1,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/udsvah03","slide":9,"text":"환각 방어법 두 가지를 오늘 실습 프롬프트에 실제로 넣을 겁니다. 제공된 정보에만 근거하라, 그리고 모르면 모른다고 답하라. 개인정보 위반은 교육계획서상 프로젝트 0점이니 농담이 아니라고 말해주세요.\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/m90b6t0r","slide":10,"title":"LLM은 결정하는 자리가 아니라","textShapes":2}
+{"kind":"textbox","id":"sh/xc3mho32","slide":10,"name":"Text 0","text":"LLM은 결정하는 자리가 아니라\n설명하는 자리에 둡니다","textPreview":"LLM은 결정하는 자리가 아니라 | 설명하는 자리에 둡니다","textChars":30,"textLines":2,"bbox":[124.8,201.6,1030.37,316.8]}
+{"kind":"textbox","id":"sh/cbu58j2h","slide":10,"name":"Text 1","text":"판단은 우리 모델이, 전달은 LLM이","textPreview":"판단은 우리 모델이, 전달은 LLM이","textChars":20,"textLines":1,"bbox":[124.8,508.8,1030.37,57.6]}
+{"kind":"notes","id":"nt/m90b6t0r","slide":10,"text":"이 원칙 하나만 지켜도 방금 본 네 가지 위험의 대부분이 사라집니다. 대출 심사에서 같은 사람에게 오늘은 승인 내일은 거절이 나오면 큰일 난다는 예를 들어주면 바로 이해합니다.\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/jetc3ut0","slide":11,"title":"2","textShapes":3}
+{"kind":"shape","id":"sh/xcryxg7y","slide":11,"name":"Shape 0","bbox":[59.52,261.12,105.6,105.6]}
+{"kind":"textbox","id":"sh/wbih4b6d","slide":11,"name":"Text 1","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[59.52,261.12,105.6,105.6]}
+{"kind":"textbox","id":"sh/n69grmpw","slide":11,"name":"Text 2","text":"실습 A — Bedrock 첫 호출과 프롬프트 실험","textPreview":"실습 A — Bedrock 첫 호출과 프롬프트 실험","textChars":28,"textLines":1,"bbox":[198.72,255.36,912,74.88]}
+{"kind":"textbox","id":"sh/250zy18b","slide":11,"name":"Text 3","text":"50분 · 다 함께 따라합니다","textPreview":"50분 · 다 함께 따라합니다","textChars":16,"textLines":1,"bbox":[198.72,332.16,912,42.24]}
+{"kind":"notes","id":"nt/jetc3ut0","slide":11,"text":"\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/8f2psfyx","slide":12,"title":"실습 A 수행 순서","textShapes":19}
+{"kind":"textbox","id":"sh/1gbm9s3a","slide":12,"name":"Text 0","text":"실습 A 수행 순서","textPreview":"실습 A 수행 순서","textChars":10,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/0f2lgnmp","slide":12,"name":"Text 1","text":"모델 ID는 오늘 배포한 목록의 값을 그대로 복사해 씁니다","textPreview":"모델 ID는 오늘 배포한 목록의 값을 그대로 복사해 씁니다","textChars":32,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/ra943il8","slide":12,"name":"Shape 2","bbox":[59.52,155.52,1160.93,85.06]}
+{"kind":"shape","id":"sh/q903ad4n","slide":12,"name":"Shape 3","bbox":[82.56,177.89,40.32,40.32]}
+{"kind":"textbox","id":"sh/dcbm583y","slide":12,"name":"Text 4","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[82.56,177.89,40.32,40.32]}
+{"kind":"textbox","id":"sh/sb2lcnmd","slide":12,"name":"Text 5","text":"모델 액세스 상태 확인","textPreview":"모델 액세스 상태 확인","textChars":12,"textLines":1,"bbox":[144,168.96,1045.73,38.4]}
+{"kind":"textbox","id":"sh/b6d4f2lc","slide":12,"name":"Text 6","text":"콘솔 Bedrock의 Model access 에서 Access granted 인지 봅니다","textPreview":"콘솔 Bedrock의 Model access 에서 Access granted 인지 봅니다","textChars":49,"textLines":1,"bbox":[144,207.36,1045.73,29.38]}
+{"kind":"shape","id":"sh/a543mx4r","slide":12,"name":"Shape 7","bbox":[59.52,254.02,1160.93,85.06]}
+{"kind":"shape","id":"sh/wvupgz6t","slide":12,"name":"Shape 8","bbox":[82.56,276.38,40.32,40.32]}
+{"kind":"textbox","id":"sh/xw3q94ne","slide":12,"name":"Text 9","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[82.56,276.38,40.32,40.32]}
+{"kind":"textbox","id":"sh/atc7epon","slide":12,"name":"Text 10","text":"사용 가능한 모델 목록 확인","textPreview":"사용 가능한 모델 목록 확인","textChars":15,"textLines":1,"bbox":[144,267.46,1045.73,38.4]}
+{"kind":"textbox","id":"sh/bulo7u58","slide":12,"name":"Text 11","text":"서울 리전에서 실제로 부를 수 있는 모델인지 CLI로 확인합니다","textPreview":"서울 리전에서 실제로 부를 수 있는 모델인지 CLI로 확인합니다","textChars":35,"textLines":1,"bbox":[144,305.86,1045.73,29.38]}
+{"kind":"shape","id":"sh/orapcf6h","slide":12,"name":"Shape 12","bbox":[59.52,352.51,1160.93,85.06]}
+{"kind":"shape","id":"sh/9sj65kn2","slide":12,"name":"Shape 13","bbox":[82.56,374.88,40.32,40.32]}
+{"kind":"textbox","id":"sh/mps7a5or","slide":12,"name":"Text 14","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[82.56,374.88,40.32,40.32]}
+{"kind":"textbox","id":"sh/nq1o3a5w","slide":12,"name":"Text 15","text":"파이썬 환경 준비","textPreview":"파이썬 환경 준비","textChars":9,"textLines":1,"bbox":[144,365.95,1045.73,38.4]}
+{"kind":"textbox","id":"sh/0nap8f6l","slide":12,"name":"Text 16","text":"boto3 1.35 이상이어야 Converse API를 쓸 수 있습니다","textPreview":"boto3 1.35 이상이어야 Converse API를 쓸 수 있습니다","textChars":39,"textLines":1,"bbox":[144,404.35,1045.73,29.38]}
+{"kind":"shape","id":"sh/1oj61kn6","slide":12,"name":"Shape 17","bbox":[59.52,451.01,1160.93,85.06]}
+{"kind":"shape","id":"sh/hkbm5wzu","slide":12,"name":"Shape 18","bbox":[82.56,473.38,40.32,40.32]}
+{"kind":"textbox","id":"sh/gj25cry9","slide":12,"name":"Text 19","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[82.56,473.38,40.32,40.32]}
+{"kind":"textbox","id":"sh/fit436ho","slide":12,"name":"Text 20","text":"첫 호출과 토큰 수 확인","textPreview":"첫 호출과 토큰 수 확인","textChars":13,"textLines":1,"bbox":[144,464.45,1045.73,38.4]}
+{"kind":"textbox","id":"sh/uh0na1g3","slide":12,"name":"Text 21","text":"응답 문장과 함께 입력·출력 토큰이 찍히는지 봅니다","textPreview":"응답 문장과 함께 입력·출력 토큰이 찍히는지 봅니다","textChars":28,"textLines":1,"bbox":[144,502.85,1045.73,29.38]}
+{"kind":"shape","id":"sh/tgrm1wzy","slide":12,"name":"Shape 22","bbox":[59.52,549.5,1160.93,85.06]}
+{"kind":"shape","id":"sh/sfi58ryd","slide":12,"name":"Shape 23","bbox":[82.56,571.87,40.32,40.32]}
+{"kind":"textbox","id":"sh/7u94zmhs","slide":12,"name":"Text 24","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[82.56,571.87,40.32,40.32]}
+{"kind":"textbox","id":"sh/6t0n6hg7","slide":12,"name":"Text 25","text":"프롬프트를 바꿔가며 실험","textPreview":"프롬프트를 바꿔가며 실험","textChars":13,"textLines":1,"bbox":[144,562.94,1045.73,38.4]}
+{"kind":"textbox","id":"sh/dcv6dgz2","slide":12,"name":"Text 26","text":"형식 지정의 효과와 temperature의 효과를 기록합니다","textPreview":"형식 지정의 효과와 temperature의 효과를 기록합니다","textChars":33,"textLines":1,"bbox":[144,601.34,1045.73,29.38]}
+{"kind":"textbox","id":"sh/cbm5kbyh","slide":12,"name":"Text 27","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/alwbitsn","slide":12,"name":"Text 28","text":"12","textPreview":"12","textChars":2,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/8f2psfyx","slide":12,"text":"1번과 2번에서 문제가 생기면 다음으로 넘어가지 말고 바로 부르라고 하세요. 액세스 미승인은 학생이 해결할 수 없습니다. 승인이 안 된 학생에게는 미리 준비한 대체 모델 ID를 주고 진행시킵니다.\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/hgzapcr6","slide":13,"title":"모델 액세스와 환경 준비","textShapes":7}
+{"kind":"textbox","id":"sh/q50nydsj","slide":13,"name":"Text 0","text":"모델 액세스와 환경 준비","textPreview":"모델 액세스와 환경 준비","textChars":13,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/bq9orito","slide":13,"name":"Text 1","text":"EC2 또는 CloudShell에서 실행합니다","textPreview":"EC2 또는 CloudShell에서 실행합니다","textChars":25,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/o3i5w3ad","slide":13,"name":"Shape 2","bbox":[59.52,155.52,1160.93,454.08]}
+{"kind":"textbox","id":"sh/p4r6p8by","slide":13,"name":"Text 3","text":"bash","textPreview":"bash","textChars":4,"textLines":1,"bbox":[1076.45,167.04,124.8,26.88]}
+{"kind":"textbox","id":"sh/21gnuts7","slide":13,"name":"Text 4","text":"# 1. 서울 리전에서 실제로 부를 수 있는 모델 목록\naws bedrock list-foundation-models --region ap-northeast-2 \\\n  --query \"modelSummaries[].[modelId,providerName]\" \\\n  --output table\n\n# 2. 파이썬 환경 준비\nmkdir -p ~/bedrock-lab && cd ~/bedrock-lab\npython3 -m venv .venv\nsource .venv/bin/activate\npip install --upgrade pip\npip install \"boto3>=1.35.0\"\npython -c \"import boto3; print(boto3.__version__)\"\n\n# 3. 내가 누구로 호출하는지 확인 (키는 쓰지 않는다)\naws sts get-caller-identity","textPreview":"# 1. 서울 리전에서 실제로 부를 수 있는 모델 목록 | aws bedrock list-foundation-models --region ap-northeast-2 \\ |   --query \"modelSummaries[].[modelId,prov...","textChars":436,"textLines":15,"bbox":[92.16,180.48,1095.65,406.08]}
+{"kind":"textbox","id":"sh/32ponyts","slide":13,"name":"Text 5","text":"목록이 비어 있거나 권한 오류가 나면 다음으로 넘어가지 말고 손을 드세요","textPreview":"목록이 비어 있거나 권한 오류가 나면 다음으로 넘어가지 말고 손을 드세요","textChars":40,"textLines":1,"bbox":[59.52,621.12,1160.93,32.64]}
+{"kind":"textbox","id":"sh/gzy5s3a1","slide":13,"name":"Text 6","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/1076lobm","slide":13,"name":"Text 7","text":"13","textPreview":"13","textChars":2,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/hgzapcr6","slide":13,"text":"1번 결과가 아무것도 안 나오면 모델 액세스나 IAM 권한 문제입니다. 그리고 3번을 꼭 같이 쳐보게 하세요. 액세스 키를 적지 않아도 EC2에 붙은 역할로 호출된다는 것을 지난주 이론과 연결해 확인시키는 단계입니다.\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/6lsnupw7","slide":14,"title":"Bedrock 호출 함수 (1/2)","textShapes":7}
+{"kind":"textbox","id":"sh/xc7eds76","slide":14,"name":"Text 0","text":"Bedrock 호출 함수 (1/2)","textPreview":"Bedrock 호출 함수 (1/2)","textChars":19,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/wbydknq1","slide":14,"name":"Text 1","text":"bedrock_demo.py · Converse API로 통일해서 씁니다","textPreview":"bedrock_demo.py · Converse API로 통일해서 씁니다","textChars":40,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/jepwf2pc","slide":14,"name":"Shape 2","bbox":[59.52,155.52,1160.93,454.08]}
+{"kind":"textbox","id":"sh/idgvmx8r","slide":14,"name":"Text 3","text":"python","textPreview":"python","textChars":6,"textLines":1,"bbox":[1076.45,167.04,124.8,26.88]}
+{"kind":"textbox","id":"sh/5grehs7i","slide":14,"name":"Text 4","text":"import boto3\n\nREGION = \"ap-northeast-2\"\n# 모델 ID는 수업 당일 배포 목록의 값을 그대로 복사해 넣는다\nMODEL_ID = \"<수업당일_배포_모델ID>\"\nclient = boto3.client(\"bedrock-runtime\", region_name=REGION)\n\ndef generate(prompt, system=\"\", max_tokens=300, temperature=0.2):\n    \"\"\"프롬프트를 받아 생성 결과와 토큰 사용량을 함께 돌려준다.\"\"\"\n    kwargs = {\n        \"modelId\": MODEL_ID,\n        \"messages\": [{\"role\": \"user\", \"content\": [{\"text\": prompt}]}],\n        \"inferenceConfig\": {\"maxTokens\": max_tokens,\n                            \"temperature\": temperature},\n    }\n    if system:\n        kwargs[\"system\"] = [{\"text\": system}]","textPreview":"import boto3 |  | REGION = \"ap-northeast-2\" | # 모델 ID는 수업 당일 배포 목록의 값을 그대로 복사해 넣는다 | MODEL_ID = \"<수업당일_배포_모델ID>\" | client = boto3.client(...","textChars":567,"textLines":17,"bbox":[92.16,180.48,1095.65,406.08]}
+{"kind":"textbox","id":"sh/kfidonqx","slide":14,"name":"Text 5","text":"max_tokens 기본값 300이 비용 안전벨트입니다. 지우지 마세요","textPreview":"max_tokens 기본값 300이 비용 안전벨트입니다. 지우지 마세요","textChars":39,"textLines":1,"bbox":[59.52,621.12,1160.93,32.64]}
+{"kind":"textbox","id":"sh/zi5c3y98","slide":14,"name":"Text 6","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/ehwvat8n","slide":14,"name":"Text 7","text":"14","textPreview":"14","textChars":2,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/6lsnupw7","slide":14,"text":"모델 ID를 임의로 바꾸면 대부분 ValidationException이 납니다. 배포 목록의 값을 복사해 붙이라고 두 번 말하세요. 그리고 시스템 프롬프트 자리를 비워둔 이유는 뒤 실험에서 있고 없고를 비교하기 위해서입니다.\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/vaxsvy10","slide":15,"title":"프롬프트 실험 · 세 가지를 비교","textShapes":18}
+{"kind":"textbox","id":"sh/547mhg3m","slide":15,"name":"Text 0","text":"프롬프트 실험 · 세 가지를 비교","textPreview":"프롬프트 실험 · 세 가지를 비교","textChars":18,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/k3y5ov21","slide":15,"name":"Text 1","text":"같은 내용을 세 방식으로 부르고 출력을 나란히 봅니다","textPreview":"같은 내용을 세 방식으로 부르고 출력을 나란히 봅니다","textChars":29,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/76p4jqls","slide":15,"name":"Shape 2","bbox":[59.52,161.28,32.64,32.64]}
+{"kind":"textbox","id":"sh/65gnqlk7","slide":15,"name":"Text 3","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[59.52,161.28,32.64,32.64]}
+{"kind":"textbox","id":"sh/t87ml0ji","slide":15,"name":"Text 4","text":"A · 지시만","textPreview":"A · 지시만","textChars":7,"textLines":1,"bbox":[107.52,157.44,625.34,40.32]}
+{"kind":"textbox","id":"sh/s7y5sv2x","slide":15,"name":"Text 5","text":"이 예측을 설명해 주세요. 길고 산만한 답이 옵니다","textPreview":"이 예측을 설명해 주세요. 길고 산만한 답이 옵니다","textChars":28,"textLines":1,"bbox":[107.52,197.76,625.34,75.12]}
+{"kind":"shape","id":"sh/na5476l8","slide":15,"name":"Shape 6","bbox":[59.52,284.4,32.64,32.64]}
+{"kind":"textbox","id":"sh/m9c3e1kn","slide":15,"name":"Text 7","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[59.52,284.4,32.64,32.64]}
+{"kind":"textbox","id":"sh/wrm9kvep","slide":15,"name":"Text 8","text":"B · 형식 추가","textPreview":"B · 형식 추가","textChars":9,"textLines":1,"bbox":[107.52,280.56,625.34,40.32]}
+{"kind":"textbox","id":"sh/hsvat0fa","slide":15,"name":"Text 9","text":"3문장 이내 존댓말로 숫자를 인용해 설명해 주세요","textPreview":"3문장 이내 존댓말로 숫자를 인용해 설명해 주세요","textChars":27,"textLines":1,"bbox":[107.52,320.88,625.34,75.12]}
+{"kind":"shape","id":"sh/upkrilwj","slide":15,"name":"Shape 10","bbox":[59.52,407.52,32.64,32.64]}
+{"kind":"textbox","id":"sh/vqdsrqx4","slide":15,"name":"Text 11","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[59.52,407.52,32.64,32.64]}
+{"kind":"textbox","id":"sh/4vm9ovel","slide":15,"name":"Text 12","text":"C · 역할과 제약까지","textPreview":"C · 역할과 제약까지","textChars":12,"textLines":1,"bbox":[107.52,403.68,625.34,40.32]}
+{"kind":"textbox","id":"sh/5wvax0f6","slide":15,"name":"Text 13","text":"제공된 정보에만 근거하라, 모르면 모른다고 답하라","textPreview":"제공된 정보에만 근거하라, 모르면 모른다고 답하라","textChars":27,"textLines":1,"bbox":[107.52,444,625.34,75.12]}
+{"kind":"shape","id":"sh/it4rm5wv","slide":15,"name":"Shape 14","bbox":[59.52,530.64,32.64,32.64]}
+{"kind":"textbox","id":"sh/judsvqxg","slide":15,"name":"Text 15","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[59.52,530.64,32.64,32.64]}
+{"kind":"textbox","id":"sh/0z29cbyh","slide":15,"name":"Text 16","text":"기록할 것","textPreview":"기록할 것","textChars":5,"textLines":1,"bbox":[107.52,526.8,625.34,40.32]}
+{"kind":"textbox","id":"sh/l0bqlgf2","slide":15,"name":"Text 17","text":"각 출력의 토큰 수, 문장 수, 지어낸 것 같은 문장 유무","textPreview":"각 출력의 토큰 수, 문장 수, 지어낸 것 같은 문장 유무","textChars":32,"textLines":1,"bbox":[107.52,567.12,625.34,75.12]}
+{"kind":"shape","id":"sh/1kjyt83e","slide":15,"name":"Shape 18","bbox":[766.46,277.92,453.99,242.88]}
+{"kind":"textbox","id":"sh/gjax03m9","slide":15,"name":"Text 19","text":"관찰 포인트","textPreview":"관찰 포인트","textChars":6,"textLines":1,"bbox":[795.26,300.96,396.39,42.24]}
+{"kind":"textbox","id":"sh/fi1grylo","slide":15,"name":"Text 20","text":"B에서 길이가 짧아진다\nC에서 추측이 줄어든다\n토큰이 곧 비용이다","textPreview":"B에서 길이가 짧아진다 | C에서 추측이 줄어든다 | 토큰이 곧 비용이다","textChars":36,"textLines":3,"bbox":[795.26,350.88,396.39,146.88]}
+{"kind":"textbox","id":"sh/ehsfyt43","slide":15,"name":"Text 21","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/p8jyx83q","slide":15,"name":"Text 22","text":"15","textPreview":"15","textChars":2,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/vaxsvy10","slide":15,"text":"C에서 강남역 인근이 붐비기 때문 같은 근거 없는 문장이 줄어드는 것을 학생들이 직접 확인하게 하세요. 이게 이론에서 말한 환각 방어가 실제로 작동하는 모습입니다.\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/gny5sjyp","slide":16,"title":"Bedrock 호출 함수 (2/2)","textShapes":7}
+{"kind":"textbox","id":"sh/8z2h8bq1","slide":16,"name":"Text 0","text":"Bedrock 호출 함수 (2/2)","textPreview":"Bedrock 호출 함수 (2/2)","textChars":19,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/9kby1g7m","slide":16,"name":"Text 1","text":"응답에서 텍스트와 토큰 수를 함께 꺼냅니다","textPreview":"응답에서 텍스트와 토큰 수를 함께 꺼냅니다","textChars":23,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/ytkf2h8j","slide":16,"name":"Shape 2","bbox":[59.52,155.52,1160.93,454.08]}
+{"kind":"textbox","id":"sh/zutgvm94","slide":16,"name":"Text 3","text":"python","textPreview":"python","textChars":6,"textLines":1,"bbox":[1076.45,167.04,124.8,26.88]}
+{"kind":"textbox","id":"sh/kv2h4rqp","slide":16,"name":"Text 4","text":"    resp = client.converse(**kwargs)\n    return {\n        \"text\": resp[\"output\"][\"message\"][\"content\"][0][\"text\"],\n        \"input_tokens\": resp[\"usage\"][\"inputTokens\"],\n        \"output_tokens\": resp[\"usage\"][\"outputTokens\"],\n        \"stop_reason\": resp[\"stopReason\"],\n    }\n\n\nif __name__ == \"__main__\":\n    out = generate(\"따릉이를 두 문장으로 소개해 주세요.\")\n    print(out[\"text\"])\n    print(\"입력 토큰:\", out[\"input_tokens\"],\n          \"/ 출력 토큰:\", out[\"output_tokens\"])\n    print(\"종료 이유:\", out[\"stop_reason\"])","textPreview":"resp = client.converse(**kwargs) |     return { |         \"text\": resp[\"output\"][\"message\"][\"content\"][0][\"text\"], |         \"input_token...","textChars":493,"textLines":15,"bbox":[92.16,180.48,1095.65,406.08]}
+{"kind":"textbox","id":"sh/lwbyxwra","slide":16,"name":"Text 5","text":"종료 이유가 end_turn 이면 정상, max_tokens 면 답이 중간에 잘린 것입니다","textPreview":"종료 이유가 end_turn 이면 정상, max_tokens 면 답이 중간에 잘린 것입니다","textChars":50,"textLines":1,"bbox":[59.52,621.12,1160.93,32.64]}
+{"kind":"textbox","id":"sh/ip4zel83","slide":16,"name":"Text 6","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/3qdg7qpo","slide":16,"name":"Text 7","text":"16","textPreview":"16","textChars":2,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/gny5sjyp","slide":16,"text":"토큰 수를 매번 출력하는 습관을 들이게 하세요. 짧은 한국어와 짧은 영어를 한 번씩 넣어보면 한국어가 토큰을 더 많이 쓴다는 것을 숫자로 확인할 수 있습니다.\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/14bup87q","slide":17,"title":"비결정성을 직접 확인하기","textShapes":7}
+{"kind":"textbox","id":"sh/1c7e50ni","slide":17,"name":"Text 0","text":"비결정성을 직접 확인하기","textPreview":"비결정성을 직접 확인하기","textChars":13,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/gbedwfmx","slide":17,"name":"Text 1","text":"exp2.py · 같은 프롬프트를 온도만 바꿔 세 번씩","textPreview":"exp2.py · 같은 프롬프트를 온도만 바꿔 세 번씩","textChars":30,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/rm5czq50","slide":17,"name":"Shape 2","bbox":[59.52,155.52,1160.93,454.08]}
+{"kind":"textbox","id":"sh/6lwvql4v","slide":17,"name":"Text 3","text":"python","textPreview":"python","textChars":6,"textLines":1,"bbox":[1076.45,167.04,124.8,26.88]}
+{"kind":"textbox","id":"sh/t8ne10n6","slide":17,"name":"Text 4","text":"from bedrock_demo import generate\n\nPROMPT = (\"따릉이 대여량이 평소보다 25% 많을 것으로 예상됩니다. \"\n          \"운영 담당자에게 보낼 안내 문구를 한 문장으로 작성하세요.\")\n\nfor temp in (0.0, 0.7):\n    print(\"=\" * 50)\n    print(\"temperature =\", temp)\n    for i in range(3):     # 반복 횟수를 3으로 제한 (비용 안전장치)\n        r = generate(PROMPT, max_tokens=120, temperature=temp)\n        print(f\"  [{i+1}] {r['text'].strip()}\")","textPreview":"from bedrock_demo import generate |  | PROMPT = (\"따릉이 대여량이 평소보다 25% 많을 것으로 예상됩니다. \" |           \"운영 담당자에게 보낼 안내 문구를 한 문장으로 작성하세요.\") |  | ...","textChars":367,"textLines":11,"bbox":[92.16,180.48,1095.65,406.08]}
+{"kind":"textbox","id":"sh/snedsvml","slide":17,"name":"Text 5","text":"온도 0.0은 세 번이 거의 같고 0.7은 표현이 눈에 띄게 달라집니다","textPreview":"온도 0.0은 세 번이 거의 같고 0.7은 표현이 눈에 띄게 달라집니다","textChars":39,"textLines":1,"bbox":[59.52,621.12,1160.93,32.64]}
+{"kind":"textbox","id":"sh/jilcvq54","slide":17,"name":"Text 6","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/ihcvml4j","slide":17,"name":"Text 7","text":"17","textPreview":"17","textChars":2,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/14bup87q","slide":17,"text":"반복문 안에 LLM 호출이 들어간 첫 코드입니다. range(3)이 왜 필요한지 반드시 짚고 넘어가세요. 이 제한이 없으면 실수 한 번에 수천 번 호출이 나갑니다.\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/y5wne50z","slide":18,"title":"여기서 막히면","textShapes":4}
+{"kind":"textbox","id":"sh/wrelszu9","slide":18,"name":"Text 0","text":"여기서 막히면","textPreview":"여기서 막히면","textChars":7,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/hsn2l4bu","slide":18,"name":"Text 1","text":"실습 A에서 실제로 터지는 문제","textPreview":"실습 A에서 실제로 터지는 문제","textChars":17,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"textbox","id":"sh/je5knut0","slide":18,"name":"Text 2","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/4felwzu5","slide":18,"name":"Text 3","text":"18","textPreview":"18","textChars":2,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"table","id":"tb/0zy9cbal","slide":18,"name":"Table 0","rows":7,"cols":3,"preview":"증상 | 원인 | 조치","bbox":[59.52,155.52,1160.93,96]}
+{"kind":"notes","id":"nt/y5wne50z","slide":18,"text":"첫 줄이 오늘 최다 사고입니다. 액세스 상태가 요청 가능이나 진행 중이면 즉시 알리라고 하세요. 승인이 바로 나지 않을 수 있으니 대체 모델 ID를 미리 준비해 두고 그걸로 진행시킵니다.\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/nid43ytk","slide":19,"title":"3","textShapes":3}
+{"kind":"shape","id":"sh/9gb6xgbi","slide":19,"name":"Shape 0","bbox":[59.52,261.12,105.6,105.6]}
+{"kind":"textbox","id":"sh/8v2pobax","slide":19,"name":"Text 1","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[59.52,261.12,105.6,105.6]}
+{"kind":"textbox","id":"sh/vitozqt8","slide":19,"name":"Text 2","text":"실습 B — 팀 API에 보조 기능 붙이기","textPreview":"실습 B — 팀 API에 보조 기능 붙이기","textChars":23,"textLines":1,"bbox":[198.72,255.36,912,74.88]}
+{"kind":"textbox","id":"sh/ahk7qls3","slide":19,"name":"Text 3","text":"85분 · 만들 것은 엔드포인트 딱 하나","textPreview":"85분 · 만들 것은 엔드포인트 딱 하나","textChars":22,"textLines":1,"bbox":[198.72,332.16,912,42.24]}
+{"kind":"notes","id":"nt/nid43ytk","slide":19,"text":"\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/zyxsni5k","slide":20,"title":"실습 B 수행 순서","textShapes":19}
+{"kind":"textbox","id":"sh/qpwjmh8n","slide":20,"name":"Text 0","text":"실습 B 수행 순서","textPreview":"실습 B 수행 순서","textChars":10,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/rq50vmp8","slide":20,"name":"Text 1","text":"새 프로젝트가 아니라 7주차 코드에 함수 하나를 더 붙입니다","textPreview":"새 프로젝트가 아니라 7주차 코드에 함수 하나를 더 붙입니다","textChars":33,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/4nu1krqh","slide":20,"name":"Shape 2","bbox":[59.52,155.52,1160.93,85.06]}
+{"kind":"shape","id":"sh/po3itc72","slide":20,"name":"Shape 3","bbox":[82.56,177.89,40.32,40.32]}
+{"kind":"textbox","id":"sh/2lczih8r","slide":20,"name":"Text 4","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[82.56,177.89,40.32,40.32]}
+{"kind":"textbox","id":"sh/3ml0rmpw","slide":20,"name":"Text 5","text":"팀 유형 선택","textPreview":"팀 유형 선택","textChars":7,"textLines":1,"bbox":[144,168.96,1045.73,38.4]}
+{"kind":"textbox","id":"sh/gjuhg7ql","slide":20,"name":"Text 6","text":"예측형 팀은 explain, 텍스트형 팀은 summarize 하나만 만듭니다","textPreview":"예측형 팀은 explain, 텍스트형 팀은 summarize 하나만 만듭니다","textChars":42,"textLines":1,"bbox":[144,207.36,1045.73,29.38]}
+{"kind":"shape","id":"sh/hk3ipcr6","slide":20,"name":"Shape 7","bbox":[59.52,254.02,1160.93,85.06]}
+{"kind":"shape","id":"sh/dkfmp4zy","slide":20,"name":"Shape 8","bbox":[82.56,276.38,40.32,40.32]}
+{"kind":"textbox","id":"sh/cj65wzyd","slide":20,"name":"Text 9","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[82.56,276.38,40.32,40.32]}
+{"kind":"textbox","id":"sh/rid4nuhs","slide":20,"name":"Text 10","text":"Bedrock 권한 확인","textPreview":"Bedrock 권한 확인","textChars":13,"textLines":1,"bbox":[144,267.46,1045.73,38.4]}
+{"kind":"textbox","id":"sh/qh4nupg7","slide":20,"name":"Text 11","text":"EC2에 붙은 역할로 호출되는지 확인. 키는 절대 적지 않습니다","textPreview":"EC2에 붙은 역할로 호출되는지 확인. 키는 절대 적지 않습니다","textChars":35,"textLines":1,"bbox":[144,305.86,1045.73,29.38]}
+{"kind":"shape","id":"sh/pwvmlkzm","slide":20,"name":"Shape 12","bbox":[59.52,352.51,1160.93,85.06]}
+{"kind":"shape","id":"sh/4vm5sfy1","slide":20,"name":"Shape 13","bbox":[82.56,374.88,40.32,40.32]}
+{"kind":"textbox","id":"sh/3ud4juhg","slide":20,"name":"Text 14","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[82.56,374.88,40.32,40.32]}
+{"kind":"textbox","id":"sh/2t4nqpgb","slide":20,"name":"Text 15","text":"llm.py 작성","textPreview":"llm.py 작성","textChars":9,"textLines":1,"bbox":[144,365.95,1045.73,38.4]}
+{"kind":"textbox","id":"sh/hsvmhkzq","slide":20,"name":"Text 16","text":"Bedrock 호출을 한 파일에 모으고 시스템 프롬프트를 정합니다","textPreview":"Bedrock 호출을 한 파일에 모으고 시스템 프롬프트를 정합니다","textChars":36,"textLines":1,"bbox":[144,404.35,1045.73,29.38]}
+{"kind":"shape","id":"sh/grm5ofy5","slide":20,"name":"Shape 17","bbox":[59.52,451.01,1160.93,85.06]}
+{"kind":"shape","id":"sh/8b654f61","slide":20,"name":"Shape 18","bbox":[82.56,473.38,40.32,40.32]}
+{"kind":"textbox","id":"sh/tcz6dk7m","slide":20,"name":"Text 19","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[82.56,473.38,40.32,40.32]}
+{"kind":"textbox","id":"sh/69on25ov","slide":20,"name":"Text 20","text":"엔드포인트와 스키마 추가","textPreview":"엔드포인트와 스키마 추가","textChars":13,"textLines":1,"bbox":[144,464.45,1045.73,38.4]}
+{"kind":"textbox","id":"sh/7ax4bapg","slide":20,"name":"Text 21","text":"응답에 토큰 수와 모델 ID를 함께 담아 돌려줍니다","textPreview":"응답에 토큰 수와 모델 ID를 함께 담아 돌려줍니다","textChars":28,"textLines":1,"bbox":[144,502.85,1045.73,29.38]}
+{"kind":"shape","id":"sh/k7650f6p","slide":20,"name":"Shape 22","bbox":[59.52,549.5,1160.93,85.06]}
+{"kind":"shape","id":"sh/l8fm907a","slide":20,"name":"Shape 23","bbox":[82.56,571.87,40.32,40.32]}
+{"kind":"textbox","id":"sh/y5ony58z","slide":20,"name":"Text 24","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[82.56,571.87,40.32,40.32]}
+{"kind":"textbox","id":"sh/j6x47ap4","slide":20,"name":"Text 25","text":"호출 테스트 후 컨테이너 재빌드","textPreview":"호출 테스트 후 컨테이너 재빌드","textChars":17,"textLines":1,"bbox":[144,562.94,1045.73,38.4]}
+{"kind":"textbox","id":"sh/43q5cz69","slide":20,"name":"Text 26","text":"모델 ID는 이미지에 굽지 말고 실행할 때 주입합니다","textPreview":"모델 ID는 이미지에 굽지 말고 실행할 때 주입합니다","textChars":29,"textLines":1,"bbox":[144,601.34,1045.73,29.38]}
+{"kind":"textbox","id":"sh/54j6l47e","slide":20,"name":"Text 27","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/za50r2ds","slide":20,"name":"Text 28","text":"20","textPreview":"20","textChars":2,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/zyxsni5k","slide":20,"text":"욕심내지 말라고 미리 말하세요. 85분 안에 새 기능을 두 개 만들려다 하나도 못 끝내는 팀이 나옵니다. 그리고 오늘 감점 항목 세 가지를 다시 읽어주세요. 개인정보, max_tokens, 반복 건수 제한입니다.\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/m1wvqtk3","slide":21,"title":"app/llm.py — 예측 결과를 설명하게 하기","textShapes":7}
+{"kind":"textbox","id":"sh/1gbmxs7a","slide":21,"name":"Text 0","text":"app/llm.py — 예측 결과를 설명하게 하기","textPreview":"app/llm.py — 예측 결과를 설명하게 하기","textChars":27,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/0f2lon6p","slide":21,"name":"Text 1","text":"환각 방어 문장이 시스템 프롬프트에 들어 있습니다","textPreview":"환각 방어 문장이 시스템 프롬프트에 들어 있습니다","textChars":27,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/ra9kryp8","slide":21,"name":"Shape 2","bbox":[59.52,155.52,1160.93,454.08]}
+{"kind":"textbox","id":"sh/qp03yt8n","slide":21,"name":"Text 3","text":"python","textPreview":"python","textChars":6,"textLines":1,"bbox":[1076.45,167.04,124.8,26.88]}
+{"kind":"textbox","id":"sh/dcb2t87y","slide":21,"name":"Text 4","text":"import os\nimport boto3\n\nREGION = os.getenv(\"AWS_REGION\", \"ap-northeast-2\")\nMODEL_ID = os.getenv(\"BEDROCK_MODEL_ID\", \"<수업당일_배포_모델ID>\")\nMAX_TOKENS = int(os.getenv(\"BEDROCK_MAX_TOKENS\", \"300\"))\n_client = boto3.client(\"bedrock-runtime\", region_name=REGION)\n\nSYSTEM_PROMPT = (\n    \"당신은 공공자전거 운영 담당자를 돕는 데이터 분석 어시스턴트입니다. \"\n    \"반드시 아래에 주어진 수치에만 근거해 설명하고, 주어지지 않은 \"\n    \"사실은 추측하거나 지어내지 마세요. \"\n    \"판단할 수 없으면 주어진 정보로는 알 수 없습니다 라고 답하세요. \"\n    \"항상 한국어 존댓말로, 3문장 이내로 답하세요.\"\n)\n\n# features 에는 예측에 쓴 값만 넣는다. 개인정보 필드는 호출 전에 제거","textPreview":"import os | import boto3 |  | REGION = os.getenv(\"AWS_REGION\", \"ap-northeast-2\") | MODEL_ID = os.getenv(\"BEDROCK_MODEL_ID\", \"<수업당일_배포_모델I...","textChars":511,"textLines":17,"bbox":[92.16,180.48,1095.65,406.08]}
+{"kind":"textbox","id":"sh/sb2lk36t","slide":21,"name":"Text 5","text":"모델 ID도 최대 토큰도 코드에 박지 않고 환경변수로 받습니다. 8주차 이론의 적용입니다","textPreview":"모델 ID도 최대 토큰도 코드에 박지 않고 환경변수로 받습니다. 8주차 이론의 적용입니다","textChars":49,"textLines":1,"bbox":[59.52,621.12,1160.93,32.64]}
+{"kind":"textbox","id":"sh/b6d432pc","slide":21,"name":"Text 6","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/al43uxor","slide":21,"name":"Text 7","text":"21","textPreview":"21","textChars":2,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/m1wvqtk3","slide":21,"text":"시스템 프롬프트 세 줄이 이론 2-4의 환각 방어를 그대로 코드로 옮긴 것입니다. 그리고 마지막 주석이 순회 지도의 1순위 항목입니다. 데이터프레임을 통째로 붙인 팀이 반드시 나옵니다.\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/5onypobq","slide":22,"title":"오늘 반드시 지킬 세 가지","textShapes":7}
+{"kind":"textbox","id":"sh/6987itcr","slide":22,"name":"Text 0","text":"오늘 반드시 지킬 세 가지","textPreview":"오늘 반드시 지킬 세 가지","textChars":14,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/7a18rydc","slide":22,"name":"Text 1","text":"셋 다 감점 항목입니다","textPreview":"셋 다 감점 항목입니다","textChars":12,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/k7qpgjul","slide":22,"name":"Shape 2","bbox":[59.52,155.52,1160.93,412.8]}
+{"kind":"shape","id":"sh/58zqpov6","slide":22,"name":"Shape 3","bbox":[92.16,186.24,59.52,59.52]}
+{"kind":"textbox","id":"sh/il87etcv","slide":22,"name":"Text 4","text":"!","textPreview":"!","textChars":1,"textLines":1,"bbox":[92.16,186.24,59.52,59.52]}
+{"kind":"textbox","id":"sh/jmh8nyd0","slide":22,"name":"Text 5","text":"보조 기능이 본 기능을 죽이지 않게 만드는 것이 오늘의 설계 원칙입니다","textPreview":"보조 기능이 본 기능을 죽이지 않게 만드는 것이 오늘의 설계 원칙입니다","textChars":39,"textLines":1,"bbox":[167.04,184.32,1016.93,65.28]}
+{"kind":"textbox","id":"sh/43u9snu5","slide":22,"name":"Text 6","text":"프롬프트에 개인정보를 넣지 않습니다. 필요한 필드만 골라 넣습니다\nmax_tokens 를 반드시 지정합니다. 우리 실습 기본값은 300입니다\n반복문 안에서 부를 때는 건수를 코드로 제한합니다. 리뷰는 30건까지\nBedrock 호출이 실패해도 예측값은 돌려줍니다. 예외를 잡아 처리합니다\n화면에는 생성 중 표시를 넣습니다. 중복 클릭이 곧 중복 과금입니다","textPreview":"프롬프트에 개인정보를 넣지 않습니다. 필요한 필드만 골라 넣습니다 | max_tokens 를 반드시 지정합니다. 우리 실습 기본값은 300입니다 | 반복문 안에서 부를 때는 건수를 코드로 제한합니다. 리뷰는 30건까지 | Bedrock 호출이 실...","textChars":197,"textLines":5,"bbox":[107.52,263.04,1064.93,278.4]}
+{"kind":"textbox","id":"sh/p43q1sva","slide":22,"name":"Text 7","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/p4z6tcri","slide":22,"name":"Text 8","text":"22","textPreview":"22","textChars":2,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/5onypobq","slide":22,"text":"세 번째가 특히 중요합니다. 데이터프레임을 한 행씩 돌면서 호출하는 코드를 발견하면 즉시 중단시키고 건수 제한을 넣게 하세요. 그리고 네 번째는 운영 원칙이니 그 자리에서 이유를 설명해 주세요.\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/c7uhcr6t","slide":23,"title":"호출 테스트","textShapes":7}
+{"kind":"textbox","id":"sh/90vqdczq","slide":23,"name":"Text 0","text":"호출 테스트","textPreview":"호출 테스트","textChars":6,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/8zm9k7y5","slide":23,"name":"Text 1","text":"응답에 설명 문장과 토큰 수가 함께 나와야 합니다","textPreview":"응답에 설명 문장과 토큰 수가 함께 나와야 합니다","textChars":27,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/v2d8fmhw","slide":23,"name":"Shape 2","bbox":[59.52,155.52,1160.93,454.08]}
+{"kind":"textbox","id":"sh/a14rmhgb","slide":23,"name":"Text 3","text":"bash","textPreview":"bash","textChars":4,"textLines":1,"bbox":[1076.45,167.04,124.8,26.88]}
+{"kind":"textbox","id":"sh/xovqhcz2","slide":23,"name":"Text 4","text":"cd ~/bike-api && source .venv/bin/activate\npip install \"boto3>=1.35.0\"\nexport BEDROCK_MODEL_ID=\"<수업당일_배포_모델ID>\"\nuvicorn app.main:app --host 0.0.0.0 --port 8000\n\n# 다른 터미널에서 호출한다\ncurl -s -X POST http://localhost:8000/explain \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"hour\":18,\"temperature\":24.5,\"humidity\":55.0,\n       \"windspeed\":2.1,\"weekday\":2,\"is_holiday\":0,\n       \"season\":\"summer\"}' \\\n  | python3 -m json.tool\n\n# 컨테이너로 실행할 때도 키를 넣지 않는다 (역할이 상속된다)\ndocker run -d --name bike-api-v2 -p 8000:8000 \\\n  -e BEDROCK_MODEL_ID=\"$BEDROCK_MODEL_ID\" \\\n  -e AWS_REGION=ap-northeast-2 bike-api:v2","textPreview":"cd ~/bike-api && source .venv/bin/activate | pip install \"boto3>=1.35.0\" | export BEDROCK_MODEL_ID=\"<수업당일_배포_모델ID>\" | uvicorn app.main:ap...","textChars":594,"textLines":17,"bbox":[92.16,180.48,1095.65,406.08]}
+{"kind":"textbox","id":"sh/w3m9o7yh","slide":23,"name":"Text 5","text":"제출용 캡처는 한국어 설명과 입력·출력 토큰 수가 한 화면에 보이게 찍습니다","textPreview":"제출용 캡처는 한국어 설명과 입력·출력 토큰 수가 한 화면에 보이게 찍습니다","textChars":42,"textLines":1,"bbox":[59.52,621.12,1160.93,32.64]}
+{"kind":"textbox","id":"sh/jqd8jmhs","slide":23,"name":"Text 6","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/ip4rqhgn","slide":23,"name":"Text 7","text":"23","textPreview":"23","textChars":2,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/c7uhcr6t","slide":23,"text":"컨테이너 안에서 Bedrock을 부를 때 EC2에 붙은 IAM 역할이 그대로 상속된다는 점을 짚어주세요. docker run 에 액세스 키를 넣는 팀이 나오면 그 자리에서 지우게 합니다.\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/7qto7e10","slide":24,"title":"오늘의 체크포인트","textShapes":12}
+{"kind":"textbox","id":"sh/1sfqxsv6","slide":24,"name":"Text 0","text":"오늘의 체크포인트","textPreview":"오늘의 체크포인트","textChars":9,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"textbox","id":"sh/0r6p4nul","slide":24,"name":"Text 1","text":"제출하면 오늘 수업 완료","textPreview":"제출하면 오늘 수업 완료","textChars":13,"textLines":1,"bbox":[59.52,103.68,1160.93,32.64]}
+{"kind":"shape","id":"sh/nux8zidc","slide":24,"name":"Shape 2","bbox":[59.52,225.12,1160.93,75.84]}
+{"kind":"shape","id":"sh/2to76dcr","slide":24,"name":"Shape 3","bbox":[84.48,246.72,32.64,32.64]}
+{"kind":"textbox","id":"sh/9wzq1svi","slide":24,"name":"Text 4","text":"프롬프트 3종 비교 결과","textPreview":"프롬프트 3종 비교 결과","textChars":13,"textLines":1,"bbox":[134.4,235.68,1055.33,38.4]}
+{"kind":"textbox","id":"sh/ov6p8nux","slide":24,"name":"Text 5","text":"A·B·C 출력과 각각의 토큰 수. 스크린샷 또는 텍스트","textPreview":"A·B·C 출력과 각각의 토큰 수. 스크린샷 또는 텍스트","textChars":31,"textLines":1,"bbox":[134.4,273.12,1055.33,23.04]}
+{"kind":"shape","id":"sh/3ydonyd8","slide":24,"name":"Shape 6","bbox":[59.52,313.44,1160.93,75.84]}
+{"kind":"shape","id":"sh/ix47utcn","slide":24,"name":"Shape 7","bbox":[84.48,335.04,32.64,32.64]}
+{"kind":"textbox","id":"sh/8veh8ril","slide":24,"name":"Text 8","text":"온도 0.0 대 0.7 비교 기록","textPreview":"온도 0.0 대 0.7 비교 기록","textChars":18,"textLines":1,"bbox":[134.4,324,1055.33,38.4]}
+{"kind":"textbox","id":"sh/9wni1wjq","slide":24,"name":"Text 9","text":"각 3회씩 돌린 결과를 표로 정리","textPreview":"각 3회씩 돌린 결과를 표로 정리","textChars":18,"textLines":1,"bbox":[134.4,361.44,1055.33,23.04]}
+{"kind":"shape","id":"sh/mtwz6h0f","slide":24,"name":"Shape 10","bbox":[59.52,401.76,1160.93,75.84]}
+{"kind":"shape","id":"sh/nu50zm10","slide":24,"name":"Shape 11","bbox":[84.48,423.36,32.64,32.64]}
+{"kind":"textbox","id":"sh/wzyhcrih","slide":24,"name":"Text 12","text":"팀 API 호출 응답 캡처","textPreview":"팀 API 호출 응답 캡처","textChars":14,"textLines":1,"bbox":[134.4,412.32,1055.33,38.4]}
+{"kind":"textbox","id":"sh/x07i5wj2","slide":24,"name":"Text 13","text":"설명 또는 요약 결과와 토큰 수가 함께 보일 것","textPreview":"설명 또는 요약 결과와 토큰 수가 함께 보일 것","textChars":26,"textLines":1,"bbox":[134.4,449.76,1055.33,23.04]}
+{"kind":"shape","id":"sh/axgza10b","slide":24,"name":"Shape 14","bbox":[59.52,490.08,1160.93,75.84]}
+{"kind":"shape","id":"sh/vyp03m1w","slide":24,"name":"Shape 15","bbox":[84.48,511.68,32.64,32.64]}
+{"kind":"textbox","id":"sh/c3uh07id","slide":24,"name":"Text 16","text":"LLM과 전통 ML을 쓴 자리","textPreview":"LLM과 전통 ML을 쓴 자리","textChars":16,"textLines":1,"bbox":[134.4,500.64,1055.33,38.4]}
+{"kind":"textbox","id":"sh/d43itcjy","slide":24,"name":"Text 17","text":"우리 팀이 어디에 무엇을 썼고 왜 그랬는지 3문장","textPreview":"우리 팀이 어디에 무엇을 썼고 왜 그랬는지 3문장","textChars":27,"textLines":1,"bbox":[134.4,538.08,1055.33,23.04]}
+{"kind":"textbox","id":"sh/t8v6h47a","slide":24,"name":"Text 18","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/s72p8z6p","slide":24,"name":"Text 19","text":"24","textPreview":"24","textChars":2,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/7qto7e10","slide":24,"text":"네 번째가 NCS 평가와 바로 연결됩니다. 우리 팀은 숫자 예측에는 전통 ML을, 결과 설명에는 LLM을 썼다는 식으로 근거를 들어 쓰라고 안내하세요. 최종 발표에서 그대로 쓸 수 있는 문장입니다.\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/69wfm9o7","slide":25,"title":"정리 · 다음 주 예고","textShapes":20}
+{"kind":"textbox","id":"sh/xg7axgf2","slide":25,"name":"Text 0","text":"정리 · 다음 주 예고","textPreview":"정리 · 다음 주 예고","textChars":12,"textLines":1,"bbox":[59.52,36.48,1160.93,69.12]}
+{"kind":"shape","id":"sh/cfyt4beh","slide":25,"name":"Shape 1","bbox":[59.52,134.4,32.64,32.64]}
+{"kind":"textbox","id":"sh/napsr6x0","slide":25,"name":"Text 2","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[59.52,134.4,32.64,32.64]}
+{"kind":"textbox","id":"sh/29wby1wf","slide":25,"name":"Text 3","text":"오늘 배운 것","textPreview":"오늘 배운 것","textChars":7,"textLines":1,"bbox":[107.52,130.56,625.34,40.32]}
+{"kind":"textbox","id":"sh/pc7atgf6","slide":25,"name":"Text 4","text":"파운데이션 모델은 재학습이 아니라 프롬프트로 씁니다","textPreview":"파운데이션 모델은 재학습이 아니라 프롬프트로 씁니다","textChars":28,"textLines":1,"bbox":[107.52,170.88,625.34,55.87]}
+{"kind":"shape","id":"sh/obyt0bel","slide":25,"name":"Shape 5","bbox":[59.52,238.27,32.64,32.64]}
+{"kind":"textbox","id":"sh/fm5snmx4","slide":25,"name":"Text 6","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[59.52,238.27,32.64,32.64]}
+{"kind":"textbox","id":"sh/elwbu1wj","slide":25,"name":"Text 7","text":"기억할 조합","textPreview":"기억할 조합","textChars":6,"textLines":1,"bbox":[107.52,234.43,625.34,40.32]}
+{"kind":"textbox","id":"sh/wza9cbqp","slide":25,"name":"Text 8","text":"숫자는 우리 모델, 그 숫자의 설명은 LLM","textPreview":"숫자는 우리 모델, 그 숫자의 설명은 LLM","textChars":24,"textLines":1,"bbox":[107.52,274.75,625.34,55.87]}
+{"kind":"shape","id":"sh/h0jalgra","slide":25,"name":"Shape 9","bbox":[59.52,342.14,32.64,32.64]}
+{"kind":"textbox","id":"sh/uxsra18j","slide":25,"name":"Text 10","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[59.52,342.14,32.64,32.64]}
+{"kind":"textbox","id":"sh/vy1sj694","slide":25,"name":"Text 11","text":"정리 타임","textPreview":"정리 타임","textChars":5,"textLines":1,"bbox":[107.52,338.3,625.34,40.32]}
+{"kind":"textbox","id":"sh/8ba98bqt","slide":25,"name":"Text 12","text":"컨테이너와 uvicorn 종료, 지난주 SageMaker 잔여도 재확인","textPreview":"컨테이너와 uvicorn 종료, 지난주 SageMaker 잔여도 재확인","textChars":39,"textLines":1,"bbox":[107.52,378.62,625.34,55.87]}
+{"kind":"shape","id":"sh/9cjahgry","slide":25,"name":"Shape 13","bbox":[59.52,446.02,32.64,32.64]}
+{"kind":"textbox","id":"sh/m98r618n","slide":25,"name":"Text 14","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[59.52,446.02,32.64,32.64]}
+{"kind":"textbox","id":"sh/7a1sf698","slide":25,"name":"Text 15","text":"다음 주","textPreview":"다음 주","textChars":4,"textLines":1,"bbox":[107.52,442.18,625.34,40.32]}
+{"kind":"textbox","id":"sh/s7utkvqx","slide":25,"name":"Text 16","text":"push 하면 알아서 배포되는 파이프라인을 만듭니다","textPreview":"push 하면 알아서 배포되는 파이프라인을 만듭니다","textChars":28,"textLines":1,"bbox":[107.52,482.5,625.34,55.87]}
+{"kind":"shape","id":"sh/t83at0ri","slide":25,"name":"Shape 17","bbox":[59.52,549.89,32.64,32.64]}
+{"kind":"textbox","id":"sh/1czihwva","slide":25,"name":"Text 18","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[59.52,549.89,32.64,32.64]}
+{"kind":"textbox","id":"sh/gbq1obep","slide":25,"name":"Text 19","text":"다음 주 준비물","textPreview":"다음 주 준비물","textChars":8,"textLines":1,"bbox":[107.52,546.05,625.34,40.32]}
+{"kind":"textbox","id":"sh/fax0f6d4","slide":25,"name":"Text 20","text":"오늘 코드가 팀 저장소에 올라가 있을 것","textPreview":"오늘 코드가 팀 저장소에 올라가 있을 것","textChars":22,"textLines":1,"bbox":[107.52,586.37,625.34,55.87]}
+{"kind":"shape","id":"sh/e9ojm1wj","slide":25,"name":"Shape 21","bbox":[766.46,264.48,453.99,242.88]}
+{"kind":"textbox","id":"sh/t8fidwfe","slide":25,"name":"Text 22","text":"과제","textPreview":"과제","textChars":2,"textLines":1,"bbox":[795.26,287.52,396.39,42.24]}
+{"kind":"textbox","id":"sh/s761kret","slide":25,"name":"Text 23","text":"README에 호출 예시 추가\n프롬프트 개선 전후 기록\n환각 유도 실험 해보기","textPreview":"README에 호출 예시 추가 | 프롬프트 개선 전후 기록 | 환각 유도 실험 해보기","textChars":43,"textLines":3,"bbox":[795.26,337.44,396.39,146.88]}
+{"kind":"textbox","id":"sh/r6x0bmx8","slide":25,"name":"Text 24","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[59.52,675.84,480,28.8]}
+{"kind":"textbox","id":"sh/6lojihwn","slide":25,"name":"Text 25","text":"25","textPreview":"25","textChars":2,"textLines":1,"bbox":[1124.45,675.84,96,28.8]}
+{"kind":"notes","id":"nt/69wfm9o7","slide":25,"text":"Bedrock은 상시 과금 리소스가 없어 지울 게 없지만, 반복 호출 스크립트를 백그라운드에 켜두지 않았는지는 확인시키세요. 그리고 커밋을 안 해오면 다음 주에 할 게 없다고 두 번 말하세요.\n\n[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/"}
+{"kind":"slide","id":"sl/l0bepsfm","slide":26,"title":"클라우드 MLOps · 11주차","textShapes":10}
+{"kind":"textbox","id":"sh/b21svulg","slide":26,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/uhk36lk7","slide":26,"name":"slide-title","text":"오늘 시스템에서 데이터가 흐르는 길","textPreview":"오늘 시스템에서 데이터가 흐르는 길","textChars":19,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/vitkzqlc","slide":26,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/8fil4b21","slide":26,"name":"takeaway","text":"전통 ML의 예측값을 사용자가 이해할 설명으로 바꾸는 보조 기능을 만든다.","textPreview":"전통 ML의 예측값을 사용자가 이해할 설명으로 바꾸는 보조 기능을 만든다.","textChars":41,"textLines":1,"bbox":[60,160,1160,48]}
+{"kind":"textbox","id":"sh/tgr2xg3m","slide":26,"name":"node-1","text":"ML prediction","textPreview":"ML prediction","textChars":13,"textLines":1,"bbox":[60,285,212.8,120]}
+{"kind":"textbox","id":"sh/md0321kv","slide":26,"name":"node-2","text":"context","textPreview":"context","textChars":7,"textLines":1,"bbox":[296.8,285,212.8,120]}
+{"kind":"textbox","id":"sh/7e9kv6lg","slide":26,"name":"node-3","text":"Bedrock Converse","textPreview":"Bedrock Converse","textChars":16,"textLines":1,"bbox":[533.6,285,212.8,120]}
+{"kind":"textbox","id":"sh/kbil0r2p","slide":26,"name":"node-4","text":"guardrail prompt","textPreview":"guardrail prompt","textChars":16,"textLines":1,"bbox":[770.4,285,212.8,120]}
+{"kind":"textbox","id":"sh/lcr2tw3a","slide":26,"name":"node-5","text":"user explanation","textPreview":"user explanation","textChars":16,"textLines":1,"bbox":[1007.2,285,212.8,120]}
+{"kind":"shape","id":"sh/ds3i14f6","slide":26,"bbox":[272.8,345,24,0]}
+{"kind":"shape","id":"sh/qpcjq9wv","slide":26,"bbox":[509.6,345,24,0]}
+{"kind":"shape","id":"sh/rql0zex0","slide":26,"bbox":[746.4,345,24,0]}
+{"kind":"shape","id":"sh/cny143e5","slide":26,"bbox":[983.2,345,24,0]}
+{"kind":"textbox","id":"sh/x4jax436","slide":26,"name":"read-order","text":"왼쪽에서 오른쪽으로 읽습니다. 각 화살표는 다음 단계가 바로 앞 단계의 결과를 입력으로 사용한다는 뜻입니다.","textPreview":"왼쪽에서 오른쪽으로 읽습니다. 각 화살표는 다음 단계가 바로 앞 단계의 결과를 입력으로 사용한다는 뜻입니다.","textChars":60,"textLines":1,"bbox":[110,470,1060,72]}
+{"kind":"textbox","id":"sh/c3a94z21","slide":26,"name":"footer","text":"확인 질문: 어느 단계가 실패했는지 파일·로그·URL로 증명할 수 있는가?","textPreview":"확인 질문: 어느 단계가 실패했는지 파일·로그·URL로 증명할 수 있는가?","textChars":41,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"notes","id":"nt/l0bepsfm","slide":26,"text":"[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html"}
+{"kind":"slide","id":"sl/4vyxknqp","slide":27,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/ju5gv294","slide":27,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/kn694nmx","slide":27,"name":"slide-title","text":"AWS 화면으로 가는 길","textPreview":"AWS 화면으로 가는 길","textChars":13,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/lofadsni","slide":27,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/7qxsfi5o","slide":27,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/8r698nm9","slide":27,"name":"console-path","text":"Amazon Bedrock → Model catalog","textPreview":"Amazon Bedrock → Model catalog","textChars":30,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/9sfahsnu","slide":27,"name":"screen-check","text":"화면에서 확인할 것\n• 리전과 계정/역할\n• 리소스 이름과 상태\n• 비용이 발생하는 실행 자원\n• 작업 뒤 중지·삭제 여부","textPreview":"화면에서 확인할 것 | • 리전과 계정/역할 | • 리소스 이름과 상태 | • 비용이 발생하는 실행 자원 | • 작업 뒤 중지·삭제 여부","textChars":68,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/utobax4f","slide":27,"name":"official-links","text":"콘솔 열기\nAWS 공식 문서","textPreview":"콘솔 열기 | AWS 공식 문서","textChars":15,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/vuxsj250","slide":27,"name":"capture-note","text":"화면 모양은 바뀔 수 있습니다. 버튼 위치보다 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면 모양은 바뀔 수 있습니다. 버튼 위치보다 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":51,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/507i1s3y","slide":27,"name":"","geometry":"roundRect","bbox":[217.35,175,295.29,420]}
+{"kind":"notes","id":"nt/4vyxknqp","slide":27,"text":"[Sources]\n- https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html\n- https://console.aws.amazon.com/bedrock/\n- AWS 공식 문서 화면 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/emq0r2","slide":28,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/b2t8zmd8","slide":28,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/07mtkvyt","slide":28,"name":"slide-title","text":"실습 화면 01: Bedrock 모델 카탈로그","textPreview":"실습 화면 01: Bedrock 모델 카탈로그","textChars":25,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/l8vud0ze","slide":28,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/nuxcfax4","slide":28,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/8v6dofyp","slide":28,"name":"console-path","text":"Amazon Bedrock → Model catalog","textPreview":"Amazon Bedrock → Model catalog","textChars":30,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/9wfuhkfa","slide":28,"name":"screen-check","text":"화면에서 확인할 것\n• 공급자, 입력·출력 방식, 모델 ID를 먼저 확인한다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 공급자, 입력·출력 방식, 모델 ID를 먼저 확인한다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":78,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/axovqpgv","slide":28,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/vyxcjuxg","slide":28,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/lk3alcv6","slide":28,"name":"","geometry":"roundRect","alt":"Bedrock 모델 카탈로그 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/emq0r2","slide":28,"text":"[강사 안내]\n- 경로: Amazon Bedrock → Model catalog\n- 확인: 공급자, 입력·출력 방식, 모델 ID를 먼저 확인한다.\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/bedrock/home?region=ap-northeast-2#/model-catalog\n- https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/4ak3lv","slide":29,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/7u9kzads","slide":29,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/4n65w3mt","slide":29,"name":"slide-title","text":"실습 화면 02: 모델 액세스 상태","textPreview":"실습 화면 02: 모델 액세스 상태","textChars":19,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/pozmp83y","slide":29,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/bqhoril4","slide":29,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/cbq50n2p","slide":29,"name":"console-path","text":"Amazon Bedrock → Model access","textPreview":"Amazon Bedrock → Model access","textChars":29,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/dcz6ts3a","slide":29,"name":"screen-check","text":"화면에서 확인할 것\n• 수업에서 사용할 모델의 액세스 가능 여부를 확인한다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 수업에서 사용할 모델의 액세스 가능 여부를 확인한다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":77,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/yd8n2dkv","slide":29,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/zehovilg","slide":29,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/x8r2hcnm","slide":29,"name":"","geometry":"roundRect","alt":"모델 액세스 상태 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/4ak3lv","slide":29,"text":"[강사 안내]\n- 경로: Amazon Bedrock → Model access\n- 확인: 수업에서 사용할 모델의 액세스 가능 여부를 확인한다.\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/bedrock/home?region=ap-northeast-2#/modelaccess\n- https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/u27hvi","slide":30,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/dkbytcje","slide":30,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/m5obilov","slide":30,"name":"slide-title","text":"실습 화면 03: 채팅 플레이그라운드","textPreview":"실습 화면 03: 채팅 플레이그라운드","textChars":20,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/n6xsrq5g","slide":30,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/14vap0na","slide":30,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/e14beloz","slide":30,"name":"console-path","text":"Amazon Bedrock → Playgrounds → Chat","textPreview":"Amazon Bedrock → Playgrounds → Chat","textChars":35,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/z2dsnq54","slide":30,"name":"screen-check","text":"화면에서 확인할 것\n• 모델 선택, temperature, 최대 출력 길이 위치를 확인한다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 모델 선택, temperature, 최대 출력 길이 위치를 확인한다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":86,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/kzqtsf69","slide":30,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/l0zu1kne","slide":30,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/7alsfa14","slide":30,"name":"","geometry":"roundRect","alt":"채팅 플레이그라운드 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/u27hvi","slide":30,"text":"[강사 안내]\n- 경로: Amazon Bedrock → Playgrounds → Chat\n- 확인: 모델 선택, temperature, 최대 출력 길이 위치를 확인한다.\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/bedrock/home?region=ap-northeast-2#/chat-playground\n- https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/xxygex","slide":31,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/d0vexwzy","slide":31,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/ulgrid4z","slide":31,"name":"slide-title","text":"실습 화면 04: Converse 첫 호출","textPreview":"실습 화면 04: Converse 첫 호출","textChars":23,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/vm98bilk","slide":31,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/tk7q983e","slide":31,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/mhgred4n","slide":31,"name":"console-path","text":"CloudShell → bedrock-runtime converse 실행","textPreview":"CloudShell → bedrock-runtime converse 실행","textChars":40,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/7ip87yl8","slide":31,"name":"screen-check","text":"화면에서 확인할 것\n• 응답 본문과 입력·출력 토큰 수, 지연 시간을 함께 확인한다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 응답 본문과 입력·출력 토큰 수, 지연 시간을 함께 확인한다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":82,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/sf29s7mx","slide":31,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/dgbalc3i","slide":31,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/nqdszqdc","slide":31,"name":"","geometry":"roundRect","alt":"Converse 첫 호출 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/xxygex","slide":31,"text":"[강사 안내]\n- 경로: CloudShell → bedrock-runtime converse 실행\n- 확인: 응답 본문과 입력·출력 토큰 수, 지연 시간을 함께 확인한다.\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/cloudshell/home?region=ap-northeast-2\n- https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/jw2c11","slide":32,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/mlg7q5w7","slide":32,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/vq9476tg","slide":32,"name":"slide-title","text":"실습 화면 05: 역할과 출력 형식 지정","textPreview":"실습 화면 05: 역할과 출력 형식 지정","textChars":22,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/up0ne1sv","slide":32,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/4v25kbax","slide":32,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/3ut4b6tc","slide":32,"name":"console-path","text":"CloudShell → 역할·대상·길이를 포함한 프롬프트 실행","textPreview":"CloudShell → 역할·대상·길이를 포함한 프롬프트 실행","textChars":34,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/it0ni1sr","slide":32,"name":"screen-check","text":"화면에서 확인할 것\n• 지시가 구체적일수록 학생용 답변의 형태가 안정되는지 비교한다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 지시가 구체적일수록 학생용 답변의 형태가 안정되는지 비교한다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":82,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/lk7m1cbe","slide":32,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/kzy587at","slide":32,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/8vud8zex","slide":32,"name":"","geometry":"roundRect","alt":"역할과 출력 형식 지정 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/jw2c11","slide":32,"text":"[강사 안내]\n- 경로: CloudShell → 역할·대상·길이를 포함한 프롬프트 실행\n- 확인: 지시가 구체적일수록 학생용 답변의 형태가 안정되는지 비교한다.\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/cloudshell/home?region=ap-northeast-2\n- https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/5c85oo","slide":33,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/pwbitc7i","slide":33,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/alszetsv","slide":33,"name":"slide-title","text":"실습 화면 06: JSON 출력 요청과 형식 이탈","textPreview":"실습 화면 06: JSON 출력 요청과 형식 이탈","textChars":27,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/bm1g7ytg","slide":33,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/9kjy5obq","slide":33,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/mxszatsz","slide":33,"name":"console-path","text":"CloudShell → JSON 전용 출력 프롬프트 실행","textPreview":"CloudShell → JSON 전용 출력 프롬프트 실행","textChars":31,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/ny1g3etk","slide":33,"name":"screen-check","text":"화면에서 확인할 것\n• 모델이 코드 블록이나 설명을 덧붙이는 형식 이탈을 확인한다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 모델이 코드 블록이나 설명을 덧붙이는 형식 이탈을 확인한다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":81,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/8vuhona9","slide":33,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/tgnihsbu","slide":33,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/jq98n6lk","slide":33,"name":"","geometry":"roundRect","alt":"JSON 출력 요청과 형식 이탈 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/5c85oo","slide":33,"text":"[강사 안내]\n- 경로: CloudShell → JSON 전용 출력 프롬프트 실행\n- 확인: 모델이 코드 블록이나 설명을 덧붙이는 형식 이탈을 확인한다.\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/cloudshell/home?region=ap-northeast-2\n- https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/69e0hf","slide":34,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/adcnm1kb","slide":34,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/zy5gfa58","slide":34,"name":"slide-title","text":"실습 화면 07: EC2 시작 요청","textPreview":"실습 화면 07: EC2 시작 요청","textChars":19,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/yxwzmp4n","slide":34,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/8nehszm5","slide":34,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/nm5gju5k","slide":34,"name":"console-path","text":"CloudShell → ec2 start-instances","textPreview":"CloudShell → ec2 start-instances","textChars":32,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/m1wzqp4z","slide":34,"name":"screen-check","text":"화면에서 확인할 것\n• 이전 상태 stopped가 현재 상태 pending으로 바뀌는지 확인한다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 이전 상태 stopped가 현재 상태 pending으로 바뀌는지 확인한다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":89,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/xs7ip4nm","slide":34,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/wryhwzm1","slide":34,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/sje5gzup","slide":34,"name":"","geometry":"roundRect","alt":"EC2 시작 요청 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/69e0hf","slide":34,"text":"[강사 안내]\n- 경로: CloudShell → ec2 start-instances\n- 확인: 이전 상태 stopped가 현재 상태 pending으로 바뀌는지 확인한다.\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/ec2/home?region=ap-northeast-2#Instances:\n- https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/vfefp6","slide":35,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/5gnipgfa","slide":35,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/6pgv2d0n","slide":35,"name":"slide-title","text":"실습 화면 08: EC2와 인스턴스 프로파일","textPreview":"실습 화면 08: EC2와 인스턴스 프로파일","textChars":24,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/7qpcvi18","slide":35,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/lo7ut8j2","slide":35,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/y1gvydkr","slide":35,"name":"console-path","text":"EC2 → Instances → ysu-mlops-lab-ec2","textPreview":"EC2 → Instances → ysu-mlops-lab-ec2","textChars":35,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/zmpcri1c","slide":35,"name":"screen-check","text":"화면에서 확인할 것\n• 상태 running과 연결된 인스턴스 프로파일 ARN을 확인한다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 상태 running과 연결된 인스턴스 프로파일 ARN을 확인한다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":84,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/4jidc7i1","slide":35,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/5kbe5cjm","slide":35,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/vu9wv61s","slide":35,"name":"","geometry":"roundRect","alt":"EC2와 인스턴스 프로파일 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/vfefp6","slide":35,"text":"[강사 안내]\n- 경로: EC2 → Instances → ysu-mlops-lab-ec2\n- 확인: 상태 running과 연결된 인스턴스 프로파일 ARN을 확인한다.\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/ec2/home?region=ap-northeast-2#Instances:\n- https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/wslza4","slide":36,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/5grqx47m","slide":36,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/q5ovm9or","slide":36,"name":"slide-title","text":"실습 화면 09: Bedrock 권한 추가 전 역할 정책","textPreview":"실습 화면 09: Bedrock 권한 추가 전 역할 정책","textChars":31,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/r6xwvepc","slide":36,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/1cze1o7e","slide":36,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/e98vqto3","slide":36,"name":"console-path","text":"IAM → Roles → ysu-mlops-ec2-role → Permissions","textPreview":"IAM → Roles → ysu-mlops-ec2-role → Permissions","textChars":46,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/fahwzyp8","slide":36,"name":"screen-check","text":"화면에서 확인할 것\n• 기존 정책에는 bedrock 호출 권한이 없음을 확인한다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 기존 정책에는 bedrock 호출 권한이 없음을 확인한다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":80,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/gfmdgz6p","slide":36,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/hgvup47a","slide":36,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/vi90jm9o","slide":36,"name":"","geometry":"roundRect","alt":"Bedrock 권한 추가 전 역할 정책 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/wslza4","slide":36,"text":"[강사 안내]\n- 경로: IAM → Roles → ysu-mlops-ec2-role → Permissions\n- 확인: 기존 정책에는 bedrock 호출 권한이 없음을 확인한다.\n\n[Sources]\n- https://us-east-1.console.aws.amazon.com/iam/home#/roles/details/ysu-mlops-ec2-role?section=permissions\n- https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/t70b2w","slide":37,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/47udcni9","slide":37,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/ho7ex4rm","slide":37,"name":"slide-title","text":"실습 화면 10: AccessDeniedException 확인","textPreview":"실습 화면 10: AccessDeniedException 확인","textChars":34,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/gnyxoza1","slide":37,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/6xgfipsz","slide":37,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/tk7etkrq","slide":37,"name":"console-path","text":"Systems Manager → Run Command → 명령 출력","textPreview":"Systems Manager → Run Command → 명령 출력","textChars":37,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/szyxkza5","slide":37,"name":"screen-check","text":"화면에서 확인할 것\n• 오류에 표시된 역할 ARN, 작업 bedrock:InvokeModel, 리소스를 읽는다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 오류에 표시된 역할 ARN, 작업 bedrock:InvokeModel, 리소스를 읽는다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":97,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/bu9g3e9o","slide":37,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/qt0fu98j","slide":37,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/ep4f2x47","slide":37,"name":"","geometry":"roundRect","alt":"AccessDeniedException 확인 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/t70b2w","slide":37,"text":"[강사 안내]\n- 경로: Systems Manager → Run Command → 명령 출력\n- 확인: 오류에 표시된 역할 ARN, 작업 bedrock:InvokeModel, 리소스를 읽는다.\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/systems-manager/run-command?region=ap-northeast-2\n- https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/lre91l","slide":38,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/pgzud4be","slide":38,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/a507q5kb","slide":38,"name":"slide-title","text":"실습 화면 11: 임시 최소 권한 정책 추가","textPreview":"실습 화면 11: 임시 최소 권한 정책 추가","textChars":24,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/v69oja1w","slide":38,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/94r6hkjq","slide":38,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/m107m5kz","slide":38,"name":"console-path","text":"IAM → Roles → ysu-mlops-ec2-role → Permissions","textPreview":"IAM → Roles → ysu-mlops-ec2-role → Permissions","textChars":46,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/n29ofa1k","slide":38,"name":"screen-check","text":"화면에서 확인할 것\n• InvokeModel 작업과 Nova Micro 리소스만 허용했는지 확인한다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • InvokeModel 작업과 Nova Micro 리소스만 허용했는지 확인한다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":91,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/szmp0z29","slide":38,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/t0vqt4ju","slide":38,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/bel8vm5k","slide":38,"name":"","geometry":"roundRect","alt":"임시 최소 권한 정책 추가 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/lre91l","slide":38,"text":"[강사 안내]\n- 경로: IAM → Roles → ysu-mlops-ec2-role → Permissions\n- 확인: InvokeModel 작업과 Nova Micro 리소스만 허용했는지 확인한다.\n\n[Sources]\n- https://us-east-1.console.aws.amazon.com/iam/home#/roles/details/ysu-mlops-ec2-role?section=permissions\n- https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/iyqw49","slide":39,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/9wr21gj6","slide":39,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/mdkbq1s3","slide":39,"name":"slide-title","text":"실습 화면 12: EC2 역할 호출 성공","textPreview":"실습 화면 12: EC2 역할 호출 성공","textChars":22,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/7etcj6t8","slide":39,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/h4vupgbq","slide":39,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/u14bulsz","slide":39,"name":"console-path","text":"Systems Manager → Run Command → 명령 출력","textPreview":"Systems Manager → Run Command → 명령 출력","textChars":37,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/v2dcnqtk","slide":39,"name":"screen-check","text":"화면에서 확인할 것\n• assumed-role ARN, 한국어 응답, 토큰 수와 지연 시간을 확인한다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • assumed-role ARN, 한국어 응답, 토큰 수와 지연 시간을 확인한다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":92,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/c7itkral","slide":39,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/x8rudwb6","slide":39,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/fet8nq1w","slide":39,"name":"","geometry":"roundRect","alt":"EC2 역할 호출 성공 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/iyqw49","slide":39,"text":"[강사 안내]\n- 경로: Systems Manager → Run Command → 명령 출력\n- 확인: assumed-role ARN, 한국어 응답, 토큰 수와 지연 시간을 확인한다.\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/systems-manager/run-command?region=ap-northeast-2\n- https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/ocvm4y","slide":40,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/sn6xw765","slide":40,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/5s765gnm","slide":40,"name":"slide-title","text":"실습 화면 13: 설명 API 배포 명령 제출","textPreview":"실습 화면 13: 설명 API 배포 명령 제출","textChars":25,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/kry5wb61","slide":40,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/alwnq1oz","slide":40,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/xon61gna","slide":40,"name":"console-path","text":"Systems Manager → Run Command → AWS-RunShellScript","textPreview":"Systems Manager → Run Command → AWS-RunShellScript","textChars":50,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/wne5sb6p","slide":40,"name":"screen-check","text":"화면에서 확인할 것\n• 명령 ID를 기록하고 대상 인스턴스가 맞는지 확인한다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 명령 ID를 기록하고 대상 인스턴스가 맞는지 확인한다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":78,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/nil4vm58","slide":40,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/mhcnmhon","slide":40,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/a50vitsv","slide":40,"name":"","geometry":"roundRect","alt":"설명 API 배포 명령 제출 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/ocvm4y","slide":40,"text":"[강사 안내]\n- 경로: Systems Manager → Run Command → AWS-RunShellScript\n- 확인: 명령 ID를 기록하고 대상 인스턴스가 맞는지 확인한다.\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/systems-manager/run-command?region=ap-northeast-2\n- https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/1rsox3","slide":41,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/cv2lcjed","slide":41,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/5kvadovu","slide":41,"name":"slide-title","text":"실습 화면 14: health와 explain 응답","textPreview":"실습 화면 14: health와 explain 응답","textChars":28,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/4j29kje9","slide":41,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/udkrepw7","slide":41,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/hgba94vy","slide":41,"name":"console-path","text":"Systems Manager → Run Command → Output","textPreview":"Systems Manager → Run Command → Output","textChars":38,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/gf29gzed","slide":41,"name":"screen-check","text":"화면에서 확인할 것\n• health 상태, 예측 설명, 토큰 사용량, 모델 지연을 확인한다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • health 상태, 예측 설명, 토큰 사용량, 모델 지연을 확인한다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":86,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/7q983uxw","slide":41,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/6p0rapwb","slide":41,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/e9cj61g3","slide":41,"name":"","geometry":"roundRect","alt":"health와 explain 응답 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/1rsox3","slide":41,"text":"[강사 안내]\n- 경로: Systems Manager → Run Command → Output\n- 확인: health 상태, 예측 설명, 토큰 사용량, 모델 지연을 확인한다.\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/systems-manager/run-command?region=ap-northeast-2 https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/awvb84","slide":42,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/kn6lwfq5","slide":42,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/lgnm5snq","slide":42,"name":"slide-title","text":"실습 화면 15: 두 번째 응답과 애플리케이션 로그","textPreview":"실습 화면 15: 두 번째 응답과 애플리케이션 로그","textChars":28,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/kfe5wnm5","slide":42,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/mhgnyx4b","slide":42,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/tk769snm","slide":42,"name":"console-path","text":"Systems Manager → Run Command → Output","textPreview":"Systems Manager → Run Command → Output","textChars":38,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/8jy50nm1","slide":42,"name":"screen-check","text":"화면에서 확인할 것\n• 다른 입력의 설명과 GET·POST HTTP 200 로그를 확인한다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 다른 입력의 설명과 GET·POST HTTP 200 로그를 확인한다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":86,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/v6pob25s","slide":42,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/ulgn2x47","slide":42,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/61kji98j","slide":42,"name":"","geometry":"roundRect","alt":"두 번째 응답과 애플리케이션 로그 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/awvb84","slide":42,"text":"[강사 안내]\n- 경로: Systems Manager → Run Command → Output\n- 확인: 다른 입력의 설명과 GET·POST HTTP 200 로그를 확인한다.\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/systems-manager/run-command?region=ap-northeast-2\n- https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/n4ag13","slide":43,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/a5cr2xcr","slide":43,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/bahgr65k","slide":43,"name":"slide-title","text":"실습 화면 16: Bedrock CloudWatch 지표 목록","textPreview":"실습 화면 16: Bedrock CloudWatch 지표 목록","textChars":34,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/a98zy14z","slide":43,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/kfqh4bm1","slide":43,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/jeh0v65w","slide":43,"name":"console-path","text":"CloudWatch → Metrics → AWS/Bedrock","textPreview":"CloudWatch → Metrics → AWS/Bedrock","textChars":34,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/yd8z2l4b","slide":43,"name":"screen-check","text":"화면에서 확인할 것\n• 호출 수, 입력·출력 토큰, 호출 지연 지표가 수집되는지 확인한다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 호출 수, 입력·출력 토큰, 호출 지연 지표가 수집되는지 확인한다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":85,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/1kfylwni","slide":43,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/0j6hsrmx","slide":43,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/snu1s7ep","slide":43,"name":"","geometry":"roundRect","alt":"Bedrock CloudWatch 지표 목록 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/n4ag13","slide":43,"text":"[강사 안내]\n- 경로: CloudWatch → Metrics → AWS/Bedrock\n- 확인: 호출 수, 입력·출력 토큰, 호출 지연 지표가 수집되는지 확인한다.\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/cloudwatch/home?region=ap-northeast-2#metricsV2:\n- https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/yydr2b","slide":44,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/snelgzex","slide":44,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/d43qt4vm","slide":44,"name":"slide-title","text":"실습 화면 17: 모델 ID별 지표 차원","textPreview":"실습 화면 17: 모델 ID별 지표 차원","textChars":22,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/c3u90zu1","slide":44,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/e5cr29cr","slide":44,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/183qx4vi","slide":44,"name":"console-path","text":"CloudWatch → Metrics → AWS/Bedrock → ModelId","textPreview":"CloudWatch → Metrics → AWS/Bedrock → ModelId","textChars":44,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/07u94zux","slide":44,"name":"screen-check","text":"화면에서 확인할 것\n• apac.amazon.nova-micro-v1:0 차원의 Invocations와 InvocationLatency를 확인한다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • apac.amazon.nova-micro-v1:0 차원의 Invocations와 InvocationLatency를 확인한다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":117,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/fah8jad8","slide":44,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/u987q5wn","slide":44,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/e10zilc7","slide":44,"name":"","geometry":"roundRect","alt":"모델 ID별 지표 차원 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/yydr2b","slide":44,"text":"[강사 안내]\n- 경로: CloudWatch → Metrics → AWS/Bedrock → ModelId\n- 확인: apac.amazon.nova-micro-v1:0 차원의 Invocations와 InvocationLatency를 확인한다.\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/cloudwatch/home?region=ap-northeast-2#metricsV2:\n- https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/grgr83","slide":45,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/lknylwba","slide":45,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/6tkz2tob","slide":45,"name":"slide-title","text":"실습 화면 18: Run Command 성공 요약","textPreview":"실습 화면 18: Run Command 성공 요약","textChars":27,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/7utgby5g","slide":45,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/h0vyh8ny","slide":45,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/ux4z6do7","slide":45,"name":"console-path","text":"Systems Manager → Run Command → Command ID","textPreview":"Systems Manager → Run Command → Command ID","textChars":42,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/vydgfi5s","slide":45,"name":"screen-check","text":"화면에서 확인할 것\n• 전체 상태 성공, 대상 1개, 오류 0개를 확인한다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 전체 상태 성공, 대상 1개, 오류 0개를 확인한다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":77,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/w3ihwj6t","slide":45,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/x4by5one","slide":45,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/byxoze9g","slide":45,"name":"","geometry":"roundRect","alt":"Run Command 성공 요약 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/grgr83","slide":45,"text":"[강사 안내]\n- 경로: Systems Manager → Run Command → Command ID\n- 확인: 전체 상태 성공, 대상 1개, 오류 0개를 확인한다.\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/systems-manager/run-command?region=ap-northeast-2 https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/md8ovz","slide":46,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/0r61gbq1","slide":46,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/d0zmpcfm","slide":46,"name":"slide-title","text":"실습 화면 19: Run Command API 출력","textPreview":"실습 화면 19: Run Command API 출력","textChars":28,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/szq5g7y1","slide":46,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/ito3axgz","slide":46,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/5wzmlcfq","slide":46,"name":"console-path","text":"Systems Manager → Run Command → 대상 인스턴스 → Output","textPreview":"Systems Manager → Run Command → 대상 인스턴스 → Output","textChars":48,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/4v6lc7y5","slide":46,"name":"screen-check","text":"화면에서 확인할 것\n• health JSON과 explain JSON이 같은 실행 기록에 남았는지 확인한다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • health JSON과 explain JSON이 같은 실행 기록에 남았는지 확인한다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":95,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/nq14v6xo","slide":46,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/mpsnm1w3","slide":46,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/apsnadsr","slide":46,"name":"","geometry":"roundRect","alt":"Run Command API 출력 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/md8ovz","slide":46,"text":"[강사 안내]\n- 경로: Systems Manager → Run Command → 대상 인스턴스 → Output\n- 확인: health JSON과 explain JSON이 같은 실행 기록에 남았는지 확인한다.\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/systems-manager/run-command?region=ap-northeast-2 https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/29w9u3","slide":47,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/lwnu5432","slide":47,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/qx87mt83","slide":47,"name":"slide-title","text":"실습 화면 20: 첫 정리 명령 실패","textPreview":"실습 화면 20: 첫 정리 명령 실패","textChars":20,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/ryhofy9o","slide":47,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/5wz6dori","slide":47,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/ito7it8r","slide":47,"name":"console-path","text":"Systems Manager → Run Command → 정리 명령 출력","textPreview":"Systems Manager → Run Command → 정리 명령 출력","textChars":40,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/3uhoby9c","slide":47,"name":"screen-check","text":"화면에서 확인할 것\n• Status Failed를 보고 셸 인용과 JSON 인용이 겹쳤는지 점검한다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • Status Failed를 보고 셸 인용과 JSON 인용이 겹쳤는지 점검한다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":91,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/gr6pgjq1","slide":47,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/hsf69orm","slide":47,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/bq1kzq9o","slide":47,"name":"","geometry":"roundRect","alt":"첫 정리 명령 실패 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/29w9u3","slide":47,"text":"[강사 안내]\n- 경로: Systems Manager → Run Command → 정리 명령 출력\n- 확인: Status Failed를 보고 셸 인용과 JSON 인용이 겹쳤는지 점검한다.\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/systems-manager/run-command?region=ap-northeast-2\n- https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/va9tme","slide":48,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/610ja54z","slide":48,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/z2tova18","slide":48,"name":"slide-title","text":"실습 화면 21: 인용 문제 수정 후 API 중지","textPreview":"실습 화면 21: 인용 문제 수정 후 API 중지","textChars":27,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/y1kn25kn","slide":48,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/cz250v2x","slide":48,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/byt4rq1c","slide":48,"name":"console-path","text":"Systems Manager → Run Command → 재실행 결과","textPreview":"Systems Manager → Run Command → 재실행 결과","textChars":38,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/qx0nylkr","slide":48,"name":"screen-check","text":"화면에서 확인할 것\n• Base64 방식으로 명령을 전달한 뒤 BEDROCK_API_STOPPED를 확인한다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • Base64 방식으로 명령을 전달한 뒤 BEDROCK_API_STOPPED를 확인한다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":96,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/pwrmpg36","slide":48,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/ovi5wv2l","slide":48,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/8fe18neh","slide":48,"name":"","geometry":"roundRect","alt":"인용 문제 수정 후 API 중지 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/va9tme","slide":48,"text":"[강사 안내]\n- 경로: Systems Manager → Run Command → 재실행 결과\n- 확인: Base64 방식으로 명령을 전달한 뒤 BEDROCK_API_STOPPED를 확인한다.\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/systems-manager/run-command?region=ap-northeast-2\n- https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/uuyf2k","slide":49,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/ihgvu9s3","slide":49,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/fixwbyt8","slide":49,"name":"slide-title","text":"실습 화면 22: 임시 Bedrock 정책 삭제","textPreview":"실습 화면 22: 임시 Bedrock 정책 삭제","textChars":26,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/uhov2tcn","slide":49,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/4nqx83u5","slide":49,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/3mhwfytk","slide":49,"name":"console-path","text":"IAM → Roles → ysu-mlops-ec2-role → Permissions","textPreview":"IAM → Roles → ysu-mlops-ec2-role → Permissions","textChars":46,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/2l8f6tcz","slide":49,"name":"screen-check","text":"화면에서 확인할 것\n• YSUWeek11BedrockInvoke가 목록에서 사라졌는지 확인한다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • YSUWeek11BedrockInvoke가 목록에서 사라졌는지 확인한다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":88,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/5cve54b6","slide":49,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/krmdczul","slide":49,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/cjyp4ra5","slide":49,"name":"","geometry":"roundRect","alt":"임시 Bedrock 정책 삭제 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/uuyf2k","slide":49,"text":"[강사 안내]\n- 경로: IAM → Roles → ysu-mlops-ec2-role → Permissions\n- 확인: YSUWeek11BedrockInvoke가 목록에서 사라졌는지 확인한다.\n\n[Sources]\n- https://us-east-1.console.aws.amazon.com/iam/home#/roles/details/ysu-mlops-ec2-role?section=permissions\n- https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/z99z1d","slide":50,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/nelkjy9g","slide":50,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/w7e5kz2d","slide":50,"name":"slide-title","text":"실습 화면 23: EC2 중지 요청","textPreview":"실습 화면 23: EC2 중지 요청","textChars":19,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/x8n6t43y","slide":50,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/ja5ovulo","slide":50,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/kvypoz29","slide":50,"name":"console-path","text":"EC2 → Instances → Instance state → Stop instance","textPreview":"EC2 → Instances → Instance state → Stop instance","textChars":48,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/5w76x43u","slide":50,"name":"screen-check","text":"화면에서 확인할 것\n• running에서 stopping으로 바뀌는지 확인한다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • running에서 stopping으로 바뀌는지 확인한다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":79,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/ydcna54z","slide":50,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/zelojalk","slide":50,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/h4fadorq","slide":50,"name":"","geometry":"roundRect","alt":"EC2 중지 요청 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/z99z1d","slide":50,"text":"[강사 안내]\n- 경로: EC2 → Instances → Instance state → Stop instance\n- 확인: running에서 stopping으로 바뀌는지 확인한다.\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/ec2/home?region=ap-northeast-2#Instances:\n- https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}
+{"kind":"slide","id":"sl/2mh22q","slide":51,"title":"클라우드 MLOps · 11주차","textShapes":7}
+{"kind":"textbox","id":"sh/upsnuxkj","slide":51,"name":"eyebrow","text":"클라우드 MLOps · 11주차","textPreview":"클라우드 MLOps · 11주차","textChars":17,"textLines":1,"bbox":[60,38,640,28]}
+{"kind":"textbox","id":"sh/ja5o329k","slide":51,"name":"slide-title","text":"실습 화면 24: EC2 중지 완료","textPreview":"실습 화면 24: EC2 중지 완료","textChars":19,"textLines":1,"bbox":[60,74,1160,64]}
+{"kind":"shape","id":"sh/y9wnaxsz","slide":51,"name":"title-rule","bbox":[60,142,1160,3]}
+{"kind":"textbox","id":"sh/8fepg7qh","slide":51,"name":"path-label","text":"콘솔 이동 경로","textPreview":"콘솔 이동 경로","textChars":8,"textLines":1,"bbox":[720,190,470,34]}
+{"kind":"textbox","id":"sh/7e5o729w","slide":51,"name":"console-path","text":"EC2 → Instances → ysu-mlops-lab-ec2","textPreview":"EC2 → Instances → ysu-mlops-lab-ec2","textChars":35,"textLines":1,"bbox":[720,230,470,82]}
+{"kind":"textbox","id":"sh/6dw7ex8b","slide":51,"name":"screen-check","text":"화면에서 확인할 것\n• 상태가 stopped인지 확인하고 수업 종료 체크리스트를 마친다.\n\n실습 원칙\n• 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textPreview":"화면에서 확인할 것 | • 상태가 stopped인지 확인하고 수업 종료 체크리스트를 마친다. |  | 실습 원칙 | • 메뉴 이름과 리소스 상태를 기준으로 찾습니다.","textChars":84,"textLines":5,"bbox":[720,328,470,170]}
+{"kind":"textbox","id":"sh/9k36x8ri","slide":51,"name":"official-links","text":"AWS 콘솔 열기\nAWS 공식 문서","textPreview":"AWS 콘솔 열기 | AWS 공식 문서","textChars":19,"textLines":2,"bbox":[720,515,470,100]}
+{"kind":"textbox","id":"sh/oju543ax","slide":51,"name":"capture-note","text":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textPreview":"실제 AWS 콘솔 화면 · 서울 리전 · 2026-08-24 · 계정 번호 영역 제외","textChars":47,"textLines":1,"bbox":[60,625,1160,34]}
+{"kind":"image","id":"im/s3i54f6t","slide":51,"name":"","geometry":"roundRect","alt":"EC2 중지 완료 AWS 콘솔 화면","bbox":[60,175,610,420]}
+{"kind":"notes","id":"nt/2mh22q","slide":51,"text":"[강사 안내]\n- 경로: EC2 → Instances → ysu-mlops-lab-ec2\n- 확인: 상태가 stopped인지 확인하고 수업 종료 체크리스트를 마친다.\n\n[Sources]\n- https://ap-northeast-2.console.aws.amazon.com/ec2/home?region=ap-northeast-2#Instances:\n- https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html\n- 실제 AWS 콘솔 캡처, 2026-08-24"}

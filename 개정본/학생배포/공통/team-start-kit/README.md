@@ -10,14 +10,31 @@
 6. `TOPIC_CATALOG.md`: 배포 가능한 예시 주제 8개와 선정 기준
 7. `COURSE_ROADMAP.md`: 15주 팀 결과물과 개인 증거 로드맵
 
+## 학생 주도 활동 파일
+
+수업 시간에는 아래 파일을 실제로 작성하고 서로 교환한다.
+
+1. `SKILL_PASSPORT.md`: 팀 구성 전 개인 경험과 희망 역할 정리
+2. `TEAM_FORMATION_BOARD.md`: 후보 팀의 역할 균형과 협업 조건 협상
+3. `TOPIC_SHORTLIST_SCORECARD.md`: 주제 후보 3개를 독립 채점 후 비교
+4. `RED_TEAM_REVIEW.md`: 다른 팀이 주제의 실패 가능성을 질문
+5. `DATA_FEASIBILITY_GATE.md`: 3주차에 데이터·베이스라인·API 계약 검증
+6. `WEEKLY_SPRINT.md`: 매주 작업·담당·완료 조건·막힘 기록
+7. `DECISION_LOG.md`: 모델·지표·구조 선택의 근거 기록
+8. `TROUBLESHOOTING_LOG.md`: 오류를 증상·가설·확인·해결 순서로 기록
+9. `PEER_TEST.md`: 다른 팀이 설명 없이 실행하고 문제 제보
+10. `TEAM_HEALTH_CHECK.md`: 역할 순환 전 편중과 인수인계 상태 확인
+
 ## 제출
 
-팀 대표가 작성한 파일 4개를 LMS `1주차 → 팀 등록`에 제출한다.
+팀 대표가 작성한 파일 6개를 LMS `1주차 → 팀 등록`에 제출한다.
 
 - `TEAM_REGISTRATION.md`
 - `TEAM_CHARTER.md`
 - `ROLE_ROTATION.csv`
 - `PROJECT_IDEA_CARD.md`
+- `TEAM_FORMATION_BOARD.md`
+- `TOPIC_SHORTLIST_SCORECARD.md`
 
 제출한 파일은 팀원 전원이 다시 확인한다.
 

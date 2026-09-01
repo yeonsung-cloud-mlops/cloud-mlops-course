@@ -31,8 +31,6 @@ window.loadCourseWeek = async function loadCourseWeek(weekId) {
 };
 
 try {
-  // 수업 생성 전 기본 화면에 필요한 1주차 자료만 먼저 받습니다.
-  await window.loadCourseWeek('week01');
   await import('/attachments.js');
   await import('/app.js');
 } catch (error) {

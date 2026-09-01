@@ -39,7 +39,7 @@
 - Hibernatable WebSockets: 실시간 장면 전환과 낮은 유휴 비용
 - `public/course-data.js`: 주차 제목과 장수만 담은 작은 목록
 - `public/course-weeks/weekNN.json`: 해당 주차의 장표와 참여 활동
-- 최초에는 1주차만 받고, 수업 주차가 바뀌면 해당 JSON을 비동기로 받아 브라우저에 캐시
+- 첫 화면에서는 주차 목록만 받고, 수업에 입장하거나 주차가 바뀔 때 해당 JSON을 비동기로 받아 브라우저에 캐시
 
 ## 실행
 

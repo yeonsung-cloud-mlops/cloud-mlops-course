@@ -63,8 +63,8 @@ function connect(){
   if(!roomId)return;
   const protocol=location.protocol==='https:'?'wss:':'ws:';
   socket=new WebSocket(`${protocol}//${location.host}/api/rooms/${roomId}/ws?role=${role}&key=${encodeURIComponent(teacherKey)}`);
-  socket.onopen=()=>{connected=true;retry=0;if(role==='student')send({type:'identify',clientId:studentClientId,name:studentName});render()};
-  socket.onclose=()=>{connected=false;render();setTimeout(connect,Math.min(10000,800*2**retry++))};
+  socket.onopen=()=>{connected=true;retry=0;if(role==='student')send({type:'identify',clientId:studentClientId,name:studentName});if(currentWeek()?.slides)render()};
+  socket.onclose=()=>{connected=false;if(currentWeek()?.slides)render();setTimeout(connect,Math.min(10000,800*2**retry++))};
   socket.onerror=()=>socket.close();
   socket.onmessage=async event=>{const message=JSON.parse(event.data);if(message.type==='state'){const moved=state.deck!==message.state.deck||state.slide!==message.state.slide;state=message.state;if(moved)completed=false;if(!currentWeek()?.slides){app.innerHTML='<div class="boot">해당 주차 수업 자료를 불러오고 있습니다.</div>';try{await ensureWeekLoaded(state.deck)}catch{app.innerHTML='<section class="error"><h1>수업 자료를 불러오지 못했습니다</h1><p>네트워크 연결을 확인한 뒤 새로고침해 주세요.</p></section>';return}}}if(message.type==='presence')presence=message;if(message.type==='activity')activity={deck:message.deck||state.deck,slide:message.slide,responses:message.responses||[]};if(message.type==='dashboard'){roster=message.students||[];questions=message.questions||[]}if(message.type==='my-questions')myQuestions=message.questions||[];if(message.type==='expired'){app.innerHTML='<section class="error"><h1>수업이 종료되었습니다</h1><p>강사에게 새 수업 코드를 받아주세요.</p></section>';return}if((message.type!=='activity'||role!=='student')&&currentWeek()?.slides)render()};
 }
@@ -215,4 +215,4 @@ function startTimer(){clearInterval(timerHandle);if(!state.timerEnd)return;const
 function startClock(){clearInterval(clockHandle);const tick=()=>{const el=document.querySelector('#currentTime');if(el)el.textContent=new Intl.DateTimeFormat('ko-KR',{hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date())};tick();if(document.querySelector('#currentTime'))clockHandle=setInterval(tick,1000)}
 window.addEventListener('resize',()=>{if(role==='student'||role==='presenter')fitViewerSlide()});
 document.addEventListener('keydown',e=>{if(role!=='teacher'||e.target.matches('input,select'))return;const last=currentWeek().slides.length-1;if(e.key==='ArrowRight'&&state.slide<last)control({slide:state.slide+1});if(e.key==='ArrowLeft'&&state.slide>0)control({slide:state.slide-1})});
-role==='landing'?landing():role==='instructor'?loadInstructorPortal():role==='student'&&!studentName?studentIdentity():(render(),connect());
+role==='landing'?landing():role==='instructor'?loadInstructorPortal():role==='student'&&!studentName?studentIdentity():(app.innerHTML='<div class="boot">현재 수업 자료를 불러오고 있습니다.</div>',connect());

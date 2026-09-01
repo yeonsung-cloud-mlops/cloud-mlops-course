@@ -117,6 +117,8 @@ function interactiveSlideContent(meta,viewerRole){
   if(meta.copy)body+=`<p class="copy">${safe(meta.copy)}</p>`;
   if(meta.path)body+=`<div class="console-path"><strong>화면 이동</strong><span>${safe(meta.path)}</span></div>`;
   if(meta.visual)body+=`<figure class="lesson-visual"><img src="${safe(meta.visual)}" alt="${safe(meta.visualAlt||meta.title)}"><figcaption>${safe(meta.caption||'실제 화면에서 표시된 이름을 기준으로 찾으세요.')}</figcaption></figure>`;
+  if(meta.roadmap?.length)body+=`<div class="course-roadmap">${meta.roadmap.map(step=>`<article><span>${safe(step.range)}</span><strong>${safe(step.title)}</strong><p>${safe(step.text)}</p></article>`).join('')}</div>`;
+  if(meta.cards?.length)body+=`<div class="onboarding-cards">${meta.cards.map(card=>`<article><strong>${safe(card.title)}</strong><p>${safe(card.text)}</p></article>`).join('')}</div>`;
   if(meta.items)body+=`<ul>${meta.items.map(item=>`<li>${safe(item)}</li>`).join('')}</ul>`;
   if(meta.code)body+=`<pre class="lesson-code"><code>${safe(meta.code)}</code></pre>`;
   if(meta.callout)body+=`<div class="lesson-callout">${safe(meta.callout)}</div>`;

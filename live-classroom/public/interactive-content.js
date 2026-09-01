@@ -362,17 +362,125 @@ window.COURSE_INTERACTIONS = {
   },
 };
 
+const week01Onboarding = {
+  1: activity('클라우드 MLOps · 첫 만남', '15주 뒤, 우리 팀의 예측 서비스 주소를 직접 엽니다', '이번 과목은 모델 파일 하나로 끝나지 않습니다. 데이터부터 배포·운영·발표까지 팀이 하나의 서비스를 완성합니다.', {
+    items: ['브라우저에서 입력을 받는 화면', '예측 결과를 돌려주는 API', 'AWS에서 실행되는 서비스', '실험·배포·운영 기록'],
+    callout: '오늘은 과목 전체 지도를 확인한 뒤 팀·주제·AWS 첫 자원을 준비합니다.',
+  }),
+  2: activity('먼저 참여하기 · 2분', '15주 뒤 무엇을 남기고 싶나요?', '지금의 실력보다 이번 학기에 얻고 싶은 결과를 먼저 정합니다.', {
+    choices: [{ label: '가장 기대하는 결과', options: ['AWS 실습 경험', '포트폴리오 서비스', '팀 프로젝트 경험', '배포·운영 경험'] }],
+    fields: [{ label: '개인 목표 한 문장', placeholder: '학기 말에 나는 …을 설명하고 싶다' }],
+  }),
+  3: activity('수업 소개', '클라우드 MLOps는 모델을 계속 쓸 수 있게 만드는 수업입니다', '좋은 모델을 만드는 일에 더해 데이터를 관리하고, 실행 환경을 맞추고, 다른 사람이 쓸 수 있게 배포하고, 문제가 생겼을 때 확인하는 과정까지 다룹니다.', {
+    cards: [
+      { title: '만들기', text: '데이터와 모델을 준비합니다.' },
+      { title: '내보내기', text: 'API와 화면으로 연결합니다.' },
+      { title: '살펴보기', text: '기록·비용·오류를 확인합니다.' },
+    ],
+  }),
+  4: activity('학기 결과물', '팀마다 “주소가 있는 예측 서비스”를 완성합니다', '최종 결과는 발표 자료만이 아닙니다. 다른 사람이 열어 보고 입력하고 결과를 확인할 수 있어야 합니다.', {
+    checklist: ['문제와 사용자가 설명된다', '데이터와 모델 선택 근거가 남는다', '서비스 주소에서 입력과 결과가 동작한다', '배포·관찰·비용 기록을 설명할 수 있다'],
+    callout: '매주 만든 작은 결과를 이어 붙이면 15주차 최종 서비스가 됩니다.',
+  }),
+  5: activity('15주 로드맵', '준비 → 만들기 → 배포 → 운영 순서로 갑니다', '한 번에 완성하려 하지 않습니다. 네 구간마다 작동하는 결과를 남기고 다음 구간으로 넘어갑니다.', {
+    roadmap: [
+      { range: '1~4주', title: '기초와 문제 정의', text: 'AWS·리눅스·데이터·첫 모델' },
+      { range: '5~8주', title: '재현과 서비스화', text: 'MLflow·Docker·API·중간 배포' },
+      { range: '9~12주', title: '통합과 자동화', text: 'SageMaker·Bedrock·GitHub Actions' },
+      { range: '13~15주', title: '운영과 발표', text: '모니터링·개선·최종 시연' },
+    ],
+  }),
+  6: activity('1~4주 · 기초와 문제 정의', '무엇을 만들지 정하고 첫 모델까지 갑니다', '도구 이름을 외우기보다 팀이 같은 환경에서 같은 결과를 다시 만드는 데 집중합니다.', {
+    items: ['1주: 과목 이해·팀 구성·주제 후보·S3', '2주: 리눅스와 EC2 개발 환경', '3주: 데이터 파이프라인과 문제 정의', '4주: 비교 기준이 되는 첫 모델'],
+    fields: [{ label: '가장 낯선 말', placeholder: 'S3·EC2·파이프라인·첫 모델 중 하나' }],
+  }),
+  7: activity('5~8주 · 재현과 서비스화', '실험을 기록하고 다른 사람이 쓸 수 있게 만듭니다', '모델 파일을 실행 가능한 컨테이너와 API로 바꾸고 중간 시연에서 실제 동작을 확인합니다.', {
+    items: ['5주: MLflow로 실험 기록', '6주: Docker와 ECR', '7주: 모델 서빙 API', '8주: 배포와 데모 화면 중간 점검'],
+  }),
+  8: activity('9~12주 · 통합과 자동화', '관리형 서비스와 자동 배포를 연결합니다', '팀 프로젝트를 보강한 뒤 SageMaker와 Bedrock을 경험하고 GitHub의 변경이 배포로 이어지게 만듭니다.', {
+    items: ['9주: 프로젝트 통합 보강', '10주: SageMaker', '11주: 생성형 AI와 Bedrock', '12주: GitHub Actions 배포 자동화'],
+  }),
+  9: activity('13~15주 · 운영과 발표', '고장이 나도 확인할 수 있는 서비스로 마무리합니다', '관찰하고 고치고 설명하는 능력까지 결과물에 포함합니다.', {
+    items: ['13주: 모니터링과 운영', '14주: 프로젝트 집중 워크숍', '15주: 최종 시연·회고·비용 자원 정리'],
+    choices: [{ label: '마지막 발표에서 가장 보여 주고 싶은 것', options: ['동작하는 화면', '기술 구조', '문제 해결 과정', '운영 기록'] }],
+  }),
+  10: activity('수업 운영 · 200분', '50분 수업 네 번, 교시 사이에는 10분 쉽니다', '각 교시는 짧은 설명 뒤에 직접 실행하고, 결과를 확인하고, 팀과 공유하는 순서로 진행합니다.', {
+    roadmap: [
+      { range: '설명', title: '오늘 할 일 확인', text: '왜 하는지와 완료 조건' },
+      { range: '실행', title: '개인·팀 실습', text: '화면에서 직접 만들기' },
+      { range: '확인', title: '결과와 오류 점검', text: '완료 표시·응답·질문' },
+      { range: '공유', title: '팀 기록 남기기', text: '다음 주에 이어 쓸 증거' },
+    ],
+    callout: '정답을 받아 적는 시간보다 직접 해 보고 막힌 지점을 설명하는 시간이 더 깁니다.',
+  }),
+  11: activity('학생 참여 방식', '이 화면이 수업의 출석부이자 실습 안내서입니다', '장표를 보기만 하지 말고 입력·선택·체크·질문을 남깁니다. 강사는 실시간 현황을 보고 필요한 팀부터 돕습니다.', {
+    checklist: ['내 이름으로 출석했다', '현재 장표의 “지금 할 일”을 확인한다', '활동 뒤 “이 장표 완료”를 누른다', '막히면 아래 Q&A에 화면·오류·시도한 일을 적는다'],
+  }),
+  12: activity('팀 수업 방식', '개인 확인 → 팀 결정 → 옆 팀 검토로 진행합니다', '한 사람이 대신 끝내는 팀보다 모든 팀원이 결정 이유를 말할 수 있는 팀을 목표로 합니다.', {
+    cards: [
+      { title: '개인', text: '먼저 내 답과 결과를 남깁니다.' },
+      { title: '팀', text: '근거를 비교해 하나를 결정합니다.' },
+      { title: '검토', text: '다른 팀이 다시 해 보고 고칠 점을 찾습니다.' },
+    ],
+    fields: [{ label: '팀 활동에서 내가 지키고 싶은 태도', placeholder: '예: 막힌 과정을 숨기지 않고 공유한다' }],
+  }),
+  13: activity('평가 안내', '결과뿐 아니라 과정과 재현 가능성을 함께 봅니다', '세부 배점은 공식 강의계획서를 따릅니다. 수업에서는 매주 아래 증거를 남겨 진행 상황을 확인합니다.', {
+    items: ['개인 참여: 입력·완료·질문·설명', '팀 산출물: 파일·코드·결정 기록', '실습 확인: 같은 절차를 다시 실행한 결과', '최종 시연: 서비스 동작·구조·운영 설명'],
+    callout: '오류가 난 사실보다 오류를 숨기거나 기록하지 않는 것이 더 큰 문제입니다.',
+  }),
+  14: activity('강사 소개', '박주혁 · 서비스를 만들고 운영해 온 개발자', '웹·예약·ERP·SaaS·플랫폼을 기획하고 개발·운영해 왔으며, 현재 헥사아이 대표로 서비스 연구개발과 창업교육을 진행하고 있습니다.', {
+    cards: [
+      { title: '현업', text: '20년 이상 웹·플랫폼·기업 시스템 개발 및 운영' },
+      { title: '기술', text: '서비스 기획부터 구축·운영까지 여러 산업 프로젝트 수행' },
+      { title: '교육', text: '창업·IT·사업모델 멘토링과 코칭 활동' },
+    ],
+    links: [{ label: '강사 이메일 · j.park@yeonsung.ac.kr', url: 'mailto:j.park@yeonsung.ac.kr' }],
+  }),
+  15: activity('강사에게 물어볼 수 있는 것', '기술 선택이 실제 서비스와 팀 작업에서 어떻게 이어지는지 묻는 수업입니다', '컴퓨터공학 석사 과정과 다양한 서비스 개발·운영 경험을 바탕으로 코드뿐 아니라 사용자·비용·일정·운영 관점도 함께 다룹니다.', {
+    items: ['왜 이 기술을 선택하는가', '팀에서 일을 어떻게 나누는가', '서비스가 멈추면 어디부터 확인하는가', '프로젝트 경험을 포트폴리오로 어떻게 설명하는가'],
+    fields: [{ label: '강사에게 묻고 싶은 것', placeholder: '기술·프로젝트·진로 중 자유롭게 적으세요' }],
+  }),
+  16: activity('오늘의 약속', '작게 만들고, 바로 확인하고, 기록을 남깁니다', 'AWS 계정·비밀번호·인증 코드·액세스 키는 공유하거나 장표 응답에 입력하지 않습니다. 비용이 생길 수 있는 자원은 만들기 전 이름과 종료 시점을 확인합니다.', {
+    checklist: ['모르면 질문한다', '팀원이 직접 해 볼 시간을 준다', '오류 문장을 지우지 않고 읽는다', '비밀값은 화면·응답·캡처에 남기지 않는다'],
+    callout: '이제 첫 활동으로 넘어갑니다. 오늘 끝날 때 팀·주제 후보·S3 결과가 남아 있어야 합니다.',
+  }),
+};
+
+const originalWeek01Interactions = window.COURSE_INTERACTIONS.week01;
+const week01OnboardingCount = Object.keys(week01Onboarding).length;
+window.COURSE_INTERACTIONS.week01 = { ...week01Onboarding };
+Object.entries(originalWeek01Interactions).forEach(([slide, content]) => {
+  window.COURSE_INTERACTIONS.week01[Number(slide) + week01OnboardingCount] = content;
+});
+
+const week01Deck = window.COURSE_WEEKS?.find((week) => week.id === 'week01');
+if (week01Deck?.slides.length === 64) {
+  const onboardingSlides = Object.entries(week01Onboarding).map(([number, content]) => ({
+    number: Number(number),
+    title: content.title,
+    image: week01Deck.slides[0]?.image || '',
+    notes: content.note || content.copy || '',
+    links: content.links || [],
+  }));
+  const shiftedSlides = week01Deck.slides.map((slide, index) => ({ ...slide, number: index + week01OnboardingCount + 1 }));
+  week01Deck.slides = [...onboardingSlides, ...shiftedSlides];
+  window.COURSE_TOTAL_SLIDES = (window.COURSE_TOTAL_SLIDES || 686) + week01OnboardingCount;
+}
+
 // 50분 수업 네 번의 실제 활동 시간을 장표 단위로 나눕니다.
 // 구분 장표는 전환 표지이므로 0분이며, 앞뒤 활동 시간에 포함됩니다.
-const week01Minutes = [
+const onboardingMinutes = [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 3];
+const compactFirstPeriodMinutes = [1, 2, 2, 1, 1, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1];
+const originalWeek01Minutes = [
   2, 4, 4, 2, 2, 3, 3, 5, 5, 5, 3, 4, 2, 2, 2, 2,
   0, 6, 4, 4, 6, 6, 5, 5, 5, 4, 3, 2,
   0, 4, 3, 3, 3, 3, 5, 8, 6, 5, 5, 4, 1,
   0, 5, 0, 5, 3, 0, 3, 2, 2, 4, 1, 1, 3, 3, 1, 1, 2, 3, 2, 5, 2, 2, 0,
 ];
+const week01Minutes = [...onboardingMinutes, ...compactFirstPeriodMinutes, ...originalWeek01Minutes.slice(16)];
 
 Object.entries(window.COURSE_INTERACTIONS.week01).forEach(([slide, content]) => {
   const number = Number(slide);
   content.minutes = week01Minutes[number - 1];
-  content.period = number <= 16 ? 1 : number <= 28 ? 2 : number <= 41 ? 3 : 4;
+  content.period = number <= 32 ? 1 : number <= 44 ? 2 : number <= 57 ? 3 : 4;
 });

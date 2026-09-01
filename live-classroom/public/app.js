@@ -64,7 +64,7 @@ function teacherPanel(studentUrl,presenterUrl,week){const percent=Math.round((st
 
 function speakerNote(slide,week){return `<section class="speaker-note" aria-label="발표자 노트"><div class="speaker-note-label"><strong>발표자 노트</strong><span>${week.label} · ${state.slide+1} / ${week.slides.length}</span></div><p>${safe(slide.notes||'')}</p>${resourceLinks(slide)}</section>`}
 
-function presenterSummary(){const total=Math.max(1,presence.students),percent=Math.round(presence.completed/total*100);return `<div class="live-summary"><span>응답 ${presence.responded||0}명</span><span>완료 ${presence.completed}/${presence.students}</span><span class="live-progress"><span style="width:${percent}%"></span></span></div>`}
+function presenterSummary(){const total=Math.max(1,presence.students),percent=Math.round(presence.completed/total*100);return `<div class="live-summary"><span>응답 ${presence.responded||0}명</span><span>완료 ${presence.completed}/${presence.students}</span><span class="live-progress"><span style="width:${percent}%"></span></span></div><div class="join-callout"><span>학생 접속</span><strong>0060.kr</strong><em>수업 코드 ${roomId}</em></div>`}
 function activityBoard(){const rows=(activity.deck===state.deck&&activity.slide===state.slide?activity.responses:[]).flatMap((response,studentIndex)=>Object.entries(response).filter(([,value])=>value).map(([label,value])=>`<div class="response-card"><strong>익명 ${studentIndex+1} · ${safe(label)}</strong><span>${safe(value)}</span></div>`));return `<aside class="activity-board"><h2>학생 실시간 응답</h2>${rows.length?rows.join(''):'<p class="response-empty">아직 입력된 응답이 없습니다.</p>'}</aside>`}
 
 function bindCommon(){

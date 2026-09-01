@@ -3,6 +3,7 @@
 강사용 단말에서 학생용 슬라이드를 실시간으로 제어하는 Cloudflare Workers 기반 수업도구다. 개정 PPTX 15개에 포함된 686장을 모두 웹용 슬라이드로 제공한다.
 
 - 학생 접속 주소: `https://0060.kr`
+- 보조 접속 주소: `https://www.0060.kr`
 - 비상용 Workers 주소: `https://cloud-mlops-live-classroom.hexai.workers.dev`
 
 ## 화면

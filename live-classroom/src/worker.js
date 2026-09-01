@@ -150,6 +150,7 @@ export class Classroom {
         createdAt: await this.ctx.storage.get("createdAt"),
         state,
         students: connections.filter(item => item.role === "student").length,
+        attendance: Object.keys(await this.ctx.storage.get("students") || {}).length,
         teachers: connections.filter(item => item.role === "teacher").length,
         presenters: connections.filter(item => item.role === "presenter").length,
       });
@@ -173,7 +174,8 @@ export class Classroom {
     server.serializeAttachment({ role: requestedRole, completed: false, participantId: crypto.randomUUID().slice(0, 8), joinedAt: Date.now() });
     const state = await this.ctx.storage.get("state");
     server.send(JSON.stringify({ type: "state", state }));
-    server.send(JSON.stringify({ type: "activity", deck: state.deck, slide: state.slide, responses: await this.activityFor(state.deck, state.slide) }));
+    if (requestedRole !== "student") server.send(JSON.stringify({ type: "activity", deck: state.deck, slide: state.slide, responses: await this.activityFor(state.deck, state.slide) }));
+    if (requestedRole === "teacher") server.send(JSON.stringify(await this.dashboardPayload()));
     await this.broadcastPresence();
     return new Response(null, { status: 101, webSocket: client });
   }
@@ -184,9 +186,35 @@ export class Classroom {
     catch { return; }
 
     const connection = ws.deserializeAttachment() || { role: "student", completed: false };
+    if (payload.type === "identify" && connection.role === "student") {
+      const clientId = String(payload.clientId || "").trim();
+      const name = String(payload.name || "").trim().replace(/\s+/g, " ").slice(0, 24);
+      if (!/^[a-zA-Z0-9-]{8,64}$/.test(clientId) || !name) return;
+      const now = Date.now();
+      ws.serializeAttachment({ ...connection, clientId, participantId: clientId, name, joinedAt: connection.joinedAt || now });
+      const state = await this.ctx.storage.get("state");
+      await this.updateStudent(clientId, name, student => {
+        student.firstJoinedAt ||= now;
+        student.lastActiveAt = now;
+        this.addUnique(student.visitedSlides, this.slideKey(state));
+      });
+      await this.sendMyQuestions(ws, clientId);
+      await this.broadcastDashboard();
+      await this.broadcastPresence();
+      return;
+    }
+
     if (payload.type === "complete" && connection.role === "student") {
       connection.completed = Boolean(payload.completed);
       ws.serializeAttachment(connection);
+      if (connection.clientId) {
+        const current = await this.ctx.storage.get("state");
+        await this.updateStudent(connection.clientId, connection.name, student => {
+          student.lastActiveAt = Date.now();
+          if (connection.completed) this.addUnique(student.completedSlides, this.slideKey(current));
+        });
+        await this.broadcastDashboard();
+      }
       await this.broadcastPresence();
       return;
     }
@@ -197,10 +225,45 @@ export class Classroom {
       const storageKey = `activity:${current.deck}:${current.slide}`;
       const responses = await this.ctx.storage.get(storageKey) || {};
       const cleanFields = Object.fromEntries(Object.entries(payload.fields).slice(0, 6).map(([key, value]) => [String(key).slice(0, 40), String(value).trim().slice(0, 120)]));
-      responses[connection.participantId] = cleanFields;
+      responses[connection.participantId] = { name: connection.name || "이름 미입력", fields: cleanFields, updatedAt: Date.now() };
       await this.ctx.storage.put(storageKey, responses);
-      this.broadcast({ type: "activity", deck: current.deck, slide: current.slide, responses: Object.values(responses) });
+      this.broadcastToRoles({ type: "activity", deck: current.deck, slide: current.slide, responses: await this.activityFor(current.deck, current.slide) }, ["teacher", "presenter"]);
+      if (connection.clientId) {
+        await this.updateStudent(connection.clientId, connection.name, student => {
+          student.lastActiveAt = Date.now();
+          this.addUnique(student.responseSlides, this.slideKey(current));
+        });
+        await this.broadcastDashboard();
+      }
       await this.broadcastPresence();
+      return;
+    }
+
+    if (payload.type === "question" && connection.role === "student" && connection.clientId) {
+      const text = String(payload.text || "").trim().replace(/\s+/g, " ").slice(0, 300);
+      const current = await this.ctx.storage.get("state");
+      if (!text || payload.deck !== current.deck || payload.slide !== current.slide) return;
+      const questions = await this.ctx.storage.get("questions") || [];
+      questions.push({ id: crypto.randomUUID(), clientId: connection.clientId, name: connection.name, text, deck: current.deck, slide: current.slide, createdAt: Date.now(), answer: "", answeredAt: null });
+      await this.ctx.storage.put("questions", questions.slice(-150));
+      await this.updateStudent(connection.clientId, connection.name, student => { student.lastActiveAt = Date.now(); student.questionCount = (student.questionCount || 0) + 1; });
+      await this.sendMyQuestions(ws, connection.clientId);
+      await this.broadcastDashboard();
+      return;
+    }
+
+    if (payload.type === "answer-question" && connection.role === "teacher") {
+      const questionId = String(payload.questionId || "");
+      const answer = String(payload.answer || "").trim().replace(/\s+/g, " ").slice(0, 500);
+      if (!questionId || !answer) return;
+      const questions = await this.ctx.storage.get("questions") || [];
+      const question = questions.find(item => item.id === questionId);
+      if (!question) return;
+      question.answer = answer;
+      question.answeredAt = Date.now();
+      await this.ctx.storage.put("questions", questions);
+      await this.broadcastDashboard();
+      await this.broadcastStudentQuestions(question.clientId);
       return;
     }
 
@@ -227,13 +290,15 @@ export class Classroom {
         const attachment = socket.deserializeAttachment() || {};
         if (attachment.role === "student" && attachment.completed) socket.serializeAttachment({ ...attachment, completed: false });
       }
-      this.broadcast({ type: "activity", deck: next.deck, slide: next.slide, responses: await this.activityFor(next.deck, next.slide) });
+      this.broadcastToRoles({ type: "activity", deck: next.deck, slide: next.slide, responses: await this.activityFor(next.deck, next.slide) }, ["teacher", "presenter"]);
+      await this.markViewedForConnectedStudents(next);
+      await this.broadcastDashboard();
       await this.broadcastPresence();
     }
   }
 
-  webSocketClose() { return this.broadcastPresence(); }
-  webSocketError() { return this.broadcastPresence(); }
+  async webSocketClose() { await this.broadcastDashboard(); await this.broadcastPresence(); }
+  async webSocketError() { await this.broadcastDashboard(); await this.broadcastPresence(); }
 
   broadcast(payload) {
     const message = JSON.stringify(payload);
@@ -242,9 +307,88 @@ export class Classroom {
     }
   }
 
+  broadcastToRoles(payload, roles) {
+    const message = JSON.stringify(payload);
+    for (const socket of this.ctx.getWebSockets()) {
+      const connection = socket.deserializeAttachment() || {};
+      if (!roles.includes(connection.role)) continue;
+      try { socket.send(message); } catch { /* closed socket */ }
+    }
+  }
+
+  slideKey(state) { return state ? `${state.deck}:${state.slide}` : ""; }
+
+  addUnique(list, value) {
+    if (value && !list.includes(value)) list.push(value);
+  }
+
+  async updateStudent(clientId, name, mutate) {
+    const students = await this.ctx.storage.get("students") || {};
+    const student = students[clientId] || { clientId, name, firstJoinedAt: Date.now(), lastActiveAt: Date.now(), visitedSlides: [], completedSlides: [], responseSlides: [], questionCount: 0 };
+    student.name = String(name || student.name || "이름 미입력").slice(0, 24);
+    student.visitedSlides ||= [];
+    student.completedSlides ||= [];
+    student.responseSlides ||= [];
+    student.questionCount ||= 0;
+    mutate(student);
+    students[clientId] = student;
+    await this.ctx.storage.put("students", students);
+  }
+
+  async markViewedForConnectedStudents(state) {
+    const now = Date.now();
+    const students = await this.ctx.storage.get("students") || {};
+    let changed = false;
+    for (const socket of this.ctx.getWebSockets()) {
+      const connection = socket.deserializeAttachment() || {};
+      if (connection.role !== "student" || !connection.clientId || !students[connection.clientId]) continue;
+      const student = students[connection.clientId];
+      student.visitedSlides ||= [];
+      this.addUnique(student.visitedSlides, this.slideKey(state));
+      student.lastActiveAt = now;
+      changed = true;
+    }
+    if (changed) await this.ctx.storage.put("students", students);
+  }
+
+  async dashboardPayload() {
+    const records = await this.ctx.storage.get("students") || {};
+    const questions = await this.ctx.storage.get("questions") || [];
+    const online = new Set(this.ctx.getWebSockets().map(socket => socket.deserializeAttachment() || {}).filter(item => item.role === "student" && item.clientId).map(item => item.clientId));
+    const students = Object.values(records).map(student => {
+      const visitedCount = student.visitedSlides?.length || 0;
+      const completedCount = student.completedSlides?.length || 0;
+      const responseCount = student.responseSlides?.length || 0;
+      const questionCount = student.questionCount || 0;
+      const base = visitedCount ? Math.round(((completedCount + responseCount) / (visitedCount * 2)) * 90) : 0;
+      return { clientId: student.clientId, name: student.name, firstJoinedAt: student.firstJoinedAt, lastActiveAt: student.lastActiveAt, online: online.has(student.clientId), visitedCount, completedCount, responseCount, questionCount, participationScore: Math.min(100, base + Math.min(10, questionCount * 2)) };
+    }).sort((a, b) => Number(b.online) - Number(a.online) || a.name.localeCompare(b.name, "ko"));
+    return { type: "dashboard", students, questions };
+  }
+
+  async broadcastDashboard() {
+    const payload = JSON.stringify(await this.dashboardPayload());
+    for (const socket of this.ctx.getWebSockets()) {
+      const connection = socket.deserializeAttachment() || {};
+      if (connection.role === "teacher") try { socket.send(payload); } catch { /* closed socket */ }
+    }
+  }
+
+  async sendMyQuestions(socket, clientId) {
+    const questions = (await this.ctx.storage.get("questions") || []).filter(item => item.clientId === clientId);
+    try { socket.send(JSON.stringify({ type: "my-questions", questions })); } catch { /* closed socket */ }
+  }
+
+  async broadcastStudentQuestions(clientId) {
+    for (const socket of this.ctx.getWebSockets()) {
+      const connection = socket.deserializeAttachment() || {};
+      if (connection.role === "student" && connection.clientId === clientId) await this.sendMyQuestions(socket, clientId);
+    }
+  }
+
   async activityFor(deck, slide) {
     const responses = await this.ctx.storage.get(`activity:${deck}:${slide}`) || {};
-    return Object.values(responses);
+    return Object.values(responses).map(item => item?.fields ? item : { name: "이름 미입력", fields: item || {}, updatedAt: null });
   }
 
   async broadcastPresence() {
@@ -256,7 +400,7 @@ export class Classroom {
       type: "presence",
       students: students.length,
       completed: students.filter(item => item.completed).length,
-      responded: responses.filter(item => Object.values(item).some(Boolean)).length,
+      responded: responses.filter(item => Object.values(item.fields || item).some(Boolean)).length,
       teachers: connections.filter(item => item.role === "teacher").length,
       presenters: connections.filter(item => item.role === "presenter").length,
     });

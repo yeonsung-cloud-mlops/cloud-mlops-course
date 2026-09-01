@@ -3,6 +3,8 @@ const json = (data, status = 200) => new Response(JSON.stringify(data), {
   headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" },
 });
 
+const deckSlideCounts = { week01: 64, week02: 37, week03: 36, week04: 36, week05: 35, week06: 37, week07: 37, week08: 72, week09: 31, week10: 68, week11: 51, week12: 46, week13: 47, week14: 42, week15: 47 };
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -68,7 +70,7 @@ export class Classroom {
     server.serializeAttachment({ role: requestedRole, completed: false, participantId: crypto.randomUUID().slice(0, 8), joinedAt: Date.now() });
     const state = await this.ctx.storage.get("state");
     server.send(JSON.stringify({ type: "state", state }));
-    server.send(JSON.stringify({ type: "activity", slide: state.slide, responses: await this.activityFor(state.slide) }));
+    server.send(JSON.stringify({ type: "activity", deck: state.deck, slide: state.slide, responses: await this.activityFor(state.deck, state.slide) }));
     await this.broadcastPresence();
     return new Response(null, { status: 101, webSocket: client });
   }
@@ -88,32 +90,43 @@ export class Classroom {
 
     if (payload.type === "activity" && connection.role === "student") {
       const current = await this.ctx.storage.get("state");
-      if (payload.slide !== current.slide || !payload.fields || typeof payload.fields !== "object") return;
-      const storageKey = `activity:${current.slide}`;
+      if (payload.deck !== current.deck || payload.slide !== current.slide || !payload.fields || typeof payload.fields !== "object") return;
+      const storageKey = `activity:${current.deck}:${current.slide}`;
       const responses = await this.ctx.storage.get(storageKey) || {};
       const cleanFields = Object.fromEntries(Object.entries(payload.fields).slice(0, 6).map(([key, value]) => [String(key).slice(0, 40), String(value).trim().slice(0, 120)]));
       responses[connection.participantId] = cleanFields;
       await this.ctx.storage.put(storageKey, responses);
-      this.broadcast({ type: "activity", slide: current.slide, responses: Object.values(responses) });
+      this.broadcast({ type: "activity", deck: current.deck, slide: current.slide, responses: Object.values(responses) });
       await this.broadcastPresence();
       return;
     }
 
     if (payload.type !== "control" || connection.role !== "teacher") return;
     const current = await this.ctx.storage.get("state");
+    const deck = typeof payload.deck === "string" && deckSlideCounts[payload.deck] ? payload.deck : current.deck;
+    const maxSlide = deckSlideCounts[deck] - 1;
     const next = {
       ...current,
-      slide: Number.isInteger(payload.slide) ? Math.max(0, Math.min(11, payload.slide)) : current.slide,
+      deck,
+      slide: Number.isInteger(payload.slide) ? Math.max(0, Math.min(maxSlide, payload.slide)) : Math.min(current.slide, maxSlide),
       revealed: typeof payload.revealed === "boolean" ? payload.revealed : current.revealed,
       showResponses: typeof payload.showResponses === "boolean" ? payload.showResponses : current.showResponses,
       timerEnd: payload.timerEnd === null || Number.isFinite(payload.timerEnd) ? payload.timerEnd : current.timerEnd,
       revision: current.revision + 1,
     };
-    if (next.slide !== current.slide) { next.revealed = false; next.showResponses = false; }
+    const moved = next.deck !== current.deck || next.slide !== current.slide;
+    if (moved) { next.revealed = false; next.showResponses = false; }
     await this.ctx.storage.put("state", next);
     await this.ctx.storage.setAlarm(Date.now() + 12 * 60 * 60 * 1000);
     this.broadcast({ type: "state", state: next });
-    if (next.slide !== current.slide) this.broadcast({ type: "activity", slide: next.slide, responses: await this.activityFor(next.slide) });
+    if (moved) {
+      for (const socket of this.ctx.getWebSockets()) {
+        const attachment = socket.deserializeAttachment() || {};
+        if (attachment.role === "student" && attachment.completed) socket.serializeAttachment({ ...attachment, completed: false });
+      }
+      this.broadcast({ type: "activity", deck: next.deck, slide: next.slide, responses: await this.activityFor(next.deck, next.slide) });
+      await this.broadcastPresence();
+    }
   }
 
   webSocketClose() { return this.broadcastPresence(); }
@@ -126,8 +139,8 @@ export class Classroom {
     }
   }
 
-  async activityFor(slide) {
-    const responses = await this.ctx.storage.get(`activity:${slide}`) || {};
+  async activityFor(deck, slide) {
+    const responses = await this.ctx.storage.get(`activity:${deck}:${slide}`) || {};
     return Object.values(responses);
   }
 
@@ -135,7 +148,7 @@ export class Classroom {
     const connections = this.ctx.getWebSockets().map(socket => socket.deserializeAttachment() || {});
     const students = connections.filter(item => item.role === "student");
     const state = await this.ctx.storage.get("state");
-    const responses = state ? await this.activityFor(state.slide) : [];
+    const responses = state ? await this.activityFor(state.deck, state.slide) : [];
     this.broadcast({
       type: "presence",
       students: students.length,

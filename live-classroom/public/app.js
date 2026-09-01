@@ -196,13 +196,23 @@ function generatedSpeakerScript(meta,slide){
   if(!meta)return slide.notes||'';
   const next=courseInteractions[state.deck]?.[state.slide+2];
   const lines=[`[말하기] 지금 장표의 주제는 “${meta.title}”입니다. ${meta.copy||''}`];
-  if(meta.roadmap?.length)lines.push(`[설명] 화면의 흐름을 왼쪽부터 짚어 주세요. ${meta.roadmap.map(step=>`${step.title}에서는 ${step.text}`).join(', ')} 순서로 연결됩니다.`);
-  else if(meta.table)lines.push(`[설명] 표의 ${meta.table.headers.join(', ')} 항목을 기준으로 각 행을 비교합니다. 학생들이 결과와 완료 조건을 구분해서 읽도록 안내하세요.`);
-  else if(meta.items?.length)lines.push(`[설명] ${meta.items.join(', ')} 항목을 차례로 확인하고, 각 항목이 오늘 산출물과 어떻게 연결되는지 설명하세요.`);
-  if(meta.fields?.length||meta.choices?.length||meta.checklist?.length)lines.push(`[진행] 학생이 화면에서 직접 입력·선택·확인한 뒤 ‘이 장표 완료’를 누르게 합니다. 강사 화면 오른쪽에서 응답과 완료 현황을 확인하고 막힌 학생부터 지원하세요.`);
-  else if(meta.type==='demo')lines.push('[진행] 학생이 값을 직접 바꾸어 실행하게 하고 결과가 달라지는 이유를 두 명 이상에게 설명하게 하세요. 실행 오류가 있으면 요청과 응답 내용을 함께 확인합니다.');
+  if(meta.roadmap?.length)lines.push(`[화면을 설명하며 말하기] 화면의 흐름을 왼쪽부터 보겠습니다. ${meta.roadmap.map(step=>`“${step.title}”에서는 ${step.text}`).join(', ')} 순서로 이어집니다.`);
+  else if(meta.table)lines.push(`[화면을 설명하며 말하기] 표의 기준은 ${meta.table.headers.map(header=>`“${header}”`).join(', ')}입니다. 첫 번째 행부터 읽으면서 각 값이 어떻게 연결되는지 비교해 보겠습니다.`);
+  else if(meta.items?.length)lines.push(`[화면을 설명하며 말하기] 화면의 항목을 위에서부터 하나씩 읽겠습니다. ${meta.items.join(', ')}이 오늘 남길 결과와 어떻게 연결되는지 확인해 주세요.`);
+  if(meta.fields?.length||meta.choices?.length||meta.checklist?.length){
+    const prompts=[];
+    if(meta.choices?.length)prompts.push(`${meta.choices.map(item=>`“${item.label}”`).join(', ')} 질문에 가장 알맞다고 생각하는 답을 선택해 주세요.`);
+    if(meta.fields?.length)prompts.push(`${meta.fields.map(item=>`“${item.label}”`).join(', ')} 입력란에 누가 읽어도 뜻을 알 수 있는 문장으로 답을 적어 주세요.`);
+    if(meta.checklist?.length)prompts.push('체크 항목을 위에서부터 직접 확인하고, 실제로 끝낸 항목만 선택해 주세요.');
+    lines.push(`[학생에게 그대로 말하기] ${prompts.join(' ')} 입력과 확인을 마치면 오른쪽 아래 “이 장표 완료”를 눌러 주세요.`);
+    lines.push('[응답 후 그대로 말하기] 강사 화면에 모인 답과 완료 수를 함께 보겠습니다. 서로 다른 답 두 가지를 읽고, 아직 끝내지 못한 사람은 어느 단계에서 막혔는지 확인하겠습니다.');
+  }
+  else if(meta.type==='demo'){
+    lines.push('[학생에게 그대로 말하기] 화면의 값을 한 번 바꾸고 실행 버튼을 눌러 주세요. 실행 전 예상과 서버가 돌려준 결과가 어떻게 다른지 확인해 주세요.');
+    lines.push('[응답 후 그대로 말하기] 서로 다른 값을 넣은 두 사람의 결과를 비교하겠습니다. 오류가 난 사람은 요청과 응답에 표시된 문장을 함께 읽어 보겠습니다.');
+  }
   if(meta.callout)lines.push(`[강조] ${meta.callout}`);
-  lines.push(next?`[전환] 정리가 되면 다음 장의 “${next.title}”로 넘어가겠습니다.`:'[마무리] 오늘 남긴 산출물을 다시 확인하고 다음 주에 이어 사용할 위치를 안내하세요.');
+  lines.push(next?`[다음 장으로 연결하며 말하기] 이제 다음 장의 “${next.title}”로 넘어가겠습니다.`:'[마무리하며 말하기] 오늘 남긴 산출물을 다시 확인하겠습니다. 다음 주에도 같은 저장 위치에서 이어서 사용하겠습니다.');
   return lines.join('\n\n');
 }
 function speakerNote(slide,week){const meta=currentInteraction();const note=meta?.note||generatedSpeakerScript(meta,slide);return `<section class="speaker-note" aria-label="발표자 노트"><div class="speaker-note-label"><strong>발표자 노트</strong><span>${week.label} · ${state.slide+1} / ${week.slides.length}${meta?` · ${meta.period}교시 · ${meta.minutes}분`:''}</span></div><p>${safe(note||'')}</p>${attachmentLinks()}${meta?.links?.length?`<div class="resource-links">${meta.links.map(link=>`<a href="${safe(link.url)}" target="_blank" rel="noopener">${safe(link.label)} ↗</a>`).join('')}</div>`:resourceLinks(slide)}</section>`}

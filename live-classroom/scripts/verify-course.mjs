@@ -32,7 +32,8 @@ for (const week of weeks) {
     }
   }
 }
-if (count !== 692 || context.window.COURSE_TOTAL_SLIDES !== 692) errors.push(`전체 슬라이드 수 불일치: JSON ${count}, 수업 화면 ${context.window.COURSE_TOTAL_SLIDES}`);
+const expectedTotal = weeks.reduce((sum, week) => sum + week.slideCount, 0);
+if (count !== expectedTotal || context.window.COURSE_TOTAL_SLIDES !== expectedTotal) errors.push(`전체 슬라이드 수 불일치: JSON ${count}, 목록 ${expectedTotal}, 수업 화면 ${context.window.COURSE_TOTAL_SLIDES}`);
 if (errors.length) {
   console.error(errors.join('\n'));
   process.exit(1);

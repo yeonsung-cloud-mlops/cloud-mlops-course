@@ -17,7 +17,10 @@ let count = 0;
 
 if (weeks.length !== 15) errors.push(`주차 수 불일치: ${weeks.length}`);
 for (const week of weeks) {
-  for (const slide of week.slides) {
+  const weekData = JSON.parse(await fs.readFile(path.join(publicRoot, 'course-weeks', `${week.id}.json`), 'utf8'));
+  const expectedSlideCount = weekData.slides.length;
+  if (week.slideCount !== expectedSlideCount) errors.push(`${week.id} 장수 불일치: 목록 ${week.slideCount}, 실제 ${expectedSlideCount}`);
+  for (const slide of weekData.slides) {
     count += 1;
     const imagePath = path.join(publicRoot, slide.image.replace(/^\//, ''));
     try {
@@ -29,7 +32,7 @@ for (const week of weeks) {
     }
   }
 }
-if (count !== 686 || context.window.COURSE_TOTAL_SLIDES !== 686) errors.push(`전체 슬라이드 수 불일치: ${count}`);
+if (count !== 692 || context.window.COURSE_TOTAL_SLIDES !== 692) errors.push(`전체 슬라이드 수 불일치: JSON ${count}, 수업 화면 ${context.window.COURSE_TOTAL_SLIDES}`);
 if (errors.length) {
   console.error(errors.join('\n'));
   process.exit(1);

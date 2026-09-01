@@ -26,7 +26,7 @@
 - 13주차 47장 · 14주차 42장 · 15주차 47장
 - 합계 692장
 
-1주차 70장은 `public/interactive-content.js`와 `public/week01-opening.js`에서 구성한다. 첫 22장은 자전거 수요 예시로 데이터·모델·서비스·클라우드·MLOps를 순서대로 설명한 뒤 팀 프로젝트 방식·15주 계획·수업 운영·평가·강사 소개·실습 준비로 연결한다. 2~4교시는 팀 구성·주제 선정·AWS 실습이다. 각 장표에는 강사용 권장 시간이 지정되어 있으며 1~4교시가 각각 50분, 총 200분이다. AWS 실습 화면과 첨부파일은 `public/assets/week01/`, `public/downloads/week01/`에서 제공한다.
+1주차 70장은 `public/course-weeks/week01.json`에서 구성한다. 첫 22장은 따릉이 대여 수요 예시로 데이터·모델·서비스·클라우드·MLOps를 순서대로 설명한 뒤 팀 프로젝트 방식·15주 계획·수업 운영·평가·강사 소개·실습 준비로 연결한다. 2~4교시는 팀 구성·주제 선정·AWS 실습이다. 각 장표에는 강사용 권장 시간이 지정되어 있으며 1~4교시가 각각 50분, 총 200분이다. AWS 실습 화면과 첨부파일은 `public/assets/week01/`, `public/downloads/week01/`에서 제공한다.
 
 2~15주차의 기존 렌더링 자산은 현재 운영 화면을 유지하기 위해 남겨 두었으며, 이후 웹 고유 콘텐츠로 순차 교체한다. 새 콘텐츠는 HTML·CSS·JavaScript와 실제 AWS 화면 자산으로 직접 관리한다.
 
@@ -37,6 +37,9 @@
 - Cloudflare Workers Static Assets: 강사용·학생용 웹 화면
 - Durable Objects: 수업 세션별 상태와 접속자 관리
 - Hibernatable WebSockets: 실시간 장면 전환과 낮은 유휴 비용
+- `public/course-data.js`: 주차 제목과 장수만 담은 작은 목록
+- `public/course-weeks/weekNN.json`: 해당 주차의 장표와 참여 활동
+- 최초에는 1주차만 받고, 수업 주차가 바뀌면 해당 JSON을 비동기로 받아 브라우저에 캐시
 
 ## 실행
 

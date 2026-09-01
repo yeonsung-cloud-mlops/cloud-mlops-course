@@ -66,8 +66,8 @@ function render(){
   const slide=slides[state.slide]||slides[0];
   const teacher=role==='teacher';
   const studentUrl=`${location.origin}/?room=${roomId}`;
-  app.innerHTML=`<div class="shell"><header class="bar"><span class="brand">클라우드 MLOps</span><span class="room">${roomId}</span><span>${teacher?'강사용':'학생용'} 화면</span><span class="status"><i class="dot ${connected?'live':''}"></i>${connected?'실시간 연결':'다시 연결 중'}</span></header><div class="workspace">${teacher?teacherPanel(studentUrl):''}<main class="slide-area"><article class="slide">${slideContent(slide,state.slide)}</article></main></div><div class="foot-controls"></div>${state.timerEnd?'<div class="timer" id="timer"></div>':''}${!teacher?`<button class="complete-button ${completed?'done':''}" id="complete">${completed?'완료 취소':'이 장면 완료'}</button>`:''}</div>`;
-  bindCommon();if(teacher)bindTeacher();else bindStudent();startTimer();
+  app.innerHTML=`<div class="shell ${teacher?'teacher-shell':'student-shell'}"><header class="bar"><span class="brand">클라우드 MLOps</span><span class="room">${roomId}</span><span>${teacher?'강사용':'학생용'} 화면</span><span class="status"><i class="dot ${connected?'live':''}"></i>${connected?'실시간 연결':'다시 연결 중'}</span></header><div class="workspace">${teacher?teacherPanel(studentUrl):''}<main class="slide-area"><article class="slide"><div class="slide-inner">${slideContent(slide,state.slide)}</div></article></main></div><div class="foot-controls"></div>${state.timerEnd?'<div class="timer" id="timer"></div>':''}${!teacher?`<button class="complete-button ${completed?'done':''}" id="complete">${completed?'완료 취소':'이 장면 완료'}</button>`:''}</div>`;
+  bindCommon();if(teacher)bindTeacher();else{bindStudent();fitStudentSlide()}startTimer();
 }
 
 function teacherPanel(studentUrl){return `<aside class="teacher-panel"><h2>수업 제어</h2><div class="metric-row"><div class="metric"><strong>${presence.students}</strong><span>접속 학생</span></div><div class="metric"><strong>${presence.completed}</strong><span>현재 장면 완료</span></div></div><div class="control-group"><button id="prev" ${state.slide===0?'disabled':''}>← 이전</button><button id="next" ${state.slide===slides.length-1?'disabled':''}>다음 →</button><button id="reveal">${state.revealed?'내용 감추기':'추가 내용 공개'}</button><button id="clearTimer">타이머 종료</button><button data-minutes="5">5분 타이머</button><button data-minutes="10">10분 타이머</button><button class="wide" id="first">첫 장면으로</button></div><div class="share-box"><strong>${state.slide+1} / ${slides.length}</strong><label>학생 접속 주소</label><div class="share-line"><input id="studentUrl" readonly value="${studentUrl}"><button id="copyUrl">복사</button></div><label>수업 코드</label><div class="share-line"><input readonly value="${roomId}"><button id="copyCode">복사</button></div></div></aside>`}
@@ -83,6 +83,14 @@ function bindTeacher(){
   document.querySelector('#copyUrl').onclick=()=>navigator.clipboard.writeText(document.querySelector('#studentUrl').value);document.querySelector('#copyCode').onclick=()=>navigator.clipboard.writeText(roomId);
 }
 function bindStudent(){document.querySelector('#complete').onclick=()=>{completed=!completed;send({type:'complete',completed});render()}}
+function fitStudentSlide(){
+  const slide=document.querySelector('.student-shell .slide'),inner=document.querySelector('.student-shell .slide-inner');if(!slide||!inner)return;
+  inner.style.transform='none';
+  const style=getComputedStyle(slide),available=slide.clientHeight-parseFloat(style.paddingTop)-parseFloat(style.paddingBottom);
+  const scale=Math.min(1,available/inner.scrollHeight);
+  inner.style.transform=`scale(${scale})`;
+}
 function startTimer(){clearInterval(timerHandle);if(!state.timerEnd)return;const tick=()=>{const el=document.querySelector('#timer');if(!el)return;const left=Math.max(0,state.timerEnd-Date.now()),m=Math.floor(left/60000),s=Math.floor(left%60000/1000);el.textContent=`남은 시간 ${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;el.classList.toggle('urgent',left<60000);if(left===0)clearInterval(timerHandle)};tick();timerHandle=setInterval(tick,1000)}
+window.addEventListener('resize',()=>{if(role==='student')fitStudentSlide()});
 document.addEventListener('keydown',e=>{if(role!=='teacher'||e.target.matches('input,select'))return;if(e.key==='ArrowRight')control({slide:state.slide+1});if(e.key==='ArrowLeft')control({slide:state.slide-1});if(e.key==='r')control({revealed:!state.revealed})});
 role==='landing'?landing():(render(),connect());

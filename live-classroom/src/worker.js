@@ -44,7 +44,7 @@ export class Classroom {
     if (request.method === "POST" && url.pathname === "/init") {
       if (await this.ctx.storage.get("teacherKey")) return json({ error: "이미 사용 중인 수업 코드입니다." }, 409);
       const { teacherKey } = await request.json();
-      const state = { slide: 0, revealed: false, timerEnd: null, deck: "week01", revision: 1 };
+      const state = { slide: 0, revealed: false, showResponses: false, timerEnd: null, deck: "week01", revision: 1 };
       await this.ctx.storage.put({ teacherKey, state });
       await this.ctx.storage.setAlarm(Date.now() + 12 * 60 * 60 * 1000);
       return json({ ok: true });
@@ -54,7 +54,8 @@ export class Classroom {
       return new Response("WebSocket 연결이 필요합니다.", { status: 426 });
     }
 
-    const requestedRole = url.searchParams.get("role") === "teacher" ? "teacher" : "student";
+    const roleParam = url.searchParams.get("role");
+    const requestedRole = roleParam === "teacher" ? "teacher" : roleParam === "presenter" ? "presenter" : "student";
     const teacherKey = await this.ctx.storage.get("teacherKey");
     if (!teacherKey) return new Response("수업 코드가 없거나 만료되었습니다.", { status: 404 });
     if (requestedRole === "teacher" && url.searchParams.get("key") !== teacherKey) {
@@ -64,10 +65,11 @@ export class Classroom {
     const pair = new WebSocketPair();
     const [client, server] = Object.values(pair);
     this.ctx.acceptWebSocket(server);
-    server.serializeAttachment({ role: requestedRole, completed: false, joinedAt: Date.now() });
+    server.serializeAttachment({ role: requestedRole, completed: false, participantId: crypto.randomUUID().slice(0, 8), joinedAt: Date.now() });
     const state = await this.ctx.storage.get("state");
     server.send(JSON.stringify({ type: "state", state }));
-    this.broadcastPresence();
+    server.send(JSON.stringify({ type: "activity", slide: state.slide, responses: await this.activityFor(state.slide) }));
+    await this.broadcastPresence();
     return new Response(null, { status: 101, webSocket: client });
   }
 
@@ -80,7 +82,20 @@ export class Classroom {
     if (payload.type === "complete" && connection.role === "student") {
       connection.completed = Boolean(payload.completed);
       ws.serializeAttachment(connection);
-      this.broadcastPresence();
+      await this.broadcastPresence();
+      return;
+    }
+
+    if (payload.type === "activity" && connection.role === "student") {
+      const current = await this.ctx.storage.get("state");
+      if (payload.slide !== current.slide || !payload.fields || typeof payload.fields !== "object") return;
+      const storageKey = `activity:${current.slide}`;
+      const responses = await this.ctx.storage.get(storageKey) || {};
+      const cleanFields = Object.fromEntries(Object.entries(payload.fields).slice(0, 6).map(([key, value]) => [String(key).slice(0, 40), String(value).trim().slice(0, 120)]));
+      responses[connection.participantId] = cleanFields;
+      await this.ctx.storage.put(storageKey, responses);
+      this.broadcast({ type: "activity", slide: current.slide, responses: Object.values(responses) });
+      await this.broadcastPresence();
       return;
     }
 
@@ -90,17 +105,19 @@ export class Classroom {
       ...current,
       slide: Number.isInteger(payload.slide) ? Math.max(0, Math.min(11, payload.slide)) : current.slide,
       revealed: typeof payload.revealed === "boolean" ? payload.revealed : current.revealed,
+      showResponses: typeof payload.showResponses === "boolean" ? payload.showResponses : current.showResponses,
       timerEnd: payload.timerEnd === null || Number.isFinite(payload.timerEnd) ? payload.timerEnd : current.timerEnd,
       revision: current.revision + 1,
     };
-    if (next.slide !== current.slide) next.revealed = false;
+    if (next.slide !== current.slide) { next.revealed = false; next.showResponses = false; }
     await this.ctx.storage.put("state", next);
     await this.ctx.storage.setAlarm(Date.now() + 12 * 60 * 60 * 1000);
     this.broadcast({ type: "state", state: next });
+    if (next.slide !== current.slide) this.broadcast({ type: "activity", slide: next.slide, responses: await this.activityFor(next.slide) });
   }
 
-  webSocketClose() { this.broadcastPresence(); }
-  webSocketError() { this.broadcastPresence(); }
+  webSocketClose() { return this.broadcastPresence(); }
+  webSocketError() { return this.broadcastPresence(); }
 
   broadcast(payload) {
     const message = JSON.stringify(payload);
@@ -109,14 +126,23 @@ export class Classroom {
     }
   }
 
-  broadcastPresence() {
+  async activityFor(slide) {
+    const responses = await this.ctx.storage.get(`activity:${slide}`) || {};
+    return Object.values(responses);
+  }
+
+  async broadcastPresence() {
     const connections = this.ctx.getWebSockets().map(socket => socket.deserializeAttachment() || {});
     const students = connections.filter(item => item.role === "student");
+    const state = await this.ctx.storage.get("state");
+    const responses = state ? await this.activityFor(state.slide) : [];
     this.broadcast({
       type: "presence",
       students: students.length,
       completed: students.filter(item => item.completed).length,
+      responded: responses.filter(item => Object.values(item).some(Boolean)).length,
       teachers: connections.filter(item => item.role === "teacher").length,
+      presenters: connections.filter(item => item.role === "presenter").length,
     });
   }
 

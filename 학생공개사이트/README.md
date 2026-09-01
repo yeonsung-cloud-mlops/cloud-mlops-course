@@ -6,6 +6,9 @@ GitHub Pages: <https://yeonsung-cloud-mlops.github.io/cloud-mlops-students/>
 
 ## 포함 자료
 
+- 15주 통합 웹 수업도구(주차 선택, 장면 이동, 진행 위치 저장)
+- 1주차 브라우저 내 가격 예측 체험
+- AWS 콘솔 화면 282장과 장면별 콘솔·공식 문서 바로가기
 - 15주 프로젝트 로드맵
 - 실습 프로젝트 예시 주제 8개
 - 팀 시작 키트 ZIP

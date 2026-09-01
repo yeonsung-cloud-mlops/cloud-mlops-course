@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="15주 클라우드 MLOps 통합 웹 수업도구">
+  <title>클라우드 MLOps 웹 수업도구</title>
+  <link rel="stylesheet" href="slides.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="icon-button" id="menuButton" type="button" aria-label="주차와 목차 열기">☰</button>
+    <a class="course-title" href="../">클라우드 MLOps</a>
+    <div class="lesson-label"><strong id="weekLabel">01주차</strong><span id="lessonTitle">불러오는 중</span></div>
+    <div class="top-actions">
+      <button id="resourcesButton" type="button">현재 장면 링크</button>
+      <button id="fullscreenButton" type="button">전체 화면</button>
+    </div>
+  </header>
+
+  <aside class="navigator" id="navigator" aria-label="수업 목차">
+    <div class="navigator-head">
+      <div><small>통합 웹 수업도구</small><h2>15주 수업</h2></div>
+      <button class="icon-button" id="closeMenuButton" type="button" aria-label="목차 닫기">×</button>
+    </div>
+    <label class="week-picker">주차 선택
+      <select id="weekSelect" aria-label="주차 선택"></select>
+    </label>
+    <nav id="chapterList" class="chapter-list" aria-label="현재 주차 장면"></nav>
+    <div class="navigator-foot">
+      <a href="../downloads/packages/cloud-mlops-team-start-kit-v1.zip">팀 시작 키트 받기</a>
+      <a href="https://github.com/yeonsung-cloud-mlops/cloud-mlops-students" target="_blank" rel="noopener">학생 GitHub ↗</a>
+    </div>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+
+  <main id="stage" class="stage" tabindex="-1" aria-live="polite">
+    <section class="loading-card"><p>수업자료를 불러오고 있습니다.</p></section>
+  </main>
+
+  <footer class="controls">
+    <button id="previousButton" type="button" aria-label="이전 장면">← 이전</button>
+    <div class="progress-wrap">
+      <div class="progress-track"><span id="progressBar"></span></div>
+      <span id="progressText">1 / 1</span>
+    </div>
+    <button id="nextButton" type="button" aria-label="다음 장면">다음 →</button>
+  </footer>
+
+  <dialog id="resourcesDialog">
+    <form method="dialog" class="dialog-head">
+      <div><small>현재 장면</small><h2>바로 열기</h2></div>
+      <button class="icon-button" aria-label="닫기">×</button>
+    </form>
+    <div id="resourceList" class="resource-list"></div>
+    <p class="dialog-note">AWS 콘솔은 로그인 상태와 리전을 확인한 뒤 새 탭에서 열립니다. 돌아오면 현재 장면이 그대로 유지됩니다.</p>
+  </dialog>
+
+  <script src="slides.js"></script>
+</body>
+</html>

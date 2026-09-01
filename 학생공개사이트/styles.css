@@ -140,6 +140,7 @@ footer {
   font-size: .86rem;
 }
 footer a { color: var(--mint); text-decoration: none; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
 
 @media (max-width: 760px) {
   .nav-links { display: none; }

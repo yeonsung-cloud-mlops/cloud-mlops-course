@@ -28,7 +28,9 @@
 
 1주차 70장은 `public/interactive-content.js`와 `public/week01-opening.js`에서 구성한다. 첫 22장은 자전거 수요 예시로 데이터·모델·서비스·클라우드·MLOps를 순서대로 설명한 뒤 팀 프로젝트 방식·15주 계획·수업 운영·평가·강사 소개·실습 준비로 연결한다. 2~4교시는 팀 구성·주제 선정·AWS 실습이다. 각 장표에는 강사용 권장 시간이 지정되어 있으며 1~4교시가 각각 50분, 총 200분이다. AWS 실습 화면과 첨부파일은 `public/assets/week01/`, `public/downloads/week01/`에서 제공한다.
 
-2~15주차의 기존 이관 자료는 `scripts/import-course.mjs`와 `scripts/render-course.mjs`로 갱신한다. 1주차 수업 진행에는 PPTX나 렌더링 이미지가 필요하지 않다.
+2~15주차의 기존 렌더링 자산은 현재 운영 화면을 유지하기 위해 남겨 두었으며, 이후 웹 고유 콘텐츠로 순차 교체한다. 새 콘텐츠는 HTML·CSS·JavaScript와 실제 AWS 화면 자산으로 직접 관리한다.
+
+새 장표와 기존 장표 개정은 [`CONTENT_AUTHORING_GUIDE.md`](./CONTENT_AUTHORING_GUIDE.md)의 웹 교재 작성 기준을 따른다. PPT나 외부 슬라이드 생성 도구를 기준으로 콘텐츠를 관리하지 않는다.
 
 ## 구조
 

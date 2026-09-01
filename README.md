@@ -8,9 +8,9 @@
 - [학생용 공개 저장소](https://github.com/yeonsung-cloud-mlops/cloud-mlops-students)
 - [개정본 읽는 순서](./개정본/README.md)
 - [15주차 Markdown 교안](./개정본/교안/)
-- [15주차 PowerPoint 교안](./개정본/PPT/)
+- [웹 기반 라이브 교재](./live-classroom/)
+- [웹 교재 작성 가이드](./live-classroom/CONTENT_AUTHORING_GUIDE.md)
 - [AWS 콘솔 화면 자료](./개정본/assets/aws-console/)
-- [주차별 젠스파크 업로드 패키지](./개정본/젠스파크_업로드패키지/)
 
 ## 실습 자료 사용 전 확인
 

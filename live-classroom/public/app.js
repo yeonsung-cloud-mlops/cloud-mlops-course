@@ -1,3 +1,29 @@
+window.COURSE_INTERACTIONS = {};
+window.COURSE_ATTACHMENTS = {};
+window.loadCourseWeek = async function loadCourseWeek(weekId) {
+  const week = window.COURSE_WEEKS?.find((item) => item.id === weekId);
+  if (!week) throw new Error(`알 수 없는 주차입니다: ${weekId}`);
+  if (Array.isArray(week.slides)) return week;
+  if (week.loading) return week.loading;
+  week.loading = fetch(`/course-weeks/${weekId}.json`)
+    .then((response) => {
+      if (!response.ok) throw new Error(`${week.label} 자료를 받지 못했습니다.`);
+      return response.json();
+    })
+    .then((data) => {
+      week.slides = data.slides;
+      window.COURSE_INTERACTIONS[weekId] = data.interactions || {};
+      window.COURSE_ATTACHMENTS[weekId] = data.attachments || {};
+      delete week.loading;
+      return week;
+    })
+    .catch((error) => {
+      delete week.loading;
+      throw error;
+    });
+  return week.loading;
+};
+
 const weeks = window.COURSE_WEEKS || [];
 const courseAttachments = window.COURSE_ATTACHMENTS || {};
 const courseInteractions = window.COURSE_INTERACTIONS || {};
@@ -32,7 +58,7 @@ function studentIdentity(){
 
 async function createRoom(){
   const button=document.querySelector('#createRoom');button.disabled=true;button.textContent='수업 만드는 중…';
-  try{const response=await instructorFetch('/api/rooms',{method:'POST'});if(!response.ok)throw new Error();const room=await response.json();location.href=`/?room=${room.roomId}&role=teacher&key=${encodeURIComponent(room.teacherKey)}`}
+  try{const response=await instructorFetch('/api/rooms',{method:'POST'});if(!response.ok)throw new Error();const room=await response.json();location.href=`/?room=${room.roomId}&role=teacher&week=week01&key=${encodeURIComponent(room.teacherKey)}`}
   catch{button.disabled=false;button.textContent='다시 시도';showPortalMessage('수업을 만들지 못했습니다. 접근 코드를 다시 확인해 주세요.','error');}
 }
 
@@ -56,7 +82,7 @@ async function loadInstructorPortal(){
   document.querySelector('#lockPortal').onclick=()=>{sessionStorage.removeItem('instructor-access-code');instructorCode='';instructorLogin()};
   document.querySelector('#registerRoom').onsubmit=registerExistingRoom;
 }
-function roomCard(room){const week=weeks.find(item=>item.id===room.state?.deck);const slide=(room.state?.slide||0)+1;const teacherUrl=`/?room=${encodeURIComponent(room.roomId)}&role=teacher&key=${encodeURIComponent(room.teacherKey)}`;return `<article class="room-card"><div class="room-code"><span>수업 코드</span><strong>${safe(room.roomId)}</strong></div><div class="room-details"><h3>${safe(week?.label||'수업')} · ${safe(week?.title||'진행 중')}</h3><p>${formatTime(room.createdAt)} 시작 · ${slide}/${weekSlideCount(week)||'-'}장</p><div class="room-presence"><span>학생 ${room.students||0}명</span><span>강사 화면 ${room.teachers||0}개</span><span>PT 화면 ${room.presenters||0}개</span></div></div><a class="primary rejoin" href="${teacherUrl}">강사로 재참여</a></article>`}
+function roomCard(room){const week=weeks.find(item=>item.id===room.state?.deck);const slide=(room.state?.slide||0)+1;const teacherUrl=`/?room=${encodeURIComponent(room.roomId)}&role=teacher&week=${encodeURIComponent(week?.id||'week01')}&key=${encodeURIComponent(room.teacherKey)}`;return `<article class="room-card"><div class="room-code"><span>수업 코드</span><strong>${safe(room.roomId)}</strong></div><div class="room-details"><h3>${safe(week?.label||'수업')} · ${safe(week?.title||'진행 중')}</h3><p>${formatTime(room.createdAt)} 시작 · ${slide}/${weekSlideCount(week)||'-'}장</p><div class="room-presence"><span>학생 ${room.students||0}명</span><span>강사 화면 ${room.teachers||0}개</span><span>PT 화면 ${room.presenters||0}개</span></div></div><a class="primary rejoin" href="${teacherUrl}">강사로 재참여</a></article>`}
 async function registerExistingRoom(event){event.preventDefault();const button=event.currentTarget.querySelector('button');button.disabled=true;button.textContent='확인 중…';const roomId=document.querySelector('#existingRoom').value.trim().toUpperCase();const teacherKey=document.querySelector('#existingKey').value.trim();const response=await instructorFetch('/api/instructor/register',{method:'POST',body:JSON.stringify({roomId,teacherKey})});if(response.ok){await loadInstructorPortal();showPortalMessage(`${roomId} 수업을 목록에 등록했습니다.`,'success');return}const result=await response.json().catch(()=>({}));button.disabled=false;button.textContent='확인하고 등록';showPortalMessage(result.error||'기존 수업을 등록하지 못했습니다.','error')}
 
 function connect(){
@@ -66,7 +92,7 @@ function connect(){
   socket.onopen=()=>{connected=true;retry=0;if(role==='student')send({type:'identify',clientId:studentClientId,name:studentName});if(currentWeek()?.slides)render()};
   socket.onclose=()=>{connected=false;if(currentWeek()?.slides)render();setTimeout(connect,Math.min(10000,800*2**retry++))};
   socket.onerror=()=>socket.close();
-  socket.onmessage=async event=>{const message=JSON.parse(event.data);if(message.type==='state'){const moved=state.deck!==message.state.deck||state.slide!==message.state.slide;state=message.state;if(moved)completed=false;if(!currentWeek()?.slides){app.innerHTML='<div class="boot">해당 주차 수업 자료를 불러오고 있습니다.</div>';try{await ensureWeekLoaded(state.deck)}catch{app.innerHTML='<section class="error"><h1>수업 자료를 불러오지 못했습니다</h1><p>네트워크 연결을 확인한 뒤 새로고침해 주세요.</p></section>';return}}}if(message.type==='presence')presence=message;if(message.type==='activity')activity={deck:message.deck||state.deck,slide:message.slide,responses:message.responses||[]};if(message.type==='dashboard'){roster=message.students||[];questions=message.questions||[]}if(message.type==='my-questions')myQuestions=message.questions||[];if(message.type==='expired'){app.innerHTML='<section class="error"><h1>수업이 종료되었습니다</h1><p>강사에게 새 수업 코드를 받아주세요.</p></section>';return}if((message.type!=='activity'||role!=='student')&&currentWeek()?.slides)render()};
+  socket.onmessage=async event=>{const message=JSON.parse(event.data);if(message.type==='state'){const moved=state.deck!==message.state.deck||state.slide!==message.state.slide;state=message.state;if(roomId)localStorage.setItem(`room-week:${roomId}`,state.deck);if(moved)completed=false;if(!currentWeek()?.slides){app.innerHTML='<div class="boot">해당 주차 수업 자료를 불러오고 있습니다.</div>';try{await ensureWeekLoaded(state.deck)}catch{app.innerHTML='<section class="error"><h1>수업 자료를 불러오지 못했습니다</h1><p>네트워크 연결을 확인한 뒤 새로고침해 주세요.</p></section>';return}}}if(message.type==='presence')presence=message;if(message.type==='activity')activity={deck:message.deck||state.deck,slide:message.slide,responses:message.responses||[]};if(message.type==='dashboard'){roster=message.students||[];questions=message.questions||[]}if(message.type==='my-questions')myQuestions=message.questions||[];if(message.type==='expired'){app.innerHTML='<section class="error"><h1>수업이 종료되었습니다</h1><p>강사에게 새 수업 코드를 받아주세요.</p></section>';return}if((message.type!=='activity'||role!=='student')&&currentWeek()?.slides)render()};
 }
 
 function send(payload){if(socket?.readyState===WebSocket.OPEN)socket.send(JSON.stringify(payload))}
@@ -144,8 +170,8 @@ function render(){
   if(!week||!slide){app.innerHTML='<section class="error"><h1>수업 자료를 불러오지 못했습니다</h1><p>페이지를 새로고침해 주세요.</p></section>';return}
   const teacher=role==='teacher';
   const presenter=role==='presenter';
-  const studentUrl=`${location.origin}/?room=${roomId}`;
-  const presenterUrl=`${location.origin}/?room=${roomId}&role=presenter`;
+  const studentUrl=`${location.origin}/?room=${roomId}&week=${state.deck}`;
+  const presenterUrl=`${location.origin}/?room=${roomId}&role=presenter&week=${state.deck}`;
   const shellClass=teacher?'teacher-shell':presenter?'viewer-shell presenter-shell':'viewer-shell student-shell';
   const roleLabel=teacher?'강사 제어용':presenter?'강사 PT용':'학생용';
   const participantLabel=role==='student'?` · ${safe(studentName)}`:'';
@@ -215,4 +241,13 @@ function startTimer(){clearInterval(timerHandle);if(!state.timerEnd)return;const
 function startClock(){clearInterval(clockHandle);const tick=()=>{const el=document.querySelector('#currentTime');if(el)el.textContent=new Intl.DateTimeFormat('ko-KR',{hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date())};tick();if(document.querySelector('#currentTime'))clockHandle=setInterval(tick,1000)}
 window.addEventListener('resize',()=>{if(role==='student'||role==='presenter')fitViewerSlide()});
 document.addEventListener('keydown',e=>{if(role!=='teacher'||e.target.matches('input,select'))return;const last=currentWeek().slides.length-1;if(e.key==='ArrowRight'&&state.slide<last)control({slide:state.slide+1});if(e.key==='ArrowLeft'&&state.slide>0)control({slide:state.slide-1})});
-role==='landing'?landing():role==='instructor'?loadInstructorPortal():role==='student'&&!studentName?studentIdentity():(app.innerHTML='<div class="boot">현재 수업 자료를 불러오고 있습니다.</div>',connect());
+function enterClassroom(){
+  app.innerHTML='<div class="boot">현재 수업 자료를 불러오고 있습니다.</div>';
+  const hintedWeek=params.get('week')||localStorage.getItem(`room-week:${roomId}`)||'';
+  if(weeks.some(week=>week.id===hintedWeek)){
+    state.deck=hintedWeek;
+    ensureWeekLoaded(hintedWeek).then(()=>{if(state.deck===hintedWeek)render()}).catch(()=>{});
+  }
+  connect();
+}
+role==='landing'?landing():role==='instructor'?loadInstructorPortal():role==='student'&&!studentName?studentIdentity():enterClassroom();

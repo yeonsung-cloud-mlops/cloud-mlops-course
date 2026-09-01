@@ -26,6 +26,24 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    if (request.method === "POST" && url.pathname === "/api/demo/predict") {
+      const body = await request.json().catch(() => ({}));
+      const originalPrice = Number(body.originalPrice);
+      const years = Number(body.years);
+      const battery = Number(body.battery);
+      if (![originalPrice, years, battery].every(Number.isFinite) || originalPrice <= 0 || years < 0 || battery < 0 || battery > 100) {
+        return json({ error: "입력값을 확인해 주세요." }, 400);
+      }
+      const calculatedPrice = Math.max(90000, Math.round(originalPrice * Math.pow(0.78, years) * (0.72 + battery / 350) * 0.88 / 10000) * 10000);
+      return json({
+        calculatedPrice,
+        calculatorVersion: "rule-demo-v2",
+        modelUsed: false,
+        requestId: crypto.randomUUID(),
+        processedAt: new Date().toISOString(),
+      });
+    }
+
     if (url.pathname.startsWith("/api/instructor/") || (request.method === "POST" && url.pathname === "/api/rooms")) {
       if (!env.INSTRUCTOR_ACCESS_CODE) return json({ error: "강사 접근 코드가 아직 설정되지 않았습니다." }, 503);
       if (!instructorAuthorized(request, env)) return json({ error: "강사 접근 코드가 올바르지 않습니다." }, 401);

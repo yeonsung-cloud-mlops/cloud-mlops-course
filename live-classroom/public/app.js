@@ -69,10 +69,25 @@ function slideAttachments(){return courseAttachments[state.deck]?.[state.slide+1
 function attachmentLinks(){const files=slideAttachments();if(!files.length)return '';return `<div class="attachment-links"><strong>첨부파일</strong>${files.map(file=>`<a href="${safe(file.url)}" download="${safe(file.filename)}"><span>${safe(file.label)}</span><small>${safe(file.meta||file.filename)}</small></a>`).join('')}</div>`}
 function currentInteraction(){return courseInteractions[state.deck]?.[state.slide+1]||null}
 
+function taskInstruction(meta){
+  if(meta.type==='demo')return '값을 바꿔 계산 API를 실행하고 결과가 어떻게 달라지는지 확인하세요.';
+  const actions=[];
+  if(meta.choices?.length)actions.push('보기에 답하기');
+  if(meta.fields?.length)actions.push('응답 입력하기');
+  if(meta.checklist?.length)actions.push('끝낸 항목 확인하기');
+  if(actions.length)return `${actions.join(' · ')} 후 오른쪽 아래 ‘이 장표 완료’를 누르세요.`;
+  if(meta.links?.length)return '내용을 확인하고 필요하면 공식 문서나 AWS 콘솔 링크를 여세요.';
+  return '핵심 내용을 확인하고, 궁금한 점은 화면 아래 질문란에 남기세요.';
+}
+
+function taskBanner(meta,viewerRole){const label=viewerRole==='student'?'지금 할 일':viewerRole==='teacher'?'학생 화면 안내':'학생이 하는 일';return `<section class="task-banner ${viewerRole}"><strong>${label}</strong><span>${safe(taskInstruction(meta))}</span></section>`}
+
 function interactionFields(meta,viewerRole){
   if(viewerRole!=='student'){
-    const labels=[...(meta.fields||[]).map(field=>field.label),...(meta.choices||[]).map(field=>field.label),...(meta.checklist||[])];
-    return labels.length?`<div class="participation-preview"><strong>학생 화면에서 입력</strong><div>${labels.map(label=>`<span>${safe(label)}</span>`).join('')}</div></div>`:'';
+    const fields=(meta.fields||[]).map(field=>`<div class="preview-field"><strong>${safe(field.label)}</strong><span>${safe(field.placeholder||'학생이 내용을 입력합니다')}</span></div>`).join('');
+    const choices=(meta.choices||[]).map(field=>`<div class="preview-choice"><strong>${safe(field.label)}</strong><div>${field.options.map(option=>`<span>${safe(option)}</span>`).join('')}</div></div>`).join('');
+    const checklist=meta.checklist?.length?`<div class="preview-checklist"><strong>학생 확인 항목</strong>${meta.checklist.map(item=>`<span>□ ${safe(item)}</span>`).join('')}</div>`:'';
+    return fields||choices||checklist?`<section class="participation-preview"><header><strong>학생 입력 화면</strong><span>읽기 전용 미리보기</span></header>${fields}${choices}${checklist}</section>`:'';
   }
   let html='';
   if(meta.fields?.length)html+=`<div class="fields">${meta.fields.map((field,index)=>{const store=`field-${state.deck}-${state.slide}-text-${index}`,value=localStorage.getItem(store)||'';return `<label class="field"><span>${safe(field.label)}</span><input data-field data-label="${attr(field.label)}" data-store="${attr(store)}" value="${attr(value)}" placeholder="${attr(field.placeholder||'')}" autocomplete="off"></label>`}).join('')}</div>`;
@@ -88,6 +103,7 @@ function demoContent(viewerRole){
 
 function interactiveSlideContent(meta,viewerRole){
   let body=`<p class="kicker">${safe(meta.kicker||'학생 참여')}${Number.isFinite(meta.minutes)?` <span>권장 ${meta.minutes}분</span>`:''}</p><h1>${safe(meta.title)}</h1>`;
+  body+=taskBanner(meta,viewerRole);
   if(meta.copy)body+=`<p class="copy">${safe(meta.copy)}</p>`;
   if(meta.path)body+=`<div class="console-path"><strong>화면 이동</strong><span>${safe(meta.path)}</span></div>`;
   if(meta.visual)body+=`<figure class="lesson-visual"><img src="${safe(meta.visual)}" alt="${safe(meta.visualAlt||meta.title)}"><figcaption>${safe(meta.caption||'실제 화면에서 표시된 이름을 기준으로 찾으세요.')}</figcaption></figure>`;

@@ -90,7 +90,7 @@ function taskInstruction(meta){
   return '핵심 내용을 확인하고, 궁금한 점은 화면 아래 질문란에 남기세요.';
 }
 
-function taskBanner(meta,viewerRole){const label=viewerRole==='student'?'지금 할 일':viewerRole==='teacher'?'학생 화면 안내':'학생이 하는 일';return `<section class="task-banner ${viewerRole}"><strong>${label}</strong><span>${safe(taskInstruction(meta))}</span></section>`}
+function taskBanner(meta,viewerRole){const hasAction=meta.type==='demo'||meta.fields?.length||meta.choices?.length||meta.checklist?.length||meta.task;if(!hasAction)return '';const label=viewerRole==='student'?'지금 할 일':viewerRole==='teacher'?'학생 화면 안내':'학생이 하는 일';return `<section class="task-banner ${viewerRole}"><strong>${label}</strong><span>${safe(meta.task||taskInstruction(meta))}</span></section>`}
 
 function interactionFields(meta,viewerRole){
   if(viewerRole!=='student'){
@@ -112,13 +112,14 @@ function demoContent(viewerRole){
 }
 
 function interactiveSlideContent(meta,viewerRole){
-  let body=`<p class="kicker">${safe(meta.kicker||'학생 참여')}${Number.isFinite(meta.minutes)?` <span>권장 ${meta.minutes}분</span>`:''}</p><h1>${safe(meta.title)}</h1>`;
+  const teacherTiming=viewerRole==='teacher'&&Number.isFinite(meta.minutes)?` <span>권장 ${meta.minutes}분</span>`:'';
+  let body=`<p class="kicker">${safe(meta.kicker||'학생 참여')}${teacherTiming}</p><h1>${safe(meta.title)}</h1>`;
   body+=taskBanner(meta,viewerRole);
   if(meta.copy)body+=`<p class="copy">${safe(meta.copy)}</p>`;
   if(meta.path)body+=`<div class="console-path"><strong>화면 이동</strong><span>${safe(meta.path)}</span></div>`;
   if(meta.visual)body+=`<figure class="lesson-visual"><img src="${safe(meta.visual)}" alt="${safe(meta.visualAlt||meta.title)}"><figcaption>${safe(meta.caption||'실제 화면에서 표시된 이름을 기준으로 찾으세요.')}</figcaption></figure>`;
   if(meta.roadmap?.length)body+=`<div class="course-roadmap">${meta.roadmap.map(step=>`<article><span>${safe(step.range)}</span><strong>${safe(step.title)}</strong><p>${safe(step.text)}</p></article>`).join('')}</div>`;
-  if(meta.cards?.length)body+=`<div class="onboarding-cards">${meta.cards.map(card=>`<article><strong>${safe(card.title)}</strong><p>${safe(card.text)}</p></article>`).join('')}</div>`;
+  if(meta.table)body+=`<div class="lesson-table-wrap"><table class="lesson-table"><thead><tr>${meta.table.headers.map(header=>`<th>${safe(header)}</th>`).join('')}</tr></thead><tbody>${meta.table.rows.map(row=>`<tr>${row.map(cell=>`<td>${safe(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   if(meta.items)body+=`<ul>${meta.items.map(item=>`<li>${safe(item)}</li>`).join('')}</ul>`;
   if(meta.code)body+=`<pre class="lesson-code"><code>${safe(meta.code)}</code></pre>`;
   if(meta.callout)body+=`<div class="lesson-callout">${safe(meta.callout)}</div>`;

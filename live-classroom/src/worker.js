@@ -4,10 +4,58 @@ const json = (data, status = 200) => new Response(JSON.stringify(data), {
 });
 
 const deckSlideCounts = { week01: 64, week02: 37, week03: 36, week04: 36, week05: 35, week06: 37, week07: 37, week08: 72, week09: 31, week10: 68, week11: 51, week12: 46, week13: 47, week14: 42, week15: 47 };
+const registryName = "__active_classrooms__";
+const roomLifetime = 12 * 60 * 60 * 1000;
+
+function instructorAuthorized(request, env) {
+  if (!env.INSTRUCTOR_ACCESS_CODE) return false;
+  const authorization = request.headers.get("authorization") || "";
+  return authorization.startsWith("Bearer ") && authorization.slice(7) === env.INSTRUCTOR_ACCESS_CODE;
+}
+
+async function registerRoom(env, room) {
+  const registry = env.CLASSROOMS.getByName(registryName);
+  return registry.fetch("https://classroom.internal/registry/register", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(room),
+  });
+}
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    if (url.pathname.startsWith("/api/instructor/") || (request.method === "POST" && url.pathname === "/api/rooms")) {
+      if (!env.INSTRUCTOR_ACCESS_CODE) return json({ error: "강사 접근 코드가 아직 설정되지 않았습니다." }, 503);
+      if (!instructorAuthorized(request, env)) return json({ error: "강사 접근 코드가 올바르지 않습니다." }, 401);
+    }
+
+    if (request.method === "GET" && url.pathname === "/api/instructor/rooms") {
+      const registry = env.CLASSROOMS.getByName(registryName);
+      const response = await registry.fetch("https://classroom.internal/registry/list");
+      const { rooms = [] } = await response.json();
+      const active = (await Promise.all(rooms.map(async room => {
+        const classroom = env.CLASSROOMS.getByName(room.roomId);
+        const summary = await classroom.fetch(`https://classroom.internal/summary?key=${encodeURIComponent(room.teacherKey)}`);
+        if (!summary.ok) return null;
+        return { ...room, ...(await summary.json()) };
+      }))).filter(Boolean).sort((a, b) => b.createdAt - a.createdAt);
+      return json({ rooms: active });
+    }
+
+    if (request.method === "POST" && url.pathname === "/api/instructor/register") {
+      const body = await request.json().catch(() => ({}));
+      const roomId = String(body.roomId || "").trim().toUpperCase();
+      const teacherKey = String(body.teacherKey || "").trim();
+      if (!/^[A-Z0-9]{6}$/.test(roomId) || !teacherKey) return json({ error: "수업 코드와 강사용 키를 확인해 주세요." }, 400);
+      const classroom = env.CLASSROOMS.getByName(roomId);
+      const summary = await classroom.fetch(`https://classroom.internal/summary?key=${encodeURIComponent(teacherKey)}`);
+      if (!summary.ok) return json({ error: "수업을 찾지 못했거나 강사용 키가 올바르지 않습니다." }, summary.status === 404 ? 404 : 403);
+      const details = await summary.json();
+      await registerRoom(env, { roomId, teacherKey, createdAt: details.createdAt || Date.now() });
+      return json({ room: { roomId, teacherKey, ...details } }, 201);
+    }
 
     if (request.method === "POST" && url.pathname === "/api/rooms") {
       const roomId = crypto.randomUUID().replaceAll("-", "").slice(0, 6).toUpperCase();
@@ -19,7 +67,9 @@ export default {
         body: JSON.stringify({ teacherKey }),
       });
       if (!initialized.ok) return json({ error: "수업을 만들지 못했습니다." }, 500);
-      return json({ roomId, teacherKey }, 201);
+      const createdAt = Date.now();
+      await registerRoom(env, { roomId, teacherKey, createdAt });
+      return json({ roomId, teacherKey, createdAt }, 201);
     }
 
     const match = url.pathname.match(/^\/api\/rooms\/([A-Z0-9]{6})\/ws$/i);
@@ -43,13 +93,48 @@ export class Classroom {
 
   async fetch(request) {
     const url = new URL(request.url);
+    if (url.pathname === "/registry/register" && request.method === "POST") {
+      const room = await request.json();
+      const rooms = await this.ctx.storage.get("registryRooms") || {};
+      const cutoff = Date.now() - roomLifetime;
+      for (const [id, item] of Object.entries(rooms)) if (!item.createdAt || item.createdAt < cutoff) delete rooms[id];
+      rooms[room.roomId] = { roomId: room.roomId, teacherKey: room.teacherKey, createdAt: room.createdAt || Date.now() };
+      await this.ctx.storage.put("registryRooms", rooms);
+      return json({ ok: true });
+    }
+
+    if (url.pathname === "/registry/list" && request.method === "GET") {
+      const rooms = await this.ctx.storage.get("registryRooms") || {};
+      const cutoff = Date.now() - roomLifetime;
+      let changed = false;
+      for (const [id, item] of Object.entries(rooms)) if (!item.createdAt || item.createdAt < cutoff) { delete rooms[id]; changed = true; }
+      if (changed) await this.ctx.storage.put("registryRooms", rooms);
+      return json({ rooms: Object.values(rooms) });
+    }
+
     if (request.method === "POST" && url.pathname === "/init") {
       if (await this.ctx.storage.get("teacherKey")) return json({ error: "이미 사용 중인 수업 코드입니다." }, 409);
       const { teacherKey } = await request.json();
       const state = { slide: 0, revealed: false, showResponses: false, timerEnd: null, deck: "week01", revision: 1 };
-      await this.ctx.storage.put({ teacherKey, state });
-      await this.ctx.storage.setAlarm(Date.now() + 12 * 60 * 60 * 1000);
+      const createdAt = Date.now();
+      await this.ctx.storage.put({ teacherKey, state, createdAt });
+      await this.ctx.storage.setAlarm(Date.now() + roomLifetime);
       return json({ ok: true });
+    }
+
+    if (request.method === "GET" && url.pathname === "/summary") {
+      const teacherKey = await this.ctx.storage.get("teacherKey");
+      if (!teacherKey) return json({ error: "수업을 찾지 못했습니다." }, 404);
+      if (url.searchParams.get("key") !== teacherKey) return json({ error: "강사용 키가 올바르지 않습니다." }, 403);
+      const state = await this.ctx.storage.get("state");
+      const connections = this.ctx.getWebSockets().map(socket => socket.deserializeAttachment() || {});
+      return json({
+        createdAt: await this.ctx.storage.get("createdAt"),
+        state,
+        students: connections.filter(item => item.role === "student").length,
+        teachers: connections.filter(item => item.role === "teacher").length,
+        presenters: connections.filter(item => item.role === "presenter").length,
+      });
     }
 
     if (url.pathname !== "/ws" || request.headers.get("Upgrade")?.toLowerCase() !== "websocket") {
@@ -117,7 +202,7 @@ export class Classroom {
     const moved = next.deck !== current.deck || next.slide !== current.slide;
     if (moved) { next.revealed = false; next.showResponses = false; }
     await this.ctx.storage.put("state", next);
-    await this.ctx.storage.setAlarm(Date.now() + 12 * 60 * 60 * 1000);
+    await this.ctx.storage.setAlarm(Date.now() + roomLifetime);
     this.broadcast({ type: "state", state: next });
     if (moved) {
       for (const socket of this.ctx.getWebSockets()) {

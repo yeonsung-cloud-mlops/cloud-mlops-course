@@ -1,5 +1,7 @@
 const base = process.argv[2] || 'http://localhost:8788';
-const created = await fetch(`${base}/api/rooms`, { method: 'POST' });
+const instructorCode = process.argv[3] || process.env.INSTRUCTOR_ACCESS_CODE;
+if (!instructorCode) throw new Error('강사 접근 코드를 두 번째 인수 또는 INSTRUCTOR_ACCESS_CODE 환경 변수로 전달하세요.');
+const created = await fetch(`${base}/api/rooms`, { method: 'POST', headers: { authorization: `Bearer ${instructorCode}` } });
 if (!created.ok) throw new Error(`수업 생성 실패: ${created.status}`);
 const { roomId, teacherKey } = await created.json();
 const wsBase = base.replace(/^http/, 'ws');

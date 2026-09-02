@@ -332,7 +332,7 @@ function bindPresenter(){document.querySelector('#presenterFullscreen').onclick=
 function fitViewerSlide(){
   const slide=document.querySelector('.viewer-shell .slide'),inner=document.querySelector('.viewer-shell .slide-inner');if(!slide||!inner)return;
   inner.style.transform='none';
-  if(role==='student'&&slide.classList.contains('diagnostic-slide'))return;
+  if(role==='student'&&(slide.classList.contains('diagnostic-slide')||slide.classList.contains('diagnostic-review-slide')))return;
   const style=getComputedStyle(slide),available=slide.clientHeight-parseFloat(style.paddingTop)-parseFloat(style.paddingBottom);
   const scale=Math.min(1,available/inner.scrollHeight);
   inner.style.transform=`scale(${scale})`;

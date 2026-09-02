@@ -257,7 +257,6 @@ export class Classroom {
         this.addUnique(student.visitedSlides, this.slideKey(state));
       });
       await this.sendMyQuestions(server, verifiedStudent.clientId);
-      await this.broadcastTeams();
       await this.broadcastDashboard();
     }
     server.send(JSON.stringify({ type: "state", state }));
@@ -290,7 +289,6 @@ export class Classroom {
         this.addUnique(student.visitedSlides, this.slideKey(state));
       });
       await this.sendMyQuestions(ws, clientId);
-      await this.broadcastTeams();
       await this.broadcastDashboard();
       await this.broadcastPresence();
       return;

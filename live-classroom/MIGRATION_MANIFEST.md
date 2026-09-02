@@ -4,7 +4,7 @@
 
 | 주차 | 슬라이드 수 | 웹 자산 경로 |
 |---|---:|---|
-| 01주차 | 88 | `public/course-weeks/week01.json`, `public/assets/week01/` |
+| 01주차 | 92 | `public/course-weeks/week01.json`, `public/assets/week01/` |
 | 02주차 | 37 | `public/assets/decks/week02/` |
 | 03주차 | 36 | `public/assets/decks/week03/` |
 | 04주차 | 36 | `public/assets/decks/week04/` |
@@ -19,6 +19,6 @@
 | 13주차 | 47 | `public/assets/decks/week13/` |
 | 14주차 | 42 | `public/assets/decks/week14/` |
 | 15주차 | 47 | `public/assets/decks/week15/` |
-| 합계 | **710** | `public/assets/decks/` |
+| 합계 | **714** | `public/assets/decks/` |
 
 1주차는 학생 입력 요소, 장표별 강사용 권장 시간, 첨부파일, AWS 콘솔 이동 경로와 공식 문서를 웹 콘텐츠에 직접 담았습니다. 학생 응답은 Durable Objects와 WebSocket으로 강사 제어·PT 화면에 전달됩니다. 2~15주차는 현재 `public/assets/decks`의 기존 렌더링 자산을 사용하며, `CONTENT_AUTHORING_GUIDE.md`에 따라 웹 고유 콘텐츠로 교체합니다. 주차 목록은 `public/course-data.js`, 장표 본문·참여 활동·첨부파일은 `public/course-weeks/weekNN.json`으로 분리되어 현재 주차 자료만 비동기로 불러옵니다.

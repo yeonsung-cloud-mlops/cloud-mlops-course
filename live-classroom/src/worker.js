@@ -174,6 +174,7 @@ export class Classroom {
     server.serializeAttachment({ role: requestedRole, completed: false, participantId: crypto.randomUUID().slice(0, 8), joinedAt: Date.now() });
     const state = await this.ctx.storage.get("state");
     server.send(JSON.stringify({ type: "state", state }));
+    server.send(JSON.stringify(await this.teamPayload({ role: requestedRole })));
     if (requestedRole !== "student") server.send(JSON.stringify({ type: "activity", deck: state.deck, slide: state.slide, responses: await this.activityFor(state.deck, state.slide) }));
     if (requestedRole === "teacher") server.send(JSON.stringify(await this.dashboardPayload()));
     await this.broadcastPresence();
@@ -199,8 +200,19 @@ export class Classroom {
         this.addUnique(student.visitedSlides, this.slideKey(state));
       });
       await this.sendMyQuestions(ws, clientId);
+      await this.broadcastTeams();
       await this.broadcastDashboard();
       await this.broadcastPresence();
+      return;
+    }
+
+    if (payload.type === "team" && connection.role === "student" && connection.clientId) {
+      await this.handleStudentTeamAction(ws, connection, payload);
+      return;
+    }
+
+    if (payload.type === "team-admin" && connection.role === "teacher") {
+      await this.handleTeacherTeamAction(ws, payload);
       return;
     }
 
@@ -322,6 +334,156 @@ export class Classroom {
     if (value && !list.includes(value)) list.push(value);
   }
 
+  async getTeamState() {
+    const stored = await this.ctx.storage.get("teams") || {};
+    return { locked: Boolean(stored.locked), items: stored.items && typeof stored.items === "object" ? stored.items : {} };
+  }
+
+  cleanTeamName(value) {
+    return String(value || "").trim().replace(/\s+/g, " ").slice(0, 24);
+  }
+
+  resetTeam(team) {
+    team.readyIds = [];
+    team.confirmed = false;
+  }
+
+  removeMember(teamState, clientId) {
+    for (const [teamId, team] of Object.entries(teamState.items)) {
+      if (!team.memberIds?.includes(clientId)) continue;
+      team.memberIds = team.memberIds.filter(id => id !== clientId);
+      this.resetTeam(team);
+      if (!team.memberIds.length) delete teamState.items[teamId];
+    }
+  }
+
+  teamCode(teamState) {
+    const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    const used = new Set(Object.values(teamState.items).map(team => team.code));
+    for (let attempt = 0; attempt < 100; attempt += 1) {
+      const bytes = crypto.getRandomValues(new Uint8Array(4));
+      const code = Array.from(bytes, value => alphabet[value % alphabet.length]).join("");
+      if (!used.has(code)) return code;
+    }
+    return crypto.randomUUID().replaceAll("-", "").slice(0, 4).toUpperCase();
+  }
+
+  async sendTeamError(ws, message) {
+    try { ws.send(JSON.stringify({ type: "team-error", message })); } catch { /* closed socket */ }
+  }
+
+  async handleStudentTeamAction(ws, connection, payload) {
+    const teamState = await this.getTeamState();
+    if (teamState.locked) return this.sendTeamError(ws, "강사가 팀 구성을 잠갔습니다.");
+    const action = String(payload.action || "");
+    if (action === "create") {
+      const name = this.cleanTeamName(payload.name);
+      if (!name) return this.sendTeamError(ws, "팀 이름을 입력해 주세요.");
+      this.removeMember(teamState, connection.clientId);
+      const id = crypto.randomUUID().slice(0, 8);
+      teamState.items[id] = { id, code: this.teamCode(teamState), name, memberIds: [connection.clientId], readyIds: [], confirmed: false, createdAt: Date.now() };
+    } else if (action === "join") {
+      const code = String(payload.code || "").trim().toUpperCase();
+      const team = Object.values(teamState.items).find(item => item.code === code);
+      if (!team) return this.sendTeamError(ws, "팀 코드를 찾지 못했습니다.");
+      if (team.memberIds.includes(connection.clientId)) return;
+      if (team.memberIds.length >= 4 && !team.memberIds.includes(connection.clientId)) return this.sendTeamError(ws, "이미 네 명이 참여한 팀입니다.");
+      this.removeMember(teamState, connection.clientId);
+      team.memberIds.push(connection.clientId);
+      this.resetTeam(team);
+    } else if (action === "leave") {
+      this.removeMember(teamState, connection.clientId);
+    } else if (action === "ready") {
+      const team = Object.values(teamState.items).find(item => item.memberIds?.includes(connection.clientId));
+      if (!team) return this.sendTeamError(ws, "먼저 팀을 만들거나 참여해 주세요.");
+      team.readyIds ||= [];
+      if (payload.ready) this.addUnique(team.readyIds, connection.clientId);
+      else team.readyIds = team.readyIds.filter(id => id !== connection.clientId);
+      team.confirmed = team.memberIds.length >= 3 && team.memberIds.length <= 4 && team.memberIds.every(id => team.readyIds.includes(id));
+    } else return;
+    await this.ctx.storage.put("teams", teamState);
+    await this.broadcastTeams();
+    await this.broadcastDashboard();
+  }
+
+  async handleTeacherTeamAction(ws, payload) {
+    const teamState = await this.getTeamState();
+    const action = String(payload.action || "");
+    if (action === "lock") {
+      teamState.locked = Boolean(payload.locked);
+    } else if (action === "create") {
+      const name = this.cleanTeamName(payload.name);
+      if (!name) return this.sendTeamError(ws, "팀 이름을 입력해 주세요.");
+      const id = crypto.randomUUID().slice(0, 8);
+      teamState.items[id] = { id, code: this.teamCode(teamState), name, memberIds: [], readyIds: [], confirmed: false, createdAt: Date.now() };
+    } else if (action === "assign") {
+      const clientId = String(payload.clientId || "");
+      const target = payload.teamId ? teamState.items[String(payload.teamId)] : null;
+      if (target?.memberIds.includes(clientId)) return;
+      if (target && target.memberIds.length >= 4 && !target.memberIds.includes(clientId)) return this.sendTeamError(ws, "대상 팀에 이미 네 명이 있습니다.");
+      this.removeMember(teamState, clientId);
+      if (target) { target.memberIds.push(clientId); this.resetTeam(target); }
+    } else if (action === "confirm") {
+      const team = teamState.items[String(payload.teamId || "")];
+      if (!team) return;
+      if (payload.confirmed && (team.memberIds.length < 3 || team.memberIds.length > 4)) return this.sendTeamError(ws, "팀 확정은 세 명 또는 네 명일 때만 가능합니다.");
+      team.confirmed = Boolean(payload.confirmed);
+      team.readyIds = team.confirmed ? [...team.memberIds] : [];
+    } else if (action === "rename") {
+      const team = teamState.items[String(payload.teamId || "")];
+      const name = this.cleanTeamName(payload.name);
+      if (!team || !name) return;
+      team.name = name;
+    } else if (action === "dissolve") {
+      delete teamState.items[String(payload.teamId || "")];
+    } else if (action === "merge") {
+      const sourceId = String(payload.sourceId || ""), targetId = String(payload.targetId || "");
+      const source = teamState.items[sourceId], target = teamState.items[targetId];
+      if (!source || !target || sourceId === targetId) return;
+      const members = [...new Set([...(target.memberIds || []), ...(source.memberIds || [])])];
+      if (members.length > 4) return this.sendTeamError(ws, "합친 팀이 네 명을 초과합니다.");
+      target.memberIds = members;
+      this.resetTeam(target);
+      delete teamState.items[sourceId];
+    } else return;
+    await this.ctx.storage.put("teams", teamState);
+    await this.broadcastTeams();
+    await this.broadcastDashboard();
+  }
+
+  async teamPayload(viewer = {}) {
+    const teamState = await this.getTeamState();
+    const students = await this.ctx.storage.get("students") || {};
+    return this.serializeTeamPayload(teamState, students, viewer);
+  }
+
+  serializeTeamPayload(teamState, students, viewer = {}) {
+    const sorted = Object.values(teamState.items).sort((a, b) => a.name.localeCompare(b.name, "ko"));
+    const items = sorted.map((team, index) => {
+      const memberIds = team.memberIds || [];
+      const canSeeMembers = viewer.role === "teacher" || (viewer.role === "student" && memberIds.includes(viewer.clientId));
+      return {
+        id: team.id,
+        code: viewer.role === "presenter" ? "" : team.code,
+        name: viewer.role === "presenter" ? `팀 ${index + 1}` : team.name,
+        confirmed: Boolean(team.confirmed),
+        readyCount: team.readyIds?.length || 0,
+        memberCount: memberIds.length,
+        members: canSeeMembers ? memberIds.map(clientId => ({ clientId, name: students[clientId]?.name || "이름 미입력", ready: team.readyIds?.includes(clientId) || false })) : [],
+      };
+    });
+    return { type: "teams", locked: teamState.locked, items };
+  }
+
+  async broadcastTeams() {
+    const teamState = await this.getTeamState();
+    const students = await this.ctx.storage.get("students") || {};
+    for (const socket of this.ctx.getWebSockets()) {
+      const connection = socket.deserializeAttachment() || {};
+      try { socket.send(JSON.stringify(this.serializeTeamPayload(teamState, students, connection))); } catch { /* closed socket */ }
+    }
+  }
+
   async updateStudent(clientId, name, mutate) {
     const students = await this.ctx.storage.get("students") || {};
     const student = students[clientId] || { clientId, name, firstJoinedAt: Date.now(), lastActiveAt: Date.now(), visitedSlides: [], completedSlides: [], responseSlides: [], questionCount: 0 };
@@ -363,7 +525,7 @@ export class Classroom {
       const base = visitedCount ? Math.round(((completedCount + responseCount) / (visitedCount * 2)) * 90) : 0;
       return { clientId: student.clientId, name: student.name, firstJoinedAt: student.firstJoinedAt, lastActiveAt: student.lastActiveAt, online: online.has(student.clientId), visitedCount, completedCount, responseCount, questionCount, participationScore: Math.min(100, base + Math.min(10, questionCount * 2)) };
     }).sort((a, b) => Number(b.online) - Number(a.online) || a.name.localeCompare(b.name, "ko"));
-    return { type: "dashboard", students, questions };
+    return { type: "dashboard", students, questions, teams: (await this.teamPayload({ role: "teacher" })).items };
   }
 
   async broadcastDashboard() {

@@ -42,7 +42,7 @@ let studentName=roomId?sessionStorage.getItem(studentNameKey)||'':'';
 let studentClientId=roomId?localStorage.getItem(studentClientKey)||'':'';
 if(roomId&&!studentClientId){studentClientId=crypto.randomUUID();localStorage.setItem(studentClientKey,studentClientId)}
 let instructorCode=sessionStorage.getItem('instructor-access-code')||'';
-let socket, connected=false, state={deck:'week01',slide:0,revealed:false,showResponses:false,timerEnd:null},presence={students:0,completed:0,responded:0,presenters:0},activity={deck:'week01',slide:0,responses:[]},roster=[],questions=[],myQuestions=[],completed=false,retry=0,timerHandle,clockHandle,activityTimer;
+let socket, connected=false, state={deck:'week01',slide:0,revealed:false,showResponses:false,timerEnd:null},presence={students:0,completed:0,responded:0,presenters:0},activity={deck:'week01',slide:0,responses:[]},roster=[],questions=[],myQuestions=[],teams={locked:false,items:[]},teamPanelOpen=false,teamMessage='',completed=false,retry=0,timerHandle,clockHandle,activityTimer;
 const weekSlideCount=week=>week?.slideCount||week?.slides?.length||0;
 const ensureWeekLoaded=weekId=>window.loadCourseWeek(weekId);
 
@@ -92,7 +92,7 @@ function connect(){
   socket.onopen=()=>{connected=true;retry=0;if(role==='student')send({type:'identify',clientId:studentClientId,name:studentName});if(currentWeek()?.slides)render()};
   socket.onclose=()=>{connected=false;if(currentWeek()?.slides)render();setTimeout(connect,Math.min(10000,800*2**retry++))};
   socket.onerror=()=>socket.close();
-  socket.onmessage=async event=>{const message=JSON.parse(event.data);if(message.type==='state'){const moved=state.deck!==message.state.deck||state.slide!==message.state.slide;state=message.state;if(roomId)localStorage.setItem(`room-week:${roomId}`,state.deck);if(moved)completed=false;if(!currentWeek()?.slides){app.innerHTML='<div class="boot">해당 주차 수업 자료를 불러오고 있습니다.</div>';try{await ensureWeekLoaded(state.deck)}catch{app.innerHTML='<section class="error"><h1>수업 자료를 불러오지 못했습니다</h1><p>네트워크 연결을 확인한 뒤 새로고침해 주세요.</p></section>';return}}}if(message.type==='presence')presence=message;if(message.type==='activity')activity={deck:message.deck||state.deck,slide:message.slide,responses:message.responses||[]};if(message.type==='dashboard'){roster=message.students||[];questions=message.questions||[]}if(message.type==='my-questions')myQuestions=message.questions||[];if(message.type==='expired'){app.innerHTML='<section class="error"><h1>수업이 종료되었습니다</h1><p>강사에게 새 수업 코드를 받아주세요.</p></section>';return}if((message.type!=='activity'||role!=='student')&&currentWeek()?.slides)render()};
+  socket.onmessage=async event=>{const message=JSON.parse(event.data);if(message.type==='state'){const moved=state.deck!==message.state.deck||state.slide!==message.state.slide;state=message.state;if(roomId)localStorage.setItem(`room-week:${roomId}`,state.deck);if(moved)completed=false;if(!currentWeek()?.slides){app.innerHTML='<div class="boot">해당 주차 수업 자료를 불러오고 있습니다.</div>';try{await ensureWeekLoaded(state.deck)}catch{app.innerHTML='<section class="error"><h1>수업 자료를 불러오지 못했습니다</h1><p>네트워크 연결을 확인한 뒤 새로고침해 주세요.</p></section>';return}}}if(message.type==='presence')presence=message;if(message.type==='activity')activity={deck:message.deck||state.deck,slide:message.slide,responses:message.responses||[]};if(message.type==='dashboard'){roster=message.students||[];questions=message.questions||[];if(message.teams)teams={...teams,items:message.teams}}if(message.type==='teams'){teams={locked:Boolean(message.locked),items:message.items||[]};teamMessage=''}if(message.type==='team-error'){teamMessage=message.message||'팀 구성을 처리하지 못했습니다.'}if(message.type==='my-questions')myQuestions=message.questions||[];if(message.type==='expired'){app.innerHTML='<section class="error"><h1>수업이 종료되었습니다</h1><p>강사에게 새 수업 코드를 받아주세요.</p></section>';return}if((message.type!=='activity'||role!=='student')&&currentWeek()?.slides)render()};
 }
 
 function send(payload){if(socket?.readyState===WebSocket.OPEN)socket.send(JSON.stringify(payload))}
@@ -139,6 +139,15 @@ function demoContent(viewerRole){
   return `<div class="demo-grid"><div class="demo-card"><label>새 제품 가격<input id="original" type="number" value="1500000"></label><label>사용 기간<select id="years"><option value="1">1년</option><option value="3" selected>3년</option><option value="5">5년</option></select></label><label>배터리 성능<input id="battery" type="number" value="78"></label><button class="primary" id="predict">계산 API 호출</button></div><div class="demo-card"><h2>서버 응답</h2><div class="price" id="price">—</div><p id="explain">버튼을 누르면 서버에 요청을 보냅니다.</p><pre id="json">POST /api/demo/predict\n\n요청 전</pre></div></div>`;
 }
 
+function teamSlideWidget(viewerRole){
+  const confirmed=teams.items.filter(team=>team.confirmed).length;
+  if(viewerRole==='student'){
+    const mine=currentStudentTeam();
+    return `<section class="team-slide-widget"><div><strong>${mine?safe(mine.name):'아직 팀이 없습니다'}</strong><span>${mine?`${teamMemberCount(mine)}/4명 · ${teamStatus(mine)}`:'팀을 만들거나 팀 코드로 참여하세요.'}</span></div><button data-open-team>${mine?'내 팀 확인':'팀 구성 시작'}</button></section>`;
+  }
+  return `<section class="team-slide-board"><header><strong>실시간 팀 구성</strong><span>${confirmed}/${teams.items.length}팀 확정</span></header><div>${teams.items.length?teams.items.map(team=>`<article class="${team.confirmed?'confirmed':''}"><strong>${safe(team.name)}</strong><span>${team.members.length?team.members.map(member=>safe(member.name)).join(' · '):`${teamMemberCount(team)}명 참여`}</span></article>`).join(''):'<p>학생이 팀을 만들면 이곳에 바로 표시됩니다.</p>'}</div></section>`;
+}
+
 function interactiveSlideContent(meta,viewerRole){
   const teacherTiming=viewerRole==='teacher'&&Number.isFinite(meta.minutes)?` <span>권장 ${meta.minutes}분</span>`:'';
   let body=`<p class="kicker">${safe(meta.kicker||'학생 참여')}${teacherTiming}</p><h1>${safe(meta.title)}</h1>`;
@@ -153,6 +162,7 @@ function interactiveSlideContent(meta,viewerRole){
   if(meta.callout)body+=`<div class="lesson-callout">${safe(meta.callout)}</div>`;
   if(meta.links?.length)body+=`<div class="lesson-links">${meta.links.map(link=>`<a href="${safe(link.url)}" target="_blank" rel="noopener">${safe(link.label)} ↗</a>`).join('')}</div>`;
   if(meta.type==='demo')body+=demoContent(viewerRole);
+  if(meta.teamBuilder)body+=teamSlideWidget(viewerRole);
   body+=interactionFields(meta,viewerRole);
   if(state.revealed&&meta.reveal)body+=`<div class="reveal">${safe(meta.reveal)}</div>`;
   body+=attachmentLinks();
@@ -162,6 +172,36 @@ function interactiveSlideContent(meta,viewerRole){
 function slideContent(slide){const interaction=currentInteraction();return interaction?interactiveSlideContent(interaction,role):`<img class="deck-slide-image" src="${safe(slide.image)}" alt="${safe(slide.title)}" draggable="false">`}
 function studentQuestionHistory(){if(!myQuestions.length)return '';return `<details class="student-question-history"><summary>내 질문 ${myQuestions.length}개</summary><div>${myQuestions.slice(-5).reverse().map(question=>`<article><strong>${safe(question.text)}</strong><span>${question.answer?`답변: ${safe(question.answer)}`:'강사 확인 전'}</span></article>`).join('')}</div></details>`}
 function studentDock(slide){return `<form class="student-question-form" id="questionForm"><label for="studentQuestion">Q&amp;A</label><input id="studentQuestion" maxlength="300" placeholder="궁금한 점을 질문하세요" autocomplete="off"><button>질문 보내기</button></form>${studentQuestionHistory()}${attachmentLinks()}${resourceLinks(slide)}`}
+
+function currentStudentTeam(){return teams.items.find(team=>team.members.some(member=>member.clientId===studentClientId))||null}
+function teamMemberCount(team){return Number.isFinite(team.memberCount)?team.memberCount:team.members.length}
+function teamStatus(team){const count=teamMemberCount(team);if(team.confirmed)return '확정';if(count<3)return `${count}명 · 팀원 모집 중`;return `${team.readyCount}/${count}명 동의`}
+function studentTeamButton(){const team=currentStudentTeam();return `<button class="student-team-open" id="openTeamPanel">${team?`${safe(team.name)} · ${team.confirmed?'확정':'구성 중'}`:'팀 구성'}</button>`}
+function studentTeamDialog(){
+  if(!teamPanelOpen)return '';
+  const mine=currentStudentTeam();
+  const message=teamMessage?`<p class="team-message">${safe(teamMessage)}</p>`:'';
+  const locked=teams.locked?'<p class="team-lock-notice">강사가 팀 구성을 마감했습니다. 변경이 필요하면 강사에게 알려주세요.</p>':'';
+  let body='';
+  if(mine){
+    const me=mine.members.find(member=>member.clientId===studentClientId);
+    body=`<section class="my-team-card ${mine.confirmed?'confirmed':''}"><header><div><span>내 팀</span><h3>${safe(mine.name)}</h3></div><strong>${safe(mine.code)}</strong></header><p class="team-state">${teamStatus(mine)}</p><ul>${mine.members.map(member=>`<li><span>${safe(member.name)}</span><b>${member.ready?'확정 동의':'확인 전'}</b></li>`).join('')}</ul><div class="team-dialog-actions"><button class="primary" id="toggleTeamReady" ${teams.locked?'disabled':''}>${me?.ready?'확정 동의 취소':'이 팀으로 확정 동의'}</button><button class="secondary" id="leaveTeam" ${teams.locked?'disabled':''}>팀 나가기</button></div><small>팀원이 바뀌면 확정 동의가 초기화됩니다. 3~4명 전원이 동의하면 자동으로 확정됩니다.</small></section>`;
+  }else{
+    const openTeams=teams.items.filter(team=>teamMemberCount(team)<4&&!team.confirmed);
+    body=`<div class="team-start-grid"><form class="team-action-card" id="createTeam"><h3>새 팀 만들기</h3><p>팀 이름을 정하면 네 자리 참여 코드가 발급됩니다.</p><input id="newTeamName" maxlength="24" placeholder="팀 이름" ${teams.locked?'disabled':''} required><button class="primary" ${teams.locked?'disabled':''}>팀 만들기</button></form><form class="team-action-card" id="joinTeam"><h3>팀 코드로 참여</h3><p>팀원이 알려준 네 자리 코드를 입력하세요.</p><input id="joinTeamCode" maxlength="4" placeholder="예: A7K2" ${teams.locked?'disabled':''} required><button class="primary" ${teams.locked?'disabled':''}>참여하기</button></form></div><section class="open-team-list"><h3>참여 가능한 팀</h3>${openTeams.length?openTeams.map(team=>`<article><div><strong>${safe(team.name)}</strong><span>${teamMemberCount(team)}/4명 · 코드는 팀원에게 확인</span></div></article>`).join(''):'<p>아직 만들어진 팀이 없습니다.</p>'}</section>`;
+  }
+  return `<div class="team-dialog-backdrop"><section class="team-dialog" role="dialog" aria-modal="true" aria-label="팀 구성"><header class="team-dialog-header"><div><span>수업 코드 ${safe(roomId)}</span><h2>팀 구성</h2></div><button id="closeTeamPanel" aria-label="닫기">×</button></header>${locked}${message}${body}</section></div>`;
+}
+
+function teamManagementPanel(){
+  const assigned=new Set(teams.items.flatMap(team=>team.members.map(member=>member.clientId)));
+  const unassigned=roster.filter(student=>!assigned.has(student.clientId));
+  const confirmed=teams.items.filter(team=>team.confirmed).length;
+  const options=(selected='')=>`<option value="">미배정</option>${teams.items.map(team=>`<option value="${attr(team.id)}" ${selected===team.id?'selected':''}>${safe(team.name)} (${teamMemberCount(team)}/4)</option>`).join('')}`;
+  const cards=teams.items.map(team=>`<article class="teacher-team-card ${team.confirmed?'confirmed':''}"><header><div><strong>${safe(team.name)}</strong><span>코드 ${safe(team.code)} · ${teamStatus(team)}</span></div><button data-team-confirm="${attr(team.id)}" data-confirmed="${team.confirmed?'false':'true'}">${team.confirmed?'확정 해제':'강사 확정'}</button></header><ul>${team.members.length?team.members.map(member=>`<li><span>${safe(member.name)}${member.ready?' ✓':''}</span><button data-remove-member="${attr(member.clientId)}">제외</button></li>`).join(''):'<li class="empty-member">팀원이 없습니다.</li>'}</ul><form class="team-rename" data-rename-team="${attr(team.id)}"><input maxlength="24" value="${attr(team.name)}" aria-label="팀 이름"><button>이름 변경</button></form><div class="teacher-team-actions"><label>다른 팀과 합치기<select data-merge-target="${attr(team.id)}">${teams.items.filter(item=>item.id!==team.id).map(item=>`<option value="${attr(item.id)}">${safe(item.name)}</option>`).join('')}</select></label><button data-merge-team="${attr(team.id)}" ${teams.items.length<2?'disabled':''}>합치기</button><button class="danger" data-dissolve-team="${attr(team.id)}">해산</button></div></article>`).join('');
+  const waiting=unassigned.map(student=>`<article><span>${safe(student.name)}</span><select data-assign-student="${attr(student.clientId)}">${options()}</select></article>`).join('');
+  return `<details class="team-management" open><summary><span>팀 구성 관리</span><b>${confirmed}/${teams.items.length}팀 확정 · 미배정 ${unassigned.length}명</b></summary><div class="team-management-tools"><button id="toggleTeamLock">${teams.locked?'구성 다시 열기':'팀 구성 잠금'}</button><button id="exportTeams">LMS용 CSV</button></div><form class="teacher-create-team" id="teacherCreateTeam"><input maxlength="24" id="teacherTeamName" placeholder="강사가 만들 팀 이름" required><button>팀 추가</button></form>${teamMessage?`<p class="team-message">${safe(teamMessage)}</p>`:''}<div class="teacher-team-list">${cards||'<p class="team-empty">아직 팀이 없습니다.</p>'}</div><section class="unassigned-students"><h3>미배정 학생</h3>${waiting||'<p>모든 출석 학생이 팀에 배정되었습니다.</p>'}</section></details>`;
+}
 
 function render(){
   if(role==='landing')return landing();
@@ -179,7 +219,7 @@ function render(){
   const stage=teacher?`<div class="teacher-stage">${slideView}${speakerNote(slide,week)}</div>`:slideView;
   const footer=role==='student'?studentDock(slide):'';
   const teacherLayout=teacher?`${teacherPanel(week,studentUrl,presenterUrl)}${stage}${participationPanel()}`:stage;
-  app.innerHTML=`<div class="shell ${shellClass}"><header class="bar"><span class="brand">클라우드 MLOps</span><span class="room">${roomId}</span><span>${week.label} · ${roleLabel}${participantLabel}</span><span class="status"><i class="dot ${connected?'live':''}"></i>${connected?'실시간 연결':'다시 연결 중'}</span>${presenter?'<button class="presenter-fullscreen" id="presenterFullscreen">전체 화면</button>':''}</header><div class="workspace">${teacherLayout}</div><div class="foot-controls">${footer}</div>${state.timerEnd?'<div class="timer" id="timer"></div>':''}${presenter?presenterSummary():''}${presenter&&state.showResponses?activityBoard():''}${role==='student'?`<button class="complete-button ${completed?'done':''}" id="complete">${completed?'완료 취소':'이 장표 완료'}</button>`:''}</div>`;
+  app.innerHTML=`<div class="shell ${shellClass}"><header class="bar"><span class="brand">클라우드 MLOps</span><span class="room">${roomId}</span><span>${week.label} · ${roleLabel}${participantLabel}</span><span class="status"><i class="dot ${connected?'live':''}"></i>${connected?'실시간 연결':'다시 연결 중'}</span>${role==='student'?studentTeamButton():''}${presenter?'<button class="presenter-fullscreen" id="presenterFullscreen">전체 화면</button>':''}</header><div class="workspace">${teacherLayout}</div><div class="foot-controls">${footer}</div>${state.timerEnd?'<div class="timer" id="timer"></div>':''}${presenter?presenterSummary():''}${presenter&&state.showResponses?activityBoard():''}${role==='student'?`<button class="complete-button ${completed?'done':''}" id="complete">${completed?'완료 취소':'이 장표 완료'}</button>${studentTeamDialog()}`:''}</div>`;
   bindCommon();if(teacher)bindTeacher();else{if(role==='student')bindStudent();else bindPresenter();fitViewerSlide()}startTimer();startClock();
 }
 
@@ -190,7 +230,7 @@ function responseData(response,index){return response?.fields?{name:response.nam
 function teacherResponsePreview(){const rows=(activity.deck===state.deck&&activity.slide===state.slide?activity.responses:[]).flatMap((response,index)=>{const item=responseData(response,index);return Object.entries(item.fields).filter(([,value])=>value).map(([label,value])=>`<div class="teacher-response"><strong>${safe(item.name)} · ${safe(label)}</strong><span>${safe(value)}</span></div>`)}).slice(0,8);return `<section class="teacher-response-list"><div><strong>현재 장표 답안</strong><span>${rows.length?`${rows.length}개 표시`:'대기 중'}</span></div>${rows.length?rows.join(''):'<p>학생이 입력하면 이름과 답안이 여기에 표시됩니다.</p>'}</section>`}
 function attendanceRoster(){return `<section class="attendance-roster"><header><strong>출석·참여도</strong><button id="exportAttendance">CSV</button></header>${roster.length?roster.map(student=>`<article><span class="presence-dot ${student.online?'online':''}"></span><div><strong>${safe(student.name)}</strong><small>${student.online?'접속 중':'연결 끊김'} · 완료 ${student.completedCount} · 답안 ${student.responseCount} · 질문 ${student.questionCount}</small></div><b>${student.participationScore}%</b></article>`).join(''):'<p>이름을 입력하고 들어온 학생이 여기에 표시됩니다.</p>'}</section>`}
 function questionPanel(){return `<section class="teacher-questions"><header><strong>Q&amp;A</strong><span>${questions.filter(item=>!item.answer).length}개 답변 대기</span></header>${questions.length?questions.slice(-8).reverse().map(question=>`<article><div><strong>${safe(question.name)} · ${safe(question.weekLabel||question.deck)} ${Number(question.slide)+1}장</strong><p>${safe(question.text)}</p></div>${question.answer?`<div class="question-answer">답변: ${safe(question.answer)}</div>`:`<form data-question-id="${attr(question.id)}"><input maxlength="500" placeholder="답변을 입력하세요"><button>보내기</button></form>`}</article>`).join(''):'<p>학생 질문이 아직 없습니다.</p>'}</section>`}
-function participationPanel(){return `<aside class="student-panel"><h2>학생 참여</h2><div class="metric-row"><div class="metric"><strong>${presence.students}</strong><span>접속 학생</span></div><div class="metric"><strong>${roster.length}</strong><span>출석 학생</span></div><div class="metric"><strong>${presence.responded||0}</strong><span>현재 답안</span></div><div class="metric"><strong>${presence.completed}</strong><span>장표 완료</span></div></div><div class="participation-actions"><button id="showResponses">${state.showResponses?'학생 응답 감추기':'학생 응답 공개'}</button></div>${teacherResponsePreview()}${attendanceRoster()}${questionPanel()}</aside>`}
+function participationPanel(){return `<aside class="student-panel"><h2>학생 참여</h2><div class="metric-row"><div class="metric"><strong>${presence.students}</strong><span>접속 학생</span></div><div class="metric"><strong>${roster.length}</strong><span>출석 학생</span></div><div class="metric"><strong>${presence.responded||0}</strong><span>현재 답안</span></div><div class="metric"><strong>${presence.completed}</strong><span>장표 완료</span></div></div>${teamManagementPanel()}<div class="participation-actions"><button id="showResponses">${state.showResponses?'학생 응답 감추기':'학생 응답 공개'}</button></div>${teacherResponsePreview()}${attendanceRoster()}${questionPanel()}</aside>`}
 
 function generatedSpeakerScript(meta,slide){
   if(!meta)return slide.notes||'';
@@ -211,13 +251,14 @@ function generatedSpeakerScript(meta,slide){
     lines.push('[학생에게 그대로 말하기] 화면의 값을 한 번 바꾸고 실행 버튼을 눌러 주세요. 실행 전 예상과 서버가 돌려준 결과가 어떻게 다른지 확인해 주세요.');
     lines.push('[응답 후 그대로 말하기] 서로 다른 값을 넣은 두 사람의 결과를 비교하겠습니다. 오류가 난 사람은 요청과 응답에 표시된 문장을 함께 읽어 보겠습니다.');
   }
+  if(meta.teamBuilder)lines.push('[학생에게 그대로 말하기] 화면 오른쪽 위의 ‘팀 구성’을 열어 주세요. 팀을 만든 학생은 네 자리 코드를 팀원에게 알려 주고, 다른 학생은 그 코드로 참여하세요. 팀원 명단이 맞으면 각자 확정에 동의해 주세요.');
   if(meta.callout)lines.push(`[강조] ${meta.callout}`);
   lines.push(next?`[다음 장으로 연결하며 말하기] 이제 다음 장의 “${next.title}”로 넘어가겠습니다.`:'[마무리하며 말하기] 오늘 남긴 산출물을 다시 확인하겠습니다. 다음 주에도 같은 저장 위치에서 이어서 사용하겠습니다.');
   return lines.join('\n\n');
 }
 function speakerNote(slide,week){const meta=currentInteraction();const note=meta?.note||generatedSpeakerScript(meta,slide);return `<section class="speaker-note" aria-label="발표자 노트"><div class="speaker-note-label"><strong>발표자 노트</strong><span>${week.label} · ${state.slide+1} / ${week.slides.length}${meta?` · ${meta.period}교시 · ${meta.minutes}분`:''}</span></div><p>${safe(note||'')}</p>${attachmentLinks()}${meta?.links?.length?`<div class="resource-links">${meta.links.map(link=>`<a href="${safe(link.url)}" target="_blank" rel="noopener">${safe(link.label)} ↗</a>`).join('')}</div>`:resourceLinks(slide)}</section>`}
 
-function presenterSummary(){const total=Math.max(1,presence.students),percent=Math.round(presence.completed/total*100);return `<div class="live-summary"><span>응답 ${presence.responded||0}명</span><span>완료 ${presence.completed}/${presence.students}</span><span class="live-progress"><span style="width:${percent}%"></span></span></div><div class="join-callout"><span>학생 접속</span><strong>0060.kr</strong><em>수업 코드 ${roomId}</em></div>`}
+function presenterSummary(){const total=Math.max(1,presence.students),percent=Math.round(presence.completed/total*100),confirmed=teams.items.filter(team=>team.confirmed).length;return `<div class="live-summary"><span>응답 ${presence.responded||0}명</span><span>완료 ${presence.completed}/${presence.students}</span><span>팀 ${confirmed}/${teams.items.length} 확정</span><span class="live-progress"><span style="width:${percent}%"></span></span></div><div class="join-callout"><span>학생 접속</span><strong>0060.kr</strong><em>수업 코드 ${roomId}</em></div>`}
 function activityBoard(){const rows=(activity.deck===state.deck&&activity.slide===state.slide?activity.responses:[]).flatMap((response,index)=>{const item=responseData(response,index);return Object.entries(item.fields).filter(([,value])=>value).map(([label,value])=>`<div class="response-card"><strong>학생 ${index+1} · ${safe(label)}</strong><span>${safe(value)}</span></div>`)});return `<aside class="activity-board"><h2>학생 실시간 답안</h2>${rows.length?rows.join(''):'<p class="response-empty">아직 입력된 답안이 없습니다.</p>'}</aside>`}
 
 function bindCommon(){
@@ -236,9 +277,30 @@ function bindTeacher(){
   document.querySelector('#copyPresenterUrl').onclick=()=>navigator.clipboard.writeText(document.querySelector('#presenterUrl').value);document.querySelector('#copyUrl').onclick=()=>navigator.clipboard.writeText(document.querySelector('#studentUrl').value);document.querySelector('#copyCode').onclick=()=>navigator.clipboard.writeText(roomId);
   document.querySelectorAll('.teacher-questions form').forEach(form=>form.onsubmit=event=>{event.preventDefault();const input=form.querySelector('input'),answer=input.value.trim();if(answer)send({type:'answer-question',questionId:form.dataset.questionId,answer})});
   const exportButton=document.querySelector('#exportAttendance');if(exportButton)exportButton.onclick=exportAttendance;
+  document.querySelector('#toggleTeamLock').onclick=()=>send({type:'team-admin',action:'lock',locked:!teams.locked});
+  document.querySelector('#exportTeams').onclick=exportTeams;
+  document.querySelector('#teacherCreateTeam').onsubmit=event=>{event.preventDefault();const input=document.querySelector('#teacherTeamName'),name=input.value.trim();if(name)send({type:'team-admin',action:'create',name})};
+  document.querySelectorAll('[data-team-confirm]').forEach(button=>button.onclick=()=>send({type:'team-admin',action:'confirm',teamId:button.dataset.teamConfirm,confirmed:button.dataset.confirmed==='true'}));
+  document.querySelectorAll('[data-remove-member]').forEach(button=>button.onclick=()=>send({type:'team-admin',action:'assign',clientId:button.dataset.removeMember,teamId:''}));
+  document.querySelectorAll('[data-assign-student]').forEach(select=>select.onchange=()=>{if(select.value)send({type:'team-admin',action:'assign',clientId:select.dataset.assignStudent,teamId:select.value})});
+  document.querySelectorAll('[data-rename-team]').forEach(form=>form.onsubmit=event=>{event.preventDefault();const name=form.querySelector('input').value.trim();if(name)send({type:'team-admin',action:'rename',teamId:form.dataset.renameTeam,name})});
+  document.querySelectorAll('[data-dissolve-team]').forEach(button=>button.onclick=()=>{if(confirm('이 팀을 해산하고 모든 팀원을 미배정 상태로 돌릴까요?'))send({type:'team-admin',action:'dissolve',teamId:button.dataset.dissolveTeam})});
+  document.querySelectorAll('[data-merge-team]').forEach(button=>button.onclick=()=>{const sourceId=button.dataset.mergeTeam,targetId=document.querySelector(`[data-merge-target="${sourceId}"]`)?.value;if(targetId&&confirm('두 팀을 합칠까요? 팀원 전원의 확정 동의는 초기화됩니다.'))send({type:'team-admin',action:'merge',sourceId,targetId})});
 }
 function exportAttendance(){const cell=value=>{let text=String(value??'');if(/^[=+\-@]/.test(text))text=`'${text}`;return `"${text.replaceAll('"','""')}"`};const rows=[['이름','접속 상태','최초 입장','마지막 활동','확인한 장표','완료 장표','답안 장표','질문','참여도'],...roster.map(student=>[student.name,student.online?'접속 중':'연결 끊김',formatTime(student.firstJoinedAt),formatTime(student.lastActiveAt),student.visitedCount,student.completedCount,student.responseCount,student.questionCount,`${student.participationScore}%`])];const blob=new Blob([`\ufeff${rows.map(row=>row.map(cell).join(',')).join('\n')}`],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=`${roomId}-attendance.csv`;link.click();URL.revokeObjectURL(url)}
-function bindStudent(){document.querySelector('#complete').onclick=()=>{completed=!completed;send({type:'complete',completed});render()};const form=document.querySelector('#questionForm');if(form)form.onsubmit=event=>{event.preventDefault();const input=document.querySelector('#studentQuestion'),text=input.value.trim();if(!text)return;send({type:'question',text,deck:state.deck,slide:state.slide});input.value='';input.placeholder='질문을 보냈습니다.'}}
+function exportTeams(){const cell=value=>{let text=String(value??'');if(/^[=+\-@]/.test(text))text=`'${text}`;return `"${text.replaceAll('"','""')}"`};const rows=[['팀번호','팀명','팀코드','학생명','구성 상태'],...teams.items.flatMap((team,index)=>team.members.length?team.members.map(member=>[index+1,team.name,team.code,member.name,team.confirmed?'확정':'구성 중']):[[index+1,team.name,team.code,'',team.confirmed?'확정':'구성 중']])];const blob=new Blob([`\ufeff${rows.map(row=>row.map(cell).join(',')).join('\n')}`],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=`${roomId}-team-roster.csv`;link.click();URL.revokeObjectURL(url)}
+function bindStudent(){
+  document.querySelector('#complete').onclick=()=>{completed=!completed;send({type:'complete',completed});render()};
+  const form=document.querySelector('#questionForm');if(form)form.onsubmit=event=>{event.preventDefault();const input=document.querySelector('#studentQuestion'),text=input.value.trim();if(!text)return;send({type:'question',text,deck:state.deck,slide:state.slide});input.value='';input.placeholder='질문을 보냈습니다.'};
+  document.querySelectorAll('#openTeamPanel,[data-open-team]').forEach(button=>button.onclick=()=>{teamPanelOpen=true;teamMessage='';render()});
+  const close=document.querySelector('#closeTeamPanel');if(close)close.onclick=()=>{teamPanelOpen=false;render()};
+  const backdrop=document.querySelector('.team-dialog-backdrop');if(backdrop)backdrop.onclick=event=>{if(event.target===backdrop){teamPanelOpen=false;render()}};
+  const create=document.querySelector('#createTeam');if(create)create.onsubmit=event=>{event.preventDefault();const name=document.querySelector('#newTeamName').value.trim();if(name)send({type:'team',action:'create',name})};
+  const join=document.querySelector('#joinTeam');if(join)join.onsubmit=event=>{event.preventDefault();const code=document.querySelector('#joinTeamCode').value.trim().toUpperCase();if(code)send({type:'team',action:'join',code})};
+  document.querySelectorAll('[data-join-team]').forEach(button=>button.onclick=()=>send({type:'team',action:'join',code:button.dataset.joinTeam}));
+  const ready=document.querySelector('#toggleTeamReady');if(ready){const mine=currentStudentTeam(),me=mine?.members.find(member=>member.clientId===studentClientId);ready.onclick=()=>send({type:'team',action:'ready',ready:!me?.ready})}
+  const leave=document.querySelector('#leaveTeam');if(leave)leave.onclick=()=>{if(confirm('현재 팀에서 나갈까요? 팀의 확정 동의가 초기화됩니다.'))send({type:'team',action:'leave'})};
+}
 function bindPresenter(){document.querySelector('#presenterFullscreen').onclick=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
 function fitViewerSlide(){
   const slide=document.querySelector('.viewer-shell .slide'),inner=document.querySelector('.viewer-shell .slide-inner');if(!slide||!inner)return;

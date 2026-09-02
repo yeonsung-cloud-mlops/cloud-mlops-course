@@ -5,6 +5,8 @@ const created = await fetch(`${base}/api/rooms`, { method: 'POST', headers: { au
 if (!created.ok) throw new Error(`수업 생성 실패: ${created.status}`);
 const { roomId, teacherKey } = await created.json();
 const wsBase = base.replace(/^http/, 'ws');
+const week01 = await fetch(`${base}/course-weeks/week01.json`).then(response => response.json());
+const diagnostic = week01.interactions['10'];
 
 async function connect(role, key = '') {
   const messages = [];
@@ -54,11 +56,11 @@ student2.ws.send(JSON.stringify({ type: 'team', action: 'ready', ready: true }))
 student3.ws.send(JSON.stringify({ type: 'team', action: 'ready', ready: true }));
 await until(teacher, message => message.type === 'teams' && message.items.some(item => item.id === team.id && item.confirmed), '팀 확정');
 
-teacher.ws.send(JSON.stringify({ type: 'control', deck: 'week01', slide: 91 }));
-await until(student, message => message.type === 'state' && message.state.deck === 'week01' && message.state.slide === 91, '1주차 진단 이동');
-const diagnosticFields = Object.fromEntries(Array.from({ length: 20 }, (_, index) => [`진단 문항 ${String(index + 1).padStart(2, '0')}`, index % 3 === 0 ? '모르겠다' : `응답 ${index + 1}`]));
-student.ws.send(JSON.stringify({ type: 'activity', deck: 'week01', slide: 91, fields: diagnosticFields }));
-await until(teacher, message => message.type === 'activity' && message.deck === 'week01' && message.slide === 91 && Object.keys(message.responses.find(response => response.name === '테스트학생')?.fields || {}).length === 20, '진단 20문항 반영');
+teacher.ws.send(JSON.stringify({ type: 'control', deck: 'week01', slide: 9 }));
+await until(student, message => message.type === 'state' && message.state.deck === 'week01' && message.state.slide === 9, '1주차 진단 이동');
+const diagnosticFields = Object.fromEntries(diagnostic.choices.map((question, index) => [question.label, index % 3 === 0 ? '모르겠다' : question.correct]));
+student.ws.send(JSON.stringify({ type: 'activity', deck: 'week01', slide: 9, fields: diagnosticFields }));
+await until(teacher, message => message.type === 'activity' && message.deck === 'week01' && message.slide === 9 && Object.keys(message.responses.find(response => response.name === '테스트학생')?.fields || {}).length === 24, '진단 24문항 반영');
 
 teacher.ws.send(JSON.stringify({ type: 'control', deck: 'week15', slide: 46 }));
 await until(student, message => message.type === 'state' && message.state.deck === 'week15' && message.state.slide === 46, '15주차 이동');
@@ -76,4 +78,4 @@ teacher.ws.send(JSON.stringify({ type: 'control', deck: 'week08', slide: 71 }));
 await until(student, message => message.type === 'state' && message.state.deck === 'week08' && message.state.slide === 71, '08주차 마지막 장 이동');
 
 for (const client of [teacher, presenter, student, student2, student3]) client.ws.close();
-console.log(JSON.stringify({ roomId, roles: 3, attendance: 'ok', teamCreateJoinConfirm: 'ok', diagnosticAnswers: 20, namedAnswers: 'ok', completion: 'ok', qa: 'ok', week01LastSlide: 93, week15LastSlide: 47, week08LastSlide: 72 }, null, 2));
+console.log(JSON.stringify({ roomId, roles: 3, attendance: 'ok', teamCreateJoinConfirm: 'ok', diagnosticAnswers: 24, namedAnswers: 'ok', completion: 'ok', qa: 'ok', week01LastSlide: 93, week15LastSlide: 47, week08LastSlide: 72 }, null, 2));

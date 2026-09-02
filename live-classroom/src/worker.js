@@ -180,17 +180,18 @@ export class Classroom {
       const suppliedName = cleanName(body.name);
       const clientId = String(body.clientId || "").trim();
       const registered = roster.find(item => item.studentId === studentId);
-      if (!registered || cleanName(registered.name).replace(/\s/g, "") !== suppliedName.replace(/\s/g, "") || !/^[a-zA-Z0-9-]{8,64}$/.test(clientId)) {
-        return json({ error: "학번과 이름이 수강 명단과 일치하지 않습니다." }, 403);
+      if (!/^\d{8,12}$/.test(studentId) || !suppliedName || !/^[a-zA-Z0-9-]{8,64}$/.test(clientId)) {
+        return json({ error: "학번과 이름을 확인해 주세요." }, 400);
       }
+      const admittedName = registered?.name || suppliedName;
       const joinTokens = await this.ctx.storage.get("joinTokens") || {};
       const now = Date.now();
       for (const [token, item] of Object.entries(joinTokens)) if (item.expiresAt < now) delete joinTokens[token];
       const token = crypto.randomUUID();
       const expiresAt = await this.ctx.storage.get("expiresAt");
-      joinTokens[token] = { studentId, name: registered.name, clientId, expiresAt };
+      joinTokens[token] = { studentId, name: admittedName, clientId, expiresAt };
       await this.ctx.storage.put("joinTokens", joinTokens);
-      return json({ token, name: registered.name, className: await this.ctx.storage.get("className"), expiresAt });
+      return json({ token, name: admittedName, className: await this.ctx.storage.get("className"), expiresAt });
     }
 
     if (request.method === "GET" && url.pathname === "/summary") {

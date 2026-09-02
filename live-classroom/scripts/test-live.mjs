@@ -36,6 +36,8 @@ async function until(client, predicate, label) {
 }
 
 const clientId = crypto.randomUUID(), clientId2 = crypto.randomUUID(), clientId3 = crypto.randomUUID();
+const unlistedToken = await authorize('2099999999', '비명단학생', crypto.randomUUID());
+if (!unlistedToken) throw new Error('비명단 학생 입장 실패');
 const [token1, token2, token3] = await Promise.all([
   authorize('2099000001', '테스트학생', clientId),
   authorize('2099000002', '테스트학생2', clientId2),
@@ -91,4 +93,4 @@ teacher.ws.send(JSON.stringify({ type: 'control', deck: 'week08', slide: 71 }));
 await until(student, message => message.type === 'state' && message.state.deck === 'week08' && message.state.slide === 71, '08주차 마지막 장 이동');
 
 for (const client of [teacher, presenter, latePresenter, student, student2, student3]) client.ws.close();
-console.log(JSON.stringify({ roomId, roles: 3, attendance: 'ok', teamCreateJoinConfirm: 'ok', diagnosticAnswers: 24, anonymousReview: 'ok', reconnectReview: 'ok', anonymousPresenterAnswers: 'ok', completion: 'ok', qa: 'ok', week01LastSlide: 94, week15LastSlide: 47, week08LastSlide: 72 }, null, 2));
+console.log(JSON.stringify({ roomId, roles: 3, openJoin: 'ok', attendance: 'ok', teamCreateJoinConfirm: 'ok', diagnosticAnswers: 24, anonymousReview: 'ok', reconnectReview: 'ok', anonymousPresenterAnswers: 'ok', completion: 'ok', qa: 'ok', week01LastSlide: 94, week15LastSlide: 47, week08LastSlide: 72 }, null, 2));

@@ -6,7 +6,7 @@ const json = (data, status = 200) => new Response(JSON.stringify(data), {
 const deckSlideCounts = { week01: 94, week02: 37, week03: 36, week04: 36, week05: 35, week06: 37, week07: 37, week08: 72, week09: 31, week10: 68, week11: 51, week12: 46, week13: 47, week14: 42, week15: 47 };
 const registryName = "__active_classrooms__";
 const roomLifetime = 8 * 7 * 24 * 60 * 60 * 1000;
-const publicActivitySources = new Set(["week01:9"]);
+const publicActivitySources = new Set(["week01:10"]);
 
 const cleanName = value => String(value || "").trim().replace(/\s+/g, " ").slice(0, 24);
 const cleanStudentId = value => String(value || "").trim();
@@ -673,8 +673,8 @@ export class Classroom {
   }
 
   async publishedActivityForReview(deck, slide) {
-    if (deck !== "week01" || slide !== 10) return null;
-    return await this.ctx.storage.get("published-activity:week01:9") || null;
+    if (deck !== "week01" || slide !== 11) return null;
+    return await this.ctx.storage.get("published-activity:week01:10") || null;
   }
 
   async broadcastPresence() {

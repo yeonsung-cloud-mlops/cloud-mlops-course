@@ -6,7 +6,7 @@ if (!created.ok) throw new Error(`수업 생성 실패: ${created.status}`);
 const { roomId, teacherKey } = await created.json();
 const wsBase = base.replace(/^http/, 'ws');
 const week01 = await fetch(`${base}/course-weeks/week01.json`).then(response => response.json());
-const diagnostic = week01.interactions['10'];
+const diagnostic = week01.interactions['11'];
 
 async function authorize(studentId, name, clientId) {
   const response = await fetch(`${base}/api/rooms/${roomId}/join`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ studentId, name, clientId }) });
@@ -63,17 +63,17 @@ student2.ws.send(JSON.stringify({ type: 'team', action: 'ready', ready: true }))
 student3.ws.send(JSON.stringify({ type: 'team', action: 'ready', ready: true }));
 await until(teacher, message => message.type === 'teams' && message.items.some(item => item.id === team.id && item.confirmed), '팀 확정');
 
-teacher.ws.send(JSON.stringify({ type: 'control', deck: 'week01', slide: 9 }));
-await until(student, message => message.type === 'state' && message.state.deck === 'week01' && message.state.slide === 9, '1주차 진단 이동');
-const diagnosticFields = Object.fromEntries(diagnostic.choices.map((question, index) => [question.label, index % 3 === 0 ? '모르겠다' : question.correct]));
-student.ws.send(JSON.stringify({ type: 'activity', deck: 'week01', slide: 9, fields: diagnosticFields }));
-await until(teacher, message => message.type === 'activity' && message.deck === 'week01' && message.slide === 9 && Object.keys(message.responses.find(response => response.name === '테스트학생')?.fields || {}).length === 24, '진단 24문항 반영');
 teacher.ws.send(JSON.stringify({ type: 'control', deck: 'week01', slide: 10 }));
-await until(student, message => message.type === 'state' && message.state.deck === 'week01' && message.state.slide === 10, '진단 해설 이동');
-const publicSummary = await until(student, message => message.type === 'activity-summary' && message.deck === 'week01' && message.slide === 9, '익명 진단 집계 공개');
+await until(student, message => message.type === 'state' && message.state.deck === 'week01' && message.state.slide === 10, '1주차 진단 이동');
+const diagnosticFields = Object.fromEntries(diagnostic.choices.map((question, index) => [question.label, index % 3 === 0 ? '모르겠다' : question.correct]));
+student.ws.send(JSON.stringify({ type: 'activity', deck: 'week01', slide: 10, fields: diagnosticFields }));
+await until(teacher, message => message.type === 'activity' && message.deck === 'week01' && message.slide === 10 && Object.keys(message.responses.find(response => response.name === '테스트학생')?.fields || {}).length === 24, '진단 24문항 반영');
+teacher.ws.send(JSON.stringify({ type: 'control', deck: 'week01', slide: 11 }));
+await until(student, message => message.type === 'state' && message.state.deck === 'week01' && message.state.slide === 11, '진단 해설 이동');
+const publicSummary = await until(student, message => message.type === 'activity-summary' && message.deck === 'week01' && message.slide === 10, '익명 진단 집계 공개');
 if (publicSummary.total !== 1 || JSON.stringify(publicSummary).includes('테스트학생')) throw new Error('공개 진단 집계에 인원 또는 개인정보 오류가 있습니다.');
 const latePresenter = await connect('presenter');
-await until(latePresenter, message => message.type === 'activity-summary' && message.deck === 'week01' && message.slide === 9 && message.total === 1, '재접속 진단 집계 복원');
+await until(latePresenter, message => message.type === 'activity-summary' && message.deck === 'week01' && message.slide === 10 && message.total === 1, '재접속 진단 집계 복원');
 
 teacher.ws.send(JSON.stringify({ type: 'control', deck: 'week15', slide: 46 }));
 await until(student, message => message.type === 'state' && message.state.deck === 'week15' && message.state.slide === 46, '15주차 이동');

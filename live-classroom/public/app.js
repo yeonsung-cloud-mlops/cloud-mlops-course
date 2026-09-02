@@ -56,7 +56,7 @@ function landing(){
 }
 
 function studentIdentity(){
-  app.innerHTML=`<section class="landing student-entry"><div class="landing-inner"><p class="eyebrow">수업 코드 ${safe(roomId)}</p><h1>수강 명단을 확인하고<br>출석하세요.</h1><p class="lead">본인의 학번과 이름을 정확히 입력하세요.</p><div class="entry-grid single"><form class="entry-card" id="studentIdentity"><label>학번<input id="studentId" inputmode="numeric" maxlength="12" autocomplete="username" required></label><label>이름<input class="name-input" id="studentName" maxlength="24" autocomplete="name" required></label><button class="primary">출석하고 입장</button><div id="joinMessage" class="portal-message error"></div><small class="privacy-note">학번·이름·팀·참여 기록은 출석과 수업 운영에만 사용되며 수업 생성 8주 후 삭제됩니다.</small></form></div></div></section>`;
+  app.innerHTML=`<section class="landing student-entry"><div class="landing-inner"><p class="eyebrow">수업 코드 ${safe(roomId)}</p><h1>학번과 이름을 입력하고<br>수업에 참여하세요.</h1><p class="lead">본인의 학번과 이름을 정확히 입력하세요.</p><div class="entry-grid single"><form class="entry-card" id="studentIdentity"><label>학번<input id="studentId" inputmode="numeric" maxlength="12" autocomplete="username" required></label><label>이름<input class="name-input" id="studentName" maxlength="24" autocomplete="name" required></label><button class="primary">출석하고 입장</button><div id="joinMessage" class="portal-message error"></div><small class="privacy-note">학번·이름·팀·참여 기록은 출석과 수업 운영에만 사용되며 수업 생성 8주 후 삭제됩니다.</small></form></div></div></section>`;
   document.querySelector('#studentIdentity').onsubmit=event=>authorizeStudent(event,roomId);
 }
 
@@ -177,6 +177,7 @@ function interactiveSlideContent(meta,viewerRole){
   if(meta.path)body+=`<div class="console-path"><strong>화면 이동</strong><span>${safe(meta.path)}</span></div>`;
   if(meta.visual)body+=`<figure class="lesson-visual"><img src="${safe(meta.visual)}" alt="${safe(meta.visualAlt||meta.title)}"><figcaption>${safe(meta.caption||'실제 화면에서 표시된 이름을 기준으로 찾으세요.')}</figcaption></figure>`;
   if(meta.roadmap?.length)body+=`<div class="course-roadmap">${meta.roadmap.map(step=>`<article><span>${safe(step.range)}</span><strong>${safe(step.title)}</strong><p>${safe(step.text)}</p></article>`).join('')}</div>`;
+  if(meta.profileColumns?.length)body+=`<div class="instructor-profile-grid">${meta.profileColumns.map(column=>`<section><h2>${safe(column.title)}</h2>${column.entries.map(entry=>`<article><strong>${safe(entry.label)}</strong><span>${safe(entry.text)}</span></article>`).join('')}</section>`).join('')}</div>`;
   if(meta.table)body+=`<div class="lesson-table-wrap"><table class="lesson-table"><thead><tr>${meta.table.headers.map(header=>`<th>${safe(header)}</th>`).join('')}</tr></thead><tbody>${meta.table.rows.map(row=>`<tr>${row.map(cell=>`<td>${safe(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   if(meta.items)body+=`<ul>${meta.items.map(item=>`<li>${safe(item)}</li>`).join('')}</ul>`;
   if(meta.code)body+=`<pre class="lesson-code"><code>${safe(meta.code)}</code></pre>`;
@@ -237,7 +238,7 @@ function render(){
   const shellClass=teacher?'teacher-shell':presenter?'viewer-shell presenter-shell':'viewer-shell student-shell';
   const roleLabel=teacher?'강사 제어용':presenter?'강사 PT용':'학생용';
   const participantLabel=role==='student'?` · ${safe(studentName)}`:'';
-  const slideView=`<main class="slide-area"><article class="slide ${currentInteraction()?'interactive-slide':'deck-slide'} ${currentInteraction()?.diagnostic?'diagnostic-slide':''} ${currentInteraction()?.diagnosticReview?'diagnostic-review-slide':''}"><div class="slide-inner">${slideContent(slide)}</div></article></main>`;
+  const slideView=`<main class="slide-area"><article class="slide ${currentInteraction()?'interactive-slide':'deck-slide'} ${currentInteraction()?.diagnostic?'diagnostic-slide':''} ${currentInteraction()?.diagnosticReview?'diagnostic-review-slide':''} ${currentInteraction()?.profileColumns?'instructor-profile-slide':''}"><div class="slide-inner">${slideContent(slide)}</div></article></main>`;
   const stage=teacher?`<div class="teacher-stage">${slideView}${speakerNote(slide,week)}</div>`:slideView;
   const footer=role==='student'?studentDock(slide):'';
   const teacherLayout=teacher?`${teacherPanel(week,studentUrl,presenterUrl)}${stage}${participationPanel()}`:stage;

@@ -18,6 +18,8 @@ if (!listed.ok) throw new Error(`진행 중 수업 목록 조회 실패: ${liste
 const listing = await listed.json();
 const found = listing.rooms.find(item => item.roomId === room.roomId && item.teacherKey === room.teacherKey);
 if (!found) throw new Error('새 수업이 진행 중 수업 목록에 없습니다.');
+const retentionWeeks = (found.expiresAt - found.createdAt) / (7 * 24 * 60 * 60 * 1000);
+if (Math.abs(retentionWeeks - 8) > 0.01) throw new Error(`수업 세션 보존 기간 오류: ${retentionWeeks}주`);
 
 const registered = await fetch(`${base}/api/instructor/register`, {
   method: 'POST',
@@ -34,6 +36,7 @@ console.log(JSON.stringify({
   instructorListProtected: true,
   roomCreated: room.roomId,
   activeRoomListed: true,
+  sessionRetentionWeeks: retentionWeeks,
   existingRoomRegistered: true,
   instructorPath: true,
 }, null, 2));

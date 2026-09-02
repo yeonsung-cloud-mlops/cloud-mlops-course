@@ -5,7 +5,7 @@ const json = (data, status = 200) => new Response(JSON.stringify(data), {
 
 const deckSlideCounts = { week01: 92, week02: 37, week03: 36, week04: 36, week05: 35, week06: 37, week07: 37, week08: 72, week09: 31, week10: 68, week11: 51, week12: 46, week13: 47, week14: 42, week15: 47 };
 const registryName = "__active_classrooms__";
-const roomLifetime = 12 * 60 * 60 * 1000;
+const roomLifetime = 8 * 7 * 24 * 60 * 60 * 1000;
 
 function instructorAuthorized(request, env) {
   if (!env.INSTRUCTOR_ACCESS_CODE) return false;
@@ -135,8 +135,9 @@ export class Classroom {
       const { teacherKey } = await request.json();
       const state = { slide: 0, revealed: false, showResponses: false, timerEnd: null, deck: "week01", revision: 1 };
       const createdAt = Date.now();
-      await this.ctx.storage.put({ teacherKey, state, createdAt });
-      await this.ctx.storage.setAlarm(Date.now() + roomLifetime);
+      const expiresAt = createdAt + roomLifetime;
+      await this.ctx.storage.put({ teacherKey, state, createdAt, expiresAt });
+      await this.ctx.storage.setAlarm(expiresAt);
       return json({ ok: true });
     }
 
@@ -146,8 +147,13 @@ export class Classroom {
       if (url.searchParams.get("key") !== teacherKey) return json({ error: "강사용 키가 올바르지 않습니다." }, 403);
       const state = await this.ctx.storage.get("state");
       const connections = this.ctx.getWebSockets().map(socket => socket.deserializeAttachment() || {});
+      const createdAt = await this.ctx.storage.get("createdAt");
+      const expiresAt = await this.ctx.storage.get("expiresAt") || createdAt + roomLifetime;
+      await this.ctx.storage.put("expiresAt", expiresAt);
+      await this.ctx.storage.setAlarm(expiresAt);
       return json({
-        createdAt: await this.ctx.storage.get("createdAt"),
+        createdAt,
+        expiresAt,
         state,
         students: connections.filter(item => item.role === "student").length,
         attendance: Object.keys(await this.ctx.storage.get("students") || {}).length,
@@ -167,6 +173,10 @@ export class Classroom {
     if (requestedRole === "teacher" && url.searchParams.get("key") !== teacherKey) {
       return new Response("강사용 키가 올바르지 않습니다.", { status: 403 });
     }
+    const createdAt = await this.ctx.storage.get("createdAt");
+    const expiresAt = await this.ctx.storage.get("expiresAt") || createdAt + roomLifetime;
+    await this.ctx.storage.put("expiresAt", expiresAt);
+    await this.ctx.storage.setAlarm(expiresAt);
 
     const pair = new WebSocketPair();
     const [client, server] = Object.values(pair);
@@ -295,7 +305,8 @@ export class Classroom {
     const moved = next.deck !== current.deck || next.slide !== current.slide;
     if (moved) { next.revealed = false; next.showResponses = false; }
     await this.ctx.storage.put("state", next);
-    await this.ctx.storage.setAlarm(Date.now() + roomLifetime);
+    const createdAt = await this.ctx.storage.get("createdAt");
+    await this.ctx.storage.setAlarm(await this.ctx.storage.get("expiresAt") || createdAt + roomLifetime);
     this.broadcast({ type: "state", state: next });
     if (moved) {
       for (const socket of this.ctx.getWebSockets()) {

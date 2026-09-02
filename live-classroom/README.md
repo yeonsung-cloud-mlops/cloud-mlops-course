@@ -49,6 +49,6 @@ npm run check
 npm run deploy
 ```
 
-수업 세션과 강사 포털의 진행 중 수업 목록은 생성 후 12시간 동안 유지된다. 강사용 URL의 `key` 값과 `INSTRUCTOR_ACCESS_CODE`는 학생에게 공유하지 않는다. 강사 접근 코드는 Cloudflare Worker Secret으로 설정한다.
+수업 세션과 강사 포털의 진행 중 수업 목록은 생성 후 8주 동안 유지된다. 강사용 URL의 `key` 값과 `INSTRUCTOR_ACCESS_CODE`는 학생에게 공유하지 않는다. 강사 접근 코드는 Cloudflare Worker Secret으로 설정한다.
 
 학생 이름, 팀 구성, 출석 시각, 장표 확인·완료·답안·질문 기록은 해당 수업의 Durable Object에만 저장되며 수업 세션 만료 시 함께 삭제된다. 학생 이름은 URL, 공개 PT 화면, Git 저장소에 기록하지 않는다. 강사는 팀 구성이 끝나면 LMS 등록용 CSV를 내려받아 별도로 보관한다.

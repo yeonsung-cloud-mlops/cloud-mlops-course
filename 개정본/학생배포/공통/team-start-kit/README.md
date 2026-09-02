@@ -2,7 +2,7 @@
 
 1주차 팀빌딩 활동에서 사용하는 파일이다. 팀원과 함께 아래 순서로 작성한다.
 
-1. `TEAM_REGISTRATION.md`: 팀 이름과 팀원 등록
+1. `TEAM_REGISTRATION.md`: 시스템에서 확정한 팀의 작업 정보 정리
 2. `TEAM_CHARTER.md`: 답장·결정·일정·충돌 규칙 합의
 3. `ROLE_ROTATION.csv`: 15주 역할 순환 계획
 4. `PROJECT_IDEA_CARD.md`: 3주차에 검토할 프로젝트 후보
@@ -25,9 +25,11 @@
 9. `PEER_TEST.md`: 다른 팀이 설명 없이 실행하고 문제 제보
 10. `TEAM_HEALTH_CHECK.md`: 역할 순환 전 편중과 인수인계 상태 확인
 
-## 제출
+## 팀 확정과 파일 보관
 
-팀 대표가 작성한 파일 6개를 LMS `1주차 → 팀 등록`에 제출한다.
+팀 등록은 `0060.kr` 화면 오른쪽 위 **팀 구성**에서 한다. 팀원이 3~4명인지 확인하고 전원이 확정에 동의한다. 강사가 팀 구성을 잠근 뒤 LMS 등록용 CSV를 내려받으므로 학생이 팀 명단을 LMS에 따로 제출하지 않는다.
+
+아래 파일은 팀 작업 폴더에 보관하고 수업에서 계속 갱신한다.
 
 - `TEAM_REGISTRATION.md`
 - `TEAM_CHARTER.md`
@@ -35,8 +37,6 @@
 - `PROJECT_IDEA_CARD.md`
 - `TEAM_FORMATION_BOARD.md`
 - `TOPIC_SHORTLIST_SCORECARD.md`
-
-제출한 파일은 팀원 전원이 다시 확인한다.
 
 ## 중요한 보안 규칙
 

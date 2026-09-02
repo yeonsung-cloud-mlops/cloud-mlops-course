@@ -168,9 +168,15 @@ function diagnosticReviewContent(meta){
   return `<div class="diagnostic-review">${areas.map(area=>`<section><h2>${area}</h2>${source.choices.filter(question=>question.area===area).map(question=>{const counts=summary.counts?.[question.label]||{},answered=Object.values(counts).reduce((sum,count)=>sum+Number(count||0),0),missing=Math.max(0,total-answered);return `<article class="diagnostic-review-card"><header><strong>${safe(question.label)}</strong><span>${answered}/${total}명 응답</span></header><div class="diagnostic-option-bars">${question.options.map(option=>{const count=counts[option]||0,percent=total?Math.round(count/total*100):0;return `<div class="${option===question.correct?'correct':''}"><span>${option===question.correct?'정답 · ':''}${safe(option)}</span><i><b style="width:${percent}%"></b></i><em>${percent}%</em></div>`}).join('')}${missing?`<div class="missing"><span>미응답</span><i><b style="width:${total?Math.round(missing/total*100):0}%"></b></i><em>${total?Math.round(missing/total*100):0}%</em></div>`:''}</div><p><b>해설</b>${safe(question.explanation||`정답은 ‘${question.correct}’입니다.`)}</p></article>`}).join('')}</section>`).join('')}</div>`;
 }
 
+function audienceKicker(meta,viewerRole){
+  const kicker=String(meta.kicker||'학생 참여');
+  if(viewerRole==='teacher')return kicker;
+  return kicker.replace(/\s*·\s*\d+\s*분\s*$/,'').trim();
+}
+
 function interactiveSlideContent(meta,viewerRole){
   const teacherTiming=viewerRole==='teacher'&&Number.isFinite(meta.minutes)?` <span>권장 ${meta.minutes}분</span>`:'';
-  let body=`<p class="kicker">${safe(meta.kicker||'학생 참여')}${teacherTiming}</p><h1>${safe(meta.title)}</h1>`;
+  let body=`<p class="kicker">${safe(audienceKicker(meta,viewerRole))}${teacherTiming}</p><h1>${safe(meta.title)}</h1>`;
   body+=taskBanner(meta,viewerRole);
   if(meta.copy)body+=`<p class="copy">${safe(meta.copy)}</p>`;
   if(meta.diagnosticReview)return body+diagnosticReviewContent(meta);

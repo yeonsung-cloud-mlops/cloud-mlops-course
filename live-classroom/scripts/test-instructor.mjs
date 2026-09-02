@@ -9,7 +9,12 @@ const unauthorizedList = await fetch(`${base}/api/instructor/rooms`);
 if (unauthorizedList.status !== 401) throw new Error(`인증 없는 수업 목록 차단 실패: ${unauthorizedList.status}`);
 
 const headers = { authorization: `Bearer ${instructorCode}`, 'content-type': 'application/json' };
-const created = await fetch(`${base}/api/rooms`, { method: 'POST', headers });
+const cohortsResponse = await fetch(`${base}/api/instructor/cohorts`, { headers });
+if (!cohortsResponse.ok) throw new Error(`반 목록 조회 실패: ${cohortsResponse.status}`);
+const cohorts = await cohortsResponse.json();
+if (!cohorts.cohorts.some(item => item.id === 'test' && item.count === 3)) throw new Error('테스트 반 명단이 올바르지 않습니다.');
+
+const created = await fetch(`${base}/api/rooms`, { method: 'POST', headers, body: JSON.stringify({ cohortId: 'test' }) });
 if (!created.ok) throw new Error(`인증된 수업 생성 실패: ${created.status}`);
 const room = await created.json();
 
@@ -18,6 +23,7 @@ if (!listed.ok) throw new Error(`진행 중 수업 목록 조회 실패: ${liste
 const listing = await listed.json();
 const found = listing.rooms.find(item => item.roomId === room.roomId && item.teacherKey === room.teacherKey);
 if (!found) throw new Error('새 수업이 진행 중 수업 목록에 없습니다.');
+if (found.className !== '테스트반' || found.rosterCount !== 3) throw new Error('수업에 반 명단이 연결되지 않았습니다.');
 const retentionWeeks = (found.expiresAt - found.createdAt) / (7 * 24 * 60 * 60 * 1000);
 if (Math.abs(retentionWeeks - 8) > 0.01) throw new Error(`수업 세션 보존 기간 오류: ${retentionWeeks}주`);
 

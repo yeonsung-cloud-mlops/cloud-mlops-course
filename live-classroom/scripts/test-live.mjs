@@ -1,16 +1,22 @@
 const base = process.argv[2] || 'http://localhost:8788';
 const instructorCode = process.argv[3] || process.env.INSTRUCTOR_ACCESS_CODE;
 if (!instructorCode) throw new Error('강사 접근 코드를 두 번째 인수 또는 INSTRUCTOR_ACCESS_CODE 환경 변수로 전달하세요.');
-const created = await fetch(`${base}/api/rooms`, { method: 'POST', headers: { authorization: `Bearer ${instructorCode}` } });
+const created = await fetch(`${base}/api/rooms`, { method: 'POST', headers: { authorization: `Bearer ${instructorCode}`, 'content-type': 'application/json' }, body: JSON.stringify({ cohortId: 'test' }) });
 if (!created.ok) throw new Error(`수업 생성 실패: ${created.status}`);
 const { roomId, teacherKey } = await created.json();
 const wsBase = base.replace(/^http/, 'ws');
 const week01 = await fetch(`${base}/course-weeks/week01.json`).then(response => response.json());
 const diagnostic = week01.interactions['10'];
 
-async function connect(role, key = '') {
+async function authorize(studentId, name, clientId) {
+  const response = await fetch(`${base}/api/rooms/${roomId}/join`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ studentId, name, clientId }) });
+  if (!response.ok) throw new Error(`학생 인증 실패: ${response.status}`);
+  return (await response.json()).token;
+}
+
+async function connect(role, key = '', token = '') {
   const messages = [];
-  const ws = new WebSocket(`${wsBase}/api/rooms/${roomId}/ws?role=${role}&key=${encodeURIComponent(key)}`);
+  const ws = new WebSocket(`${wsBase}/api/rooms/${roomId}/ws?role=${role}&key=${encodeURIComponent(key)}&token=${encodeURIComponent(token)}`);
   ws.addEventListener('message', event => messages.push(JSON.parse(event.data)));
   await new Promise((resolve, reject) => {
     ws.addEventListener('open', resolve, { once: true });
@@ -29,21 +35,22 @@ async function until(client, predicate, label) {
   throw new Error(`${label} 대기 시간 초과`);
 }
 
+const clientId = crypto.randomUUID(), clientId2 = crypto.randomUUID(), clientId3 = crypto.randomUUID();
+const [token1, token2, token3] = await Promise.all([
+  authorize('2099000001', '테스트학생', clientId),
+  authorize('2099000002', '테스트학생2', clientId2),
+  authorize('2099000003', '테스트학생3', clientId3),
+]);
 const [teacher, presenter, student] = await Promise.all([
   connect('teacher', teacherKey),
   connect('presenter'),
-  connect('student'),
+  connect('student', '', token1),
 ]);
 
-const clientId = crypto.randomUUID();
-student.ws.send(JSON.stringify({ type: 'identify', clientId, name: '테스트학생' }));
-await until(teacher, message => message.type === 'dashboard' && message.students.some(item => item.clientId === clientId && item.name === '테스트학생'), '이름 기반 출석');
+await until(teacher, message => message.type === 'dashboard' && message.students.some(item => item.clientId === clientId && item.name === '테스트학생') && message.enrollment.length === 3, '명단 기반 출석');
 
-const student2 = await connect('student');
-const student3 = await connect('student');
-const clientId2 = crypto.randomUUID(), clientId3 = crypto.randomUUID();
-student2.ws.send(JSON.stringify({ type: 'identify', clientId: clientId2, name: '테스트학생2' }));
-student3.ws.send(JSON.stringify({ type: 'identify', clientId: clientId3, name: '테스트학생3' }));
+const student2 = await connect('student', '', token2);
+const student3 = await connect('student', '', token3);
 await until(teacher, message => message.type === 'dashboard' && message.students.some(item => item.clientId === clientId3), '팀원 출석');
 student.ws.send(JSON.stringify({ type: 'team', action: 'create', name: '테스트팀' }));
 const createdTeam = await until(student, message => message.type === 'teams' && message.items.some(item => item.name === '테스트팀'), '팀 생성');
@@ -71,7 +78,7 @@ await until(latePresenter, message => message.type === 'activity-summary' && mes
 teacher.ws.send(JSON.stringify({ type: 'control', deck: 'week15', slide: 46 }));
 await until(student, message => message.type === 'state' && message.state.deck === 'week15' && message.state.slide === 46, '15주차 이동');
 student.ws.send(JSON.stringify({ type: 'activity', deck: 'week15', slide: 46, fields: { '학생 답안': '최종 발표 준비 완료' } }));
-await until(presenter, message => message.type === 'activity' && message.deck === 'week15' && message.slide === 46 && message.responses.some(response => response.name === '테스트학생' && response.fields['학생 답안'] === '최종 발표 준비 완료'), '이름 포함 답안 반영');
+await until(presenter, message => message.type === 'activity' && message.deck === 'week15' && message.slide === 46 && message.responses.some(response => response.name === '학생 1' && response.fields['학생 답안'] === '최종 발표 준비 완료') && !JSON.stringify(message).includes('테스트학생'), '익명 답안 반영');
 await until(teacher, message => message.type === 'presence' && message.responded === 1, '응답 인원 집계');
 student.ws.send(JSON.stringify({ type: 'complete', completed: true }));
 await until(teacher, message => message.type === 'presence' && message.completed === 1, '완료 인원 집계');
@@ -84,4 +91,4 @@ teacher.ws.send(JSON.stringify({ type: 'control', deck: 'week08', slide: 71 }));
 await until(student, message => message.type === 'state' && message.state.deck === 'week08' && message.state.slide === 71, '08주차 마지막 장 이동');
 
 for (const client of [teacher, presenter, latePresenter, student, student2, student3]) client.ws.close();
-console.log(JSON.stringify({ roomId, roles: 3, attendance: 'ok', teamCreateJoinConfirm: 'ok', diagnosticAnswers: 24, anonymousReview: 'ok', reconnectReview: 'ok', namedAnswers: 'ok', completion: 'ok', qa: 'ok', week01LastSlide: 94, week15LastSlide: 47, week08LastSlide: 72 }, null, 2));
+console.log(JSON.stringify({ roomId, roles: 3, attendance: 'ok', teamCreateJoinConfirm: 'ok', diagnosticAnswers: 24, anonymousReview: 'ok', reconnectReview: 'ok', anonymousPresenterAnswers: 'ok', completion: 'ok', qa: 'ok', week01LastSlide: 94, week15LastSlide: 47, week08LastSlide: 72 }, null, 2));

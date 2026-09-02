@@ -8,6 +8,16 @@ const registryName = "__active_classrooms__";
 const roomLifetime = 8 * 7 * 24 * 60 * 60 * 1000;
 const publicActivitySources = new Set(["week01:9"]);
 
+const cleanName = value => String(value || "").trim().replace(/\s+/g, " ").slice(0, 24);
+const cleanStudentId = value => String(value || "").trim();
+
+function privateCohorts(env) {
+  try {
+    const cohorts = JSON.parse(env.STUDENT_COHORTS_JSON || "[]");
+    return Array.isArray(cohorts) ? cohorts.filter(cohort => cohort && /^[a-zA-Z0-9_-]{1,24}$/.test(String(cohort.id || "")) && Array.isArray(cohort.roster)) : [];
+  } catch { return []; }
+}
+
 function instructorAuthorized(request, env) {
   if (!env.INSTRUCTOR_ACCESS_CODE) return false;
   const authorization = request.headers.get("authorization") || "";
@@ -63,6 +73,10 @@ export default {
       return json({ rooms: active });
     }
 
+    if (request.method === "GET" && url.pathname === "/api/instructor/cohorts") {
+      return json({ cohorts: privateCohorts(env).map(cohort => ({ id: cohort.id, label: cleanName(cohort.label), count: cohort.roster.length })) });
+    }
+
     if (request.method === "POST" && url.pathname === "/api/instructor/register") {
       const body = await request.json().catch(() => ({}));
       const roomId = String(body.roomId || "").trim().toUpperCase();
@@ -77,18 +91,32 @@ export default {
     }
 
     if (request.method === "POST" && url.pathname === "/api/rooms") {
+      const body = await request.json().catch(() => ({}));
+      const cohort = privateCohorts(env).find(item => item.id === String(body.cohortId || ""));
+      if (!cohort) return json({ error: "등록된 반 명단을 찾지 못했습니다." }, 400);
       const roomId = crypto.randomUUID().replaceAll("-", "").slice(0, 6).toUpperCase();
       const teacherKey = crypto.randomUUID();
       const room = env.CLASSROOMS.getByName(roomId);
       const initialized = await room.fetch("https://classroom.internal/init", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ teacherKey }),
+        body: JSON.stringify({ teacherKey, cohort }),
       });
       if (!initialized.ok) return json({ error: "수업을 만들지 못했습니다." }, 500);
       const createdAt = Date.now();
       await registerRoom(env, { roomId, teacherKey, createdAt });
-      return json({ roomId, teacherKey, createdAt }, 201);
+      return json({ roomId, teacherKey, createdAt, className: cleanName(cohort.label), rosterCount: cohort.roster.length }, 201);
+    }
+
+    const joinMatch = url.pathname.match(/^\/api\/rooms\/([A-Z0-9]{6})\/join$/i);
+    if (joinMatch && request.method === "POST") {
+      const room = env.CLASSROOMS.getByName(joinMatch[1].toUpperCase());
+      const response = await room.fetch("https://classroom.internal/authorize-student", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(await request.json().catch(() => ({}))),
+      });
+      return new Response(response.body, response);
     }
 
     const match = url.pathname.match(/^\/api\/rooms\/([A-Z0-9]{6})\/ws$/i);
@@ -133,13 +161,36 @@ export class Classroom {
 
     if (request.method === "POST" && url.pathname === "/init") {
       if (await this.ctx.storage.get("teacherKey")) return json({ error: "이미 사용 중인 수업 코드입니다." }, 409);
-      const { teacherKey } = await request.json();
+      const { teacherKey, cohort } = await request.json();
+      if (!cohort?.label || !Array.isArray(cohort.roster) || !cohort.roster.length) return json({ error: "반 명단이 필요합니다." }, 400);
       const state = { slide: 0, revealed: false, showResponses: false, timerEnd: null, deck: "week01", revision: 1 };
       const createdAt = Date.now();
       const expiresAt = createdAt + roomLifetime;
-      await this.ctx.storage.put({ teacherKey, state, createdAt, expiresAt });
+      const roster = cohort.roster.map(item => ({ studentId: cleanStudentId(item.studentId), name: cleanName(item.name) }));
+      await this.ctx.storage.put({ teacherKey, state, createdAt, expiresAt, className: cleanName(cohort.label), roster });
       await this.ctx.storage.setAlarm(expiresAt);
       return json({ ok: true });
+    }
+
+    if (request.method === "POST" && url.pathname === "/authorize-student") {
+      const roster = await this.ctx.storage.get("roster");
+      if (!roster) return json({ error: "수업을 찾지 못했거나 만료되었습니다." }, 404);
+      const body = await request.json().catch(() => ({}));
+      const studentId = cleanStudentId(body.studentId);
+      const suppliedName = cleanName(body.name);
+      const clientId = String(body.clientId || "").trim();
+      const registered = roster.find(item => item.studentId === studentId);
+      if (!registered || cleanName(registered.name).replace(/\s/g, "") !== suppliedName.replace(/\s/g, "") || !/^[a-zA-Z0-9-]{8,64}$/.test(clientId)) {
+        return json({ error: "학번과 이름이 수강 명단과 일치하지 않습니다." }, 403);
+      }
+      const joinTokens = await this.ctx.storage.get("joinTokens") || {};
+      const now = Date.now();
+      for (const [token, item] of Object.entries(joinTokens)) if (item.expiresAt < now) delete joinTokens[token];
+      const token = crypto.randomUUID();
+      const expiresAt = await this.ctx.storage.get("expiresAt");
+      joinTokens[token] = { studentId, name: registered.name, clientId, expiresAt };
+      await this.ctx.storage.put("joinTokens", joinTokens);
+      return json({ token, name: registered.name, className: await this.ctx.storage.get("className"), expiresAt });
     }
 
     if (request.method === "GET" && url.pathname === "/summary") {
@@ -156,6 +207,8 @@ export class Classroom {
         createdAt,
         expiresAt,
         state,
+        className: await this.ctx.storage.get("className") || "",
+        rosterCount: (await this.ctx.storage.get("roster") || []).length,
         students: connections.filter(item => item.role === "student").length,
         attendance: Object.keys(await this.ctx.storage.get("students") || {}).length,
         teachers: connections.filter(item => item.role === "teacher").length,
@@ -174,6 +227,13 @@ export class Classroom {
     if (requestedRole === "teacher" && url.searchParams.get("key") !== teacherKey) {
       return new Response("강사용 키가 올바르지 않습니다.", { status: 403 });
     }
+    let verifiedStudent = null;
+    if (requestedRole === "student") {
+      const token = url.searchParams.get("token") || "";
+      const joinTokens = await this.ctx.storage.get("joinTokens") || {};
+      verifiedStudent = joinTokens[token];
+      if (!verifiedStudent || verifiedStudent.expiresAt < Date.now()) return new Response("입장 인증이 없거나 만료되었습니다.", { status: 403 });
+    }
     const createdAt = await this.ctx.storage.get("createdAt");
     const expiresAt = await this.ctx.storage.get("expiresAt") || createdAt + roomLifetime;
     await this.ctx.storage.put("expiresAt", expiresAt);
@@ -182,13 +242,28 @@ export class Classroom {
     const pair = new WebSocketPair();
     const [client, server] = Object.values(pair);
     this.ctx.acceptWebSocket(server);
-    server.serializeAttachment({ role: requestedRole, completed: false, participantId: crypto.randomUUID().slice(0, 8), joinedAt: Date.now() });
     const state = await this.ctx.storage.get("state");
+    const attachment = verifiedStudent
+      ? { role: "student", completed: false, participantId: verifiedStudent.clientId, clientId: verifiedStudent.clientId, studentId: verifiedStudent.studentId, name: verifiedStudent.name, joinedAt: Date.now() }
+      : { role: requestedRole, completed: false, participantId: crypto.randomUUID().slice(0, 8), joinedAt: Date.now() };
+    server.serializeAttachment(attachment);
+    if (verifiedStudent) {
+      const now = Date.now();
+      await this.updateStudent(verifiedStudent.clientId, verifiedStudent.name, student => {
+        student.studentId = verifiedStudent.studentId;
+        student.firstJoinedAt ||= now;
+        student.lastActiveAt = now;
+        this.addUnique(student.visitedSlides, this.slideKey(state));
+      });
+      await this.sendMyQuestions(server, verifiedStudent.clientId);
+      await this.broadcastTeams();
+      await this.broadcastDashboard();
+    }
     server.send(JSON.stringify({ type: "state", state }));
     server.send(JSON.stringify(await this.teamPayload({ role: requestedRole })));
     const publishedSummary = await this.publishedActivityForReview(state.deck, state.slide);
     if (publishedSummary) server.send(JSON.stringify(publishedSummary));
-    if (requestedRole !== "student") server.send(JSON.stringify({ type: "activity", deck: state.deck, slide: state.slide, responses: await this.activityFor(state.deck, state.slide) }));
+    if (requestedRole !== "student") server.send(JSON.stringify({ type: "activity", deck: state.deck, slide: state.slide, responses: await this.activityFor(state.deck, state.slide, requestedRole === "presenter") }));
     if (requestedRole === "teacher") server.send(JSON.stringify(await this.dashboardPayload()));
     await this.broadcastPresence();
     return new Response(null, { status: 101, webSocket: client });
@@ -201,6 +276,7 @@ export class Classroom {
 
     const connection = ws.deserializeAttachment() || { role: "student", completed: false };
     if (payload.type === "identify" && connection.role === "student") {
+      if (connection.studentId) return;
       const clientId = String(payload.clientId || "").trim();
       const name = String(payload.name || "").trim().replace(/\s+/g, " ").slice(0, 24);
       if (!/^[a-zA-Z0-9-]{8,64}$/.test(clientId) || !name) return;
@@ -252,7 +328,7 @@ export class Classroom {
       const cleanFields = Object.fromEntries(Object.entries(payload.fields).slice(0, 24).map(([key, value]) => [String(key).slice(0, 40), String(value).trim().slice(0, 120)]));
       responses[connection.participantId] = { name: connection.name || "이름 미입력", fields: cleanFields, updatedAt: Date.now() };
       await this.ctx.storage.put(storageKey, responses);
-      this.broadcastToRoles({ type: "activity", deck: current.deck, slide: current.slide, responses: await this.activityFor(current.deck, current.slide) }, ["teacher", "presenter"]);
+      await this.broadcastActivity(current.deck, current.slide);
       if (connection.clientId) {
         await this.updateStudent(connection.clientId, connection.name, student => {
           student.lastActiveAt = Date.now();
@@ -321,7 +397,7 @@ export class Classroom {
         const attachment = socket.deserializeAttachment() || {};
         if (attachment.role === "student" && attachment.completed) socket.serializeAttachment({ ...attachment, completed: false });
       }
-      this.broadcastToRoles({ type: "activity", deck: next.deck, slide: next.slide, responses: await this.activityFor(next.deck, next.slide) }, ["teacher", "presenter"]);
+      await this.broadcastActivity(next.deck, next.slide);
       await this.markViewedForConnectedStudents(next);
       await this.broadcastDashboard();
       await this.broadcastPresence();
@@ -542,9 +618,12 @@ export class Classroom {
       const responseCount = student.responseSlides?.length || 0;
       const questionCount = student.questionCount || 0;
       const base = visitedCount ? Math.round(((completedCount + responseCount) / (visitedCount * 2)) * 90) : 0;
-      return { clientId: student.clientId, name: student.name, firstJoinedAt: student.firstJoinedAt, lastActiveAt: student.lastActiveAt, online: online.has(student.clientId), visitedCount, completedCount, responseCount, questionCount, participationScore: Math.min(100, base + Math.min(10, questionCount * 2)) };
+      return { clientId: student.clientId, studentId: student.studentId || "", name: student.name, firstJoinedAt: student.firstJoinedAt, lastActiveAt: student.lastActiveAt, online: online.has(student.clientId), visitedCount, completedCount, responseCount, questionCount, participationScore: Math.min(100, base + Math.min(10, questionCount * 2)) };
     }).sort((a, b) => Number(b.online) - Number(a.online) || a.name.localeCompare(b.name, "ko"));
-    return { type: "dashboard", students, questions, teams: (await this.teamPayload({ role: "teacher" })).items };
+    const registered = await this.ctx.storage.get("roster") || [];
+    const byStudentId = new Map(students.filter(student => student.studentId).map(student => [student.studentId, student]));
+    const enrollment = registered.map(item => ({ studentId: item.studentId, name: item.name, attended: byStudentId.has(item.studentId), online: byStudentId.get(item.studentId)?.online || false }));
+    return { type: "dashboard", className: await this.ctx.storage.get("className") || "", students, enrollment, questions, teams: (await this.teamPayload({ role: "teacher" })).items };
   }
 
   async broadcastDashboard() {
@@ -567,9 +646,17 @@ export class Classroom {
     }
   }
 
-  async activityFor(deck, slide) {
+  async activityFor(deck, slide, anonymous = false) {
     const responses = await this.ctx.storage.get(`activity:${deck}:${slide}`) || {};
-    return Object.values(responses).map(item => item?.fields ? item : { name: "이름 미입력", fields: item || {}, updatedAt: null });
+    return Object.values(responses).map((item, index) => {
+      const response = item?.fields ? item : { name: "이름 미입력", fields: item || {}, updatedAt: null };
+      return anonymous ? { ...response, name: `학생 ${index + 1}` } : response;
+    });
+  }
+
+  async broadcastActivity(deck, slide) {
+    this.broadcastToRoles({ type: "activity", deck, slide, responses: await this.activityFor(deck, slide) }, ["teacher"]);
+    this.broadcastToRoles({ type: "activity", deck, slide, responses: await this.activityFor(deck, slide, true) }, ["presenter"]);
   }
 
   async buildPublicActivitySummary(deck, slide) {

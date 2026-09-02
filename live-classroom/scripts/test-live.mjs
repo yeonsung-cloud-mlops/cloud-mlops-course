@@ -61,6 +61,12 @@ await until(student, message => message.type === 'state' && message.state.deck =
 const diagnosticFields = Object.fromEntries(diagnostic.choices.map((question, index) => [question.label, index % 3 === 0 ? '모르겠다' : question.correct]));
 student.ws.send(JSON.stringify({ type: 'activity', deck: 'week01', slide: 9, fields: diagnosticFields }));
 await until(teacher, message => message.type === 'activity' && message.deck === 'week01' && message.slide === 9 && Object.keys(message.responses.find(response => response.name === '테스트학생')?.fields || {}).length === 24, '진단 24문항 반영');
+teacher.ws.send(JSON.stringify({ type: 'control', deck: 'week01', slide: 10 }));
+await until(student, message => message.type === 'state' && message.state.deck === 'week01' && message.state.slide === 10, '진단 해설 이동');
+const publicSummary = await until(student, message => message.type === 'activity-summary' && message.deck === 'week01' && message.slide === 9, '익명 진단 집계 공개');
+if (publicSummary.total !== 1 || JSON.stringify(publicSummary).includes('테스트학생')) throw new Error('공개 진단 집계에 인원 또는 개인정보 오류가 있습니다.');
+const latePresenter = await connect('presenter');
+await until(latePresenter, message => message.type === 'activity-summary' && message.deck === 'week01' && message.slide === 9 && message.total === 1, '재접속 진단 집계 복원');
 
 teacher.ws.send(JSON.stringify({ type: 'control', deck: 'week15', slide: 46 }));
 await until(student, message => message.type === 'state' && message.state.deck === 'week15' && message.state.slide === 46, '15주차 이동');
@@ -77,5 +83,5 @@ await until(student, message => message.type === 'my-questions' && message.quest
 teacher.ws.send(JSON.stringify({ type: 'control', deck: 'week08', slide: 71 }));
 await until(student, message => message.type === 'state' && message.state.deck === 'week08' && message.state.slide === 71, '08주차 마지막 장 이동');
 
-for (const client of [teacher, presenter, student, student2, student3]) client.ws.close();
-console.log(JSON.stringify({ roomId, roles: 3, attendance: 'ok', teamCreateJoinConfirm: 'ok', diagnosticAnswers: 24, namedAnswers: 'ok', completion: 'ok', qa: 'ok', week01LastSlide: 93, week15LastSlide: 47, week08LastSlide: 72 }, null, 2));
+for (const client of [teacher, presenter, latePresenter, student, student2, student3]) client.ws.close();
+console.log(JSON.stringify({ roomId, roles: 3, attendance: 'ok', teamCreateJoinConfirm: 'ok', diagnosticAnswers: 24, anonymousReview: 'ok', reconnectReview: 'ok', namedAnswers: 'ok', completion: 'ok', qa: 'ok', week01LastSlide: 94, week15LastSlide: 47, week08LastSlide: 72 }, null, 2));

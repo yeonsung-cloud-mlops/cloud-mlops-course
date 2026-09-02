@@ -3,9 +3,10 @@ const json = (data, status = 200) => new Response(JSON.stringify(data), {
   headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" },
 });
 
-const deckSlideCounts = { week01: 93, week02: 37, week03: 36, week04: 36, week05: 35, week06: 37, week07: 37, week08: 72, week09: 31, week10: 68, week11: 51, week12: 46, week13: 47, week14: 42, week15: 47 };
+const deckSlideCounts = { week01: 94, week02: 37, week03: 36, week04: 36, week05: 35, week06: 37, week07: 37, week08: 72, week09: 31, week10: 68, week11: 51, week12: 46, week13: 47, week14: 42, week15: 47 };
 const registryName = "__active_classrooms__";
 const roomLifetime = 8 * 7 * 24 * 60 * 60 * 1000;
+const publicActivitySources = new Set(["week01:9"]);
 
 function instructorAuthorized(request, env) {
   if (!env.INSTRUCTOR_ACCESS_CODE) return false;
@@ -185,6 +186,8 @@ export class Classroom {
     const state = await this.ctx.storage.get("state");
     server.send(JSON.stringify({ type: "state", state }));
     server.send(JSON.stringify(await this.teamPayload({ role: requestedRole })));
+    const publishedSummary = await this.publishedActivityForReview(state.deck, state.slide);
+    if (publishedSummary) server.send(JSON.stringify(publishedSummary));
     if (requestedRole !== "student") server.send(JSON.stringify({ type: "activity", deck: state.deck, slide: state.slide, responses: await this.activityFor(state.deck, state.slide) }));
     if (requestedRole === "teacher") server.send(JSON.stringify(await this.dashboardPayload()));
     await this.broadcastPresence();
@@ -309,6 +312,11 @@ export class Classroom {
     await this.ctx.storage.setAlarm(await this.ctx.storage.get("expiresAt") || createdAt + roomLifetime);
     this.broadcast({ type: "state", state: next });
     if (moved) {
+      if (publicActivitySources.has(`${current.deck}:${current.slide}`)) {
+        const summary = await this.buildPublicActivitySummary(current.deck, current.slide);
+        await this.ctx.storage.put(`published-activity:${current.deck}:${current.slide}`, summary);
+        this.broadcast(summary);
+      }
       for (const socket of this.ctx.getWebSockets()) {
         const attachment = socket.deserializeAttachment() || {};
         if (attachment.role === "student" && attachment.completed) socket.serializeAttachment({ ...attachment, completed: false });
@@ -562,6 +570,24 @@ export class Classroom {
   async activityFor(deck, slide) {
     const responses = await this.ctx.storage.get(`activity:${deck}:${slide}`) || {};
     return Object.values(responses).map(item => item?.fields ? item : { name: "이름 미입력", fields: item || {}, updatedAt: null });
+  }
+
+  async buildPublicActivitySummary(deck, slide) {
+    const responses = await this.activityFor(deck, slide);
+    const counts = {};
+    for (const response of responses) {
+      for (const [label, value] of Object.entries(response.fields || {})) {
+        if (!value) continue;
+        counts[label] ||= {};
+        counts[label][value] = (counts[label][value] || 0) + 1;
+      }
+    }
+    return { type: "activity-summary", deck, slide, total: responses.length, counts, publishedAt: Date.now() };
+  }
+
+  async publishedActivityForReview(deck, slide) {
+    if (deck !== "week01" || slide !== 10) return null;
+    return await this.ctx.storage.get("published-activity:week01:9") || null;
   }
 
   async broadcastPresence() {

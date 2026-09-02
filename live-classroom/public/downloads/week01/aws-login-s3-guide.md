@@ -16,7 +16,7 @@
 - IAM Identity Center의 학생 계정·권한·접속 포털을 확인한다.
 - 학교망에서 AWS 콘솔, S3, CloudShell 접속을 시험한다.
 - 학생이 퍼블릭 액세스 차단을 해제하지 못하도록 안내한다.
-- 41·59·74·88·93번 장표의 첨부파일을 확인한다.
+- 42·60·75·89·94번 장표의 첨부파일을 확인한다.
 
 ## 200분 운영표
 
@@ -106,7 +106,7 @@ MLOps는 세 문제로 설명한다.
 5. 버킷 이름을 `mlops-2026-<학번>-<임의문자>`로 정한다.
 6. `ACLs disabled / Bucket owner enforced`를 유지한다.
 7. `Block all public access`를 유지한다.
-8. 88번 장표에서 `sample-bike.csv`를 받고 버킷에 올린다.
+8. 89번 장표에서 `sample-bike.csv`를 받고 버킷에 올린다.
 9. CloudShell을 열고 아래 명령을 실행한다.
 
 ```bash

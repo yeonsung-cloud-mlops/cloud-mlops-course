@@ -42,7 +42,7 @@ let studentName=roomId?sessionStorage.getItem(studentNameKey)||'':'';
 let studentClientId=roomId?localStorage.getItem(studentClientKey)||'':'';
 if(roomId&&!studentClientId){studentClientId=crypto.randomUUID();localStorage.setItem(studentClientKey,studentClientId)}
 let instructorCode=sessionStorage.getItem('instructor-access-code')||'';
-let socket, connected=false, state={deck:'week01',slide:0,revealed:false,showResponses:false,timerEnd:null},presence={students:0,completed:0,responded:0,presenters:0},activity={deck:'week01',slide:0,responses:[]},roster=[],questions=[],myQuestions=[],teams={locked:false,items:[]},teamPanelOpen=false,teamMessage='',completed=false,retry=0,timerHandle,clockHandle,activityTimer;
+let socket, connected=false, state={deck:'week01',slide:0,revealed:false,showResponses:false,timerEnd:null},presence={students:0,completed:0,responded:0,presenters:0},activity={deck:'week01',slide:0,responses:[]},activitySummaries={},roster=[],questions=[],myQuestions=[],teams={locked:false,items:[]},teamPanelOpen=false,teamMessage='',completed=false,retry=0,timerHandle,clockHandle,activityTimer;
 const weekSlideCount=week=>week?.slideCount||week?.slides?.length||0;
 const ensureWeekLoaded=weekId=>window.loadCourseWeek(weekId);
 
@@ -92,7 +92,7 @@ function connect(){
   socket.onopen=()=>{connected=true;retry=0;if(role==='student')send({type:'identify',clientId:studentClientId,name:studentName});if(currentWeek()?.slides)render()};
   socket.onclose=()=>{connected=false;if(currentWeek()?.slides)render();setTimeout(connect,Math.min(10000,800*2**retry++))};
   socket.onerror=()=>socket.close();
-  socket.onmessage=async event=>{const message=JSON.parse(event.data);if(message.type==='state'){const moved=state.deck!==message.state.deck||state.slide!==message.state.slide;state=message.state;if(roomId)localStorage.setItem(`room-week:${roomId}`,state.deck);if(moved)completed=false;if(!currentWeek()?.slides){app.innerHTML='<div class="boot">해당 주차 수업 자료를 불러오고 있습니다.</div>';try{await ensureWeekLoaded(state.deck)}catch{app.innerHTML='<section class="error"><h1>수업 자료를 불러오지 못했습니다</h1><p>네트워크 연결을 확인한 뒤 새로고침해 주세요.</p></section>';return}}}if(message.type==='presence')presence=message;if(message.type==='activity')activity={deck:message.deck||state.deck,slide:message.slide,responses:message.responses||[]};if(message.type==='dashboard'){roster=message.students||[];questions=message.questions||[];if(message.teams)teams={...teams,items:message.teams}}if(message.type==='teams'){teams={locked:Boolean(message.locked),items:message.items||[]};teamMessage=''}if(message.type==='team-error'){teamMessage=message.message||'팀 구성을 처리하지 못했습니다.'}if(message.type==='my-questions')myQuestions=message.questions||[];if(message.type==='expired'){app.innerHTML='<section class="error"><h1>수업이 종료되었습니다</h1><p>강사에게 새 수업 코드를 받아주세요.</p></section>';return}if((message.type!=='activity'||role!=='student')&&currentWeek()?.slides)render()};
+  socket.onmessage=async event=>{const message=JSON.parse(event.data);if(message.type==='state'){const moved=state.deck!==message.state.deck||state.slide!==message.state.slide;state=message.state;if(roomId)localStorage.setItem(`room-week:${roomId}`,state.deck);if(moved)completed=false;if(!currentWeek()?.slides){app.innerHTML='<div class="boot">해당 주차 수업 자료를 불러오고 있습니다.</div>';try{await ensureWeekLoaded(state.deck)}catch{app.innerHTML='<section class="error"><h1>수업 자료를 불러오지 못했습니다</h1><p>네트워크 연결을 확인한 뒤 새로고침해 주세요.</p></section>';return}}}if(message.type==='presence')presence=message;if(message.type==='activity')activity={deck:message.deck||state.deck,slide:message.slide,responses:message.responses||[]};if(message.type==='activity-summary')activitySummaries[`${message.deck}:${message.slide}`]=message;if(message.type==='dashboard'){roster=message.students||[];questions=message.questions||[];if(message.teams)teams={...teams,items:message.teams}}if(message.type==='teams'){teams={locked:Boolean(message.locked),items:message.items||[]};teamMessage=''}if(message.type==='team-error'){teamMessage=message.message||'팀 구성을 처리하지 못했습니다.'}if(message.type==='my-questions')myQuestions=message.questions||[];if(message.type==='expired'){app.innerHTML='<section class="error"><h1>수업이 종료되었습니다</h1><p>강사에게 새 수업 코드를 받아주세요.</p></section>';return}if((message.type!=='activity'||role!=='student')&&currentWeek()?.slides)render()};
 }
 
 function send(payload){if(socket?.readyState===WebSocket.OPEN)socket.send(JSON.stringify(payload))}
@@ -149,11 +149,20 @@ function teamSlideWidget(viewerRole){
   return `<section class="team-slide-board"><header><strong>실시간 팀 구성</strong><span>${confirmed}/${teams.items.length}팀 확정</span></header><div>${teams.items.length?teams.items.map(team=>`<article class="${team.confirmed?'confirmed':''}"><strong>${safe(team.name)}</strong><span>${team.members.length?team.members.map(member=>safe(member.name)).join(' · '):`${teamMemberCount(team)}명 참여`}</span></article>`).join(''):'<p>학생이 팀을 만들면 이곳에 바로 표시됩니다.</p>'}</div></section>`;
 }
 
+function diagnosticReviewContent(meta){
+  const sourceSlide=Number(meta.sourceSlide)-1,source=courseInteractions[state.deck]?.[sourceSlide+1],summary=activitySummaries[`${state.deck}:${sourceSlide}`];
+  if(!source?.choices?.length)return '<div class="lesson-callout">진단 문항을 불러오지 못했습니다.</div>';
+  if(!summary)return '<div class="diagnostic-review-wait"><strong>진단 결과를 기다리고 있습니다</strong><span>강사가 진단 장표에서 다음 장표로 이동하면 익명 집계가 표시됩니다.</span></div>';
+  const total=summary.total||0,areas=['Cloud','ML','Ops'];
+  return `<div class="diagnostic-review">${areas.map(area=>`<section><h2>${area}</h2>${source.choices.filter(question=>question.area===area).map(question=>{const counts=summary.counts?.[question.label]||{},answered=Object.values(counts).reduce((sum,count)=>sum+Number(count||0),0),missing=Math.max(0,total-answered);return `<article class="diagnostic-review-card"><header><strong>${safe(question.label)}</strong><span>${answered}/${total}명 응답</span></header><div class="diagnostic-option-bars">${question.options.map(option=>{const count=counts[option]||0,percent=total?Math.round(count/total*100):0;return `<div class="${option===question.correct?'correct':''}"><span>${option===question.correct?'정답 · ':''}${safe(option)}</span><i><b style="width:${percent}%"></b></i><em>${percent}%</em></div>`}).join('')}${missing?`<div class="missing"><span>미응답</span><i><b style="width:${total?Math.round(missing/total*100):0}%"></b></i><em>${total?Math.round(missing/total*100):0}%</em></div>`:''}</div><p><b>해설</b>${safe(question.explanation||`정답은 ‘${question.correct}’입니다.`)}</p></article>`}).join('')}</section>`).join('')}</div>`;
+}
+
 function interactiveSlideContent(meta,viewerRole){
   const teacherTiming=viewerRole==='teacher'&&Number.isFinite(meta.minutes)?` <span>권장 ${meta.minutes}분</span>`:'';
   let body=`<p class="kicker">${safe(meta.kicker||'학생 참여')}${teacherTiming}</p><h1>${safe(meta.title)}</h1>`;
   body+=taskBanner(meta,viewerRole);
   if(meta.copy)body+=`<p class="copy">${safe(meta.copy)}</p>`;
+  if(meta.diagnosticReview)return body+diagnosticReviewContent(meta);
   if(meta.path)body+=`<div class="console-path"><strong>화면 이동</strong><span>${safe(meta.path)}</span></div>`;
   if(meta.visual)body+=`<figure class="lesson-visual"><img src="${safe(meta.visual)}" alt="${safe(meta.visualAlt||meta.title)}"><figcaption>${safe(meta.caption||'실제 화면에서 표시된 이름을 기준으로 찾으세요.')}</figcaption></figure>`;
   if(meta.roadmap?.length)body+=`<div class="course-roadmap">${meta.roadmap.map(step=>`<article><span>${safe(step.range)}</span><strong>${safe(step.title)}</strong><p>${safe(step.text)}</p></article>`).join('')}</div>`;
@@ -216,7 +225,7 @@ function render(){
   const shellClass=teacher?'teacher-shell':presenter?'viewer-shell presenter-shell':'viewer-shell student-shell';
   const roleLabel=teacher?'강사 제어용':presenter?'강사 PT용':'학생용';
   const participantLabel=role==='student'?` · ${safe(studentName)}`:'';
-  const slideView=`<main class="slide-area"><article class="slide ${currentInteraction()?'interactive-slide':'deck-slide'} ${currentInteraction()?.diagnostic?'diagnostic-slide':''}"><div class="slide-inner">${slideContent(slide)}</div></article></main>`;
+  const slideView=`<main class="slide-area"><article class="slide ${currentInteraction()?'interactive-slide':'deck-slide'} ${currentInteraction()?.diagnostic?'diagnostic-slide':''} ${currentInteraction()?.diagnosticReview?'diagnostic-review-slide':''}"><div class="slide-inner">${slideContent(slide)}</div></article></main>`;
   const stage=teacher?`<div class="teacher-stage">${slideView}${speakerNote(slide,week)}</div>`:slideView;
   const footer=role==='student'?studentDock(slide):'';
   const teacherLayout=teacher?`${teacherPanel(week,studentUrl,presenterUrl)}${stage}${participationPanel()}`:stage;

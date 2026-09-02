@@ -321,17 +321,25 @@ export class Classroom {
 
     if (payload.type === "activity" && connection.role === "student") {
       const current = await this.ctx.storage.get("state");
-      if (payload.deck !== current.deck || payload.slide !== current.slide || !payload.fields || typeof payload.fields !== "object") return;
-      const storageKey = `activity:${current.deck}:${current.slide}`;
+      const currentActivity = payload.deck === current.deck && payload.slide === current.slide;
+      const lateDiagnostic = payload.deck === "week01" && payload.slide === 10 && current.deck === "week01" && current.slide === 11;
+      if ((!currentActivity && !lateDiagnostic) || !payload.fields || typeof payload.fields !== "object") return;
+      const responseState = { deck: payload.deck, slide: payload.slide };
+      const storageKey = `activity:${responseState.deck}:${responseState.slide}`;
       const responses = await this.ctx.storage.get(storageKey) || {};
       const cleanFields = Object.fromEntries(Object.entries(payload.fields).slice(0, 24).map(([key, value]) => [String(key).slice(0, 40), String(value).trim().slice(0, 120)]));
       responses[connection.participantId] = { name: connection.name || "이름 미입력", fields: cleanFields, updatedAt: Date.now() };
       await this.ctx.storage.put(storageKey, responses);
-      await this.broadcastActivity(current.deck, current.slide);
+      await this.broadcastActivity(responseState.deck, responseState.slide);
+      if (lateDiagnostic) {
+        const summary = await this.buildPublicActivitySummary(responseState.deck, responseState.slide);
+        await this.ctx.storage.put(`published-activity:${responseState.deck}:${responseState.slide}`, summary);
+        this.broadcast(summary);
+      }
       if (connection.clientId) {
         await this.updateStudent(connection.clientId, connection.name, student => {
           student.lastActiveAt = Date.now();
-          this.addUnique(student.responseSlides, this.slideKey(current));
+          this.addUnique(student.responseSlides, this.slideKey(responseState));
         });
         await this.broadcastDashboard();
       }
@@ -673,7 +681,11 @@ export class Classroom {
 
   async publishedActivityForReview(deck, slide) {
     if (deck !== "week01" || slide !== 11) return null;
-    return await this.ctx.storage.get("published-activity:week01:10") || null;
+    const stored = await this.ctx.storage.get("published-activity:week01:10");
+    if (stored) return stored;
+    const summary = await this.buildPublicActivitySummary("week01", 10);
+    await this.ctx.storage.put("published-activity:week01:10", summary);
+    return summary;
   }
 
   async broadcastPresence() {
